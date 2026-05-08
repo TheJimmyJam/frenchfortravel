@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French for Travel — 30 Day System</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #0055A4 0%, #ffffff 50%, #EF4135 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #1a1a1a;
+  }
+  .app {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    background: rgba(255,255,255,0.96);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  h1 {
+    font-size: 28px;
+    background: linear-gradient(90deg, #0055A4, #EF4135);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stats {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    background: #f5f6fa;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+  }
+  .stat-num { font-size: 22px; font-weight: 700; color: #0055A4; }
+  .stat-label { font-size: 11px; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
+  nav {
+    background: rgba(255,255,255,0.96);
+    border-radius: 16px;
+    padding: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  nav button {
+    background: none;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #555;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  nav button:hover { background: #f0f2f5; }
+  nav button.active {
+    background: linear-gradient(90deg, #0055A4, #003d7a);
+    color: white;
+  }
+  main {
+    background: rgba(255,255,255,0.97);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    min-height: 500px;
+  }
+  h2 {
+    color: #0055A4;
+    margin-bottom: 8px;
+    font-size: 24px;
+  }
+  h3 {
+    color: #333;
+    margin: 20px 0 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #EF4135;
+    padding-bottom: 6px;
+    display: inline-block;
+  }
+  .subtitle { color: #666; font-size: 15px; margin-bottom: 24px; }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .vocab-card {
+    background: #f8f9fc;
+    border-left: 4px solid #0055A4;
+    padding: 12px 14px;
+    border-radius: 8px;
+    transition: all 0.15s;
+  }
+  .vocab-card:hover { background: #eef1f7; transform: translateX(2px); }
+  .vocab-card .fr { font-size: 17px; font-weight: 700; color: #0055A4; }
+  .vocab-card .ipa { font-size: 13px; color: #888; font-style: italic; margin: 2px 0; }
+  .vocab-card .en { font-size: 14px; color: #333; }
+  .phrase-list { margin: 8px 0; }
+  .phrase {
+    background: #fff8e7;
+    border-left: 4px solid #f4b942;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  .phrase .fr { font-weight: 600; color: #0055A4; font-size: 16px; }
+  .phrase .ipa { font-size: 13px; color: #888; font-style: italic; }
+  .phrase .en { color: #444; font-size: 14px; margin-top: 2px; }
+  .grammar-box {
+    background: #eef7ee;
+    border-left: 4px solid #2d8a3e;
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin: 12px 0;
+  }
+  .grammar-box h4 { color: #2d8a3e; margin-bottom: 8px; }
+  .grammar-box p { margin-bottom: 6px; line-height: 1.5; }
+  .grammar-box code {
+    background: #d4ead7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 13px;
+  }
+  .practice-box {
+    background: #fdf2f4;
+    border-left: 4px solid #EF4135;
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin: 12px 0;
+  }
+  .practice-box h4 { color: #EF4135; margin-bottom: 8px; }
+  .practice-box ol, .practice-box ul { padding-left: 22px; line-height: 1.7; }
+  .day-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 20px 0;
+    padding: 16px;
+    background: #f5f6fa;
+    border-radius: 12px;
+  }
+  .day-nav button {
+    background: #0055A4;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .day-nav button:disabled { background: #ccc; cursor: not-allowed; }
+  .day-nav button:hover:not(:disabled) { background: #003d7a; }
+  .day-select {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  .complete-btn {
+    background: #2d8a3e;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  .complete-btn:hover { background: #226d31; }
+  .complete-btn.done { background: #888; cursor: default; }
+  .flashcard-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+  .flashcard {
+    background: linear-gradient(135deg, #0055A4, #003d7a);
+    color: white;
+    width: 100%;
+    max-width: 500px;
+    min-height: 280px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s;
+    box-shadow: 0 12px 30px rgba(0,85,164,0.3);
+  }
+  .flashcard:active { transform: scale(0.98); }
+  .flashcard.flipped {
+    background: linear-gradient(135deg, #EF4135, #c2342a);
+  }
+  .flashcard .word { font-size: 36px; font-weight: 700; margin-bottom: 12px; text-align: center; }
+  .flashcard .ipa-large { font-size: 18px; opacity: 0.85; font-style: italic; }
+  .flashcard .hint { font-size: 13px; opacity: 0.7; margin-top: 24px; }
+  .flashcard-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flashcard-controls button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-need { background: #f5d6d6; color: #b22; }
+  .btn-need:hover { background: #efbcbc; }
+  .btn-got { background: #d4ead7; color: #2d8a3e; }
+  .btn-got:hover { background: #b9dcbe; }
+  .btn-skip { background: #eee; color: #555; }
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .filter-bar select, .filter-bar button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .quiz-q {
+    background: #f5f6fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  .quiz-q .q { font-size: 18px; font-weight: 600; margin-bottom: 14px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option {
+    padding: 12px 16px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 15px;
+    transition: all 0.15s;
+  }
+  .quiz-option:hover { border-color: #0055A4; }
+  .quiz-option.correct { background: #d4ead7; border-color: #2d8a3e; }
+  .quiz-option.wrong { background: #f5d6d6; border-color: #b22; }
+  .quiz-option.disabled { cursor: not-allowed; opacity: 0.7; }
+  .progress-bar {
+    background: #eee;
+    border-radius: 10px;
+    height: 14px;
+    overflow: hidden;
+    margin: 8px 0 16px;
+  }
+  .progress-fill {
+    background: linear-gradient(90deg, #0055A4, #EF4135);
+    height: 100%;
+    transition: width 0.5s;
+  }
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .day-tile {
+    background: #f5f6fa;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s;
+    border: 2px solid transparent;
+  }
+  .day-tile:hover { background: #eef1f7; transform: translateY(-2px); }
+  .day-tile.completed { background: #d4ead7; border-color: #2d8a3e; }
+  .day-tile.current { border-color: #EF4135; background: #fdf2f4; }
+  .day-tile .num { font-size: 20px; font-weight: 700; color: #0055A4; }
+  .day-tile .title { font-size: 12px; color: #555; margin-top: 4px; }
+  .convo-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid #0055A4;
+  }
+  .convo-card h4 { color: #0055A4; font-size: 18px; margin-bottom: 8px; }
+  .convo-card .scene { color: #666; font-size: 14px; margin-bottom: 12px; font-style: italic; }
+  .dialogue { margin: 12px 0; }
+  .dialogue-line { margin-bottom: 8px; padding-left: 12px; }
+  .dialogue-line.you { border-left: 3px solid #0055A4; }
+  .dialogue-line.them { border-left: 3px solid #EF4135; }
+  .dialogue-line .speaker { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.5px; }
+  .dialogue-line .fr { font-weight: 600; color: #0055A4; margin: 2px 0; }
+  .dialogue-line .en { color: #555; font-size: 14px; }
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+  }
+  .reset-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #888;
+    font-size: 13px;
+  }
+  .reset-btn:hover { background: #f0f2f5; }
+  @media (max-width: 600px) {
+    .app { padding: 10px; }
+    main { padding: 20px; }
+    h1 { font-size: 22px; }
+    .stats { gap: 8px; }
+    .stat { padding: 8px; min-width: 60px; }
+    .stat-num { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div>
+      <h1>French for Travel</h1>
+      <div class="subtitle" style="margin: 4px 0 0;">30 days to café-confidence in Paris</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num" id="stat-day">1</div><div class="stat-label">Day</div></div>
+      <div class="stat"><div class="stat-num" id="stat-streak">0</div><div class="stat-label">Streak</div></div>
+      <div class="stat"><div class="stat-num" id="stat-mastered">0</div><div class="stat-label">Mastered</div></div>
+      <div class="stat"><div class="stat-num" id="stat-pct">0%</div><div class="stat-label">Progress</div></div>
+    </div>
+  </header>
+
+  <nav>
+    <button data-view="lesson" class="active">Today's Lesson</button>
+    <button data-view="flashcards">Flashcards</button>
+    <button data-view="quiz">Quiz</button>
+    <button data-view="all">All Lessons</button>
+    <button data-view="conversations">Conversations</button>
+    <button data-view="progress">Progress</button>
+  </nav>
+
+  <main id="content"></main>
+</div>
+
+<script>
+// ============================================================
+// COURSE DATA — 30 days of French for travel
+// ============================================================
+const COURSE = [
+  { day:1, title:"Greetings & Politeness", focus:"The first words you'll say in Paris.",
+    vocab:[
+      {fr:"Bonjour", ipa:"bohn-zhoor", en:"Hello / Good morning"},
+      {fr:"Bonsoir", ipa:"bohn-swahr", en:"Good evening"},
+      {fr:"Salut", ipa:"sah-loo", en:"Hi / Bye (casual)"},
+      {fr:"Au revoir", ipa:"oh ruh-vwahr", en:"Goodbye"},
+      {fr:"Merci", ipa:"mehr-see", en:"Thank you"},
+      {fr:"Merci beaucoup", ipa:"mehr-see boh-koo", en:"Thank you very much"},
+      {fr:"S'il vous plaît", ipa:"seel voo pleh", en:"Please (formal)"},
+      {fr:"De rien", ipa:"duh ree-an", en:"You're welcome"},
+      {fr:"Excusez-moi", ipa:"eks-koo-zay mwah", en:"Excuse me"},
+      {fr:"Pardon", ipa:"par-dohn", en:"Sorry / Pardon"}
+    ],
+    phrases:[
+      {fr:"Bonjour, ça va ?", ipa:"bohn-zhoor sah vah", en:"Hello, how are you?"},
+      {fr:"Ça va bien, merci.", ipa:"sah vah bee-an mehr-see", en:"I'm well, thanks."}
+    ],
+    grammar:"In France, ALWAYS say 'Bonjour' before asking anything — even at a shop counter. Skipping it is considered rude. Use 'Bonsoir' after about 6pm.",
+    practice:["Walk into a coffee shop and say 'Bonjour' before ordering.","Say 'Merci, au revoir' when leaving any shop."]
+  },
+  { day:2, title:"Yes, No & Basic Reactions", focus:"How to respond and react.",
+    vocab:[
+      {fr:"Oui", ipa:"wee", en:"Yes"},
+      {fr:"Non", ipa:"nohn", en:"No"},
+      {fr:"Peut-être", ipa:"puh-tet-ruh", en:"Maybe"},
+      {fr:"D'accord", ipa:"dah-kor", en:"OK / Agreed"},
+      {fr:"Bien sûr", ipa:"bee-an soor", en:"Of course"},
+      {fr:"Je comprends", ipa:"zhuh kohn-prahn", en:"I understand"},
+      {fr:"Je ne comprends pas", ipa:"zhuh nuh kohn-prahn pah", en:"I don't understand"},
+      {fr:"Parlez-vous anglais ?", ipa:"par-lay voo ahn-gleh", en:"Do you speak English?"},
+      {fr:"Un peu", ipa:"uhn puh", en:"A little"},
+      {fr:"Pas du tout", ipa:"pah doo too", en:"Not at all"}
+    ],
+    phrases:[
+      {fr:"Désolé, je ne parle pas français.", ipa:"day-zoh-lay zhuh nuh parl pah frahn-seh", en:"Sorry, I don't speak French."},
+      {fr:"Pouvez-vous répéter ?", ipa:"poo-vay voo ray-pay-tay", en:"Can you repeat?"}
+    ],
+    grammar:"Negation in French wraps the verb with 'ne...pas'. 'Je comprends' (I understand) → 'Je NE comprends PAS' (I don't understand). In speech, the 'ne' often drops: 'Je comprends pas'.",
+    practice:["Practice asking 'Parlez-vous anglais ?' — it's your safety net.","Say 'Je ne comprends pas, désolé' three times out loud."]
+  },
+  { day:3, title:"Introducing Yourself", focus:"Tell people who you are.",
+    vocab:[
+      {fr:"Je m'appelle", ipa:"zhuh mah-pell", en:"My name is"},
+      {fr:"Je suis", ipa:"zhuh swee", en:"I am"},
+      {fr:"américain / américaine", ipa:"ah-may-ree-kan / kehn", en:"American (m/f)"},
+      {fr:"de Dallas", ipa:"duh dah-lahss", en:"from Dallas"},
+      {fr:"Et vous ?", ipa:"ay voo", en:"And you?"},
+      {fr:"Enchanté(e)", ipa:"ahn-shahn-tay", en:"Nice to meet you"},
+      {fr:"un ami", ipa:"uhn ah-mee", en:"a friend (m)"},
+      {fr:"une amie", ipa:"oon ah-mee", en:"a friend (f)"},
+      {fr:"Comment vous appelez-vous ?", ipa:"koh-mahn voo zah-play voo", en:"What's your name?"},
+      {fr:"Voici", ipa:"vwah-see", en:"This is / Here is"}
+    ],
+    phrases:[
+      {fr:"Bonjour, je m'appelle Jimmy.", ipa:"bohn-zhoor zhuh mah-pell jimmy", en:"Hello, my name is Jimmy."},
+      {fr:"Je suis américain, de Dallas.", ipa:"zhuh swee ah-may-ree-kan duh dah-lahss", en:"I'm American, from Dallas."}
+    ],
+    grammar:"Adjectives change for gender. A man says 'américain', a woman says 'américaine'. Same with 'enchanté' (m) / 'enchantée' (f) — sounds the same but spelled differently.",
+    practice:["Introduce yourself out loud 5 times.","Imagine meeting someone at a hotel — practice the whole exchange."]
+  },
+  { day:4, title:"Numbers 0-20", focus:"You'll need these for prices, addresses, and times.",
+    vocab:[
+      {fr:"zéro", ipa:"zay-roh", en:"0"},
+      {fr:"un", ipa:"uhn", en:"1"},
+      {fr:"deux", ipa:"duh", en:"2"},
+      {fr:"trois", ipa:"twah", en:"3"},
+      {fr:"quatre", ipa:"katr", en:"4"},
+      {fr:"cinq", ipa:"sank", en:"5"},
+      {fr:"six", ipa:"seess", en:"6"},
+      {fr:"sept", ipa:"set", en:"7"},
+      {fr:"huit", ipa:"weet", en:"8"},
+      {fr:"neuf", ipa:"nuhf", en:"9"},
+      {fr:"dix", ipa:"deess", en:"10"},
+      {fr:"onze", ipa:"ohnz", en:"11"},
+      {fr:"douze", ipa:"dooz", en:"12"},
+      {fr:"treize", ipa:"trez", en:"13"},
+      {fr:"quatorze", ipa:"kah-torz", en:"14"},
+      {fr:"quinze", ipa:"kanz", en:"15"},
+      {fr:"seize", ipa:"sez", en:"16"},
+      {fr:"dix-sept", ipa:"deez-set", en:"17"},
+      {fr:"dix-huit", ipa:"deez-weet", en:"18"},
+      {fr:"dix-neuf", ipa:"deez-nuhf", en:"19"},
+      {fr:"vingt", ipa:"van", en:"20"}
+    ],
+    phrases:[
+      {fr:"Ça fait combien ?", ipa:"sah feh kohm-bee-an", en:"How much is it?"},
+      {fr:"C'est dix euros.", ipa:"seh deez uh-roh", en:"It's ten euros."}
+    ],
+    grammar:"Important pronunciation rule: 'six' and 'dix' sound like 'seess'/'deess' alone, but the final 's' goes silent before a consonant ('six pommes' → 'see pum') and becomes a 'z' sound before a vowel ('six ans' → 'seez ahn').",
+    practice:["Count 0-20 out loud three times.","Practice prices: 'cinq euros', 'douze euros', 'dix-huit euros'."]
+  },
+  { day:5, title:"Numbers 20-100", focus:"Higher numbers — useful for prices and addresses.",
+    vocab:[
+      {fr:"vingt", ipa:"van", en:"20"},
+      {fr:"vingt et un", ipa:"vant-ay-uhn", en:"21"},
+      {fr:"vingt-deux", ipa:"van-duh", en:"22"},
+      {fr:"trente", ipa:"trahnt", en:"30"},
+      {fr:"quarante", ipa:"kah-rahnt", en:"40"},
+      {fr:"cinquante", ipa:"san-kahnt", en:"50"},
+      {fr:"soixante", ipa:"swah-sahnt", en:"60"},
+      {fr:"soixante-dix", ipa:"swah-sahnt-deess", en:"70 (lit. sixty-ten)"},
+      {fr:"quatre-vingts", ipa:"katr-van", en:"80 (lit. four-twenties)"},
+      {fr:"quatre-vingt-dix", ipa:"katr-van-deess", en:"90 (lit. four-twenty-ten)"},
+      {fr:"cent", ipa:"sahn", en:"100"},
+      {fr:"mille", ipa:"meel", en:"1000"},
+      {fr:"euro / euros", ipa:"uh-roh", en:"euro / euros"},
+      {fr:"centime", ipa:"sahn-teem", en:"cent"}
+    ],
+    phrases:[
+      {fr:"Trente-cinq euros, s'il vous plaît.", ipa:"trahnt-sank uh-roh seel voo pleh", en:"Thirty-five euros, please."},
+      {fr:"Ça coûte combien ?", ipa:"sah koot kohm-bee-an", en:"How much does it cost?"}
+    ],
+    grammar:"French numbers 70-99 are wild: 70 = 'sixty-ten' (60+10), 80 = 'four-twenties' (4×20), 90 = 'four-twenties-ten' (4×20+10). 75 is 'soixante-quinze' (60+15). It feels weird, but you'll get it.",
+    practice:["Say these prices: 25€, 47€, 72€, 88€, 95€.","Read your hotel street number out loud in French."]
+  },
+  { day:6, title:"Days, Months & Time Words", focus:"Schedules, reservations, plans.",
+    vocab:[
+      {fr:"lundi", ipa:"luhn-dee", en:"Monday"},
+      {fr:"mardi", ipa:"mar-dee", en:"Tuesday"},
+      {fr:"mercredi", ipa:"mehr-kruh-dee", en:"Wednesday"},
+      {fr:"jeudi", ipa:"zhuh-dee", en:"Thursday"},
+      {fr:"vendredi", ipa:"vahn-druh-dee", en:"Friday"},
+      {fr:"samedi", ipa:"sahm-dee", en:"Saturday"},
+      {fr:"dimanche", ipa:"dee-mahnsh", en:"Sunday"},
+      {fr:"aujourd'hui", ipa:"oh-zhoor-dwee", en:"today"},
+      {fr:"demain", ipa:"duh-man", en:"tomorrow"},
+      {fr:"hier", ipa:"ee-yair", en:"yesterday"},
+      {fr:"ce matin", ipa:"suh mah-tan", en:"this morning"},
+      {fr:"ce soir", ipa:"suh swahr", en:"tonight"},
+      {fr:"maintenant", ipa:"man-tuh-nahn", en:"now"},
+      {fr:"plus tard", ipa:"ploo tar", en:"later"}
+    ],
+    phrases:[
+      {fr:"Quel jour sommes-nous ?", ipa:"kel zhoor sohm noo", en:"What day is it?"},
+      {fr:"On est mardi.", ipa:"ohn eh mar-dee", en:"It's Tuesday."}
+    ],
+    grammar:"Days of the week are NOT capitalized in French. Same with months: janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre.",
+    practice:["Say what day it is today in French.","Plan an imaginary week: Lundi je vais au Louvre, mardi je vais à...'"]
+  },
+  { day:7, title:"Week 1 Review + Mini-Conversation", focus:"Pull it all together.",
+    vocab:[
+      {fr:"Comment ça va ?", ipa:"koh-mahn sah vah", en:"How are you?"},
+      {fr:"Ça va, et vous ?", ipa:"sah vah ay voo", en:"I'm fine, and you?"},
+      {fr:"Bonne journée", ipa:"buhn zhoor-nay", en:"Have a good day"},
+      {fr:"Bonne soirée", ipa:"buhn swah-ray", en:"Have a good evening"},
+      {fr:"À bientôt", ipa:"ah bee-an-toh", en:"See you soon"},
+      {fr:"À demain", ipa:"ah duh-man", en:"See you tomorrow"},
+      {fr:"Bienvenue", ipa:"bee-an-vuh-noo", en:"Welcome"},
+      {fr:"À tout à l'heure", ipa:"ah toot ah luhr", en:"See you in a bit"}
+    ],
+    phrases:[
+      {fr:"Bonjour madame, ça va ?", ipa:"bohn-zhoor mah-dahm sah vah", en:"Hello ma'am, how are you?"},
+      {fr:"Très bien, merci. Et vous ?", ipa:"treh bee-an mehr-see ay voo", en:"Very well, thanks. And you?"},
+      {fr:"Bonne journée, au revoir !", ipa:"buhn zhoor-nay oh ruh-vwahr", en:"Have a good day, goodbye!"}
+    ],
+    grammar:"Use 'monsieur' (sir), 'madame' (ma'am), 'mademoiselle' (miss, mostly fading) when addressing strangers — it's standard polite form in France, not stuffy.",
+    practice:["Imagine the morning: greet a baker, buy bread, leave. Say it all aloud.","Try the full mini-dialogue with imaginary people 3 times."]
+  },
+  { day:8, title:"At the Café — Drinks", focus:"Order coffee, water, wine like a local.",
+    vocab:[
+      {fr:"un café", ipa:"uhn kah-fay", en:"an espresso"},
+      {fr:"un café crème", ipa:"uhn kah-fay krem", en:"a coffee with milk"},
+      {fr:"un café allongé", ipa:"uhn kah-fay ah-lohn-zhay", en:"a longer/Americano-style coffee"},
+      {fr:"un thé", ipa:"uhn tay", en:"a tea"},
+      {fr:"un chocolat chaud", ipa:"uhn shoh-koh-lah shoh", en:"a hot chocolate"},
+      {fr:"une eau", ipa:"oon oh", en:"a water"},
+      {fr:"une eau gazeuse", ipa:"oon oh gah-zuhz", en:"a sparkling water"},
+      {fr:"un verre de vin", ipa:"uhn vehr duh van", en:"a glass of wine"},
+      {fr:"rouge / blanc / rosé", ipa:"roozh / blahn / roh-zay", en:"red / white / rosé"},
+      {fr:"une bière", ipa:"oon bee-air", en:"a beer"},
+      {fr:"un jus d'orange", ipa:"uhn zhoo doh-rahnzh", en:"an orange juice"},
+      {fr:"avec / sans", ipa:"ah-vek / sahn", en:"with / without"}
+    ],
+    phrases:[
+      {fr:"Un café, s'il vous plaît.", ipa:"uhn kah-fay seel voo pleh", en:"An espresso, please."},
+      {fr:"Je voudrais un verre de vin rouge.", ipa:"zhuh voo-dray uhn vehr duh van roozh", en:"I'd like a glass of red wine."}
+    ],
+    grammar:"'Un café' in France = espresso. If you want American-style coffee, ask for 'un café allongé' or 'un café américain'. 'Une carafe d'eau' (jug of tap water) is free at any restaurant — just ask.",
+    practice:["Order three different drinks out loud.","Practice: 'Une carafe d'eau, s'il vous plaît.' — saves you from buying bottled water."]
+  },
+  { day:9, title:"At the Café — Food Basics", focus:"Bread, pastries, simple café fare.",
+    vocab:[
+      {fr:"un croissant", ipa:"uhn kwah-sahn", en:"a croissant"},
+      {fr:"un pain au chocolat", ipa:"uhn pan oh shoh-koh-lah", en:"a chocolate pastry"},
+      {fr:"une baguette", ipa:"oon bah-get", en:"a baguette"},
+      {fr:"un sandwich", ipa:"uhn sahnd-weech", en:"a sandwich"},
+      {fr:"un croque-monsieur", ipa:"uhn krohk muh-syuh", en:"grilled ham & cheese"},
+      {fr:"une omelette", ipa:"oon ohm-let", en:"an omelette"},
+      {fr:"une salade", ipa:"oon sah-lahd", en:"a salad"},
+      {fr:"une soupe", ipa:"oon soop", en:"a soup"},
+      {fr:"des frites", ipa:"day freet", en:"fries"},
+      {fr:"du fromage", ipa:"doo froh-mahzh", en:"some cheese"},
+      {fr:"du jambon", ipa:"doo zhahm-bohn", en:"some ham"},
+      {fr:"un dessert", ipa:"uhn day-sair", en:"a dessert"}
+    ],
+    phrases:[
+      {fr:"Je voudrais un croissant et un café.", ipa:"zhuh voo-dray uhn kwah-sahn ay uhn kah-fay", en:"I'd like a croissant and a coffee."},
+      {fr:"Vous avez des sandwichs ?", ipa:"voo zah-vay day sahnd-weech", en:"Do you have sandwiches?"}
+    ],
+    grammar:"'Un / une' = a (m/f). 'Le / la' = the (m/f). 'Du / de la' = some (m/f). For partitive ('some bread'): 'du pain'. For specific ('the bread'): 'le pain'.",
+    practice:["Order a breakfast: croissant, pain au chocolat, café crème.","Try ordering 'un croque-monsieur, des frites, et une bière.'"]
+  },
+  { day:10, title:"Ordering at a Restaurant", focus:"The full restaurant flow.",
+    vocab:[
+      {fr:"une table pour deux", ipa:"oon tahbl poor duh", en:"a table for two"},
+      {fr:"la carte", ipa:"lah kart", en:"the menu"},
+      {fr:"le menu", ipa:"luh muh-noo", en:"the fixed-price menu"},
+      {fr:"l'entrée", ipa:"lahn-tray", en:"the appetizer"},
+      {fr:"le plat", ipa:"luh plah", en:"the main course"},
+      {fr:"le dessert", ipa:"luh day-sair", en:"dessert"},
+      {fr:"Je voudrais", ipa:"zhuh voo-dray", en:"I'd like"},
+      {fr:"Je vais prendre", ipa:"zhuh veh prahndr", en:"I'll have"},
+      {fr:"l'addition", ipa:"lah-dee-syohn", en:"the bill"},
+      {fr:"un pourboire", ipa:"uhn poor-bwahr", en:"a tip"},
+      {fr:"par carte", ipa:"par kart", en:"by card"},
+      {fr:"en espèces", ipa:"ahn es-pess", en:"in cash"}
+    ],
+    phrases:[
+      {fr:"Bonjour, une table pour deux, s'il vous plaît.", ipa:"...oon tahbl poor duh seel voo pleh", en:"Hello, a table for two, please."},
+      {fr:"L'addition, s'il vous plaît.", ipa:"lah-dee-syohn seel voo pleh", en:"The bill, please."},
+      {fr:"On peut payer par carte ?", ipa:"ohn puh pay-yay par kart", en:"Can we pay by card?"}
+    ],
+    grammar:"In French restaurants, 'entrée' means appetizer (NOT main course like in America). The main is 'le plat' or 'plat principal'. The 'menu' is the fixed-price meal — 'la carte' is the actual menu list.",
+    practice:["Practice the full sequence: greet, ask for table, ask for menu, order, ask for bill.","Memorize: 'L'addition, s'il vous plaît' — your most-used phrase."]
+  },
+  { day:11, title:"Common Foods", focus:"Recognize what's on the menu.",
+    vocab:[
+      {fr:"le poulet", ipa:"luh poo-leh", en:"chicken"},
+      {fr:"le bœuf", ipa:"luh buhf", en:"beef"},
+      {fr:"le porc", ipa:"luh por", en:"pork"},
+      {fr:"le poisson", ipa:"luh pwah-sohn", en:"fish"},
+      {fr:"le saumon", ipa:"luh soh-mohn", en:"salmon"},
+      {fr:"l'agneau", ipa:"lahn-yoh", en:"lamb"},
+      {fr:"le canard", ipa:"luh kah-nar", en:"duck"},
+      {fr:"les légumes", ipa:"lay lay-goom", en:"vegetables"},
+      {fr:"les pommes de terre", ipa:"lay pum duh tair", en:"potatoes"},
+      {fr:"le riz", ipa:"luh ree", en:"rice"},
+      {fr:"les pâtes", ipa:"lay paht", en:"pasta"},
+      {fr:"l'œuf / les œufs", ipa:"luhf / lay zuh", en:"egg / eggs"},
+      {fr:"le beurre", ipa:"luh buhr", en:"butter"},
+      {fr:"le sel / le poivre", ipa:"luh sel / luh pwahvr", en:"salt / pepper"}
+    ],
+    phrases:[
+      {fr:"Qu'est-ce que vous recommandez ?", ipa:"kess-kuh voo ruh-koh-mahn-day", en:"What do you recommend?"},
+      {fr:"Je prendrai le poulet.", ipa:"zhuh prahn-dray luh poo-leh", en:"I'll have the chicken."}
+    ],
+    grammar:"'Le' (the) before a vowel becomes 'l'': l'œuf, l'agneau, l'eau. The 'œ' is pronounced like 'uh'. 'Œuf' singular = 'uhf'; 'œufs' plural = 'uh' (the f goes silent in plural).",
+    practice:["Look at a French menu online (try a Paris bistro). Identify 5 dishes you understand.","Practice ordering each protein: 'Je voudrais le poulet, le saumon, le canard...'"]
+  },
+  { day:12, title:"Dietary Needs & Preferences", focus:"Allergies, vegetarian, gluten-free.",
+    vocab:[
+      {fr:"végétarien(ne)", ipa:"vay-zhay-tah-ree-an / yen", en:"vegetarian"},
+      {fr:"végan(e)", ipa:"vay-gahn", en:"vegan"},
+      {fr:"sans gluten", ipa:"sahn gloo-ten", en:"gluten-free"},
+      {fr:"sans lactose", ipa:"sahn lahk-tohz", en:"lactose-free"},
+      {fr:"je suis allergique à...", ipa:"zhuh swee ah-lehr-zheek ah", en:"I'm allergic to..."},
+      {fr:"les noix", ipa:"lay nwah", en:"nuts"},
+      {fr:"les arachides", ipa:"lay zah-rah-sheed", en:"peanuts"},
+      {fr:"les fruits de mer", ipa:"lay frwee duh mair", en:"seafood/shellfish"},
+      {fr:"sans viande", ipa:"sahn vee-ahnd", en:"without meat"},
+      {fr:"épicé", ipa:"ay-pee-say", en:"spicy"},
+      {fr:"saignant", ipa:"sehn-yahn", en:"rare (meat)"},
+      {fr:"à point", ipa:"ah pwan", en:"medium"},
+      {fr:"bien cuit", ipa:"bee-an kwee", en:"well-done"}
+    ],
+    phrases:[
+      {fr:"Je suis végétarien.", ipa:"zhuh swee vay-zhay-tah-ree-an", en:"I'm vegetarian."},
+      {fr:"Je suis allergique aux noix.", ipa:"zhuh swee ah-lehr-zheek oh nwah", en:"I'm allergic to nuts."},
+      {fr:"Saignant, s'il vous plaît.", ipa:"sehn-yahn seel voo pleh", en:"Rare, please."}
+    ],
+    grammar:"In France, 'saignant' (rare) is REALLY rare — bloody. If you want medium-rare US-style, ask for 'à point' or even 'bien cuit'.",
+    practice:["Imagine a real allergy you have and say it in French.","Order a steak three different ways: saignant, à point, bien cuit."]
+  },
+  { day:13, title:"Paying & Tipping", focus:"Wrap up the meal smoothly.",
+    vocab:[
+      {fr:"l'addition", ipa:"lah-dee-syohn", en:"the bill"},
+      {fr:"la note", ipa:"lah noht", en:"the bill/check (also)"},
+      {fr:"le pourboire", ipa:"luh poor-bwahr", en:"tip"},
+      {fr:"service compris", ipa:"sair-veess kohm-pree", en:"service included"},
+      {fr:"par carte", ipa:"par kart", en:"by card"},
+      {fr:"en espèces", ipa:"ahn es-pess", en:"in cash"},
+      {fr:"un reçu", ipa:"uhn ruh-soo", en:"a receipt"},
+      {fr:"gardez la monnaie", ipa:"gar-day lah moh-neh", en:"keep the change"},
+      {fr:"séparément", ipa:"say-pah-ray-mahn", en:"separately"},
+      {fr:"ensemble", ipa:"ahn-sahmbl", en:"together"}
+    ],
+    phrases:[
+      {fr:"L'addition, s'il vous plaît.", ipa:"lah-dee-syohn seel voo pleh", en:"The bill, please."},
+      {fr:"On paye séparément ?", ipa:"ohn pay say-pah-ray-mahn", en:"Are we paying separately?"},
+      {fr:"Vous prenez les cartes ?", ipa:"voo pruh-nay lay kart", en:"Do you take cards?"}
+    ],
+    grammar:"Tipping in France: service is ALWAYS included by law ('service compris'). A small tip (1-2 euros for a coffee, 5-10% for a meal) is appreciated but not expected. Don't tip 20% — they'll think you're confused.",
+    practice:["Practice asking for the bill, then paying.","Say 'Gardez la monnaie' as a small tip."]
+  },
+  { day:14, title:"Week 2 Review — Café Day", focus:"Live a full café day in French.",
+    vocab:[
+      {fr:"le petit-déjeuner", ipa:"luh puh-tee day-zhuh-nay", en:"breakfast"},
+      {fr:"le déjeuner", ipa:"luh day-zhuh-nay", en:"lunch"},
+      {fr:"le dîner", ipa:"luh dee-nay", en:"dinner"},
+      {fr:"un apéro", ipa:"uhn ah-pay-roh", en:"a pre-dinner drink"},
+      {fr:"la terrasse", ipa:"lah tair-rahss", en:"the outdoor seating"},
+      {fr:"à emporter", ipa:"ah ahm-por-tay", en:"to take away"},
+      {fr:"sur place", ipa:"soor plahss", en:"to eat in"},
+      {fr:"délicieux", ipa:"day-lee-syuh", en:"delicious"}
+    ],
+    phrases:[
+      {fr:"C'était délicieux, merci.", ipa:"say-tay day-lee-syuh mehr-see", en:"That was delicious, thanks."},
+      {fr:"On peut s'asseoir en terrasse ?", ipa:"ohn puh sah-swahr ahn tair-rahss", en:"Can we sit on the terrace?"}
+    ],
+    grammar:"Sit-down at a café costs more than standing at the bar ('au comptoir'). Terrace ('en terrasse') is usually the same as inside but with a view. 'À emporter' = takeaway, 'sur place' = eating in.",
+    practice:["Walk through your imagined day in French: morning café, lunch, evening apéro.","Try the full week 2 vocab in flashcards mode."]
+  },
+  { day:15, title:"Hotel Check-In", focus:"Arrive at your Paris hotel and get settled.",
+    vocab:[
+      {fr:"l'hôtel", ipa:"loh-tel", en:"the hotel"},
+      {fr:"la réception", ipa:"lah ray-sep-syohn", en:"the front desk"},
+      {fr:"une réservation", ipa:"oon ray-zair-vah-syohn", en:"a reservation"},
+      {fr:"une chambre", ipa:"oon shahmbr", en:"a room"},
+      {fr:"une chambre simple / double", ipa:"oon shahmbr sampl / doobl", en:"single / double room"},
+      {fr:"la clé", ipa:"lah klay", en:"the key"},
+      {fr:"l'ascenseur", ipa:"lah-sahn-suhr", en:"the elevator"},
+      {fr:"l'étage", ipa:"lay-tahzh", en:"the floor"},
+      {fr:"le rez-de-chaussée", ipa:"luh ray-duh-shoh-say", en:"ground floor"},
+      {fr:"le petit-déjeuner inclus", ipa:"luh puh-tee day-zhuh-nay an-kloo", en:"breakfast included"},
+      {fr:"le wifi", ipa:"luh wee-fee", en:"the wifi"},
+      {fr:"le mot de passe", ipa:"luh moh duh pahss", en:"the password"}
+    ],
+    phrases:[
+      {fr:"J'ai une réservation au nom de Cannon.", ipa:"zhay oon ray-zair-vah-syohn oh nohm duh kah-nohn", en:"I have a reservation under Cannon."},
+      {fr:"Quel est le mot de passe wifi ?", ipa:"kel eh luh moh duh pahss wee-fee", en:"What's the wifi password?"},
+      {fr:"À quelle heure est le petit-déjeuner ?", ipa:"ah kel uhr eh luh puh-tee day-zhuh-nay", en:"What time is breakfast?"}
+    ],
+    grammar:"Floors in France: 'rez-de-chaussée' = ground floor (US 1st floor). 'Premier étage' = 1st floor (US 2nd floor). So 'chambre 305' on the 'troisième étage' is the US 4th floor.",
+    practice:["Role-play arriving at your hotel — say your name, check in, ask about wifi.","Ask three things at the front desk: breakfast time, wifi, key replacement."]
+  },
+  { day:16, title:"Hotel Room Vocab & Issues", focus:"What you need in your room.",
+    vocab:[
+      {fr:"la salle de bain", ipa:"lah sahl duh ban", en:"bathroom"},
+      {fr:"les toilettes", ipa:"lay twah-let", en:"toilet/restroom"},
+      {fr:"une serviette", ipa:"oon sair-vyet", en:"a towel"},
+      {fr:"un oreiller", ipa:"uhn oh-ray-yay", en:"a pillow"},
+      {fr:"une couverture", ipa:"oon koo-vehr-toor", en:"a blanket"},
+      {fr:"le chauffage", ipa:"luh shoh-fahzh", en:"heating"},
+      {fr:"la climatisation", ipa:"lah klee-mah-tee-zah-syohn", en:"air conditioning"},
+      {fr:"la fenêtre", ipa:"lah fuh-netr", en:"window"},
+      {fr:"la lumière", ipa:"lah loo-myair", en:"light"},
+      {fr:"ne marche pas", ipa:"nuh marsh pah", en:"doesn't work"},
+      {fr:"il fait froid / chaud", ipa:"eel feh frwah / shoh", en:"it's cold / hot"},
+      {fr:"trop bruyant", ipa:"troh broo-yahn", en:"too noisy"}
+    ],
+    phrases:[
+      {fr:"La climatisation ne marche pas.", ipa:"lah klee-mah-tee-zah-syohn nuh marsh pah", en:"The AC isn't working."},
+      {fr:"Il n'y a pas de serviettes.", ipa:"eel nyah pah duh sair-vyet", en:"There are no towels."},
+      {fr:"Je peux avoir un autre oreiller ?", ipa:"zhuh puh ah-vwahr uhn ohtr oh-ray-yay", en:"Can I have another pillow?"}
+    ],
+    grammar:"To request something politely: 'Je peux avoir...' (Can I have...) or 'Pourriez-vous m'apporter...' (Could you bring me...). Both work; the second is more formal.",
+    practice:["Imagine three things wrong with your room. Say each issue in French.","Practice: 'Je peux avoir [item], s'il vous plaît ?' for towels, water, pillow."]
+  },
+  { day:17, title:"Asking for Directions", focus:"Find anywhere in Paris.",
+    vocab:[
+      {fr:"où est...?", ipa:"oo eh", en:"where is...?"},
+      {fr:"à droite", ipa:"ah drwaht", en:"to the right"},
+      {fr:"à gauche", ipa:"ah gohsh", en:"to the left"},
+      {fr:"tout droit", ipa:"too drwah", en:"straight ahead"},
+      {fr:"près d'ici", ipa:"preh dee-see", en:"near here"},
+      {fr:"loin", ipa:"lwan", en:"far"},
+      {fr:"à côté de", ipa:"ah koh-tay duh", en:"next to"},
+      {fr:"en face de", ipa:"ahn fahss duh", en:"across from"},
+      {fr:"au coin", ipa:"oh kwan", en:"at the corner"},
+      {fr:"la rue", ipa:"lah roo", en:"the street"},
+      {fr:"l'avenue", ipa:"lah-vuh-noo", en:"the avenue"},
+      {fr:"la place", ipa:"lah plahss", en:"the square/plaza"},
+      {fr:"le carrefour", ipa:"luh kar-foor", en:"the intersection"},
+      {fr:"le feu", ipa:"luh fuh", en:"the traffic light"}
+    ],
+    phrases:[
+      {fr:"Excusez-moi, où est le métro ?", ipa:"eks-koo-zay mwah oo eh luh may-troh", en:"Excuse me, where is the metro?"},
+      {fr:"C'est loin d'ici ?", ipa:"seh lwan dee-see", en:"Is it far from here?"},
+      {fr:"Tournez à droite, puis tout droit.", ipa:"toor-nay ah drwaht pwee too drwah", en:"Turn right, then straight ahead."}
+    ],
+    grammar:"Always start with 'Bonjour' or 'Excusez-moi, bonjour' before asking for directions. Skipping the greeting is a fast way to get ignored.",
+    practice:["Ask for: the metro, the Eiffel Tower, a pharmacy, a bathroom.","Listen practice: imagine the answers and translate 'à droite, à gauche, tout droit'."]
+  },
+  { day:18, title:"The Métro & Public Transport", focus:"Get around Paris underground.",
+    vocab:[
+      {fr:"le métro", ipa:"luh may-troh", en:"the metro"},
+      {fr:"le bus", ipa:"luh boos", en:"the bus"},
+      {fr:"le tramway", ipa:"luh trahm-way", en:"the tram"},
+      {fr:"le train", ipa:"luh tran", en:"the train"},
+      {fr:"la station", ipa:"lah stah-syohn", en:"the metro station"},
+      {fr:"l'arrêt", ipa:"lah-reh", en:"the bus stop"},
+      {fr:"un ticket", ipa:"uhn tee-keh", en:"a ticket"},
+      {fr:"un carnet", ipa:"uhn kar-nay", en:"a pack of 10 tickets"},
+      {fr:"un passe Navigo", ipa:"uhn pass nah-vee-goh", en:"the Paris transit pass"},
+      {fr:"la ligne", ipa:"lah leen-yuh", en:"the line"},
+      {fr:"la direction", ipa:"lah dee-rek-syohn", en:"the direction"},
+      {fr:"correspondance", ipa:"kor-es-pohn-dahnss", en:"transfer"},
+      {fr:"sortie", ipa:"sor-tee", en:"exit"},
+      {fr:"le quai", ipa:"luh kay", en:"the platform"}
+    ],
+    phrases:[
+      {fr:"Un ticket, s'il vous plaît.", ipa:"uhn tee-keh seel voo pleh", en:"One ticket, please."},
+      {fr:"Quelle ligne pour le Louvre ?", ipa:"kel leen-yuh poor luh loovr", en:"Which line for the Louvre?"},
+      {fr:"Direction Château de Vincennes.", ipa:"dee-rek-syohn shah-toh duh van-sen", en:"Direction Château de Vincennes."}
+    ],
+    grammar:"Métro lines are numbered (1, 4, 14...) but you navigate by DIRECTION — the name of the last station on the line. So 'Line 1, direction La Défense' tells you which platform.",
+    practice:["Look up the métro line for the Louvre and say it.","Practice: 'Excusez-moi, comment aller à [station]?'"]
+  },
+  { day:19, title:"Taxis, Uber & Trains", focus:"Beyond the métro.",
+    vocab:[
+      {fr:"un taxi", ipa:"uhn tahk-see", en:"a taxi"},
+      {fr:"une voiture", ipa:"oon vwah-toor", en:"a car"},
+      {fr:"l'aéroport", ipa:"lah-ay-roh-por", en:"the airport"},
+      {fr:"la gare", ipa:"lah gar", en:"the train station"},
+      {fr:"le terminal", ipa:"luh tair-mee-nahl", en:"the terminal"},
+      {fr:"les bagages", ipa:"lay bah-gahzh", en:"luggage"},
+      {fr:"l'adresse", ipa:"lah-dress", en:"the address"},
+      {fr:"vite", ipa:"veet", en:"fast/quickly"},
+      {fr:"doucement", ipa:"doos-mahn", en:"slowly"},
+      {fr:"ici", ipa:"ee-see", en:"here"},
+      {fr:"là-bas", ipa:"lah-bah", en:"over there"},
+      {fr:"arrêtez-vous ici", ipa:"ah-reh-tay voo ee-see", en:"stop here"}
+    ],
+    phrases:[
+      {fr:"À l'aéroport Charles de Gaulle, s'il vous plaît.", ipa:"ah lah-ay-roh-por sharl duh gohl seel voo pleh", en:"To Charles de Gaulle airport, please."},
+      {fr:"Combien ça coûte ?", ipa:"kohm-bee-an sah koot", en:"How much does it cost?"},
+      {fr:"Pouvez-vous m'attendre ?", ipa:"poo-vay voo mah-tahndr", en:"Can you wait for me?"}
+    ],
+    grammar:"Paris taxis: official ones have a 'TAXI PARISIEN' sign. Don't accept rides from people who approach you outside the airport ('rabatteurs') — always use the official queue.",
+    practice:["Practice giving an address: 'Au 25 rue de Rivoli, s'il vous plaît.'","Tell the driver to stop here, then to wait."]
+  },
+  { day:20, title:"Telling Time & Schedules", focus:"What time things happen.",
+    vocab:[
+      {fr:"l'heure", ipa:"luhr", en:"the hour/time"},
+      {fr:"midi", ipa:"mee-dee", en:"noon"},
+      {fr:"minuit", ipa:"mee-nwee", en:"midnight"},
+      {fr:"et demie", ipa:"ay duh-mee", en:"and a half (:30)"},
+      {fr:"et quart", ipa:"ay kar", en:"and a quarter (:15)"},
+      {fr:"moins le quart", ipa:"mwan luh kar", en:"quarter to (:45)"},
+      {fr:"du matin", ipa:"doo mah-tan", en:"in the morning"},
+      {fr:"de l'après-midi", ipa:"duh lah-preh mee-dee", en:"in the afternoon"},
+      {fr:"du soir", ipa:"doo swahr", en:"in the evening"},
+      {fr:"ouvert", ipa:"oo-vair", en:"open"},
+      {fr:"fermé", ipa:"fair-may", en:"closed"},
+      {fr:"les horaires", ipa:"lay zoh-rair", en:"hours/schedule"}
+    ],
+    phrases:[
+      {fr:"Quelle heure est-il ?", ipa:"kel uhr eh-teel", en:"What time is it?"},
+      {fr:"Il est trois heures et demie.", ipa:"eel eh trwa zuhr ay duh-mee", en:"It's 3:30."},
+      {fr:"À quelle heure ouvrez-vous ?", ipa:"ah kel uhr oo-vray voo", en:"What time do you open?"}
+    ],
+    grammar:"France uses 24-hour time officially: 14h30 = 2:30pm. In speech, people often use the 12-hour version with 'du matin/soir'. 'Le musée ouvre à neuf heures' = museum opens at 9am.",
+    practice:["Tell the time right now in French.","Practice: 'À quelle heure ouvre/ferme [place] ?'"]
+  },
+  { day:21, title:"Week 3 Review — Travel Day", focus:"Run through a full travel scenario.",
+    vocab:[
+      {fr:"perdu(e)", ipa:"pair-doo", en:"lost"},
+      {fr:"je cherche", ipa:"zhuh shairsh", en:"I'm looking for"},
+      {fr:"par ici / par là", ipa:"par ee-see / par lah", en:"this way / that way"},
+      {fr:"loin / près", ipa:"lwan / preh", en:"far / near"},
+      {fr:"à pied", ipa:"ah pyay", en:"on foot"},
+      {fr:"à vélo", ipa:"ah vay-loh", en:"by bike"},
+      {fr:"en voiture", ipa:"ahn vwah-toor", en:"by car"}
+    ],
+    phrases:[
+      {fr:"Excusez-moi, je suis perdu. Je cherche le Louvre.", ipa:"...zhuh swee pair-doo zhuh shairsh luh loovr", en:"Excuse me, I'm lost. I'm looking for the Louvre."},
+      {fr:"C'est à combien de minutes à pied ?", ipa:"seh tah kohm-bee-an duh mee-noot ah pyay", en:"How many minutes on foot?"}
+    ],
+    grammar:"For a quick polite request, the formula is: 'Excusez-moi, [question]?' That 'Excusez-moi' is your magic opener anywhere in France.",
+    practice:["Imagine you're lost near Notre Dame and ask for help.","Run through: arrive at hotel, check in, ask for breakfast time, ask for directions."]
+  },
+  { day:22, title:"Shopping Basics", focus:"Boutiques, markets, souvenirs.",
+    vocab:[
+      {fr:"un magasin", ipa:"uhn mah-gah-zan", en:"a store"},
+      {fr:"une boutique", ipa:"oon boo-teek", en:"a boutique"},
+      {fr:"un marché", ipa:"uhn mar-shay", en:"a market"},
+      {fr:"une librairie", ipa:"oon lee-brair-ee", en:"a bookstore"},
+      {fr:"une pharmacie", ipa:"oon far-mah-see", en:"a pharmacy"},
+      {fr:"je regarde", ipa:"zhuh ruh-gard", en:"I'm just looking"},
+      {fr:"je cherche", ipa:"zhuh shairsh", en:"I'm looking for"},
+      {fr:"essayer", ipa:"ay-say-yay", en:"to try on"},
+      {fr:"acheter", ipa:"ahsh-tay", en:"to buy"},
+      {fr:"c'est combien ?", ipa:"seh kohm-bee-an", en:"how much is it?"},
+      {fr:"trop cher", ipa:"troh shair", en:"too expensive"},
+      {fr:"en solde", ipa:"ahn sold", en:"on sale"}
+    ],
+    phrases:[
+      {fr:"Je regarde, merci.", ipa:"zhuh ruh-gard mehr-see", en:"I'm just looking, thanks."},
+      {fr:"Je peux essayer ?", ipa:"zhuh puh ay-say-yay", en:"Can I try it on?"},
+      {fr:"C'est trop cher pour moi.", ipa:"seh troh shair poor mwah", en:"It's too expensive for me."}
+    ],
+    grammar:"Same Bonjour rule applies in shops. Walk in, say 'Bonjour'. The shopkeeper says 'Bonjour' back. Then you can browse. Skipping the greeting feels rude in France.",
+    practice:["Pretend you're in a Paris boutique. Greet, browse, ask a price, decline politely.","'Je regarde, merci' is your default polite refusal."]
+  },
+  { day:23, title:"Sizes, Colors & Trying On", focus:"Pick out the right thing.",
+    vocab:[
+      {fr:"la taille", ipa:"lah tahy", en:"the size"},
+      {fr:"petit / moyen / grand", ipa:"puh-tee / mwah-yan / grahn", en:"small / medium / large"},
+      {fr:"plus petit / plus grand", ipa:"ploo puh-tee / ploo grahn", en:"smaller / bigger"},
+      {fr:"la cabine d'essayage", ipa:"lah kah-been day-say-yahzh", en:"the fitting room"},
+      {fr:"rouge", ipa:"roozh", en:"red"},
+      {fr:"bleu", ipa:"bluh", en:"blue"},
+      {fr:"vert", ipa:"vair", en:"green"},
+      {fr:"noir", ipa:"nwahr", en:"black"},
+      {fr:"blanc", ipa:"blahn", en:"white"},
+      {fr:"jaune", ipa:"zhohn", en:"yellow"},
+      {fr:"une autre couleur", ipa:"oon ohtr koo-luhr", en:"another color"},
+      {fr:"ça me va", ipa:"sah muh vah", en:"it fits me / suits me"}
+    ],
+    phrases:[
+      {fr:"Vous avez la taille M ?", ipa:"voo zah-vay lah tahy em", en:"Do you have size M?"},
+      {fr:"Vous l'avez en bleu ?", ipa:"voo lah-vay ahn bluh", en:"Do you have it in blue?"},
+      {fr:"Je vais le prendre.", ipa:"zhuh veh luh prahndr", en:"I'll take it."}
+    ],
+    grammar:"French sizes are different! European clothing uses numbers (36, 38, 40...) where US uses 4, 6, 8... Just say your usual size letter (S/M/L) — or 'Quelle taille pour moi ?' (what size for me?) and let them measure.",
+    practice:["Practice: 'Vous avez ça en [color]?' for 5 different colors.","Imagine trying on a jacket: ask for size, color, fitting room."]
+  },
+  { day:24, title:"Small Talk", focus:"Chat with locals casually.",
+    vocab:[
+      {fr:"Comment ça va ?", ipa:"koh-mahn sah vah", en:"How are you?"},
+      {fr:"D'où venez-vous ?", ipa:"doo vuh-nay voo", en:"Where are you from?"},
+      {fr:"Vous êtes en vacances ?", ipa:"voo zet ahn vah-kahnss", en:"Are you on vacation?"},
+      {fr:"depuis combien de temps ?", ipa:"duh-pwee kohm-bee-an duh tahn", en:"for how long?"},
+      {fr:"première fois", ipa:"prum-yair fwah", en:"first time"},
+      {fr:"j'aime / je n'aime pas", ipa:"zhem / zhuh nem pah", en:"I like / I don't like"},
+      {fr:"c'est beau", ipa:"seh boh", en:"it's beautiful"},
+      {fr:"c'est super", ipa:"seh soo-pair", en:"it's great"},
+      {fr:"j'adore Paris", ipa:"zhah-dor pah-ree", en:"I love Paris"},
+      {fr:"vraiment ?", ipa:"vreh-mahn", en:"really?"},
+      {fr:"intéressant", ipa:"an-tay-ress-ahn", en:"interesting"}
+    ],
+    phrases:[
+      {fr:"Je suis en vacances pour une semaine.", ipa:"zhuh swee zahn vah-kahnss poor oon suh-men", en:"I'm on vacation for a week."},
+      {fr:"C'est ma première fois à Paris.", ipa:"seh mah prum-yair fwah ah pah-ree", en:"It's my first time in Paris."},
+      {fr:"J'adore la cuisine française.", ipa:"zhah-dor lah kwee-zeen frahn-sez", en:"I love French food."}
+    ],
+    grammar:"Practice the verb 'aimer' (to like): J'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. Most -er verbs follow this pattern.",
+    practice:["Imagine chatting with your hotel concierge — answer their small talk in French.","Practice: 'J'aime [thing]' for 5 things."]
+  },
+  { day:25, title:"Emergencies & Health", focus:"What you hope you won't need.",
+    vocab:[
+      {fr:"au secours !", ipa:"oh suh-koor", en:"help!"},
+      {fr:"appelez la police", ipa:"ah-play lah poh-leess", en:"call the police"},
+      {fr:"appelez une ambulance", ipa:"ah-play oon ahm-boo-lahnss", en:"call an ambulance"},
+      {fr:"j'ai mal", ipa:"zhay mahl", en:"I'm in pain / it hurts"},
+      {fr:"j'ai mal à la tête", ipa:"zhay mahl ah lah tet", en:"I have a headache"},
+      {fr:"j'ai mal au ventre", ipa:"zhay mahl oh vahntr", en:"my stomach hurts"},
+      {fr:"je suis malade", ipa:"zhuh swee mah-lahd", en:"I'm sick"},
+      {fr:"un médecin", ipa:"uhn mayd-san", en:"a doctor"},
+      {fr:"l'hôpital", ipa:"loh-pee-tahl", en:"the hospital"},
+      {fr:"la pharmacie", ipa:"lah far-mah-see", en:"the pharmacy"},
+      {fr:"un médicament", ipa:"uhn may-dee-kah-mahn", en:"a medication"},
+      {fr:"j'ai perdu", ipa:"zhay pair-doo", en:"I lost"},
+      {fr:"on m'a volé", ipa:"ohn mah voh-lay", en:"I was robbed"}
+    ],
+    phrases:[
+      {fr:"J'ai besoin d'un médecin.", ipa:"zhay buh-zwan duhn mayd-san", en:"I need a doctor."},
+      {fr:"Où est la pharmacie la plus proche ?", ipa:"oo eh lah far-mah-see lah ploo prohsh", en:"Where's the nearest pharmacy?"},
+      {fr:"J'ai perdu mon passeport.", ipa:"zhay pair-doo mohn pahss-por", en:"I lost my passport."}
+    ],
+    grammar:"Emergency number in France: 112 (general) or 15 (medical). Pharmacies (green cross sign) are everywhere and can help with minor stuff — pharmacists are very knowledgeable.",
+    practice:["Practice: 'J'ai mal à [body part]' for 3 body parts.","Memorize: 'J'ai perdu mon passeport' — hopefully you'll never use it."]
+  },
+  { day:26, title:"Compliments & Reactions", focus:"Show appreciation.",
+    vocab:[
+      {fr:"magnifique", ipa:"man-yee-feek", en:"magnificent"},
+      {fr:"délicieux / délicieuse", ipa:"day-lee-syuh / syuhz", en:"delicious"},
+      {fr:"très bon", ipa:"treh bohn", en:"very good"},
+      {fr:"j'adore", ipa:"zhah-dor", en:"I love (it)"},
+      {fr:"incroyable", ipa:"an-krwa-yahbl", en:"incredible"},
+      {fr:"parfait", ipa:"par-feh", en:"perfect"},
+      {fr:"félicitations", ipa:"fay-lee-see-tah-syohn", en:"congratulations"},
+      {fr:"santé !", ipa:"sahn-tay", en:"cheers!"},
+      {fr:"bon appétit", ipa:"bohn ah-pay-tee", en:"enjoy your meal"},
+      {fr:"c'est gentil", ipa:"seh zhahn-tee", en:"that's nice/kind"},
+      {fr:"je vous remercie", ipa:"zhuh voo ruh-mehr-see", en:"I thank you (formal)"}
+    ],
+    phrases:[
+      {fr:"Le repas était magnifique !", ipa:"luh ruh-pah ay-teh man-yee-feek", en:"The meal was magnificent!"},
+      {fr:"C'est vraiment délicieux.", ipa:"seh vreh-mahn day-lee-syuh", en:"This is really delicious."},
+      {fr:"Vous êtes très gentil.", ipa:"voo zet treh zhahn-tee", en:"You're very kind."}
+    ],
+    grammar:"'Bon appétit' isn't optional in France — say it when food arrives, when others start eating, when you sit at a shared table. It's almost reflexive there.",
+    practice:["Practice complimenting a meal three different ways.","Try: 'C'était parfait, merci beaucoup' as you leave a restaurant."]
+  },
+  { day:27, title:"Past & Future Basics", focus:"Talk about yesterday and tomorrow.",
+    vocab:[
+      {fr:"hier", ipa:"ee-yair", en:"yesterday"},
+      {fr:"aujourd'hui", ipa:"oh-zhoor-dwee", en:"today"},
+      {fr:"demain", ipa:"duh-man", en:"tomorrow"},
+      {fr:"j'ai visité", ipa:"zhay vee-zee-tay", en:"I visited"},
+      {fr:"j'ai mangé", ipa:"zhay mahn-zhay", en:"I ate"},
+      {fr:"j'ai vu", ipa:"zhay voo", en:"I saw"},
+      {fr:"je vais aller", ipa:"zhuh veh ah-lay", en:"I'm going to go"},
+      {fr:"je vais visiter", ipa:"zhuh veh vee-zee-tay", en:"I'm going to visit"},
+      {fr:"hier soir", ipa:"ee-yair swahr", en:"last night"},
+      {fr:"la semaine dernière", ipa:"lah suh-men dair-nyair", en:"last week"},
+      {fr:"la semaine prochaine", ipa:"lah suh-men proh-shen", en:"next week"}
+    ],
+    phrases:[
+      {fr:"Hier, j'ai visité le Louvre.", ipa:"ee-yair zhay vee-zee-tay luh loovr", en:"Yesterday, I visited the Louvre."},
+      {fr:"Demain, je vais aller à Versailles.", ipa:"duh-man zhuh veh ah-lay ah vair-sahy", en:"Tomorrow, I'm going to Versailles."}
+    ],
+    grammar:"Past tense quick formula: 'J'ai + [verb]é' for most verbs. J'ai mangé (I ate), j'ai visité (I visited). Future quick formula: 'Je vais + [verb]'. Je vais manger (I'll eat). Easy starter shortcut.",
+    practice:["Tell what you did 'yesterday' (real or imagined) using j'ai + 3 verbs.","Tell what you'll do tomorrow using je vais + 3 verbs."]
+  },
+  { day:28, title:"Saying Goodbye Well", focus:"Wrap conversations gracefully.",
+    vocab:[
+      {fr:"au revoir", ipa:"oh ruh-vwahr", en:"goodbye"},
+      {fr:"à bientôt", ipa:"ah bee-an-toh", en:"see you soon"},
+      {fr:"à plus tard", ipa:"ah ploo tar", en:"see you later"},
+      {fr:"bonne journée", ipa:"buhn zhoor-nay", en:"have a good day"},
+      {fr:"bonne soirée", ipa:"buhn swah-ray", en:"have a good evening"},
+      {fr:"bonne nuit", ipa:"buhn nwee", en:"good night"},
+      {fr:"bon voyage", ipa:"bohn vwah-yahzh", en:"have a good trip"},
+      {fr:"bon week-end", ipa:"bohn week-end", en:"have a good weekend"},
+      {fr:"bonne chance", ipa:"buhn shahnss", en:"good luck"},
+      {fr:"prenez soin de vous", ipa:"pruh-nay swan duh voo", en:"take care"}
+    ],
+    phrases:[
+      {fr:"Merci pour tout, bonne journée !", ipa:"mehr-see poor too buhn zhoor-nay", en:"Thanks for everything, have a good day!"},
+      {fr:"Au revoir, à bientôt !", ipa:"oh ruh-vwahr ah bee-an-toh", en:"Goodbye, see you soon!"}
+    ],
+    grammar:"Don't just say 'au revoir' — pair it with a 'bonne X' (bonne journée / bonne soirée / bon week-end). It's the standard polite exit and shows you've absorbed the rhythm.",
+    practice:["End your imagined conversations with: greet → request → thank → good-day → goodbye.","Practice 5 different goodbyes for different situations."]
+  },
+  { day:29, title:"Putting It All Together", focus:"A real Paris day in French.",
+    vocab:[
+      {fr:"un musée", ipa:"uhn moo-zay", en:"a museum"},
+      {fr:"un billet", ipa:"uhn bee-yeh", en:"a ticket"},
+      {fr:"l'entrée", ipa:"lahn-tray", en:"the entrance"},
+      {fr:"la sortie", ipa:"lah sor-tee", en:"the exit"},
+      {fr:"un guide", ipa:"uhn geed", en:"a guide"},
+      {fr:"une visite", ipa:"oon vee-zeet", en:"a visit/tour"},
+      {fr:"une photo", ipa:"oon foh-toh", en:"a photo"},
+      {fr:"interdit", ipa:"an-tair-dee", en:"forbidden"},
+      {fr:"autorisé", ipa:"oh-toh-ree-zay", en:"allowed"}
+    ],
+    phrases:[
+      {fr:"Deux billets pour le musée, s'il vous plaît.", ipa:"duh bee-yeh poor luh moo-zay seel voo pleh", en:"Two tickets for the museum, please."},
+      {fr:"On peut prendre des photos ?", ipa:"ohn puh prahndr day foh-toh", en:"Can we take photos?"},
+      {fr:"Vous pouvez nous prendre en photo ?", ipa:"voo poo-vay noo prahndr ahn foh-toh", en:"Can you take a photo of us?"}
+    ],
+    grammar:"You've got the building blocks. Mix the verbs (j'ai, je vais, je voudrais) with the nouns (billet, table, taxi) and the polite frame (Bonjour, s'il vous plaît, merci) — and you can navigate almost any situation.",
+    practice:["Plan a full Paris day in French: breakfast → museum → lunch → walk → dinner. Speak each step aloud.","Quiz yourself on every phrase you've learned this week."]
+  },
+  { day:30, title:"Paris-Specific Tips & Final Review", focus:"The intangibles that matter.",
+    vocab:[
+      {fr:"les Parisiens", ipa:"lay pah-ree-zee-an", en:"Parisians"},
+      {fr:"le savoir-vivre", ipa:"luh sav-wahr veevr", en:"manners/etiquette"},
+      {fr:"un quartier", ipa:"uhn kar-tyay", en:"a neighborhood"},
+      {fr:"un arrondissement", ipa:"uhn ah-rohn-dees-mahn", en:"a district (1st-20th)"},
+      {fr:"la rive gauche / droite", ipa:"lah reev gohsh / drwaht", en:"the Left / Right Bank"},
+      {fr:"flâner", ipa:"flah-nay", en:"to stroll/wander"},
+      {fr:"un apéro", ipa:"uhn ah-pay-roh", en:"happy hour drink"},
+      {fr:"chiche", ipa:"sheesh", en:"(challenge:) you wouldn't dare"},
+      {fr:"pas mal", ipa:"pah mahl", en:"not bad / pretty good"},
+      {fr:"bof", ipa:"bohf", en:"meh"}
+    ],
+    phrases:[
+      {fr:"Je m'excuse pour mon français.", ipa:"zhuh meks-kooz poor mohn frahn-seh", en:"I apologize for my French."},
+      {fr:"Vous êtes très patient, merci.", ipa:"voo zet treh pah-syahn mehr-see", en:"You're very patient, thank you."},
+      {fr:"J'apprends, j'essaie.", ipa:"zhah-prahn zhay-say", en:"I'm learning, I'm trying."}
+    ],
+    grammar:"The single biggest Paris tip: ALWAYS open with 'Bonjour'. Even saying 'Bonjour, parlez-vous anglais ?' is hugely better than just launching into English. Most Parisians will warm up immediately if you make even a small effort in French.",
+    practice:["Walk yourself through your entire Paris arrival in French (mental rehearsal).","Quiz yourself on Days 1-30 vocab. Note what's still shaky."]
+  }
+];
+
+// ============================================================
+// CONVERSATION SCENARIOS
+// ============================================================
+const CONVERSATIONS = [
+  { title:"Ordering at a Café", scene:"You walk into a café in the morning and order a coffee and croissant.",
+    lines:[
+      {who:"them", fr:"Bonjour !", en:"Hello!"},
+      {who:"you", fr:"Bonjour. Un café crème et un croissant, s'il vous plaît.", en:"Hello. A coffee with milk and a croissant, please."},
+      {who:"them", fr:"Sur place ou à emporter ?", en:"To eat in or to take away?"},
+      {who:"you", fr:"Sur place, merci.", en:"Eating in, thanks."},
+      {who:"them", fr:"Très bien. Ça fait six euros cinquante.", en:"Very good. That's six fifty."},
+      {who:"you", fr:"Voilà. Merci.", en:"Here you go. Thanks."},
+      {who:"them", fr:"Merci à vous. Bonne journée !", en:"Thank you. Have a good day!"},
+      {who:"you", fr:"Bonne journée, au revoir !", en:"Have a good day, goodbye!"}
+    ]},
+  { title:"Hotel Check-In", scene:"You arrive at your hotel in the afternoon with a reservation.",
+    lines:[
+      {who:"you", fr:"Bonjour, j'ai une réservation au nom de Cannon.", en:"Hello, I have a reservation under Cannon."},
+      {who:"them", fr:"Bonjour monsieur. Cannon... oui, deux nuits, une chambre double.", en:"Hello sir. Cannon... yes, two nights, double room."},
+      {who:"you", fr:"Parfait. À quelle heure est le petit-déjeuner ?", en:"Perfect. What time is breakfast?"},
+      {who:"them", fr:"De sept heures à dix heures, au rez-de-chaussée.", en:"From 7am to 10am, on the ground floor."},
+      {who:"you", fr:"Et le mot de passe wifi ?", en:"And the wifi password?"},
+      {who:"them", fr:"C'est sur la carte de votre chambre. Voici la clé, chambre 305 au troisième étage.", en:"It's on your room card. Here's the key, room 305 on the third floor."},
+      {who:"you", fr:"Merci beaucoup. Bonne soirée.", en:"Thanks very much. Good evening."}
+    ]},
+  { title:"Asking for Directions", scene:"You're lost near the Latin Quarter and need to get to Notre Dame.",
+    lines:[
+      {who:"you", fr:"Excusez-moi, bonjour. Je cherche Notre-Dame.", en:"Excuse me, hello. I'm looking for Notre Dame."},
+      {who:"them", fr:"Bonjour. Ce n'est pas loin. Continuez tout droit, puis tournez à gauche au feu.", en:"Hello. It's not far. Go straight, then turn left at the light."},
+      {who:"you", fr:"Tout droit, puis à gauche au feu. C'est ça ?", en:"Straight, then left at the light. Is that right?"},
+      {who:"them", fr:"Oui, et ensuite vous verrez le pont. Notre-Dame est juste après.", en:"Yes, then you'll see the bridge. Notre Dame is just past it."},
+      {who:"you", fr:"Merci beaucoup. C'est à combien de minutes à pied ?", en:"Thanks. How many minutes on foot?"},
+      {who:"them", fr:"Environ dix minutes.", en:"About ten minutes."},
+      {who:"you", fr:"Parfait, merci ! Bonne journée.", en:"Perfect, thanks! Have a good day."}
+    ]},
+  { title:"At the Restaurant", scene:"Dinner at a Paris bistro — the full flow.",
+    lines:[
+      {who:"you", fr:"Bonsoir, une table pour deux, s'il vous plaît.", en:"Good evening, a table for two, please."},
+      {who:"them", fr:"Bonsoir. Vous avez une réservation ?", en:"Good evening. Do you have a reservation?"},
+      {who:"you", fr:"Non, désolé. Vous avez de la place ?", en:"No, sorry. Do you have space?"},
+      {who:"them", fr:"Oui, suivez-moi. Voici la carte.", en:"Yes, follow me. Here's the menu."},
+      {who:"you", fr:"Merci. Qu'est-ce que vous recommandez ?", en:"Thanks. What do you recommend?"},
+      {who:"them", fr:"Le confit de canard est excellent ce soir.", en:"The duck confit is excellent tonight."},
+      {who:"you", fr:"Très bien. Je vais prendre le confit, et un verre de vin rouge.", en:"Great. I'll have the confit, and a glass of red wine."},
+      {who:"you", fr:"L'addition, s'il vous plaît.", en:"The bill, please. (later)"},
+      {who:"them", fr:"Voici. Vous payez par carte ?", en:"Here you go. Paying by card?"},
+      {who:"you", fr:"Oui, par carte. Merci, c'était délicieux.", en:"Yes, by card. Thanks, it was delicious."}
+    ]},
+  { title:"Buying Métro Tickets", scene:"You're at a métro station figuring out tickets.",
+    lines:[
+      {who:"you", fr:"Bonjour, je voudrais un carnet de dix tickets.", en:"Hello, I'd like a pack of ten tickets."},
+      {who:"them", fr:"Très bien. Ça fait seize euros quatre-vingt-dix.", en:"Very good. That's 16.90."},
+      {who:"you", fr:"Quelle ligne pour aller au Louvre ?", en:"Which line to get to the Louvre?"},
+      {who:"them", fr:"Ligne 1, direction La Défense, descendez à Palais Royal.", en:"Line 1, direction La Défense, get off at Palais Royal."},
+      {who:"you", fr:"Merci. C'est combien d'arrêts ?", en:"Thanks. How many stops?"},
+      {who:"them", fr:"Trois ou quatre arrêts.", en:"Three or four stops."},
+      {who:"you", fr:"Parfait. Merci beaucoup, bonne journée.", en:"Perfect. Thanks, have a good day."}
+    ]},
+  { title:"At a Boutique", scene:"You're shopping for a souvenir or a piece of clothing.",
+    lines:[
+      {who:"them", fr:"Bonjour, je peux vous aider ?", en:"Hello, can I help you?"},
+      {who:"you", fr:"Bonjour, je regarde, merci.", en:"Hello, I'm just looking, thanks."},
+      {who:"you", fr:"En fait, vous avez ce pull en taille M ?", en:"Actually, do you have this sweater in size M?"},
+      {who:"them", fr:"Oui, en bleu ou en noir.", en:"Yes, in blue or black."},
+      {who:"you", fr:"En noir, s'il vous plaît. Je peux essayer ?", en:"In black, please. Can I try it on?"},
+      {who:"them", fr:"Bien sûr, la cabine est par là.", en:"Of course, the fitting room is over there."},
+      {who:"you", fr:"Ça me va bien. C'est combien ?", en:"It fits well. How much is it?"},
+      {who:"them", fr:"Soixante-cinq euros.", en:"65 euros."},
+      {who:"you", fr:"Je vais le prendre.", en:"I'll take it."}
+    ]},
+  { title:"Pharmacy Visit", scene:"You have a headache and need something for it.",
+    lines:[
+      {who:"you", fr:"Bonjour, j'ai mal à la tête. Vous avez quelque chose ?", en:"Hello, I have a headache. Do you have something?"},
+      {who:"them", fr:"Bonjour. Du paracétamol fera l'affaire. Une boîte ?", en:"Hello. Paracetamol will do. One box?"},
+      {who:"you", fr:"Oui, s'il vous plaît. C'est combien ?", en:"Yes, please. How much?"},
+      {who:"them", fr:"Trois euros vingt.", en:"3.20."},
+      {who:"you", fr:"Voilà. Merci beaucoup.", en:"Here. Thanks very much."},
+      {who:"them", fr:"Soignez-vous bien. Bonne journée.", en:"Take care of yourself. Good day."}
+    ]},
+  { title:"Small Talk with a Local", scene:"Friendly chat at a café terrace.",
+    lines:[
+      {who:"them", fr:"Vous êtes en vacances ?", en:"Are you on vacation?"},
+      {who:"you", fr:"Oui, je suis ici pour une semaine.", en:"Yes, I'm here for a week."},
+      {who:"them", fr:"D'où venez-vous ?", en:"Where are you from?"},
+      {who:"you", fr:"Je viens de Dallas, au Texas.", en:"I'm from Dallas, Texas."},
+      {who:"them", fr:"Ah le Texas ! C'est votre première fois à Paris ?", en:"Ah Texas! Is it your first time in Paris?"},
+      {who:"you", fr:"Oui, et j'adore. Tout est magnifique.", en:"Yes, and I love it. Everything is magnificent."},
+      {who:"them", fr:"Vous parlez bien français !", en:"You speak French well!"},
+      {who:"you", fr:"Merci, mais j'apprends. J'essaie !", en:"Thanks, but I'm learning. I'm trying!"}
+    ]}
+];
+
+// ============================================================
+// APP STATE & PERSISTENCE
+// ============================================================
+const STORAGE_KEY = 'french_learner_v1';
+let state = loadState();
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e){}
+  return {
+    currentDay: 1,
+    completedDays: [],
+    masteredVocab: {}, // {fr: count}
+    needWorkVocab: {}, // {fr: count}
+    streak: 0,
+    lastVisit: null,
+    quizScore: { correct: 0, total: 0 }
+  };
+}
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+function updateStreak() {
+  const today = new Date().toDateString();
+  if (state.lastVisit === today) return;
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  if (state.lastVisit === yesterday) state.streak++;
+  else if (!state.lastVisit) state.streak = 1;
+  else state.streak = 1;
+  state.lastVisit = today;
+  saveState();
+}
+updateStreak();
+
+function getAllVocab() {
+  const all = [];
+  COURSE.forEach(d => d.vocab.forEach(v => all.push({...v, day:d.day})));
+  return all;
+}
+function getLearnedVocab() {
+  const all = [];
+  COURSE.filter(d => state.completedDays.includes(d.day) || d.day === state.currentDay)
+    .forEach(d => d.vocab.forEach(v => all.push({...v, day:d.day})));
+  return all;
+}
+
+// ============================================================
+// HEADER STATS
+// ============================================================
+function refreshStats() {
+  document.getElementById('stat-day').textContent = state.currentDay;
+  document.getElementById('stat-streak').textContent = state.streak;
+  const mastered = Object.values(state.masteredVocab).filter(c => c >= 2).length;
+  document.getElementById('stat-mastered').textContent = mastered;
+  const pct = Math.round((state.completedDays.length / 30) * 100);
+  document.getElementById('stat-pct').textContent = pct + '%';
+}
+
+// ============================================================
+// VIEWS
+// ============================================================
+const content = document.getElementById('content');
+
+function setActiveNav(view) {
+  document.querySelectorAll('nav button').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === view);
+  });
+}
+
+function renderLessonView(dayNum) {
+  const day = COURSE.find(d => d.day === dayNum) || COURSE[0];
+  const isCompleted = state.completedDays.includes(day.day);
+  let html = `
+    <div class="day-nav">
+      <button onclick="renderLessonView(${day.day-1})" ${day.day<=1?'disabled':''}>← Previous</button>
+      <select class="day-select" onchange="renderLessonView(parseInt(this.value))">
+        ${COURSE.map(d => `<option value="${d.day}" ${d.day===day.day?'selected':''}>Day ${d.day}: ${d.title}</option>`).join('')}
+      </select>
+      <button onclick="renderLessonView(${day.day+1})" ${day.day>=30?'disabled':''}>Next →</button>
+    </div>
+    <h2>Day ${day.day}: ${day.title}</h2>
+    <p class="subtitle">${day.focus}</p>
+
+    <h3>Vocabulary</h3>
+    <div class="vocab-grid">
+      ${day.vocab.map(v => `
+        <div class="vocab-card">
+          <div class="fr">${v.fr}</div>
+          <div class="ipa">${v.ipa}</div>
+          <div class="en">${v.en}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <h3>Key Phrases</h3>
+    <div class="phrase-list">
+      ${day.phrases.map(p => `
+        <div class="phrase">
+          <div class="fr">${p.fr}</div>
+          <div class="ipa">${p.ipa}</div>
+          <div class="en">${p.en}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <h3>Grammar / Cultural Tip</h3>
+    <div class="grammar-box">
+      <p>${day.grammar}</p>
+    </div>
+
+    <h3>Practice</h3>
+    <div class="practice-box">
+      <ol>
+        ${day.practice.map(p => `<li>${p}</li>`).join('')}
+      </ol>
+    </div>
+
+    <button class="complete-btn ${isCompleted?'done':''}" onclick="completeDay(${day.day})">
+      ${isCompleted ? '✓ Completed' : 'Mark Day Complete'}
+    </button>
+  `;
+  content.innerHTML = html;
+}
+
+function completeDay(dayNum) {
+  if (!state.completedDays.includes(dayNum)) {
+    state.completedDays.push(dayNum);
+    if (dayNum === state.currentDay && state.currentDay < 30) {
+      state.currentDay++;
+    }
+    saveState();
+    refreshStats();
+  }
+  renderLessonView(dayNum);
+}
+
+// FLASHCARDS
+let flashState = { pool: [], index: 0, flipped: false, scope: 'learned' };
+
+function renderFlashcardView() {
+  rebuildFlashPool();
+  if (flashState.pool.length === 0) {
+    content.innerHTML = `
+      <h2>Flashcards</h2>
+      <p class="subtitle">Drill the vocab from your completed days.</p>
+      <div class="empty">Complete Day 1 to start using flashcards!</div>
+    `;
+    return;
+  }
+  const card = flashState.pool[flashState.index];
+  content.innerHTML = `
+    <h2>Flashcards</h2>
+    <p class="subtitle">${flashState.pool.length} cards in the pool. Card ${flashState.index+1}/${flashState.pool.length}.</p>
+    <div class="filter-bar">
+      <select onchange="flashState.scope=this.value;flashState.index=0;flashState.flipped=false;renderFlashcardView()">
+        <option value="learned" ${flashState.scope==='learned'?'selected':''}>Days I've seen</option>
+        <option value="all">All 30 days</option>
+        <option value="weak">Need more work</option>
+      </select>
+      <button onclick="shufflePool();renderFlashcardView()">Shuffle</button>
+    </div>
+    <div class="flashcard-area">
+      <div class="flashcard ${flashState.flipped?'flipped':''}" onclick="flashState.flipped=!flashState.flipped;renderFlashcardView()">
+        ${flashState.flipped ? `
+          <div class="word">${card.en}</div>
+          <div class="ipa-large">${card.ipa}</div>
+          <div class="hint">(Day ${card.day})</div>
+        ` : `
+          <div class="word">${card.fr}</div>
+          <div class="ipa-large">${card.ipa}</div>
+          <div class="hint">Tap to flip</div>
+        `}
+      </div>
+      <div class="flashcard-controls">
+        <button class="btn-need" onclick="markCard('need')">Need work</button>
+        <button class="btn-skip" onclick="nextCard()">Skip</button>
+        <button class="btn-got" onclick="markCard('got')">Got it ✓</button>
+      </div>
+    </div>
+  `;
+}
+function rebuildFlashPool() {
+  let pool;
+  if (flashState.scope === 'all') pool = getAllVocab();
+  else if (flashState.scope === 'weak') {
+    pool = getAllVocab().filter(v => (state.needWorkVocab[v.fr]||0) > 0);
+    if (pool.length === 0) pool = getLearnedVocab();
+  } else {
+    pool = getLearnedVocab();
+  }
+  flashState.pool = pool;
+  if (flashState.index >= pool.length) flashState.index = 0;
+}
+function shufflePool() {
+  for (let i=flashState.pool.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [flashState.pool[i],flashState.pool[j]]=[flashState.pool[j],flashState.pool[i]];
+  }
+  flashState.index = 0;
+  flashState.flipped = false;
+}
+function markCard(type) {
+  const card = flashState.pool[flashState.index];
+  if (type === 'got') {
+    state.masteredVocab[card.fr] = (state.masteredVocab[card.fr]||0)+1;
+    state.needWorkVocab[card.fr] = 0;
+  } else {
+    state.needWorkVocab[card.fr] = (state.needWorkVocab[card.fr]||0)+1;
+  }
+  saveState();
+  refreshStats();
+  nextCard();
+}
+function nextCard() {
+  flashState.flipped = false;
+  flashState.index = (flashState.index + 1) % flashState.pool.length;
+  renderFlashcardView();
+}
+
+// QUIZ
+let quizState = { questions:[], current:0, score:0, answered:false };
+
+function renderQuizView() {
+  const learned = getLearnedVocab();
+  if (learned.length < 4) {
+    content.innerHTML = `
+      <h2>Quiz</h2>
+      <p class="subtitle">You need at least one day's worth of vocab to start.</p>
+      <div class="empty">Complete Day 1 to unlock the quiz!</div>
+    `;
+    return;
+  }
+  if (!quizState.questions.length) generateQuiz();
+  const q = quizState.questions[quizState.current];
+  if (!q) {
+    content.innerHTML = `
+      <h2>Quiz Complete!</h2>
+      <p class="subtitle">You scored ${quizState.score} out of ${quizState.questions.length}.</p>
+      <button class="complete-btn" onclick="quizState={questions:[],current:0,score:0,answered:false};renderQuizView()">New Quiz</button>
+    `;
+    return;
+  }
+  content.innerHTML = `
+    <h2>Quiz</h2>
+    <p class="subtitle">Question ${quizState.current+1} of ${quizState.questions.length} · Score: ${quizState.score}</p>
+    <div class="quiz-q">
+      <div class="q">${q.prompt}</div>
+      <div class="quiz-options">
+        ${q.options.map((opt,i) => {
+          let cls = 'quiz-option';
+          if (quizState.answered) {
+            if (opt === q.correct) cls += ' correct';
+            else if (i === q.selected) cls += ' wrong';
+            cls += ' disabled';
+          }
+          return `<button class="${cls}" onclick="answerQuiz(${i})">${opt}</button>`;
+        }).join('')}
+      </div>
+    </div>
+    ${quizState.answered ? `<button class="complete-btn" onclick="quizState.current++;quizState.answered=false;renderQuizView()">Next →</button>` : ''}
+  `;
+}
+function generateQuiz() {
+  const learned = getLearnedVocab();
+  const all = getAllVocab();
+  const pool = [...learned].sort(()=>Math.random()-0.5).slice(0, Math.min(10, learned.length));
+  quizState.questions = pool.map(item => {
+    const isFrToEn = Math.random() > 0.5;
+    const wrongs = all.filter(v=>v.fr!==item.fr).sort(()=>Math.random()-0.5).slice(0,3);
+    const correctText = isFrToEn ? item.en : item.fr;
+    const opts = [correctText, ...wrongs.map(w => isFrToEn ? w.en : w.fr)].sort(()=>Math.random()-0.5);
+    return {
+      prompt: isFrToEn ? `What does "${item.fr}" mean?` : `How do you say "${item.en}"?`,
+      options: opts,
+      correct: correctText
+    };
+  });
+  quizState.current = 0;
+  quizState.score = 0;
+}
+function answerQuiz(i) {
+  if (quizState.answered) return;
+  const q = quizState.questions[quizState.current];
+  q.selected = i;
+  quizState.answered = true;
+  if (q.options[i] === q.correct) {
+    quizState.score++;
+    state.quizScore.correct++;
+  }
+  state.quizScore.total++;
+  saveState();
+  renderQuizView();
+}
+
+// ALL LESSONS
+function renderAllView() {
+  content.innerHTML = `
+    <h2>All 30 Days</h2>
+    <p class="subtitle">Click any day to jump to that lesson.</p>
+    <div class="day-grid">
+      ${COURSE.map(d => {
+        let cls = 'day-tile';
+        if (state.completedDays.includes(d.day)) cls += ' completed';
+        if (d.day === state.currentDay) cls += ' current';
+        return `<div class="${cls}" onclick="setView('lesson');renderLessonView(${d.day})">
+          <div class="num">Day ${d.day}</div>
+          <div class="title">${d.title}</div>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+}
+
+// CONVERSATIONS
+function renderConvosView() {
+  content.innerHTML = `
+    <h2>Conversation Practice</h2>
+    <p class="subtitle">Real scenarios to drill before you go. Read aloud, take both parts.</p>
+    ${CONVERSATIONS.map(c => `
+      <div class="convo-card">
+        <h4>${c.title}</h4>
+        <div class="scene">${c.scene}</div>
+        <div class="dialogue">
+          ${c.lines.map(l => `
+            <div class="dialogue-line ${l.who}">
+              <div class="speaker">${l.who === 'you' ? 'You' : 'Them'}</div>
+              <div class="fr">${l.fr}</div>
+              <div class="en">${l.en}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+// PROGRESS
+function renderProgressView() {
+  const totalVocab = getAllVocab().length;
+  const seen = getLearnedVocab().length;
+  const mastered = Object.values(state.masteredVocab).filter(c=>c>=2).length;
+  const pct = Math.round((state.completedDays.length / 30) * 100);
+  const masteryPct = totalVocab > 0 ? Math.round((mastered/totalVocab)*100) : 0;
+  const quizPct = state.quizScore.total > 0 ? Math.round((state.quizScore.correct/state.quizScore.total)*100) : 0;
+
+  content.innerHTML = `
+    <h2>Your Progress</h2>
+    <p class="subtitle">Stats at a glance.</p>
+
+    <h3>Course Completion</h3>
+    <div>${state.completedDays.length} of 30 days · ${pct}%</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+
+    <h3>Vocabulary Mastered</h3>
+    <div>${mastered} of ${totalVocab} words · ${masteryPct}%</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${masteryPct}%"></div></div>
+
+    <h3>Quiz Accuracy</h3>
+    <div>${state.quizScore.correct} correct of ${state.quizScore.total} attempted · ${quizPct}%</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${quizPct}%"></div></div>
+
+    <h3>Streak</h3>
+    <div>${state.streak} day${state.streak===1?'':'s'} in a row · last visit: ${state.lastVisit || 'never'}</div>
+
+    <h3>Reset</h3>
+    <button class="reset-btn" onclick="if(confirm('Reset all progress?')){localStorage.removeItem(STORAGE_KEY);location.reload();}">Reset all progress</button>
+  `;
+}
+
+// VIEW ROUTER
+function setView(view) {
+  setActiveNav(view);
+  if (view === 'lesson') renderLessonView(state.currentDay);
+  else if (view === 'flashcards') renderFlashcardView();
+  else if (view === 'quiz') renderQuizView();
+  else if (view === 'all') renderAllView();
+  else if (view === 'conversations') renderConvosView();
+  else if (view === 'progress') renderProgressView();
+}
+
+document.querySelectorAll('nav button').forEach(b => {
+  b.addEventListener('click', () => setView(b.dataset.view));
+});
+
+// Initial render
+refreshStats();
+setView('lesson');
+</script>
+</body>
+</html>
