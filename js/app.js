@@ -119,6 +119,34 @@ const PAIRS = {
              translatorSubtitle:'한국어 단어나 문장을 입력하세요. 영어 번역, IPA 및 발음 가이드를 받아보세요. 스피커를 탭하여 들으세요.' },
 };
 
+// ── Auto-generate cross pairs (non-English ↔ non-English) ───────────────────
+// These use the target-language course as fallback until a native lesson plan
+// (e.g. js/course-es-fr.js) is loaded, at which point getCourseData() upgrades
+// automatically. Cross pairs are intentionally NOT shown on the landing page
+// until a native course file exists — surfaced progressively as content ships.
+(function() {
+  const NON_EN = ['fr','es','sq','it','pt','el','ja','de','ko'];
+  NON_EN.forEach(src => {
+    NON_EN.forEach(tgt => {
+      if (src === tgt) return;
+      const key = `${src}-${tgt}`;
+      if (PAIRS[key]) return; // already defined
+      PAIRS[key] = {
+        source: src,
+        target: tgt,
+        courseKey: tgt,
+        nativeCourse: false, // flipped to true when js/course-{key}.js is loaded
+        storageKey:  `${src}_${tgt}_learner_v1`,
+        recentKey:   `${src}_${tgt}_translator_recent`,
+        subtitle:    `${LANGS[src].label} → ${LANGS[tgt].label}`,
+        tagline:     `30 days to confidence in ${LANGS[tgt].label}`,
+        inputPlaceholder: 'e.g. hello',
+        translatorSubtitle: `Translate from ${LANGS[src].label} to ${LANGS[tgt].label}. Get the translation, IPA, and a pronunciation guide.`
+      };
+    });
+  });
+})();
+
 // Migrate old single-code lang keys (e.g. 'fr') → pair keys (e.g. 'en-fr')
 function migrateLangKey(val) {
   if (!val) return 'en-fr';
@@ -128,25 +156,47 @@ function migrateLangKey(val) {
 let currentLang = migrateLangKey(localStorage.getItem('cll_lang'));
 
 // ── Direction helpers ────────────────────────────────────────
-function currentPair()   { return PAIRS[currentLang]; }
-function currentTarget() { return PAIRS[currentLang].target; }
-function currentSource() { return PAIRS[currentLang].source; }
-// isReversed = learner's source is NOT English (reverse pairs and future cross-pairs)
-function isReversed()    { return PAIRS[currentLang].source !== 'en'; }
+function currentPair()     { return PAIRS[currentLang]; }
+function currentTarget()   { return PAIRS[currentLang].target; }
+function currentSource()   { return PAIRS[currentLang].source; }
+function isTargetEnglish() { return currentTarget() === 'en'; }
+function isSourceEnglish() { return currentSource() === 'en'; }
+function isCrossPair()     { return !isSourceEnglish() && !isTargetEnglish(); }
+// Legacy alias — kept for any stray call sites
+function isReversed()      { return !isSourceEnglish(); }
 
 // Returns the native/target-language word from any vocab/phrase/line object.
-// All original courses store the non-English word under 'fr:' or the lang code.
 function getNative(v) {
   const ck = currentPair().courseKey;
   return v[ck] || v.fr || v.native || '';
 }
 
-// Returns the word to SPEAK — always the target language word (what you're learning).
+// Front of card = target language word (what you're learning).
+// If target IS English (e.g. fr-en), the English word goes on front.
+function getFrontWord(v) {
+  return isTargetEnglish() ? (v.en || '') : getNative(v);
+}
+
+// Back of card = source language word (your native language).
+// For cross pairs: v[sourceCode]. For en-X forward: v.en. Falls back to English.
+function getBackWord(v) {
+  const src = currentSource();
+  if (src === 'en') return v.en || '';
+  return v[src] || v.en || '';
+}
+
+// TTS: always speak the TARGET language word.
 function getSpeakWord(v) {
-  return isReversed() ? (v.en || '') : getNative(v);
+  return isTargetEnglish() ? (v.en || '') : getNative(v);
 }
 
 function getCourseData(pairKey) {
+  // 1. Try pair-specific course file first (e.g. COURSE_ES_FR for native es→fr plan)
+  const pairVar  = 'COURSE_'  + pairKey.toUpperCase().replace('-', '_');
+  const convoVar = 'CONVERSATIONS_' + pairKey.toUpperCase().replace('-', '_');
+  if (window[pairVar]) return { course: window[pairVar], convos: window[convoVar] || [] };
+
+  // 2. Fall back to target-language course
   const ck = (PAIRS[pairKey] || PAIRS['en-fr']).courseKey;
   if (ck === 'es') return { course: COURSE_ES, convos: CONVERSATIONS_ES };
   if (ck === 'sq') return { course: COURSE_SQ, convos: CONVERSATIONS_SQ };
@@ -417,8 +467,8 @@ function renderLessonView(dayNum) {
       <div class="day-nav-card ${role === 'curr' ? 'today' : ''}" onclick="renderLessonView(${d.day})">
         <div class="card-label">${label}</div>
         <div class="card-day">Day ${d.day}</div>
-        <div class="card-title">${isReversed() && d.titleNative ? d.titleNative : d.title}</div>
-        ${d.titleNative ? `<div class="card-title-native">${isReversed() ? d.title : d.titleNative}</div>` : ''}
+        <div class="card-title">${isTargetEnglish() && d.titleNative ? d.titleNative : d.title}</div>
+        ${d.titleNative ? `<div class="card-title-native">${isTargetEnglish() ? d.title : d.titleNative}</div>` : ''}
         ${status}
       </div>`;
   }
@@ -429,7 +479,7 @@ function renderLessonView(dayNum) {
       ${navCard(day, 'curr')}
       ${navCard(nextDay, 'next')}
     </div>
-    <h2>Day ${day.day}: ${isReversed() && day.titleNative ? day.titleNative : day.title}${day.titleNative ? `<span class="title-native"> — ${isReversed() ? day.title : day.titleNative}</span>` : ''}</h2>
+    <h2>Day ${day.day}: ${isTargetEnglish() && day.titleNative ? day.titleNative : day.title}${day.titleNative ? `<span class="title-native"> — ${isTargetEnglish() ? day.title : day.titleNative}</span>` : ''}</h2>
     <p class="subtitle">${day.focus || ''}</p>
 
     <h3>Vocabulary</h3>
@@ -438,14 +488,14 @@ function renderLessonView(dayNum) {
         <div class="vocab-card" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="vocab-flip">
             <div class="vocab-face vocab-front">
-              <div class="fr">${isReversed() ? v.en : getNative(v)}</div>
-              ${isReversed() ? '' : `<div class="ipa">${v.phonetic || v.ipa || ''}</div>`}
+              <div class="fr">${getFrontWord(v)}</div>
+              ${isTargetEnglish() ? '' : `<div class="ipa">${v.phonetic || v.ipa || ''}</div>`}
               <button class="speak-btn speak-btn-sm" onclick="event.stopPropagation();speakWord('${getSpeakWord(v).replace(/'/g,"\\'")}','${currentTarget()}')">🔊</button>
               <div class="vocab-flip-hint">tap to reveal</div>
             </div>
             <div class="vocab-face vocab-back">
-              <div class="en">${isReversed() ? getNative(v) : v.en}</div>
-              ${isReversed() ? `<div class="ipa">${v.phonetic || v.ipa || ''}</div>` : ''}
+              <div class="en">${getBackWord(v)}</div>
+              ${isTargetEnglish() ? `<div class="ipa">${v.phonetic || v.ipa || ''}</div>` : ''}
             </div>
           </div>
         </div>
@@ -456,9 +506,9 @@ function renderLessonView(dayNum) {
     <div class="phrase-list">
       ${day.phrases.map(p => `
         <div class="phrase">
-          <div class="fr">${isReversed() ? p.en : getNative(p)}</div>
+          <div class="fr">${getFrontWord(p)}</div>
           <div class="ipa">${p.ipa || p.phonetic || ''}</div>
-          <div class="en">${isReversed() ? getNative(p) : p.en}</div>
+          <div class="en">${getBackWord(p)}</div>
           <button class="speak-btn speak-btn-sm" onclick="speakWord('${getSpeakWord(p).replace(/'/g,"\\'")}','${currentTarget()}')">🔊</button>
         </div>
       `).join('')}
@@ -569,13 +619,12 @@ function renderFlashcardCard() {
   const nativeWord = getNative(card);
   const speakText  = getSpeakWord(card);
   const speakBtn = `<button class="speak-btn" onclick="event.stopPropagation();speakWord('${speakText.replace(/'/g,"\\'")}','${currentTarget()}')" title="Hear pronunciation">🔊</button>`;
-  // For reversed pairs: front = target (English), back = native (source language)
-  // For forward pairs:  front = native (target), back = English (source)
-  const rev = isReversed();
-  const frontWord = rev ? card.en : nativeWord;
-  const backWord  = rev ? nativeWord : card.en;
-  const frontIpa  = rev ? '' : ipa;  // IPA lives on native side
-  const backIpa   = rev ? ipa : '';
+  // Front = target language (getFrontWord). Back = source language (getBackWord).
+  // IPA lives with the target/front side (not shown when target is English).
+  const frontWord = getFrontWord(card);
+  const backWord  = getBackWord(card);
+  const frontIpa  = isTargetEnglish() ? '' : ipa;
+  const backIpa   = isTargetEnglish() ? ipa : '';
   // Front/back content depends on IPA mode
   const frontContent = flashState.flipped
     ? `<div class="word">${backWord}</div>${backIpa ? `<div class="ipa-large">${backIpa}</div>` : ''}<div class="hint">${dayLabel}</div>`
@@ -937,7 +986,7 @@ function generateQuiz() {
   const all = getAllVocab();
   const pool = [...learned].sort(() => Math.random() - 0.5).slice(0, Math.min(10, learned.length));
   const targetLabel = LANGS[currentTarget()].label;
-  const reversed = isReversed();
+  const sourceLabel = LANGS[currentSource()].label;
   quizState.questions = [];
   quizState.current = 0;
   quizState.score = 0;
@@ -948,7 +997,7 @@ function generateQuiz() {
     // Insert one match-pairs question in the middle
     if (idx === insertMatchAt) {
       const pairPool = [...learned].sort(() => Math.random() - 0.5).slice(0, 4);
-      const pairs = pairPool.map(v => ({ native: getNative(v), en: v.en }));
+      const pairs = pairPool.map(v => ({ native: getFrontWord(v), en: getBackWord(v) }));
       quizState.questions.push({
         type: 'match-pairs',
         pairs,
@@ -965,25 +1014,26 @@ function generateQuiz() {
     // Mix MC and type-it (~50/50)
     const type = Math.random() > 0.5 ? 'mc' : 'type-it';
     if (type === 'mc') {
-      // For reversed pairs: always show source-lang word → pick target-lang answer
-      // For forward pairs: randomise direction
-      const showNativeToEn = reversed ? true : Math.random() > 0.5;
-      const wrongs = all.filter(v => getNative(v) !== getNative(item)).sort(() => Math.random() - 0.5).slice(0, 3);
-      const correctText = showNativeToEn ? item.en : getNative(item);
-      const opts = [correctText, ...wrongs.map(w => showNativeToEn ? w.en : getNative(w))].sort(() => Math.random() - 0.5);
+      // Direction: show front word → guess back word, or vice versa.
+      // When target is English (X-en), always show native→English.
+      // Otherwise randomise 50/50.
+      const showFrontToBack = isTargetEnglish() ? true : Math.random() > 0.5;
+      const wrongs = all.filter(v => getFrontWord(v) !== getFrontWord(item)).sort(() => Math.random() - 0.5).slice(0, 3);
+      const correctText = showFrontToBack ? getBackWord(item) : getFrontWord(item);
+      const opts = [correctText, ...wrongs.map(w => showFrontToBack ? getBackWord(w) : getFrontWord(w))].sort(() => Math.random() - 0.5);
       quizState.questions.push({
         type: 'mc',
-        prompt: showNativeToEn
-          ? `What does "${getNative(item)}" mean?`
-          : `How do you say "${item.en}" in ${targetLabel}?`,
+        prompt: showFrontToBack
+          ? `What does "${getFrontWord(item)}" mean in ${sourceLabel}?`
+          : `How do you say "${getBackWord(item)}" in ${targetLabel}?`,
         options: opts,
         correct: correctText
       });
     } else {
       quizState.questions.push({
         type: 'type-it',
-        prompt: `What does "${getNative(item)}" mean in English?`,
-        correct: item.en,
+        prompt: `What does "${getFrontWord(item)}" mean in ${sourceLabel}?`,
+        correct: getBackWord(item),
         phonetic: item.phonetic || '',
         answered: false,
         isCorrect: false,
@@ -1437,9 +1487,9 @@ function renderNotebookView() {
         <div class="review-word-list">
           ${reviewWords.map(v => `
             <div class="review-word-row">
-              <div class="review-word-native">${getNative(v)}</div>
+              <div class="review-word-native">${getFrontWord(v)}</div>
               <div class="review-word-phonetic">${v.phonetic || v.ipa || ''}</div>
-              <div class="review-word-en">${v.en}</div>
+              <div class="review-word-en">${getBackWord(v)}</div>
               <button class="review-word-clear" onclick="clearFromReview('${getNative(v).replace(/'/g,"\\'")}')">✓ Got it</button>
             </div>`).join('')}
         </div>` : `<div class="review-empty">Nothing here yet — mark flashcards "Need work" and they'll show up here.</div>`}
