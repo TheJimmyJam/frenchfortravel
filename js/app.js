@@ -448,7 +448,6 @@ function setActiveNav(view) {
 }
 
 function renderLessonView(dayNum) {
-  updateLessonBanner(dayNum);
   const day = COURSE.find(d => d.day === dayNum) || COURSE[0];
   const isCompleted = state.completedDays.includes(day.day);
 
@@ -478,6 +477,10 @@ function renderLessonView(dayNum) {
       ${navCard(prevDay, 'prev')}
       ${navCard(day, 'curr')}
       ${navCard(nextDay, 'next')}
+    </div>
+    <div id="lesson-banner-wrap" style="display:none;margin:16px 0 4px;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.45);line-height:0;">
+      <img id="lesson-banner-img" src="" alt=""
+           style="width:100%;max-height:320px;object-fit:cover;object-position:center;opacity:0;transition:opacity 0.4s ease;display:block;">
     </div>
     <h2>Day ${day.day}: ${isTargetEnglish() && day.titleNative ? day.titleNative : day.title}${day.titleNative ? `<span class="title-native"> — ${isTargetEnglish() ? day.title : day.titleNative}</span>` : ''}</h2>
     <p class="subtitle">${day.focus || ''}</p>
@@ -539,6 +542,7 @@ function renderLessonView(dayNum) {
     </div>
   `;
   content.innerHTML = html;
+  updateLessonBanner(dayNum);
 }
 
 function completeDay(dayNum) {
@@ -1587,9 +1591,7 @@ function setView(view) {
   setActiveNav(view);
   if (view === 'lesson') {
     renderLessonView(state.currentDay);
-    updateLessonBanner(state.currentDay);
   } else {
-    hideLessonBanner();
     if (view === 'flashcards')    renderFlashcardView();
     else if (view === 'quiz')          renderQuizView();
     else if (view === 'all')           renderAllView();
