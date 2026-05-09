@@ -1512,7 +1512,7 @@ function updateLessonBanner(dayNum) {
   if (!wrap || !img) return;
 
   const nn   = String(dayNum).padStart(2, '0');
-  const base = `/assets/banners/${currentLang}/day-${nn}`;
+  const base = `/assets/banners/${currentPair().courseKey}/day-${nn}`;
 
   img.style.opacity = '0';
   // Try jpg first, fall back to png, then hide if neither exists
