@@ -417,8 +417,8 @@ function renderLessonView(dayNum) {
       <div class="day-nav-card ${role === 'curr' ? 'today' : ''}" onclick="renderLessonView(${d.day})">
         <div class="card-label">${label}</div>
         <div class="card-day">Day ${d.day}</div>
-        <div class="card-title">${d.title}</div>
-        ${d.titleNative ? `<div class="card-title-native">${d.titleNative}</div>` : ''}
+        <div class="card-title">${isReversed() && d.titleNative ? d.titleNative : d.title}</div>
+        ${d.titleNative ? `<div class="card-title-native">${isReversed() ? d.title : d.titleNative}</div>` : ''}
         ${status}
       </div>`;
   }
@@ -429,7 +429,7 @@ function renderLessonView(dayNum) {
       ${navCard(day, 'curr')}
       ${navCard(nextDay, 'next')}
     </div>
-    <h2>Day ${day.day}: ${day.title}${day.titleNative ? `<span class="title-native"> — ${day.titleNative}</span>` : ''}</h2>
+    <h2>Day ${day.day}: ${isReversed() && day.titleNative ? day.titleNative : day.title}${day.titleNative ? `<span class="title-native"> — ${isReversed() ? day.title : day.titleNative}</span>` : ''}</h2>
     <p class="subtitle">${day.focus || ''}</p>
 
     <h3>Vocabulary</h3>
@@ -438,13 +438,14 @@ function renderLessonView(dayNum) {
         <div class="vocab-card" onclick="this.classList.toggle('flipped')" title="Click to flip">
           <div class="vocab-flip">
             <div class="vocab-face vocab-front">
-              <div class="fr">${getNative(v)}</div>
-              <div class="ipa">${v.phonetic || v.ipa || ''}</div>
+              <div class="fr">${isReversed() ? v.en : getNative(v)}</div>
+              ${isReversed() ? '' : `<div class="ipa">${v.phonetic || v.ipa || ''}</div>`}
               <button class="speak-btn speak-btn-sm" onclick="event.stopPropagation();speakWord('${getSpeakWord(v).replace(/'/g,"\\'")}','${currentTarget()}')">🔊</button>
               <div class="vocab-flip-hint">tap to reveal</div>
             </div>
             <div class="vocab-face vocab-back">
-              <div class="en">${v.en}</div>
+              <div class="en">${isReversed() ? getNative(v) : v.en}</div>
+              ${isReversed() ? `<div class="ipa">${v.phonetic || v.ipa || ''}</div>` : ''}
             </div>
           </div>
         </div>
@@ -455,9 +456,9 @@ function renderLessonView(dayNum) {
     <div class="phrase-list">
       ${day.phrases.map(p => `
         <div class="phrase">
-          <div class="fr">${getNative(p)}</div>
+          <div class="fr">${isReversed() ? p.en : getNative(p)}</div>
           <div class="ipa">${p.ipa || p.phonetic || ''}</div>
-          <div class="en">${p.en}</div>
+          <div class="en">${isReversed() ? getNative(p) : p.en}</div>
           <button class="speak-btn speak-btn-sm" onclick="speakWord('${getSpeakWord(p).replace(/'/g,"\\'")}','${currentTarget()}')">🔊</button>
         </div>
       `).join('')}
@@ -568,14 +569,19 @@ function renderFlashcardCard() {
   const nativeWord = getNative(card);
   const speakText  = getSpeakWord(card);
   const speakBtn = `<button class="speak-btn" onclick="event.stopPropagation();speakWord('${speakText.replace(/'/g,"\\'")}','${currentTarget()}')" title="Hear pronunciation">🔊</button>`;
+  // For reversed pairs: front = target (English), back = native (source language)
+  // For forward pairs:  front = native (target), back = English (source)
+  const rev = isReversed();
+  const frontWord = rev ? card.en : nativeWord;
+  const backWord  = rev ? nativeWord : card.en;
+  const frontIpa  = rev ? '' : ipa;  // IPA lives on native side
+  const backIpa   = rev ? ipa : '';
   // Front/back content depends on IPA mode
   const frontContent = flashState.flipped
-    ? (showIpa
-        ? `<div class="word">${card.en}</div><div class="hint">${dayLabel}</div>`
-        : `<div class="word">${card.en}</div>${ipa ? `<div class="ipa-large">${ipa}</div>` : ''}<div class="hint">${dayLabel}</div>`)
+    ? `<div class="word">${backWord}</div>${backIpa ? `<div class="ipa-large">${backIpa}</div>` : ''}<div class="hint">${dayLabel}</div>`
     : (showIpa
-        ? `<div class="word">${nativeWord}</div>${ipa ? `<div class="ipa-large">${ipa}</div>` : ''}${speakBtn}<div class="hint">Tap to flip</div>`
-        : `<div class="word">${nativeWord}</div>${speakBtn}<div class="hint pronunciation-challenge">Say it — then flip</div>`);
+        ? `<div class="word">${frontWord}</div>${frontIpa ? `<div class="ipa-large">${frontIpa}</div>` : ''}${speakBtn}<div class="hint">Tap to flip</div>`
+        : `<div class="word">${frontWord}</div>${speakBtn}<div class="hint pronunciation-challenge">Say it — then flip</div>`);
   content.innerHTML = `
     <div class="flash-layout">
       <div class="flash-sidebar">
