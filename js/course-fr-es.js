@@ -2,7 +2,7 @@
 // Français comme langue d'instruction, espagnol comme objectif
 // vocab: { es: "mot espagnol", fr: "traduction française", ipa: "phonétique pour francophones" }
 
-const COURSE_FR_ES = [
+var COURSE_FR_ES = [
   {
     day: 1,
     title: "Salutations et politesse",
@@ -939,4 +939,4 @@ const COURSE_FR_ES = [
   }
 ];
 
-const CONVERSATIONS_FR_ES = [];
+var CONVERSATIONS_FR_ES = [];

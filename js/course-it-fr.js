@@ -3,7 +3,7 @@
 // vocab: { fr: "parola francese", it: "traduzione italiana", ipa: "fonetica per italofoni" }
 // Fonetica: zh=/ʒ/ (come "gi" in giorno), sh=/ʃ/ (come "sc" in scena), ü=/y/ (non esiste in italiano), R=r gutturale, ã/õ/ẽ=vocali nasali
 
-const COURSE_IT_FR = [
+var COURSE_IT_FR = [
   {
     day: 1,
     title: "Saluti e cortesia",
@@ -940,4 +940,4 @@ const COURSE_IT_FR = [
   }
 ];
 
-const CONVERSATIONS_IT_FR = [];
+var CONVERSATIONS_IT_FR = [];

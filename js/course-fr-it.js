@@ -3,7 +3,7 @@
 // vocab: { it: "mot italien", fr: "traduction française", ipa: "phonétique pour francophones" }
 // Phonétique : tch=/tʃ/ (comme "c" devant e/i), dj=/dʒ/ (comme "g" devant e/i), ly=/ʎ/ (gli), gn=/ɲ/ (comme en français), ts=/ts/, les doubles consonnes se prononcent plus longues
 
-const COURSE_FR_IT = [
+var COURSE_FR_IT = [
   {
     day: 1,
     title: "Salutations et politesse",
@@ -940,4 +940,4 @@ const COURSE_FR_IT = [
   }
 ];
 
-const CONVERSATIONS_FR_IT = [];
+var CONVERSATIONS_FR_IT = [];
