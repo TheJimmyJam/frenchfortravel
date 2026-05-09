@@ -1557,7 +1557,8 @@ function updateReviewBadge() {
 // VIEW ROUTER
 // ============================================================
 // LESSON BANNER — per-day image above lesson content
-// Images live at: /assets/banners/{lang}/day-{nn}.jpg
+// en-X pairs:    /assets/banners/{targetLang}/day-{nn}  (e.g. /assets/banners/fr/day-01)
+// cross pairs:   /assets/banners/{pairKey}/day-{nn}     (e.g. /assets/banners/it-fr/day-01)
 // Falls back gracefully if image doesn't exist yet.
 // ============================================================
 function updateLessonBanner(dayNum) {
@@ -1565,8 +1566,9 @@ function updateLessonBanner(dayNum) {
   const img  = document.getElementById('lesson-banner-img');
   if (!wrap || !img) return;
 
-  const nn   = String(dayNum).padStart(2, '0');
-  const base = `/assets/banners/${currentPair().courseKey}/day-${nn}`;
+  const nn        = String(dayNum).padStart(2, '0');
+  const folderKey = currentLang.startsWith('en-') ? currentPair().courseKey : currentLang;
+  const base      = `/assets/banners/${folderKey}/day-${nn}`;
 
   img.style.opacity = '0';
   // Try jpg first, fall back to png, then hide if neither exists
