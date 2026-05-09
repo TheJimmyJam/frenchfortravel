@@ -1,8 +1,8 @@
-# French for Travel — 30-Day System
+# The Cunning Linguist
 
-A self-paced beginner French course built for one specific goal: handle Paris confidently.
+A self-paced language learning platform. First course: 30-day French-for-travel for Paris confidence. Multi-language support coming next.
 
-**Live app:** https://frenchfortravel.netlify.app
+**Live app:** https://cunninglinguist.netlify.app
 
 ## What's in here
 

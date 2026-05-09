@@ -1,4 +1,4 @@
-# French for Travel — 30-Day Plan
+# The Cunning Linguist — 30-Day Plan
 
 A structured curriculum for total beginners aiming for café-confidence in Paris. 20–30 minutes per day. Pair this with the interactive web app (`index.html`) and the vocab tracker (`Vocab-Tracker.xlsx`).
 
