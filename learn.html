@@ -73,10 +73,18 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .header-auth {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    order: 2;
+  }
   .stats {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    order: 1;
   }
   .stat {
     background: rgba(212,175,55,0.1);
@@ -1536,7 +1544,8 @@
     .app { padding: 10px; }
     main { padding: 20px; }
     h1 { font-size: 22px; }
-    .stats { gap: 6px; flex-wrap: nowrap; width: 100%; }
+    .header-auth { order: 1; }
+    .stats { order: 2; width: 100%; gap: 6px; flex-wrap: nowrap; }
     .stat { padding: 8px 4px; min-width: 0; flex: 1 1 0; }
     .stat-num { font-size: 18px; }
     .stat-label { font-size: 10px; letter-spacing: 0.3px; white-space: nowrap; }
@@ -1936,15 +1945,15 @@
         <a href="/" class="change-lang-link">← Change language</a>
       </div>
     </div>
-    <div style="display:flex;align-items:center;gap:10px;">
-      <div class="stats">
-        <div class="stat"><div class="stat-num" id="stat-day">1</div><div class="stat-label" id="stat-label-day">Day</div></div>
-        <div class="stat"><div class="stat-num" id="stat-streak">0</div><div class="stat-label" id="stat-label-streak">Streak</div></div>
-        <div class="stat"><div class="stat-num" id="stat-mastered">0</div><div class="stat-label" id="stat-label-mastered">Mastered</div></div>
-        <div class="stat"><div class="stat-num" id="stat-pct">0%</div><div class="stat-label" id="stat-label-progress">Progress</div></div>
-      </div>
+    <div class="header-auth">
       <button class="auth-btn" id="auth-btn" onclick="window.cllSync?.showAuthModal()" title="Sign in to sync progress across devices">Sign In</button>
       <button class="profile-btn" id="profile-btn" onclick="showProfileModal()" title="Your profile">👤</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num" id="stat-day">1</div><div class="stat-label" id="stat-label-day">Day</div></div>
+      <div class="stat"><div class="stat-num" id="stat-streak">0</div><div class="stat-label" id="stat-label-streak">Streak</div></div>
+      <div class="stat"><div class="stat-num" id="stat-mastered">0</div><div class="stat-label" id="stat-label-mastered">Mastered</div></div>
+      <div class="stat"><div class="stat-num" id="stat-pct">0%</div><div class="stat-label" id="stat-label-progress">Progress</div></div>
     </div>
   </header>
 
