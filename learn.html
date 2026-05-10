@@ -1551,6 +1551,16 @@
     .stat-label { font-size: 10px; letter-spacing: 0.3px; white-space: nowrap; }
     .learn-subtitle { display: none; }
     .change-lang-link { display: none; }
+    /* Day nav trio — compact prev/next, today gets remaining space */
+    .day-nav-trio { gap: 6px; margin: 12px 0; }
+    .day-nav-card { flex: 0 0 58px; padding: 10px 5px; }
+    .day-nav-card.today { flex: 1; padding: 12px 10px; }
+    .day-nav-card.ghost { flex: 0 0 58px; }
+    .day-nav-card:not(.today) .card-title,
+    .day-nav-card:not(.today) .card-title-native,
+    .day-nav-card:not(.today) .card-check { display: none; }
+    .day-nav-card:not(.today) .card-label { font-size: 9px; letter-spacing: 0.5px; margin-bottom: 3px; }
+    .day-nav-card:not(.today) .card-day { font-size: 11px; margin-bottom: 0; }
   }
 
   /* === CHANGE LANGUAGE LINK === */
