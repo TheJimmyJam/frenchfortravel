@@ -308,7 +308,7 @@ const UI_STRINGS = {
     flash_ipa_on:'IPA en face', flash_challenge:'Défi',
     flash_need_btn:'À retravailler', flash_skip:'Passer', flash_got_it:'Compris ✓',
     flash_tap_flip:'Touchez pour retourner', flash_say_it:'Dites-le — puis retournez',
-    flash_empty_saved:"Aucun mot sauvegardé. Utilisez l'onglet Traducteur et touchez \\"+ Sauvegarder\\" pour créer votre jeu.",
+    flash_empty_saved:"Aucun mot sauvegardé. Utilisez l'onglet Traducteur et touchez \u0022+ Sauvegarder\u0022 pour créer votre jeu.",
     flash_empty_day1:'Terminez le Jour 1 pour commencer à utiliser les flashcards !', flash_cards:'fiches',
     quiz_complete:'Quiz Terminé', quiz_unlock:'Terminez le Jour 1 pour débloquer le quiz.',
     quiz_try_again:'Réessayer →', quiz_choose:'🔤 Choisissez la réponse',
