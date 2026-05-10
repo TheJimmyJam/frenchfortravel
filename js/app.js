@@ -718,6 +718,24 @@ function nextCard() {
 
 // QUIZ
 let quizState = { questions:[], current:0, score:0, answered:false };
+let _quizKeyHandler = null;
+
+function setupQuizEnterKey() {
+  if (_quizKeyHandler) document.removeEventListener('keydown', _quizKeyHandler);
+  _quizKeyHandler = function(e) {
+    if (e.key !== 'Enter') return;
+    // Let the type-it input handle its own Enter (it submits or advances inline)
+    if (document.activeElement && document.activeElement.id === 'type-it-inp') return;
+    const q = quizState.questions[quizState.current];
+    const canAdvance = quizState.answered || (q && q.done);
+    if (canAdvance) {
+      quizState.current++;
+      quizState.answered = false;
+      renderQuizView();
+    }
+  };
+  document.addEventListener('keydown', _quizKeyHandler);
+}
 
 const PROCTOR_QUIPS = [
   "I have my eye on you.",
@@ -809,6 +827,7 @@ function renderQuizView() {
   } else {
     renderMcQ(q, proctorCol, progressLabel);
   }
+  setupQuizEnterKey();
 }
 
 function renderMcQ(q, proctorCol, progressLabel) {
@@ -865,7 +884,7 @@ function renderTypeItQ(q, proctorCol, progressLabel) {
             <input class="type-it-input" id="type-it-inp" type="text" placeholder="Type your answer…"
               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
               value="${escapeHtml(q.typed || '')}"
-              onkeydown="if(event.key==='Enter')answerTypeIt()"
+              onkeydown="if(event.key==='Enter'){if(quizState.questions[quizState.current].answered){quizState.current++;quizState.answered=false;renderQuizView();}else{answerTypeIt();}}"
               oninput="quizState.questions[quizState.current].typed=this.value">
             <button class="type-it-submit" onclick="answerTypeIt()">Check →</button>
           </div>
@@ -883,10 +902,24 @@ function answerTypeIt() {
   if (q.answered) return;
   const typed = (q.typed || '').trim();
   if (!typed) return;
-  const norm = s => s.toLowerCase().trim()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[.,!?;:'"()¡¿\-]/g, '').replace(/\s+/g, ' ');
-  q.isCorrect = norm(typed) === norm(q.correct);
+  const norm = s => {
+    let r = s.toLowerCase().trim()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[.,!?;:'"()¡¿\-]/g, '').replace(/\s+/g, ' ');
+    // Normalize common contractions so "I'm" and "I am" both grade the same
+    r = r.replace(/\bi'm\b/g,'i am').replace(/\byou're\b/g,'you are')
+         .replace(/\bhe's\b/g,'he is').replace(/\bshe's\b/g,'she is')
+         .replace(/\bit's\b/g,'it is').replace(/\bwe're\b/g,'we are')
+         .replace(/\bthey're\b/g,'they are').replace(/\bdon't\b/g,'do not')
+         .replace(/\bdoesn't\b/g,'does not').replace(/\bcan't\b/g,'cannot')
+         .replace(/\bwon't\b/g,'will not').replace(/\bisn't\b/g,'is not')
+         .replace(/\baren't\b/g,'are not');
+    return r.trim();
+  };
+  // Split "hello / good morning" style answers — any alternative counts as correct
+  const alternatives = q.correct.split(/\s*[\/|]\s*/).map(norm).filter(Boolean);
+  const typedNorm = norm(typed);
+  q.isCorrect = alternatives.some(alt => alt === typedNorm);
   q.answered = true;
   if (q.isCorrect) { quizState.score++; state.quizScore.correct++; }
   state.quizScore.total++;
