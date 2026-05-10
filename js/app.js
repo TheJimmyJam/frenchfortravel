@@ -1172,7 +1172,10 @@ function openConvo(i) {
       ${c.lines.map(l => `
         <div class="cmodal-line ${l.who}">
           <div class="cmodal-speaker">${l.who === 'you' ? 'You' : 'Them'}</div>
-          <div class="cmodal-native">${getNative(l)}</div>
+          <div class="cmodal-native-row">
+            <span class="cmodal-native">${getNative(l)}</span>
+            <button class="speak-btn speak-btn-sm cmodal-speak" onclick="speakWord(${JSON.stringify(getNative(l)).replace(/"/g,'&quot;')},'${currentTarget()}')">🔊</button>
+          </div>
           ${l.phonetic ? `<div class="cmodal-phonetic">${l.phonetic}</div>` : ''}
           <div class="cmodal-english">${l.en}</div>
         </div>
