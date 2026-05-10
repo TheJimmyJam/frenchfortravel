@@ -1536,9 +1536,10 @@
     .app { padding: 10px; }
     main { padding: 20px; }
     h1 { font-size: 22px; }
-    .stats { gap: 6px; }
-    .stat { padding: 8px; min-width: 0; width: 56px; flex: 0 0 56px; }
+    .stats { gap: 6px; flex-wrap: nowrap; width: 100%; }
+    .stat { padding: 8px 4px; min-width: 0; flex: 1 1 0; }
     .stat-num { font-size: 18px; }
+    .stat-label { font-size: 10px; letter-spacing: 0.3px; white-space: nowrap; }
     .learn-subtitle { display: none; }
     .change-lang-link { display: none; }
   }
