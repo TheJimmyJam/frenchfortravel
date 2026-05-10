@@ -939,4 +939,85 @@ var COURSE_FR_ES = [
   }
 ];
 
-var CONVERSATIONS_FR_ES = [];
+var CONVERSATIONS_FR_ES = [
+  { title:"Au café",
+    scene:"Tu entres dans un café à Madrid et tu commandes le petit-déjeuner.",
+    lines:[
+      {who:"them", es:"¡Buenos días! ¿Qué le pongo?", en:"Bonjour ! Qu'est-ce que je vous sers ?"},
+      {who:"you",  es:"Buenos días. Un café con leche y una tostada, por favor.", en:"Bonjour. Un café au lait et une tartine, s'il vous plaît."},
+      {who:"them", es:"¿Para tomar aquí o para llevar?", en:"Sur place ou à emporter ?"},
+      {who:"you",  es:"Para tomar aquí, gracias.", en:"Sur place, merci."},
+      {who:"them", es:"Ahora mismo. Son tres euros veinte.", en:"Tout de suite. Ça fait trois euros vingt."},
+      {who:"you",  es:"Aquí tiene. Muchas gracias.", en:"Voilà. Merci beaucoup."},
+      {who:"them", es:"¡Que aproveche! ¡Buen día!", en:"Bon appétit ! Bonne journée !"}
+    ]},
+  { title:"À l'hôtel",
+    scene:"Tu arrives à ton hôtel à Barcelone avec une réservation.",
+    lines:[
+      {who:"you",  es:"Buenas tardes, tengo una reserva a nombre de Dupont.", en:"Bonsoir, j'ai une réservation au nom de Dupont."},
+      {who:"them", es:"Bienvenido, señor Dupont. Dos noches, habitación doble, ¿verdad?", en:"Bienvenue, monsieur Dupont. Deux nuits, chambre double, c'est ça ?"},
+      {who:"you",  es:"Exacto. ¿A qué hora es el desayuno?", en:"Exactement. À quelle heure est le petit-déjeuner ?"},
+      {who:"them", es:"De ocho a once, en el primer piso.", en:"De huit à onze heures, au premier étage."},
+      {who:"you",  es:"¿Y hay wifi gratuito?", en:"Et il y a le wifi gratuit ?"},
+      {who:"them", es:"Sí, la contraseña está en la tarjeta de la habitación. Aquí tiene la llave, habitación 312.", en:"Oui, le mot de passe est sur la carte de chambre. Voici la clé, chambre 312."},
+      {who:"you",  es:"Perfecto, muchas gracias.", en:"Parfait, merci beaucoup."}
+    ]},
+  { title:"Demander son chemin",
+    scene:"Tu es perdu près de la Plaza Mayor et tu cherches le musée du Prado.",
+    lines:[
+      {who:"you",  es:"Perdone, ¿sabe dónde está el Museo del Prado?", en:"Excusez-moi, savez-vous où se trouve le musée du Prado ?"},
+      {who:"them", es:"Sí, claro. Siga todo recto por esta calle y gire a la izquierda.", en:"Oui, bien sûr. Continuez tout droit dans cette rue et tournez à gauche."},
+      {who:"you",  es:"¿Todo recto y luego a la izquierda?", en:"Tout droit et ensuite à gauche ?"},
+      {who:"them", es:"Exacto, verá el museo enfrente. Son unos diez minutos a pie.", en:"Exactement, vous verrez le musée en face. C'est à environ dix minutes à pied."},
+      {who:"you",  es:"Muchas gracias, es usted muy amable.", en:"Merci beaucoup, vous êtes très aimable."},
+      {who:"them", es:"De nada. ¡Que disfrute del museo!", en:"De rien. Profitez bien du musée !"}
+    ]},
+  { title:"Au restaurant",
+    scene:"Tu dînes dans un restaurant typique espagnol.",
+    lines:[
+      {who:"you",  es:"Buenas noches, ¿tienen mesa para dos?", en:"Bonsoir, avez-vous une table pour deux ?"},
+      {who:"them", es:"Buenas noches. Sí, síganme por favor.", en:"Bonsoir. Oui, suivez-moi s'il vous plaît."},
+      {who:"you",  es:"¿Cuál es el plato del día?", en:"Quel est le plat du jour ?"},
+      {who:"them", es:"El plato del día es paella valenciana y de postre, flan casero.", en:"Le plat du jour est la paella valenciana et comme dessert, flan maison."},
+      {who:"you",  es:"Perfecto. Tomaré la paella y agua con gas, por favor.", en:"Parfait. Je prendrai la paella et de l'eau gazeuse, s'il vous plaît."},
+      {who:"them", es:"Enseguida. ¿Algo más?", en:"Tout de suite. Autre chose ?"},
+      {who:"you",  es:"No, gracias. Y la cuenta cuando pueda.", en:"Non, merci. Et l'addition quand vous pourrez."},
+      {who:"them", es:"¡Claro! Que aproveche.", en:"Bien sûr ! Bon appétit."}
+    ]},
+  { title:"Faire du shopping",
+    scene:"Tu cherches un souvenir dans une boutique à Séville.",
+    lines:[
+      {who:"them", es:"¡Hola! ¿Le puedo ayudar en algo?", en:"Bonjour ! Puis-je vous aider ?"},
+      {who:"you",  es:"Hola, busco algo típico de Sevilla para llevar de regalo.", en:"Bonjour, je cherche quelque chose de typique de Séville comme cadeau."},
+      {who:"them", es:"Tenemos abanicos, cerámica y azulejos artesanales.", en:"Nous avons des éventails, de la céramique et des carreaux artisanaux."},
+      {who:"you",  es:"¿Cuánto cuesta ese abanico rojo?", en:"Combien coûte cet éventail rouge ?"},
+      {who:"them", es:"Ese es de doce euros. Es hecho a mano.", en:"Celui-là est à douze euros. Il est fait main."},
+      {who:"you",  es:"Me lo llevo. ¿Acepta tarjeta?", en:"Je le prends. Vous acceptez la carte ?"},
+      {who:"them", es:"Sí, claro. ¿Le envuelvo para regalo?", en:"Oui, bien sûr. Vous le voulez emballé cadeau ?"},
+      {who:"you",  es:"Sí, por favor. Muchas gracias.", en:"Oui, s'il vous plaît. Merci beaucoup."}
+    ]},
+  { title:"Chez le médecin",
+    scene:"Tu te sens mal et tu consultes un médecin.",
+    lines:[
+      {who:"them", es:"Buenos días, ¿qué le ocurre?", en:"Bonjour, qu'est-ce qui ne va pas ?"},
+      {who:"you",  es:"Me duele el estómago desde ayer y tengo un poco de fiebre.", en:"J'ai mal à l'estomac depuis hier et j'ai un peu de fièvre."},
+      {who:"them", es:"¿Qué ha comido hoy?", en:"Qu'avez-vous mangé aujourd'hui ?"},
+      {who:"you",  es:"No mucho. No tengo apetito.", en:"Pas grand-chose. Je n'ai pas d'appétit."},
+      {who:"them", es:"Puede ser una gastroenteritis leve. Le receto un antiácido y reposo.", en:"Ça pourrait être une légère gastro-entérite. Je vous prescris un antiacide et du repos."},
+      {who:"you",  es:"¿Necesito guardar cama?", en:"Je dois rester au lit ?"},
+      {who:"them", es:"Un día de descanso sería lo ideal. Si no mejora, vuelva mañana.", en:"Un jour de repos serait idéal. Si vous n'allez pas mieux, revenez demain."},
+      {who:"you",  es:"Gracias, doctor. ¿Dónde está la farmacia más cercana?", en:"Merci, docteur. Où est la pharmacie la plus proche ?"}
+    ]},
+  { title:"Petite conversation",
+    scene:"Échange sympathique avec un Espagnol dans un parc.",
+    lines:[
+      {who:"them", es:"¿De dónde eres? Tienes acento extranjero.", en:"D'où tu viens ? Tu as un accent étranger."},
+      {who:"you",  es:"Soy francés, de Lyon. Estoy de visita.", en:"Je suis français, de Lyon. Je suis en visite."},
+      {who:"them", es:"¡Qué bien! ¿Es tu primera vez en España?", en:"Super ! C'est ta première fois en Espagne ?"},
+      {who:"you",  es:"Sí, es la primera vez. Me encanta el ambiente.", en:"Oui, c'est la première fois. J'adore l'ambiance."},
+      {who:"them", es:"¿Y hablas español desde hace mucho?", en:"Et tu parles espagnol depuis longtemps ?"},
+      {who:"you",  es:"Llevo un año aprendiéndolo. El español y el francés se parecen mucho.", en:"J'apprends depuis un an. L'espagnol et le français se ressemblent beaucoup."},
+      {who:"them", es:"¡Es verdad! ¿Qué te parece España?", en:"C'est vrai ! Qu'est-ce que tu penses de l'Espagne ?"},
+      {who:"you",  es:"Me encanta la comida, la gente y el clima. ¡Ojalá vivir aquí!", en:"J'adore la nourriture, les gens et le climat. J'aimerais vivre ici !"}
+    ]}
+];

@@ -939,4 +939,90 @@ var COURSE_ES_FR = [
   }
 ];
 
-var CONVERSATIONS_ES_FR = [];
+var CONVERSATIONS_ES_FR = [
+  { title:"En el café",
+    scene:"Entras a una cafetería en París y pides el desayuno.",
+    lines:[
+      {who:"them", fr:"Bonjour ! Qu'est-ce que vous désirez ?", en:"¡Buenos días! ¿Qué desea usted?"},
+      {who:"you",  fr:"Bonjour. Un café au lait et un croissant, s'il vous plaît.", en:"Buenos días. Un café con leche y un croissant, por favor."},
+      {who:"them", fr:"Sur place ou à emporter ?", en:"¿Para tomar aquí o para llevar?"},
+      {who:"you",  fr:"Sur place, merci.", en:"Para tomar aquí, gracias."},
+      {who:"them", fr:"Très bien. Ça fait cinq euros cinquante.", en:"Muy bien. Son cinco euros cincuenta."},
+      {who:"you",  fr:"Voilà. Merci beaucoup.", en:"Aquí tiene. Muchas gracias."},
+      {who:"them", fr:"Merci à vous. Bonne journée !", en:"Gracias a usted. ¡Que tenga buen día!"},
+      {who:"you",  fr:"Bonne journée !", en:"¡Igualmente!"}
+    ]},
+  { title:"En el hotel",
+    scene:"Llegas al hotel con una reserva y haces el check-in.",
+    lines:[
+      {who:"you",  fr:"Bonjour, j'ai une réservation au nom de García.", en:"Buenos días, tengo una reserva a nombre de García."},
+      {who:"them", fr:"Bonjour monsieur. García... oui, deux nuits, chambre double.", en:"Buenos días, señor. García... sí, dos noches, habitación doble."},
+      {who:"you",  fr:"Parfait. À quelle heure est le petit-déjeuner ?", en:"Perfecto. ¿A qué hora es el desayuno?"},
+      {who:"them", fr:"De sept heures à dix heures, au rez-de-chaussée.", en:"De siete a diez, en la planta baja."},
+      {who:"you",  fr:"Et le mot de passe wifi, c'est quoi ?", en:"¿Y cuál es la contraseña del wifi?"},
+      {who:"them", fr:"C'est 'Paris2024'. Voici votre clé, chambre 214.", en:"Es 'Paris2024'. Aquí tiene su llave, habitación 214."},
+      {who:"you",  fr:"Merci beaucoup. Bonne soirée.", en:"Muchas gracias. Que tenga buena tarde."}
+    ]},
+  { title:"Pidiendo direcciones",
+    scene:"Estás perdido cerca del Sena y buscas la Torre Eiffel.",
+    lines:[
+      {who:"you",  fr:"Excusez-moi, je cherche la Tour Eiffel.", en:"Perdone, busco la Torre Eiffel."},
+      {who:"them", fr:"Ah, c'est assez loin d'ici. Prenez le métro, ligne 6.", en:"Ah, está bastante lejos de aquí. Coja el metro, línea 6."},
+      {who:"you",  fr:"La ligne 6, d'accord. Et où est la station ?", en:"La línea 6, de acuerdo. ¿Y dónde está la estación?"},
+      {who:"them", fr:"Tournez à droite, c'est à deux minutes à pied.", en:"Gire a la derecha, está a dos minutos a pie."},
+      {who:"you",  fr:"Combien d'arrêts ?", en:"¿Cuántas paradas?"},
+      {who:"them", fr:"Trois arrêts, descendez à Champ de Mars.", en:"Tres paradas, bájese en Champ de Mars."},
+      {who:"you",  fr:"Merci mille fois ! Bonne journée.", en:"¡Muchísimas gracias! Que pase buen día."}
+    ]},
+  { title:"En el restaurante",
+    scene:"Cenas en un bistró parisino — desde la entrada hasta la cuenta.",
+    lines:[
+      {who:"you",  fr:"Bonsoir, une table pour deux, s'il vous plaît.", en:"Buenas noches, una mesa para dos, por favor."},
+      {who:"them", fr:"Bonsoir. Vous avez réservé ?", en:"Buenas noches. ¿Tienen reserva?"},
+      {who:"you",  fr:"Non, désolé. Vous avez de la place ?", en:"No, lo siento. ¿Tienen sitio?"},
+      {who:"them", fr:"Oui, suivez-moi. Voici la carte.", en:"Sí, síganme. Aquí tienen la carta."},
+      {who:"you",  fr:"Qu'est-ce que vous recommandez ?", en:"¿Qué nos recomienda?"},
+      {who:"them", fr:"Le bœuf bourguignon est excellent ce soir.", en:"El bœuf bourguignon está excelente esta noche."},
+      {who:"you",  fr:"Parfait, je vais prendre ça. Et un verre de vin rouge.", en:"Perfecto, tomaré eso. Y una copa de vino tinto."},
+      {who:"you",  fr:"L'addition, s'il vous plaît.", en:"La cuenta, por favor."},
+      {who:"them", fr:"Voici. Vous payez par carte ?", en:"Aquí tiene. ¿Paga con tarjeta?"},
+      {who:"you",  fr:"Oui, par carte. C'était délicieux, merci.", en:"Sí, con tarjeta. Estaba delicioso, gracias."}
+    ]},
+  { title:"De compras",
+    scene:"Buscas ropa en una boutique parisina.",
+    lines:[
+      {who:"them", fr:"Bonjour ! Je peux vous aider ?", en:"¡Buenos días! ¿Le puedo ayudar?"},
+      {who:"you",  fr:"Bonjour, je cherche une veste pour l'hiver.", en:"Buenos días, busco una chaqueta para el invierno."},
+      {who:"them", fr:"Nous avons ce modèle en noir et en gris. Quelle taille ?", en:"Tenemos este modelo en negro y en gris. ¿Qué talla?"},
+      {who:"you",  fr:"Taille M, s'il vous plaît.", en:"Talla M, por favor."},
+      {who:"them", fr:"Voilà. La cabine d'essayage est au fond.", en:"Aquí tiene. El probador está al fondo."},
+      {who:"you",  fr:"Elle me va très bien. C'est combien ?", en:"Me queda muy bien. ¿Cuánto es?"},
+      {who:"them", fr:"Quatre-vingt-dix euros.", en:"Noventa euros."},
+      {who:"you",  fr:"Je la prends. Je peux payer par carte ?", en:"Me la llevo. ¿Puedo pagar con tarjeta?"},
+      {who:"them", fr:"Bien sûr. Bonne journée !", en:"Por supuesto. ¡Que pase buen día!"}
+    ]},
+  { title:"En la farmacia",
+    scene:"Tienes dolor de cabeza y necesitas medicación.",
+    lines:[
+      {who:"you",  fr:"Bonjour, j'ai mal à la tête depuis ce matin.", en:"Buenos días, tengo dolor de cabeza desde esta mañana."},
+      {who:"them", fr:"Bonjour. Du paracétamol devrait aider. Vous êtes allergique à quelque chose ?", en:"Buenos días. El paracetamol debería ayudar. ¿Es alérgico a algo?"},
+      {who:"you",  fr:"Non, pas d'allergies.", en:"No, sin alergias."},
+      {who:"them", fr:"Voici une boîte. À prendre toutes les six heures avec de l'eau.", en:"Aquí tiene una caja. Tómelo cada seis horas con agua."},
+      {who:"you",  fr:"Merci. C'est combien ?", en:"Gracias. ¿Cuánto es?"},
+      {who:"them", fr:"Trois euros quatre-vingts.", en:"Tres euros ochenta."},
+      {who:"you",  fr:"Voilà. Merci beaucoup.", en:"Aquí tiene. Muchas gracias."},
+      {who:"them", fr:"Bon rétablissement !", en:"¡Que se mejore pronto!"}
+    ]},
+  { title:"Conversación con un local",
+    scene:"Charla amistosa en la terraza de un café.",
+    lines:[
+      {who:"them", fr:"Vous êtes en vacances ici ?", en:"¿Está de vacaciones aquí?"},
+      {who:"you",  fr:"Oui, je suis à Paris pour dix jours.", en:"Sí, estoy en París diez días."},
+      {who:"them", fr:"Et vous venez d'où ?", en:"¿Y de dónde viene?"},
+      {who:"you",  fr:"Je viens d'Espagne, de Madrid.", en:"Vengo de España, de Madrid."},
+      {who:"them", fr:"Ah, Madrid ! Vous parlez très bien français.", en:"¡Ah, Madrid! Habla muy bien francés."},
+      {who:"you",  fr:"Merci, je l'apprends depuis un an. C'est une belle langue.", en:"Gracias, lo aprendo desde hace un año. Es un idioma precioso."},
+      {who:"them", fr:"Le français et l'espagnol se ressemblent beaucoup !", en:"¡El francés y el español se parecen mucho!"},
+      {who:"you",  fr:"Oui, ça aide énormément. Bonne continuation !", en:"Sí, ayuda enormemente. ¡Que vaya bien!"}
+    ]}
+];

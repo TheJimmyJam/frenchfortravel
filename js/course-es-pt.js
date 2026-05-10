@@ -936,4 +936,84 @@ var COURSE_ES_PT = [
   }
 ];
 
-var CONVERSATIONS_ES_PT = [];
+var CONVERSATIONS_ES_PT = [
+  { title:"En la cafetería",
+    scene:"Entras en una cafetería en São Paulo y pides el desayuno.",
+    lines:[
+      {who:"them", pt:"Bom dia! O que vai querer?", en:"¡Buenos días! ¿Qué va a querer?"},
+      {who:"you",  pt:"Bom dia. Um café com leite e um pão de queijo, por favor.", en:"Buenos días. Un café con leche y un pan de queso, por favor."},
+      {who:"them", pt:"Pra comer aqui ou pra levar?", en:"¿Para comer aquí o para llevar?"},
+      {who:"you",  pt:"Pra comer aqui, obrigado.", en:"Para comer aquí, gracias."},
+      {who:"them", pt:"Tudo bem. São seis reais.", en:"Muy bien. Son seis reales."},
+      {who:"you",  pt:"Aqui está. Obrigado.", en:"Aquí tiene. Gracias."},
+      {who:"them", pt:"De nada. Bom dia!", en:"¡De nada. Buenos días!"}
+    ]},
+  { title:"En el hotel",
+    scene:"Llegas a tu hotel en Río de Janeiro con una reserva.",
+    lines:[
+      {who:"you",  pt:"Boa tarde, tenho uma reserva no nome de Martínez.", en:"Buenas tardes, tengo una reserva a nombre de Martínez."},
+      {who:"them", pt:"Bem-vindo, senhor Martínez. Dois dias, quarto duplo?", en:"Bienvenido, señor Martínez. ¿Dos noches, habitación doble?"},
+      {who:"you",  pt:"Isso mesmo. O café da manhã está incluído?", en:"Exacto. ¿El desayuno está incluido?"},
+      {who:"them", pt:"Sim, das sete às dez, no térreo.", en:"Sí, de siete a diez, en la planta baja."},
+      {who:"you",  pt:"Ótimo. E qual é a senha do wi-fi?", en:"Perfecto. ¿Y cuál es la contraseña del wifi?"},
+      {who:"them", pt:"É 'Rio2024'. Aqui está a chave, quarto 203.", en:"Es 'Rio2024'. Aquí tiene la llave, habitación 203."},
+      {who:"you",  pt:"Muito obrigado. Boa tarde.", en:"Muchas gracias. Buenas tardes."}
+    ]},
+  { title:"Pidiendo direcciones",
+    scene:"Estás perdido en Río buscando la playa de Ipanema.",
+    lines:[
+      {who:"you",  pt:"Com licença, sabe como chegar à praia de Ipanema?", en:"Perdone, ¿sabe cómo llegar a la playa de Ipanema?"},
+      {who:"them", pt:"Claro! Pode pegar o metrô, linha 1, até a estação General Osório.", en:"¡Claro! Puede coger el metro, línea 1, hasta la estación General Osório."},
+      {who:"you",  pt:"Metrô linha 1, General Osório. Quantas paradas?", en:"Metro línea 1, General Osório. ¿Cuántas paradas?"},
+      {who:"them", pt:"Umas três paradas daqui. A praia fica a cinco minutos a pé da estação.", en:"Unas tres paradas desde aquí. La playa está a cinco minutos a pie de la estación."},
+      {who:"you",  pt:"Perfeito. Muito obrigado!", en:"Perfecto. ¡Muchas gracias!"},
+      {who:"them", pt:"De nada. Aproveite Ipanema!", en:"¡De nada. Disfrute Ipanema!"}
+    ]},
+  { title:"En el restaurante",
+    scene:"Cenas en un restaurante en Salvador de Bahía.",
+    lines:[
+      {who:"you",  pt:"Boa noite, tem mesa para dois?", en:"Buenas noches, ¿tienen mesa para dos?"},
+      {who:"them", pt:"Tem sim! Por aqui, por favor. Aqui está o cardápio.", en:"¡Sí tiene! Por aquí, por favor. Aquí está la carta."},
+      {who:"you",  pt:"O que você recomenda? Queremos provar a cozinha baiana.", en:"¿Qué recomienda? Queremos probar la cocina de Bahía."},
+      {who:"them", pt:"A moqueca de camarão é o nosso prato forte. Com arroz e farofa.", en:"La moqueca de camarón es nuestro plato estrella. Con arroz y farofa."},
+      {who:"you",  pt:"Perfeito! Dois pratos de moqueca e uma caipirinha, por favor.", en:"¡Perfecto! Dos platos de moqueca y una caipiriña, por favor."},
+      {who:"them", pt:"Ótima escolha! Já trago.", en:"¡Excelente elección! Ahora mismo."},
+      {who:"you",  pt:"Pode trazer a conta? Estava delicioso!", en:"¿Nos puede traer la cuenta? ¡Estaba delicioso!"},
+      {who:"them", pt:"Obrigado! São oitenta reais no total.", en:"¡Gracias! Son ochenta reales en total."}
+    ]},
+  { title:"De compras",
+    scene:"Buscas recuerdos en un mercado en São Paulo.",
+    lines:[
+      {who:"them", pt:"Oi! Posso ajudar?", en:"¡Hola! ¿Le puedo ayudar?"},
+      {who:"you",  pt:"Oi, sim. Procuro alguma coisa típica brasileira para levar de lembrança.", en:"Hola, sí. Busco algo típico brasileño para llevar de recuerdo."},
+      {who:"them", pt:"Temos havaianas, cachaça e artesanato local.", en:"Tenemos havaianas, cachaça y artesanía local."},
+      {who:"you",  pt:"Quanto custa aquela peça de artesanato?", en:"¿Cuánto cuesta aquella pieza de artesanía?"},
+      {who:"them", pt:"Aquela é quarenta reais. É feita por artesãos do nordeste.", en:"Esa cuesta cuarenta reales. La hacen artesanos del nordeste."},
+      {who:"you",  pt:"Vou levar essa. Aceita cartão?", en:"Me llevo esa. ¿Acepta tarjeta?"},
+      {who:"them", pt:"Aceito sim. Débito ou crédito?", en:"Sí, acepto. ¿Débito o crédito?"},
+      {who:"you",  pt:"Crédito, por favor. Obrigado!", en:"Crédito, por favor. ¡Gracias!"}
+    ]},
+  { title:"En la farmacia",
+    scene:"Te sientes mal y vas a una farmacia en Brasil.",
+    lines:[
+      {who:"you",  pt:"Boa tarde, estou me sentindo mal. Tenho dor de cabeça e febre.", en:"Buenas tardes, me siento mal. Tengo dolor de cabeza y fiebre."},
+      {who:"them", pt:"Desde quando?", en:"¿Desde cuándo?"},
+      {who:"you",  pt:"Desde essa manhã. Também estou com dor de garganta.", en:"Desde esta mañana. También tengo dolor de garganta."},
+      {who:"them", pt:"Temos paracetamol para a febre e um spray para a garganta.", en:"Tenemos paracetamol para la fiebre y un spray para la garganta."},
+      {who:"you",  pt:"Quantas vezes por dia?", en:"¿Cuántas veces al día?"},
+      {who:"them", pt:"O paracetamol a cada seis horas. O spray três vezes ao dia.", en:"El paracetamol cada seis horas. El spray tres veces al día."},
+      {who:"you",  pt:"Obrigado. Quanto é?", en:"Gracias. ¿Cuánto es?"},
+      {who:"them", pt:"Vinte e dois reais. Melhore logo!", en:"Veintidós reales. ¡Que se mejore!"}
+    ]},
+  { title:"Conversación con un brasileño",
+    scene:"Charla amistosa en la playa de Copacabana.",
+    lines:[
+      {who:"them", pt:"Você não é daqui, né? De onde você é?", en:"No es de aquí, ¿verdad? ¿De dónde es?"},
+      {who:"you",  pt:"Sou espanhol, de Madri. É minha primeira vez no Brasil.", en:"Soy español, de Madrid. Es mi primera vez en Brasil."},
+      {who:"them", pt:"Que legal! E fala português muito bem!", en:"¡Qué bueno! ¡Y habla portugués muy bien!"},
+      {who:"you",  pt:"Obrigado — espanhol e português são parecidos, ajuda bastante.", en:"Gracias — el español y el portugués se parecen, ayuda bastante."},
+      {who:"them", pt:"É verdade! O que você acha do Brasil?", en:"¡Es verdad! ¿Qué le parece Brasil?"},
+      {who:"you",  pt:"Incrível. A praia, a comida, a música — estou apaixonado!", en:"Increíble. La playa, la comida, la música — ¡estoy enamorado!"},
+      {who:"them", pt:"Brasil é assim mesmo — entra na alma!", en:"Así es Brasil — ¡te entra en el alma!"}
+    ]}
+];

@@ -940,4 +940,86 @@ var COURSE_IT_FR = [
   }
 ];
 
-var CONVERSATIONS_IT_FR = [];
+var CONVERSATIONS_IT_FR = [
+  { title:"Al bar",
+    scene:"Entri in un café parigino e ordini la colazione.",
+    lines:[
+      {who:"them", fr:"Bonjour ! Vous désirez ?", en:"Buongiorno! Cosa desidera?"},
+      {who:"you",  fr:"Bonjour. Un café allongé et un pain au chocolat, s'il vous plaît.", en:"Buongiorno. Un caffè lungo e un pain au chocolat, per favore."},
+      {who:"them", fr:"Sur place ou à emporter ?", en:"Al tavolo o da portare via?"},
+      {who:"you",  fr:"Sur place, merci.", en:"Al tavolo, grazie."},
+      {who:"them", fr:"Ça fait quatre euros vingt.", en:"Sono quattro euro e venti."},
+      {who:"you",  fr:"Voilà. Merci.", en:"Ecco a lei. Grazie."},
+      {who:"them", fr:"Bonne journée !", en:"Buona giornata!"}
+    ]},
+  { title:"All'hotel",
+    scene:"Arrivi al tuo hotel a Parigi con una prenotazione.",
+    lines:[
+      {who:"you",  fr:"Bonjour, j'ai une réservation au nom de Rossi.", en:"Buongiorno, ho una prenotazione a nome Rossi."},
+      {who:"them", fr:"Bonjour. Rossi, oui — deux nuits, chambre simple.", en:"Buongiorno. Rossi, sì — due notti, camera singola."},
+      {who:"you",  fr:"C'est exact. À quelle heure finit le petit-déjeuner ?", en:"Esatto. A che ora finisce la colazione?"},
+      {who:"them", fr:"À dix heures. Au rez-de-chaussée.", en:"Alle dieci. Al piano terra."},
+      {who:"you",  fr:"Et le code wifi ?", en:"E il codice wifi?"},
+      {who:"them", fr:"C'est 'Lumière75'. Chambre 108, premier couloir à droite.", en:"È 'Lumière75'. Camera 108, primo corridoio a destra."},
+      {who:"you",  fr:"Merci beaucoup, bonne soirée.", en:"Grazie mille, buona serata."}
+    ]},
+  { title:"Chiedere indicazioni",
+    scene:"Sei perso vicino al Louvre e cerchi la Torre Eiffel.",
+    lines:[
+      {who:"you",  fr:"Pardon, je cherche la Tour Eiffel. C'est loin ?", en:"Scusi, cerco la Torre Eiffel. È lontana?"},
+      {who:"them", fr:"Assez loin, oui. Prenez le RER C direction Versailles.", en:"Abbastanza lontana, sì. Prenda il RER C direzione Versailles."},
+      {who:"you",  fr:"Le RER C, d'accord. Combien d'arrêts ?", en:"Il RER C, capito. Quante fermate?"},
+      {who:"them", fr:"Deux arrêts. Descendez à Champ de Mars — Tour Eiffel.", en:"Due fermate. Scenda a Champ de Mars — Tour Eiffel."},
+      {who:"you",  fr:"Et la station est par là ?", en:"E la stazione è da quella parte?"},
+      {who:"them", fr:"Oui, traversez le jardin et vous la verrez.", en:"Sì, attraversi il giardino e la vedrà."},
+      {who:"you",  fr:"Merci infiniment. Très aimable.", en:"Grazie infinite. Molto gentile."}
+    ]},
+  { title:"Al ristorante",
+    scene:"Ceni in un bistrot parigino.",
+    lines:[
+      {who:"you",  fr:"Bonsoir, une table pour deux, s'il vous plaît.", en:"Buonasera, un tavolo per due, per favore."},
+      {who:"them", fr:"Bonsoir. Avec réservation ?", en:"Buonasera. Con prenotazione?"},
+      {who:"you",  fr:"Non, sans réservation. Vous avez de la place ?", en:"No, senza prenotazione. Avete posto?"},
+      {who:"them", fr:"Oui, suivez-moi. Voilà la carte.", en:"Sì, mi segua. Ecco il menu."},
+      {who:"you",  fr:"Qu'est-ce que vous conseillez ce soir ?", en:"Cosa consiglia stasera?"},
+      {who:"them", fr:"Le magret de canard est très bon. Et pour les pâtes, les gnocchis à la parisienne.", en:"Il magret d'anatra è ottimo. E per la pasta, gli gnocchi alla parigina."},
+      {who:"you",  fr:"Je vais prendre le magret. Et une carafe d'eau, s'il vous plaît.", en:"Prendo il magret. E una caraffa d'acqua, per favore."},
+      {who:"you",  fr:"L'addition, s'il vous plaît.", en:"Il conto, per favore."},
+      {who:"them", fr:"Voici. C'était bon ?", en:"Ecco. Era buono?"},
+      {who:"you",  fr:"Excellent, merci.", en:"Eccellente, grazie."}
+    ]},
+  { title:"Fare shopping",
+    scene:"Cerchi qualcosa in una boutique parigina.",
+    lines:[
+      {who:"them", fr:"Bonjour ! Je peux vous aider ?", en:"Buongiorno! Posso aiutarla?"},
+      {who:"you",  fr:"Bonjour. Je cherche un manteau chaud pour l'hiver.", en:"Buongiorno. Cerco un cappotto caldo per l'inverno."},
+      {who:"them", fr:"Nous avons ce modèle en camel et en noir. Quelle taille faites-vous ?", en:"Abbiamo questo modello in beige e in nero. Che taglia porta?"},
+      {who:"you",  fr:"Du M, normalement.", en:"Di solito la M."},
+      {who:"them", fr:"Voilà le M en noir. La cabine est au fond à gauche.", en:"Ecco la M in nero. Il camerino è in fondo a sinistra."},
+      {who:"you",  fr:"Il me va parfaitement. C'est combien ?", en:"Mi va perfettamente. Quanto costa?"},
+      {who:"them", fr:"Cent vingt euros.", en:"Centoventi euro."},
+      {who:"you",  fr:"Je le prends. Par carte, s'il vous plaît.", en:"Lo prendo. Con carta, per favore."}
+    ]},
+  { title:"In farmacia",
+    scene:"Hai mal di gola e hai bisogno di qualcosa.",
+    lines:[
+      {who:"you",  fr:"Bonjour, j'ai mal à la gorge depuis deux jours.", en:"Buongiorno, ho mal di gola da due giorni."},
+      {who:"them", fr:"Bonjour. Vous avez de la fièvre ?", en:"Buongiorno. Ha la febbre?"},
+      {who:"you",  fr:"Non, pas de fièvre. Juste la gorge.", en:"No, niente febbre. Solo la gola."},
+      {who:"them", fr:"Je vous recommande ces pastilles. À prendre toutes les trois heures.", en:"Le consiglio queste pastiglie. Da prendere ogni tre ore."},
+      {who:"you",  fr:"Et si ça ne va pas mieux demain ?", en:"E se non migliora domani?"},
+      {who:"them", fr:"Dans ce cas, consultez un médecin. Voici les pastilles, c'est cinq euros.", en:"In quel caso, consulti un medico. Ecco le pastiglie, sono cinque euro."},
+      {who:"you",  fr:"Merci. Bonne journée.", en:"Grazie. Buona giornata."}
+    ]},
+  { title:"Conversazione con un locale",
+    scene:"Chiacchieri amichevolmente in un café.",
+    lines:[
+      {who:"them", fr:"Vous n'êtes pas d'ici, j'imagine ?", en:"Non è di qui, immagino?"},
+      {who:"you",  fr:"Non, je suis italien. Je visite Paris pour la première fois.", en:"No, sono italiano. Visito Parigi per la prima volta."},
+      {who:"them", fr:"Ah, l'Italie ! De quelle ville venez-vous ?", en:"Ah, l'Italia! Da quale città viene?"},
+      {who:"you",  fr:"De Rome. C'est ma première fois à Paris, c'est magnifique.", en:"Da Roma. È la mia prima volta a Parigi, è magnifica."},
+      {who:"them", fr:"Et vous parlez très bien français !", en:"E parla molto bene il francese!"},
+      {who:"you",  fr:"Merci — les deux langues se ressemblent beaucoup, ça aide.", en:"Grazie — le due lingue si assomigliano molto, aiuta."},
+      {who:"them", fr:"C'est vrai ! Rome et Paris sont deux grandes capitales culturelles.", en:"È vero! Roma e Parigi sono due grandi capitali culturali."}
+    ]}
+];

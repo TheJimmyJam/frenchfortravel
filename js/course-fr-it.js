@@ -940,4 +940,85 @@ var COURSE_FR_IT = [
   }
 ];
 
-var CONVERSATIONS_FR_IT = [];
+var CONVERSATIONS_FR_IT = [
+  { title:"Au bar",
+    scene:"Tu entres dans un café à Rome et tu commandes.",
+    lines:[
+      {who:"them", it:"Buongiorno! Cosa prende?", en:"Bonjour ! Vous prenez quoi ?"},
+      {who:"you",  it:"Buongiorno. Un cappuccino e un cornetto, per favore.", en:"Bonjour. Un cappuccino et un croissant, s'il vous plaît."},
+      {who:"them", it:"Al banco o al tavolo?", en:"Au comptoir ou à table ?"},
+      {who:"you",  it:"Al banco, grazie — è più veloce.", en:"Au comptoir, merci — c'est plus rapide."},
+      {who:"them", it:"Certo. Sono due euro e cinquanta.", en:"Bien sûr. Ça fait deux euros cinquante."},
+      {who:"you",  it:"Ecco a lei. Grazie mille.", en:"Voilà. Merci beaucoup."},
+      {who:"them", it:"Prego! Buona giornata!", en:"De rien ! Bonne journée !"}
+    ]},
+  { title:"À l'hôtel",
+    scene:"Tu arrives à ton hôtel à Florence avec une réservation.",
+    lines:[
+      {who:"you",  it:"Buona sera, ho una prenotazione a nome Martin.", en:"Bonsoir, j'ai une réservation au nom de Martin."},
+      {who:"them", it:"Benvenuto, signor Martin. Due notti, camera doppia?", en:"Bienvenue, monsieur Martin. Deux nuits, chambre double ?"},
+      {who:"you",  it:"Sì, esatto. A che ora è la colazione?", en:"Oui, exactement. À quelle heure est le petit-déjeuner ?"},
+      {who:"them", it:"Dalle sette alle dieci, al piano terra.", en:"De sept à dix heures, au rez-de-chaussée."},
+      {who:"you",  it:"Benissimo. E la password del wifi?", en:"Parfait. Et le mot de passe du wifi ?"},
+      {who:"them", it:"È 'Firenze2024'. Ecco la chiave, camera 205.", en:"C'est 'Firenze2024'. Voici la clé, chambre 205."},
+      {who:"you",  it:"Grazie mille. Buona serata.", en:"Merci beaucoup. Bonne soirée."}
+    ]},
+  { title:"Demander son chemin",
+    scene:"Tu es perdu dans le centre de Rome et tu cherches le Colisée.",
+    lines:[
+      {who:"you",  it:"Scusi, cerco il Colosseo. Sa dov'è?", en:"Pardon, je cherche le Colisée. Vous savez où c'est ?"},
+      {who:"them", it:"Certo! Vada dritto per questa via, poi giri a destra.", en:"Bien sûr ! Allez tout droit dans cette rue, puis tournez à droite."},
+      {who:"you",  it:"Dritto e poi a destra, capito.", en:"Tout droit et ensuite à droite, compris."},
+      {who:"them", it:"Sì, vedrà il Colosseo davanti a lei. Sono circa dieci minuti a piedi.", en:"Oui, vous verrez le Colisée devant vous. C'est environ dix minutes à pied."},
+      {who:"you",  it:"Perfetto. Grazie mille, molto gentile.", en:"Parfait. Merci beaucoup, très aimable."},
+      {who:"them", it:"Prego! Buona visita!", en:"De rien ! Bonne visite !"}
+    ]},
+  { title:"Au restaurant",
+    scene:"Tu dînes dans une trattoria romaine.",
+    lines:[
+      {who:"you",  it:"Buona sera, avete un tavolo per due?", en:"Bonsoir, vous avez une table pour deux ?"},
+      {who:"them", it:"Buona sera! Sì, accomodatevi. Ecco il menu.", en:"Bonsoir ! Oui, installez-vous. Voici le menu."},
+      {who:"you",  it:"Cosa consiglia questa sera?", en:"Qu'est-ce que vous conseillez ce soir ?"},
+      {who:"them", it:"La cacio e pepe è il nostro piatto forte. E la bistecca alla fiorentina.", en:"La cacio e pepe est notre spécialité. Et le bifteck à la florentine."},
+      {who:"you",  it:"Prendo la cacio e pepe. E una bottiglia d'acqua naturale.", en:"Je prends la cacio e pepe. Et une bouteille d'eau plate."},
+      {who:"them", it:"Ottima scelta! Subito.", en:"Excellent choix ! Tout de suite."},
+      {who:"you",  it:"Ci porta il conto, per favore?", en:"Vous nous apportez l'addition, s'il vous plaît ?"},
+      {who:"them", it:"Eccolo. Pagamento in contanti o con carta?", en:"La voici. Paiement en espèces ou par carte ?"},
+      {who:"you",  it:"Con carta, grazie. Era squisito.", en:"Par carte, merci. C'était exquis."}
+    ]},
+  { title:"Faire du shopping",
+    scene:"Tu cherches un cadeau dans une boutique à Milan.",
+    lines:[
+      {who:"them", it:"Salve! Posso aiutarla?", en:"Bonjour ! Je peux vous aider ?"},
+      {who:"you",  it:"Sì, cerco qualcosa tipico italiano da portare in Francia come regalo.", en:"Oui, je cherche quelque chose de typique italien à ramener en France comme cadeau."},
+      {who:"them", it:"Abbiamo ceramiche, prodotti artigianali e sete di Como.", en:"Nous avons de la céramique, des produits artisanaux et des soies de Côme."},
+      {who:"you",  it:"Quanto costa quella sciarpa di seta?", en:"Combien coûte ce foulard en soie ?"},
+      {who:"them", it:"Quella è settantacinque euro. È fatta a mano.", en:"Celui-là est à soixante-quinze euros. Il est fait main."},
+      {who:"you",  it:"La prendo. Può farne un pacchetto regalo?", en:"Je la prends. Vous pouvez en faire un paquet cadeau ?"},
+      {who:"them", it:"Certamente. Carta di credito?", en:"Bien sûr. Carte de crédit ?"},
+      {who:"you",  it:"Sì, grazie. È stato un piacere.", en:"Oui, merci. Ce fut un plaisir."}
+    ]},
+  { title:"En pharmacie",
+    scene:"Tu as un rhume et tu vas à la pharmacie.",
+    lines:[
+      {who:"you",  it:"Buongiorno, ho il raffreddore e un po' di febbre.", en:"Bonjour, j'ai un rhume et un peu de fièvre."},
+      {who:"them", it:"Mi dispiace. Da quando?", en:"Je suis désolé. Depuis quand ?"},
+      {who:"you",  it:"Da ieri sera. Ho anche mal di testa.", en:"Depuis hier soir. J'ai aussi mal à la tête."},
+      {who:"them", it:"Le consiglio questo sciroppo per il raffreddore e della tachipirina per la febbre.", en:"Je vous conseille ce sirop contre le rhume et du paracétamol pour la fièvre."},
+      {who:"you",  it:"Quante volte al giorno?", en:"Combien de fois par jour ?"},
+      {who:"them", it:"Lo sciroppo tre volte al giorno, la tachipirina ogni sei ore se necessario.", en:"Le sirop trois fois par jour, le paracétamol toutes les six heures si nécessaire."},
+      {who:"you",  it:"Grazie, quanto le devo?", en:"Merci, combien je vous dois ?"},
+      {who:"them", it:"Otto euro in tutto. Guarisca presto!", en:"Huit euros en tout. Bon rétablissement !"}
+    ]},
+  { title:"Conversation avec un local",
+    scene:"Tu bavardes avec un Italien dans un train.",
+    lines:[
+      {who:"them", it:"Scusi, è la prima volta in Italia?", en:"Excusez-moi, c'est la première fois en Italie ?"},
+      {who:"you",  it:"Sì, è la mia prima volta. Sono francese, di Lione.", en:"Oui, c'est ma première fois. Je suis français, de Lyon."},
+      {who:"them", it:"Ah, Lione! Bellissima città. E parla già bene l'italiano!", en:"Ah, Lyon ! Très belle ville. Et vous parlez déjà bien l'italien !"},
+      {who:"you",  it:"Grazie, lo studio da sei mesi. Le due lingue si assomigliano molto.", en:"Merci, je l'étudie depuis six mois. Les deux langues se ressemblent beaucoup."},
+      {who:"them", it:"È vero! Italiano e francese sono cugini. Cosa viene a fare in Italia?", en:"C'est vrai ! L'italien et le français sont cousins. Que venez-vous faire en Italie ?"},
+      {who:"you",  it:"Turismo. Voglio vedere Roma, Firenze e Venezia.", en:"Du tourisme. Je veux voir Rome, Florence et Venise."},
+      {who:"them", it:"Ottimo programma! Le consiglio anche la Toscana.", en:"Excellent programme ! Je vous conseille aussi la Toscane."}
+    ]}
+];

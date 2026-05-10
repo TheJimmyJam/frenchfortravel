@@ -936,4 +936,83 @@ var COURSE_ES_IT = [
   }
 ];
 
-var CONVERSATIONS_ES_IT = [];
+var CONVERSATIONS_ES_IT = [
+  { title:"En el bar",
+    scene:"Entras a un bar en Roma y pides el desayuno al estilo italiano.",
+    lines:[
+      {who:"them", it:"Buongiorno! Cosa prende?", en:"¡Buenos días! ¿Qué va a tomar?"},
+      {who:"you",  it:"Buongiorno. Un caffè macchiato e un cornetto alla crema, per favore.", en:"Buenos días. Un café manchado y un croissant de crema, por favor."},
+      {who:"them", it:"Al banco o al tavolo?", en:"¿En la barra o en la mesa?"},
+      {who:"you",  it:"Al banco, grazie. È la tradizione italiana!", en:"En la barra, gracias. ¡Es la tradición italiana!"},
+      {who:"them", it:"Esatto! Sono due euro.", en:"¡Exacto! Son dos euros."},
+      {who:"you",  it:"Ecco. Grazie mille.", en:"Aquí tiene. Muchísimas gracias."},
+      {who:"them", it:"Prego! Buona giornata.", en:"¡De nada! Que tenga buen día."}
+    ]},
+  { title:"En el hotel",
+    scene:"Llegas a tu hotel en Florencia con una reserva.",
+    lines:[
+      {who:"you",  it:"Buona sera, ho una prenotazione a nome González.", en:"Buenas tardes, tengo una reserva a nombre de González."},
+      {who:"them", it:"Benvenuta, signora González. Due notti, camera singola?", en:"Bienvenida, señora González. ¿Dos noches, habitación individual?"},
+      {who:"you",  it:"Sì, esatto. La colazione è inclusa?", en:"Sí, exacto. ¿El desayuno está incluido?"},
+      {who:"them", it:"Sì, dalle sette alle dieci. Ecco la chiave, camera 305.", en:"Sí, de siete a diez. Aquí tiene la llave, habitación 305."},
+      {who:"you",  it:"Grazie. E la password del wifi?", en:"Gracias. ¿Y la contraseña del wifi?"},
+      {who:"them", it:"È scritta sul retro della chiave. Buon soggiorno!", en:"Está escrita en el reverso de la llave. ¡Que disfrute su estancia!"}
+    ]},
+  { title:"Pidiendo direcciones",
+    scene:"Estás perdido en Venecia buscando la Plaza San Marcos.",
+    lines:[
+      {who:"you",  it:"Scusi, sto cercando Piazza San Marco. È lontana?", en:"Perdone, estoy buscando la Plaza de San Marcos. ¿Está lejos?"},
+      {who:"them", it:"No, è vicina. Segua le frecce gialle.", en:"No, está cerca. Siga las flechas amarillas."},
+      {who:"you",  it:"Le frecce gialle, capito. E quanto tempo ci vuole a piedi?", en:"Las flechas amarillas, entendido. ¿Y cuánto tiempo se tarda a pie?"},
+      {who:"them", it:"Cinque minuti, non di più. Venezia è piccola!", en:"Cinco minutos, no más. ¡Venecia es pequeña!"},
+      {who:"you",  it:"Perfetto. Grazie mille, molto gentile.", en:"Perfecto. Muchísimas gracias, muy amable."},
+      {who:"them", it:"Prego! Goditi la città.", en:"¡De nada! Disfruta la ciudad."}
+    ]},
+  { title:"En el restaurante",
+    scene:"Cenas en una trattoria en Nápoles.",
+    lines:[
+      {who:"you",  it:"Buona sera. Avete un tavolo per due persone?", en:"Buenas noches. ¿Tienen mesa para dos personas?"},
+      {who:"them", it:"Certo! Accomodatevi. Ecco il menu.", en:"¡Por supuesto! Siéntense. Aquí tienen el menú."},
+      {who:"you",  it:"Cosa consiglia? Siamo a Napoli — dobbiamo mangiare la pizza vera!", en:"¿Qué nos recomienda? Estamos en Nápoles — ¡tenemos que comer la pizza de verdad!"},
+      {who:"them", it:"La pizza Margherita è la nostra specialità. Fatta nel forno a legna.", en:"La pizza Margarita es nuestra especialidad. Hecha en horno de leña."},
+      {who:"you",  it:"Due Margherite allora, e una bottiglia di vino rosso locale.", en:"Dos Margaritas entonces, y una botella de vino tinto local."},
+      {who:"them", it:"Ottima scelta! Subito.", en:"¡Excelente elección! Ahora mismo."},
+      {who:"you",  it:"Il conto, per favore. Era deliziosa!", en:"La cuenta, por favor. ¡Estaba deliciosa!"},
+      {who:"them", it:"Grazie! Ventotto euro in tutto.", en:"¡Gracias! Veintiocho euros en total."}
+    ]},
+  { title:"De compras",
+    scene:"Buscas recuerdos en una tienda de Florencia.",
+    lines:[
+      {who:"them", it:"Buongiorno! Posso aiutarla?", en:"¡Buenos días! ¿Le puedo ayudar?"},
+      {who:"you",  it:"Sì, grazie. Cerco qualcosa tipico fiorentino.", en:"Sí, gracias. Busco algo típico florentino."},
+      {who:"them", it:"Abbiamo cuoio artigianale, ceramiche e profumi toscani.", en:"Tenemos cuero artesanal, cerámicas y perfumes toscanos."},
+      {who:"you",  it:"Quanto costa quel portafoglio di cuoio?", en:"¿Cuánto cuesta esa cartera de cuero?"},
+      {who:"them", it:"Quello è cinquanta euro. È fatto a mano a Firenze.", en:"Esa cuesta cincuenta euros. Está hecha a mano en Florencia."},
+      {who:"you",  it:"Lo prendo. Può fare uno sconto?", en:"Me la llevo. ¿Puede hacer un descuento?"},
+      {who:"them", it:"Le faccio quarantacinque. Solo per lei!", en:"Le hago cuarenta y cinco. ¡Solo para usted!"},
+      {who:"you",  it:"Affare fatto! Pago con carta.", en:"¡Trato hecho! Pago con tarjeta."}
+    ]},
+  { title:"En la farmacia",
+    scene:"Tienes dolor de estómago en Italia.",
+    lines:[
+      {who:"you",  it:"Buongiorno, ho un forte mal di stomaco.", en:"Buenos días, tengo un fuerte dolor de estómago."},
+      {who:"them", it:"Mi dispiace. Ha mangiato qualcosa di strano?", en:"Lo siento. ¿Ha comido algo raro?"},
+      {who:"you",  it:"Forse. Ho mangiato pesce ieri sera.", en:"Quizás. Comí pescado anoche."},
+      {who:"them", it:"Potrebbe essere una piccola intossicazione. Le do del carbone vegetale.", en:"Podría ser una pequeña intoxicación. Le doy carbón activado."},
+      {who:"you",  it:"Quante compresse prendo?", en:"¿Cuántas pastillas tomo?"},
+      {who:"them", it:"Due adesso e due tra sei ore. Se non migliora, vada dal medico.", en:"Dos ahora y dos dentro de seis horas. Si no mejora, vaya al médico."},
+      {who:"you",  it:"Grazie, quanto le devo?", en:"Gracias, ¿cuánto le debo?"},
+      {who:"them", it:"Sei euro. Guarisca presto!", en:"Seis euros. ¡Que se mejore pronto!"}
+    ]},
+  { title:"Conversación con un italiano",
+    scene:"Charla en el tren entre Roma y Nápoles.",
+    lines:[
+      {who:"them", it:"È la prima volta in Italia?", en:"¿Es la primera vez en Italia?"},
+      {who:"you",  it:"Sì, è la mia prima volta. Sono spagnolo, di Barcellona.", en:"Sí, es mi primera vez. Soy español, de Barcelona."},
+      {who:"them", it:"Barcellona! Bellissima città. E parla già bene l'italiano.", en:"¡Barcelona! Bellísima ciudad. Y ya habla bien el italiano."},
+      {who:"you",  it:"Grazie — spagnolo e italiano sono molto simili, mi aiuta tanto.", en:"Gracias — el español y el italiano son muy similares, me ayuda mucho."},
+      {who:"them", it:"Sì, le due lingue sono cugine! Come trova l'Italia?", en:"¡Sí, las dos lenguas son primas! ¿Qué le parece Italia?"},
+      {who:"you",  it:"Fantastica! Il cibo, la storia, la gente — tutto è meraviglioso.", en:"¡Fantástica! La comida, la historia, la gente — todo es maravilloso."},
+      {who:"them", it:"È il nostro paese, siamo felici che le piaccia!", en:"Es nuestro país, ¡nos alegra que le guste!"}
+    ]}
+];

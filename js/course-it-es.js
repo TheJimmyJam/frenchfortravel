@@ -938,4 +938,85 @@ var COURSE_IT_ES = [
   }
 ];
 
-var CONVERSATIONS_IT_ES = [];
+var CONVERSATIONS_IT_ES = [
+  { title:"Al bar",
+    scene:"Entri in un bar a Madrid e ordini la colazione spagnola.",
+    lines:[
+      {who:"them", es:"¡Buenos días! ¿Qué le pongo?", en:"Buongiorno! Cosa le servo?"},
+      {who:"you",  es:"Buenos días. Un cortado y una tostada con tomate, por favor.", en:"Buongiorno. Un cortado e una fetta di pane tostato con pomodoro, per favore."},
+      {who:"them", es:"¿Con aceite de oliva?", en:"Con olio d'oliva?"},
+      {who:"you",  es:"Sí, por favor. Es la tradición española.", en:"Sì, per favore. È la tradizione spagnola."},
+      {who:"them", es:"Claro. Son dos euros ochenta.", en:"Certo. Sono due euro e ottanta."},
+      {who:"you",  es:"Aquí tiene. Muchas gracias.", en:"Ecco a lei. Mille grazie."},
+      {who:"them", es:"¡De nada! Buen provecho.", en:"Prego! Buon appetito."}
+    ]},
+  { title:"All'hotel",
+    scene:"Arrivi al tuo hotel a Barcellona con una prenotazione.",
+    lines:[
+      {who:"you",  es:"Buenas tardes, tengo una reserva a nombre de Ferrari.", en:"Buon pomeriggio, ho una prenotazione a nome Ferrari."},
+      {who:"them", es:"Bienvenido, señor Ferrari. Tres noches, habitación doble.", en:"Benvenuto, signor Ferrari. Tre notti, camera doppia."},
+      {who:"you",  es:"Exacto. ¿A qué hora se sirve el desayuno?", en:"Esatto. A che ora si serve la colazione?"},
+      {who:"them", es:"De siete y media a once. ¿Le hace falta algo más?", en:"Dalle sette e mezza alle undici. Ha bisogno di altro?"},
+      {who:"you",  es:"Sí, ¿cuál es la contraseña del wifi?", en:"Sì, qual è la password del wifi?"},
+      {who:"them", es:"Es 'Barcelona2024'. Habitación 410, cuarto piso.", en:"È 'Barcelona2024'. Camera 410, quarto piano."},
+      {who:"you",  es:"Perfecto, muchas gracias. Buenas noches.", en:"Perfetto, mille grazie. Buonanotte."}
+    ]},
+  { title:"Chiedere indicazioni",
+    scene:"Sei perso nel centro di Barcellona e cerchi la Sagrada Família.",
+    lines:[
+      {who:"you",  es:"Perdone, ¿sabe cómo llegar a la Sagrada Família?", en:"Scusi, sa come arrivare alla Sagrada Família?"},
+      {who:"them", es:"Sí. Coja el metro, línea 2, dirección Badalona.", en:"Sì. Prenda la metro, linea 2, direzione Badalona."},
+      {who:"you",  es:"¿Y cuántas paradas?", en:"E quante fermate?"},
+      {who:"them", es:"Cuatro paradas. Bájese en Sagrada Família — tiene su propio nombre.", en:"Quattro fermate. Scenda a Sagrada Família — ha il suo nome proprio."},
+      {who:"you",  es:"Perfecto, ¿y está lejos la entrada de la estación?", en:"Perfetto, e l'ingresso è lontano dalla stazione?"},
+      {who:"them", es:"No, está justo al salir. No tiene pérdida.", en:"No, è proprio all'uscita. Non può sbagliare."},
+      {who:"you",  es:"¡Genial! Muchas gracias, muy amable.", en:"Ottimo! Mille grazie, molto gentile."}
+    ]},
+  { title:"Al ristorante",
+    scene:"Ceni in un ristorante tradizionale spagnolo a Siviglia.",
+    lines:[
+      {who:"you",  es:"Buenas noches. ¿Tienen mesa disponible para dos?", en:"Buona sera. Avete un tavolo disponibile per due?"},
+      {who:"them", es:"Sí, claro. Pasen por aquí. Aquí tienen la carta.", en:"Sì, certo. Passate di qua. Ecco il menu."},
+      {who:"you",  es:"¿Qué nos recomienda? Queremos probar algo típico andaluz.", en:"Cosa ci consiglia? Vogliamo provare qualcosa di tipico andaluso."},
+      {who:"them", es:"El gazpacho para empezar y el rabo de toro de segundo.", en:"Il gazpacho per cominciare e la coda di toro come secondo."},
+      {who:"you",  es:"Perfecto. Y una botella de vino de Rioja, por favor.", en:"Perfetto. E una bottiglia di vino di Rioja, per favore."},
+      {who:"them", es:"¡Buena elección! En seguida.", en:"Ottima scelta! Subito."},
+      {who:"you",  es:"La cuenta, por favor. Todo estaba buenísimo.", en:"Il conto, per favore. Era tutto ottimo."},
+      {who:"them", es:"Muchas gracias. Son cincuenta y dos euros en total.", en:"Mille grazie. Sono cinquantadue euro in tutto."}
+    ]},
+  { title:"Fare shopping",
+    scene:"Cerchi qualcosa in un mercato tipico di Madrid.",
+    lines:[
+      {who:"them", es:"¡Hola! ¿En qué le puedo ayudar?", en:"Ciao! Come posso aiutarla?"},
+      {who:"you",  es:"Hola. Busco algo típico español para llevar de regalo a Italia.", en:"Ciao. Cerco qualcosa di tipico spagnolo da portare in regalo in Italia."},
+      {who:"them", es:"Tenemos abanicos artesanales, aceite de oliva y cerámica de Talavera.", en:"Abbiamo ventagli artigianali, olio d'oliva e ceramiche di Talavera."},
+      {who:"you",  es:"¿Cuánto vale ese abanico rojo y negro?", en:"Quanto vale quel ventaglio rosso e nero?"},
+      {who:"them", es:"Ese cuesta quince euros. Es hecho a mano en Sevilla.", en:"Quello costa quindici euro. È fatto a mano a Siviglia."},
+      {who:"you",  es:"Me llevo ese y una botella de aceite. ¿Puedo pagar con tarjeta?", en:"Prendo quello e una bottiglia d'olio. Posso pagare con carta?"},
+      {who:"them", es:"¡Por supuesto! ¿Le envuelvo para regalo?", en:"Certo! Glielo incarto per regalo?"},
+      {who:"you",  es:"Sí, por favor. Gracias.", en:"Sì, per favore. Grazie."}
+    ]},
+  { title:"In farmacia",
+    scene:"Hai un forte mal di testa e vai in una farmacia spagnola.",
+    lines:[
+      {who:"you",  es:"Buenas, tengo un dolor de cabeza muy fuerte desde esta mañana.", en:"Salve, ho un forte mal di testa da questa mattina."},
+      {who:"them", es:"¿Ha tomado algo ya?", en:"Ha già preso qualcosa?"},
+      {who:"you",  es:"No, nada todavía. ¿Qué me recomienda?", en:"No, ancora niente. Cosa mi consiglia?"},
+      {who:"them", es:"Le recomiendo ibuprofeno 400mg. ¿Tiene alergia a algún medicamento?", en:"Le consiglio ibuprofene 400mg. Ha allergie a qualche farmaco?"},
+      {who:"you",  es:"No, ninguna. ¿Cada cuántas horas?", en:"No, nessuna. Ogni quante ore?"},
+      {who:"them", es:"Cada ocho horas, siempre con comida.", en:"Ogni otto ore, sempre con del cibo."},
+      {who:"you",  es:"Gracias. ¿Cuánto es?", en:"Grazie. Quant'è?"},
+      {who:"them", es:"Cuatro euros cincuenta. ¡Que se mejore!", en:"Quattro euro e cinquanta. Guarisca presto!"}
+    ]},
+  { title:"Conversazione con un locale",
+    scene:"Chiacchieri con una spagnola sull'aereo Madrid-Roma.",
+    lines:[
+      {who:"them", es:"¿Es la primera vez que va a España?", en:"È la prima volta che va in Spagna?"},
+      {who:"you",  es:"Sí, es mi primera vez. Soy italiana, de Milán.", en:"Sì, è la mia prima volta. Sono italiana, di Milano."},
+      {who:"them", es:"¡Ah, Milán! Ciudad de la moda. Y habla ya muy bien español.", en:"Ah, Milano! Città della moda. E parla già molto bene spagnolo."},
+      {who:"you",  es:"Gracias. Las dos lenguas se parecen mucho, eso ayuda bastante.", en:"Grazie. Le due lingue si assomigliano molto, questo aiuta parecchio."},
+      {who:"them", es:"¡Totalmente! ¿Qué va a ver en España?", en:"Assolutamente! Cosa andrà a vedere in Spagna?"},
+      {who:"you",  es:"Madrid, Sevilla y Granada. Quiero ver la Alhambra.", en:"Madrid, Siviglia e Granada. Voglio vedere l'Alhambra."},
+      {who:"them", es:"¡La Alhambra es increíble! Le va a encantar.", en:"L'Alhambra è incredibile! Le piacerà moltissimo."}
+    ]}
+];

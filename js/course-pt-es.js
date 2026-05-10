@@ -936,4 +936,85 @@ var COURSE_PT_ES = [
   }
 ];
 
-var CONVERSATIONS_PT_ES = [];
+var CONVERSATIONS_PT_ES = [
+  { title:"No café",
+    scene:"Você entra num café em Madri e pede o café da manhã espanhol.",
+    lines:[
+      {who:"them", es:"¡Buenos días! ¿Qué va a tomar?", en:"Bom dia! O que vai tomar?"},
+      {who:"you",  es:"Buenos días. Un café con leche y una tostada con tomate, por favor.", en:"Bom dia. Um café com leite e uma torrada com tomate, por favor."},
+      {who:"them", es:"¿Con aceite?", en:"Com azeite?"},
+      {who:"you",  es:"Sí, por favor. Quiero probar el desayuno español.", en:"Sim, por favor. Quero experimentar o café da manhã espanhol."},
+      {who:"them", es:"Marchando. Son tres euros.", en:"A caminho. São três euros."},
+      {who:"you",  es:"Aquí tiene. ¡Muchas gracias!", en:"Aqui está. Muito obrigado/a!"},
+      {who:"them", es:"¡De nada! ¡Buen provecho!", en:"De nada! Bom apetite!"}
+    ]},
+  { title:"No hotel",
+    scene:"Você chega ao seu hotel em Barcelona com uma reserva.",
+    lines:[
+      {who:"you",  es:"Buenas tardes, tengo una reserva a nombre de Silva.", en:"Boa tarde, tenho uma reserva no nome de Silva."},
+      {who:"them", es:"Bienvenido, señor Silva. Tres noches, habitación doble, ¿correcto?", en:"Bem-vindo, senhor Silva. Três noites, quarto duplo, correto?"},
+      {who:"you",  es:"Correcto. ¿El desayuno está incluido?", en:"Correto. O café da manhã está incluído?"},
+      {who:"them", es:"Sí, de ocho a once en el primer piso.", en:"Sim, das oito às onze no primeiro andar."},
+      {who:"you",  es:"¿Y cuál es la clave del wifi?", en:"E qual é a senha do wi-fi?"},
+      {who:"them", es:"Es 'Barcelona2024'. Habitación 318, tercer piso.", en:"É 'Barcelona2024'. Quarto 318, terceiro andar."},
+      {who:"you",  es:"Muchas gracias. Buenas tardes.", en:"Muito obrigado/a. Boa tarde."}
+    ]},
+  { title:"Pedindo direções",
+    scene:"Você está perdido em Madri procurando o Museu do Prado.",
+    lines:[
+      {who:"you",  es:"Perdone, ¿sabe dónde está el Museo del Prado?", en:"Com licença, sabe onde fica o Museu do Prado?"},
+      {who:"them", es:"Sí, claro. Siga todo recto y en el segundo semáforo gire a la derecha.", en:"Sim, claro. Vá em frente e no segundo semáforo vire à direita."},
+      {who:"you",  es:"¿Todo recto y luego a la derecha?", en:"Em frente e depois à direita?"},
+      {who:"them", es:"Exacto. El museo está enfrente del parque del Retiro. Son unos ocho minutos andando.", en:"Exatamente. O museu fica em frente ao Parque do Retiro. São uns oito minutos a pé."},
+      {who:"you",  es:"Perfecto, muchas gracias.", en:"Perfeito, muito obrigado/a."},
+      {who:"them", es:"De nada. ¡Que disfrute!", en:"De nada. Aproveite!"}
+    ]},
+  { title:"No restaurante",
+    scene:"Você janta num restaurante tradicional espanhol em Sevilha.",
+    lines:[
+      {who:"you",  es:"Buenas noches, ¿tienen mesa para dos personas?", en:"Boa noite, têm mesa para duas pessoas?"},
+      {who:"them", es:"¡Claro! Pasen por aquí. Aquí tienen la carta.", en:"Claro! Por aqui. Aqui está o cardápio."},
+      {who:"you",  es:"¿Qué recomienda? Es nuestra primera vez en Sevilla.", en:"O que recomenda? É a nossa primeira vez em Sevilha."},
+      {who:"them", es:"El gazpacho y el salmorejo son típicos. Y el pescaíto frito es imprescindible.", en:"O gazpacho e o salmorejo são típicos. E o peixe frito é imperdível."},
+      {who:"you",  es:"Dos gazpachos y dos raciones de pescaíto, por favor.", en:"Dois gazpachos e duas porções de peixe frito, por favor."},
+      {who:"them", es:"¡Excelente elección! Ahora mismo.", en:"Excelente escolha! Já já."},
+      {who:"you",  es:"La cuenta, por favor. Estaba todo riquísimo.", en:"A conta, por favor. Estava tudo delicioso."},
+      {who:"them", es:"¡Muchas gracias! Son cuarenta y ocho euros.", en:"Muito obrigado! São quarenta e oito euros."}
+    ]},
+  { title:"Fazendo compras",
+    scene:"Você procura lembranças num mercado em Madri.",
+    lines:[
+      {who:"them", es:"¡Hola! ¿Le puedo ayudar?", en:"Olá! Posso ajudar?"},
+      {who:"you",  es:"Hola. Busco algo típico español para llevar de regalo a Brasil.", en:"Olá. Procuro algo típico espanhol para levar de presente ao Brasil."},
+      {who:"them", es:"Tenemos abanicos, jamón ibérico, cerámica y vino de Rioja.", en:"Temos leques, presunto ibérico, cerâmica e vinho de Rioja."},
+      {who:"you",  es:"¿Cuánto cuesta ese abanico pintado a mano?", en:"Quanto custa esse leque pintado à mão?"},
+      {who:"them", es:"Ese cuesta veinte euros. Es artesanal.", en:"Esse custa vinte euros. É artesanal."},
+      {who:"you",  es:"Me lo llevo. ¿Acepta tarjeta?", en:"Vou levar. Aceita cartão?"},
+      {who:"them", es:"Sí. ¿Lo quiere en una bolsa de regalo?", en:"Sim. Quer numa embalagem de presente?"},
+      {who:"you",  es:"Sí, por favor. Muchas gracias.", en:"Sim, por favor. Muito obrigado/a."}
+    ]},
+  { title:"Na farmácia",
+    scene:"Você não está bem e vai a uma farmácia na Espanha.",
+    lines:[
+      {who:"you",  es:"Buenas, no me encuentro bien. Tengo dolor de cabeza y náuseas.", en:"Olá, não estou bem. Tenho dor de cabeça e náuseas."},
+      {who:"them", es:"¿Cuánto tiempo lleva así?", en:"Há quanto tempo está assim?"},
+      {who:"you",  es:"Desde esta mañana. No he comido mucho.", en:"Desde esta manhã. Não comi muito."},
+      {who:"them", es:"Puede ser el calor. Le recomiendo ibuprofeno y suero oral.", en:"Pode ser o calor. Recomendo ibuprofeno e soro oral."},
+      {who:"you",  es:"¿Cada cuántas horas el ibuprofeno?", en:"De quantas em quantas horas o ibuprofeno?"},
+      {who:"them", es:"Cada ocho horas con comida. Y beba mucha agua.", en:"A cada oito horas com comida. E beba bastante água."},
+      {who:"you",  es:"Gracias. ¿Cuánto es todo?", en:"Obrigado/a. Quanto é tudo?"},
+      {who:"them", es:"Son nueve euros con cincuenta. ¡Mejórese!", en:"São nove euros e cinquenta. Melhore logo!"}
+    ]},
+  { title:"Conversa com um espanhol",
+    scene:"Bate-papo simpático na Plaza Mayor de Madri.",
+    lines:[
+      {who:"them", es:"¿De dónde eres? Tienes acento extranjero, ¿verdad?", en:"De onde você é? Tem sotaque estrangeiro, né?"},
+      {who:"you",  es:"Soy brasileño, de São Paulo. Estoy de visita.", en:"Sou brasileiro, de São Paulo. Estou de visita."},
+      {who:"them", es:"¡Qué guay! ¿Es tu primera vez en España?", en:"Que legal! É sua primeira vez na Espanha?"},
+      {who:"you",  es:"Sí, primera vez. Me está encantando todo.", en:"Sim, primeira vez. Estou adorando tudo."},
+      {who:"them", es:"Y hablas muy bien español. ¿Cuánto tiempo llevas aprendiendo?", en:"E fala muito bem espanhol. Há quanto tempo está aprendendo?"},
+      {who:"you",  es:"Un año aproximadamente. El español y el portugués son muy similares.", en:"Aproximadamente um ano. O espanhol e o português são muito parecidos."},
+      {who:"them", es:"¡Totalmente! ¿Y qué es lo que más te está gustando de Madrid?", en:"Com certeza! E o que está gostando mais em Madri?"},
+      {who:"you",  es:"La comida, la gente y el ambiente — ¡todo! Ojalá poder volver.", en:"A comida, a gente e o ambiente — tudo! Quero poder voltar."}
+    ]}
+];
