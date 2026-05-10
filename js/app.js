@@ -155,6 +155,372 @@ function migrateLangKey(val) {
 }
 let currentLang = migrateLangKey(localStorage.getItem('cll_lang'));
 
+// ============================================================
+// INTERNATIONALISATION — UI strings keyed by source language
+// ============================================================
+const UI_STRINGS = {
+  en: {
+    nav_lesson:'Today\'s Lesson', nav_flashcards:'Flashcards', nav_quiz:'Quiz',
+    nav_all:'All Lessons', nav_conversations:'Conversations',
+    nav_translator:'Translator', nav_notebook:'Notebook', nav_progress:'Progress',
+    stat_day:'Day', stat_streak:'Streak', stat_mastered:'Mastered', stat_progress:'Progress',
+    lesson_vocabulary:'Vocabulary', lesson_key_phrases:'Key Phrases',
+    lesson_grammar_tip:'Grammar / Cultural Tip', lesson_practice:'Practice',
+    lesson_cultural_tip:'Cultural Tip', lesson_tap_reveal:'tap to reveal',
+    lesson_mark_complete:'Mark Day Complete', lesson_completed:'✓ Completed',
+    lesson_undo:'↩ Undo', day_label:'Day',
+    nav_yesterday:'← Yesterday', nav_tomorrow:'Tomorrow →', nav_today:'Today',
+    tag_mastered:'★ Mastered', tag_done:'✓ Done',
+    flash_subtitle:'Drill the vocab from your completed days.',
+    flash_deck:'Deck', flash_days_seen:'Days I\'ve seen',
+    flash_all_days:'All 30 days + saved', flash_need_work:'Need more work',
+    flash_saved_words:'My saved words', flash_shuffle:'⇄ Shuffle', flash_mode:'Mode',
+    flash_ipa_on:'IPA on front', flash_challenge:'Challenge',
+    flash_need_btn:'Need work', flash_skip:'Skip', flash_got_it:'Got it ✓',
+    flash_tap_flip:'Tap to flip', flash_say_it:'Say it — then flip',
+    flash_empty_saved:'No saved words yet. Use the Translator tab and tap "+ Save to flashcards" to build your custom deck.',
+    flash_empty_day1:'Complete Day 1 to start using flashcards!', flash_cards:'cards',
+    quiz_complete:'Quiz Complete', quiz_unlock:'Complete Day 1 to unlock the quiz.',
+    quiz_try_again:'Try Again →', quiz_choose:'🔤 Choose the answer',
+    quiz_type_it:'✏️ Type it', quiz_match:'🔗 Match the pairs',
+    quiz_placeholder:'Type your answer…', quiz_check:'Check →', quiz_next:'Next →',
+    quiz_question:'Question', quiz_of:'of', quiz_score:'Score',
+    quiz_match_pick:(s)=>`Now pick the matching ${s} word →`,
+    quiz_match_start:'Tap a word on the left to start',
+    quiz_what_does:(w,s)=>`What does "${w}" mean in ${s}?`,
+    quiz_how_say:(w,tg)=>`How do you say "${w}" in ${tg}?`,
+    quiz_correct_of:(c,tot)=>`${c} of ${tot} correct`,
+    convo_title:'Conversation Practice',
+    convo_subtitle:'Real scenarios to drill before you go. Tap a card to open it.',
+    convo_tap_open:'Tap to open →', convo_prefix:'Conversation', convo_of:'of',
+    convo_you:'You', convo_them:'Them', convo_prev:'← Previous', convo_next:'Next →',
+    all_title:'All 30 Days', all_reset_btn:'↺ Reset All Progress',
+    all_subtitle:'Tap a day to open it · ↩ to undo completion',
+    all_reset_confirm:(l)=>`Reset all ${l} progress and start over?`,
+    prog_title:'Dashboard', prog_days_done:'Days Done', prog_of_30:'of 30',
+    prog_streak:'Day Streak', prog_last:'last:', prog_start_today:'start today',
+    prog_mastered:'Mastered', prog_of_words:(n)=>`of ${n} words`,
+    prog_complete:'Complete', prog_course_progress:'course progress',
+    prog_vocab:'Vocabulary', prog_seen:'Seen', prog_need_work:'Need work',
+    prog_word:(n)=>n===1?'1 word':`${n} words`,
+    prog_quiz_perf:'Quiz Performance', prog_accuracy:'Accuracy', prog_answered:'Answered',
+    prog_reset_section:'Reset',
+    prog_reset_desc:(l)=>`Clear all ${l} progress and start over.`,
+    prog_reset_btn:'Reset', prog_reset_confirm:(l)=>`Reset all ${l} progress?`,
+    nb_title:'The Leather Notebook',
+    nb_subtitle:(n)=>`${n} of 30 entries unlocked · Complete days to reveal more`,
+    nb_review:'📍 Review Queue', nb_drill:'Drill these →',
+    nb_empty:'Nothing here yet — mark flashcards "Need work" and they\'ll show up here.',
+    nb_unlock:'🔒 Complete this day to unlock', nb_got_it:'✓ Got it',
+    trans_title:'Translator', trans_loading:'Translating…', trans_btn:'Translate →',
+    trans_masculine:'masculine', trans_feminine:'feminine',
+    trans_hear:'🔊 Hear it', trans_save:'+ Save to flashcards',
+    trans_saved_btn:'✓ Saved to flashcards',
+    trans_tip:'Tip: Try phrases, not just single words. "How much is this?" works better than just "much". Saved words appear in the Flashcards tab under "My Saved Words".',
+    trans_saved_cards:'Saved cards:', trans_recent:'Recent',
+    trans_error:'Translation failed:',
+    toast_added_review:'📍 Added to Review Queue',
+    toast_removed:'Removed from flashcards', toast_saved:'✓ Saved to flashcards',
+    toast_day_incomplete:(n)=>`Day ${n} marked incomplete.`,
+    trans_subtitle_cross:(s,tg)=>`Translate from ${s} to ${tg}. Get the translation, IPA, and a pronunciation guide.`,
+  },
+  es: {
+    nav_lesson:'Lección de Hoy', nav_flashcards:'Flashcards', nav_quiz:'Quiz',
+    nav_all:'Todas las Lecciones', nav_conversations:'Conversaciones',
+    nav_translator:'Traductor', nav_notebook:'Cuaderno', nav_progress:'Progreso',
+    stat_day:'Día', stat_streak:'Racha', stat_mastered:'Dominadas', stat_progress:'Progreso',
+    lesson_vocabulary:'Vocabulario', lesson_key_phrases:'Frases Clave',
+    lesson_grammar_tip:'Gramática / Consejo Cultural', lesson_practice:'Práctica',
+    lesson_cultural_tip:'Consejo Cultural', lesson_tap_reveal:'toca para revelar',
+    lesson_mark_complete:'Marcar Día Completo', lesson_completed:'✓ Completado',
+    lesson_undo:'↩ Deshacer', day_label:'Día',
+    nav_yesterday:'← Ayer', nav_tomorrow:'Mañana →', nav_today:'Hoy',
+    tag_mastered:'★ Dominado', tag_done:'✓ Hecho',
+    flash_subtitle:'Repasa el vocabulario de los días completados.',
+    flash_deck:'Mazo', flash_days_seen:'Días vistos',
+    flash_all_days:'Los 30 días + guardados', flash_need_work:'Necesitan más repaso',
+    flash_saved_words:'Mis palabras guardadas', flash_shuffle:'⇄ Mezclar', flash_mode:'Modo',
+    flash_ipa_on:'IPA al frente', flash_challenge:'Desafío',
+    flash_need_btn:'A repasar', flash_skip:'Saltar', flash_got_it:'¡Lo tengo! ✓',
+    flash_tap_flip:'Toca para voltear', flash_say_it:'Dilo — luego voltea',
+    flash_empty_saved:'Aún no hay palabras guardadas. Usa la pestaña Traductor y toca "+ Guardar" para crear tu mazo personalizado.',
+    flash_empty_day1:'¡Completa el Día 1 para empezar a usar las flashcards!', flash_cards:'tarjetas',
+    quiz_complete:'Quiz Completado', quiz_unlock:'Completa el Día 1 para desbloquear el quiz.',
+    quiz_try_again:'Intentar de nuevo →', quiz_choose:'🔤 Elige la respuesta',
+    quiz_type_it:'✏️ Escríbelo', quiz_match:'🔗 Empareja los pares',
+    quiz_placeholder:'Escribe tu respuesta…', quiz_check:'Comprobar →', quiz_next:'Siguiente →',
+    quiz_question:'Pregunta', quiz_of:'de', quiz_score:'Puntuación',
+    quiz_match_pick:(s)=>`Ahora elige la palabra en ${s} que corresponde →`,
+    quiz_match_start:'Toca una palabra a la izquierda para empezar',
+    quiz_what_does:(w,s)=>`¿Qué significa "${w}" en ${s}?`,
+    quiz_how_say:(w,tg)=>`¿Cómo se dice "${w}" en ${tg}?`,
+    quiz_correct_of:(c,tot)=>`${c} de ${tot} correctas`,
+    convo_title:'Práctica de Conversación',
+    convo_subtitle:'Situaciones reales para practicar antes de viajar. Toca una tarjeta para abrirla.',
+    convo_tap_open:'Toca para abrir →', convo_prefix:'Conversación', convo_of:'de',
+    convo_you:'Tú', convo_them:'Ellos', convo_prev:'← Anterior', convo_next:'Siguiente →',
+    all_title:'Los 30 Días', all_reset_btn:'↺ Reiniciar Progreso',
+    all_subtitle:'Toca un día para abrirlo · ↩ para deshacer',
+    all_reset_confirm:(l)=>`¿Reiniciar todo el progreso de ${l} y empezar de nuevo?`,
+    prog_title:'Panel', prog_days_done:'Días Hechos', prog_of_30:'de 30',
+    prog_streak:'Racha', prog_last:'último:', prog_start_today:'empieza hoy',
+    prog_mastered:'Dominadas', prog_of_words:(n)=>`de ${n} palabras`,
+    prog_complete:'Completo', prog_course_progress:'progreso del curso',
+    prog_vocab:'Vocabulario', prog_seen:'Visto', prog_need_work:'A repasar',
+    prog_word:(n)=>n===1?'1 palabra':`${n} palabras`,
+    prog_quiz_perf:'Rendimiento en el Quiz', prog_accuracy:'Precisión', prog_answered:'Respondidas',
+    prog_reset_section:'Reiniciar',
+    prog_reset_desc:(l)=>`Borrar todo el progreso de ${l} y empezar de nuevo.`,
+    prog_reset_btn:'Reiniciar', prog_reset_confirm:(l)=>`¿Reiniciar todo el progreso de ${l}?`,
+    nb_title:'El Cuaderno de Cuero',
+    nb_subtitle:(n)=>`${n} de 30 entradas desbloqueadas · Completa días para revelar más`,
+    nb_review:'📍 Cola de Repaso', nb_drill:'Repasar →',
+    nb_empty:'Nada aquí todavía — marca flashcards como "A repasar" y aparecerán aquí.',
+    nb_unlock:'🔒 Completa este día para desbloquearlo', nb_got_it:'✓ Ya lo sé',
+    trans_title:'Traductor', trans_loading:'Traduciendo…', trans_btn:'Traducir →',
+    trans_masculine:'masculino', trans_feminine:'femenino',
+    trans_hear:'🔊 Escucharlo', trans_save:'+ Guardar en flashcards',
+    trans_saved_btn:'✓ Guardado en flashcards',
+    trans_tip:'Consejo: Prueba con frases, no solo palabras. "¿Cuánto cuesta esto?" funciona mejor que solo "cuánto". Las palabras guardadas aparecen en Flashcards.',
+    trans_saved_cards:'Tarjetas guardadas:', trans_recent:'Recientes',
+    trans_error:'Error de traducción:',
+    toast_added_review:'📍 Añadido a la cola de repaso',
+    toast_removed:'Eliminado de las flashcards', toast_saved:'✓ Guardado en flashcards',
+    toast_day_incomplete:(n)=>`Día ${n} marcado como incompleto.`,
+    trans_subtitle_cross:(s,tg)=>`Traduce del ${s} al ${tg}. Obtén la traducción, IPA y guía de pronunciación.`,
+  },
+  fr: {
+    nav_lesson:'Leçon du Jour', nav_flashcards:'Flashcards', nav_quiz:'Quiz',
+    nav_all:'Toutes les Leçons', nav_conversations:'Conversations',
+    nav_translator:'Traducteur', nav_notebook:'Carnet', nav_progress:'Progrès',
+    stat_day:'Jour', stat_streak:'Série', stat_mastered:'Maîtrisé', stat_progress:'Progrès',
+    lesson_vocabulary:'Vocabulaire', lesson_key_phrases:'Phrases Clés',
+    lesson_grammar_tip:'Grammaire / Conseil Culturel', lesson_practice:'Pratique',
+    lesson_cultural_tip:'Conseil Culturel', lesson_tap_reveal:'touchez pour révéler',
+    lesson_mark_complete:'Marquer le Jour Terminé', lesson_completed:'✓ Terminé',
+    lesson_undo:'↩ Annuler', day_label:'Jour',
+    nav_yesterday:'← Hier', nav_tomorrow:'Demain →', nav_today:"Aujourd'hui",
+    tag_mastered:'★ Maîtrisé', tag_done:'✓ Fait',
+    flash_subtitle:'Révisez le vocabulaire des jours complétés.',
+    flash_deck:'Jeu', flash_days_seen:'Jours vus',
+    flash_all_days:'Les 30 jours + sauvegardés', flash_need_work:'À retravailler',
+    flash_saved_words:'Mes mots sauvegardés', flash_shuffle:'⇄ Mélanger', flash_mode:'Mode',
+    flash_ipa_on:'IPA en face', flash_challenge:'Défi',
+    flash_need_btn:'À retravailler', flash_skip:'Passer', flash_got_it:'Compris ✓',
+    flash_tap_flip:'Touchez pour retourner', flash_say_it:'Dites-le — puis retournez',
+    flash_empty_saved:"Aucun mot sauvegardé. Utilisez l'onglet Traducteur et touchez \\"+ Sauvegarder\\" pour créer votre jeu.",
+    flash_empty_day1:'Terminez le Jour 1 pour commencer à utiliser les flashcards !', flash_cards:'fiches',
+    quiz_complete:'Quiz Terminé', quiz_unlock:'Terminez le Jour 1 pour débloquer le quiz.',
+    quiz_try_again:'Réessayer →', quiz_choose:'🔤 Choisissez la réponse',
+    quiz_type_it:'✏️ Écrivez-le', quiz_match:'🔗 Associez les paires',
+    quiz_placeholder:'Écrivez votre réponse…', quiz_check:'Vérifier →', quiz_next:'Suivant →',
+    quiz_question:'Question', quiz_of:'sur', quiz_score:'Score',
+    quiz_match_pick:(s)=>`Choisissez maintenant le mot en ${s} correspondant →`,
+    quiz_match_start:'Touchez un mot à gauche pour commencer',
+    quiz_what_does:(w,s)=>`Que signifie « ${w} » en ${s} ?`,
+    quiz_how_say:(w,tg)=>`Comment dit-on « ${w} » en ${tg} ?`,
+    quiz_correct_of:(c,tot)=>`${c} sur ${tot} correctes`,
+    convo_title:'Pratique de Conversation',
+    convo_subtitle:'Des situations réelles à pratiquer avant de partir. Touchez une carte pour l\'ouvrir.',
+    convo_tap_open:'Touchez pour ouvrir →', convo_prefix:'Conversation', convo_of:'sur',
+    convo_you:'Vous', convo_them:'Eux', convo_prev:'← Précédent', convo_next:'Suivant →',
+    all_title:'Les 30 Jours', all_reset_btn:'↺ Réinitialiser la Progression',
+    all_subtitle:'Touchez un jour pour l\'ouvrir · ↩ pour annuler',
+    all_reset_confirm:(l)=>`Réinitialiser toute la progression ${l} et recommencer ?`,
+    prog_title:'Tableau de Bord', prog_days_done:'Jours Faits', prog_of_30:'sur 30',
+    prog_streak:'Série', prog_last:'dernier :', prog_start_today:"commencez aujourd'hui",
+    prog_mastered:'Maîtrisé', prog_of_words:(n)=>`sur ${n} mots`,
+    prog_complete:'Complet', prog_course_progress:'progression du cours',
+    prog_vocab:'Vocabulaire', prog_seen:'Vu', prog_need_work:'À retravailler',
+    prog_word:(n)=>n===1?'1 mot':`${n} mots`,
+    prog_quiz_perf:'Performance au Quiz', prog_accuracy:'Précision', prog_answered:'Répondues',
+    prog_reset_section:'Réinitialiser',
+    prog_reset_desc:(l)=>`Effacer toute la progression ${l} et recommencer.`,
+    prog_reset_btn:'Réinitialiser', prog_reset_confirm:(l)=>`Réinitialiser toute la progression ${l} ?`,
+    nb_title:'Le Carnet en Cuir',
+    nb_subtitle:(n)=>`${n} entrées sur 30 débloquées · Terminez des jours pour en révéler plus`,
+    nb_review:'📍 File de Révision', nb_drill:'Travailler →',
+    nb_empty:'Rien ici pour l\'instant — marquez des flashcards « À retravailler » et elles apparaîtront ici.',
+    nb_unlock:'🔒 Terminez ce jour pour le débloquer', nb_got_it:'✓ Compris',
+    trans_title:'Traducteur', trans_loading:'Traduction…', trans_btn:'Traduire →',
+    trans_masculine:'masculin', trans_feminine:'féminin',
+    trans_hear:"🔊 L'entendre", trans_save:'+ Sauvegarder',
+    trans_saved_btn:'✓ Sauvegardé',
+    trans_tip:"Conseil : Essayez des phrases, pas seulement des mots. « Combien ça coûte ? » fonctionne mieux que juste « combien ». Les mots sauvegardés apparaissent dans Flashcards.",
+    trans_saved_cards:'Fiches sauvegardées :', trans_recent:'Récents',
+    trans_error:'Traduction échouée :',
+    toast_added_review:'📍 Ajouté à la file de révision',
+    toast_removed:'Supprimé des flashcards', toast_saved:'✓ Sauvegardé dans les flashcards',
+    toast_day_incomplete:(n)=>`Jour ${n} marqué incomplet.`,
+    trans_subtitle_cross:(s,tg)=>`Traduisez du ${s} en ${tg}. Obtenez la traduction, l'IPA et le guide de prononciation.`,
+  },
+  it: {
+    nav_lesson:'Lezione di Oggi', nav_flashcards:'Flashcard', nav_quiz:'Quiz',
+    nav_all:'Tutte le Lezioni', nav_conversations:'Conversazioni',
+    nav_translator:'Traduttore', nav_notebook:'Taccuino', nav_progress:'Progresso',
+    stat_day:'Giorno', stat_streak:'Serie', stat_mastered:'Padroneggiato', stat_progress:'Progresso',
+    lesson_vocabulary:'Vocabolario', lesson_key_phrases:'Frasi Chiave',
+    lesson_grammar_tip:'Grammatica / Consiglio Culturale', lesson_practice:'Pratica',
+    lesson_cultural_tip:'Consiglio Culturale', lesson_tap_reveal:'tocca per rivelare',
+    lesson_mark_complete:'Segna il Giorno Completo', lesson_completed:'✓ Completato',
+    lesson_undo:'↩ Annulla', day_label:'Giorno',
+    nav_yesterday:'← Ieri', nav_tomorrow:'Domani →', nav_today:'Oggi',
+    tag_mastered:'★ Padroneggiato', tag_done:'✓ Fatto',
+    flash_subtitle:'Ripassa il vocabolario dei giorni completati.',
+    flash_deck:'Mazzo', flash_days_seen:'Giorni visti',
+    flash_all_days:'Tutti i 30 giorni + salvati', flash_need_work:'Da ripassare',
+    flash_saved_words:'Le mie parole salvate', flash_shuffle:'⇄ Mescola', flash_mode:'Modalità',
+    flash_ipa_on:'IPA in fronte', flash_challenge:'Sfida',
+    flash_need_btn:'Da ripassare', flash_skip:'Salta', flash_got_it:'Capito ✓',
+    flash_tap_flip:'Tocca per girare', flash_say_it:'Dillo — poi gira',
+    flash_empty_saved:'Nessuna parola salvata. Usa la scheda Traduttore e tocca "+ Salva" per creare il tuo mazzo.',
+    flash_empty_day1:'Completa il Giorno 1 per iniziare a usare le flashcard!', flash_cards:'schede',
+    quiz_complete:'Quiz Completato', quiz_unlock:'Completa il Giorno 1 per sbloccare il quiz.',
+    quiz_try_again:'Riprova →', quiz_choose:'🔤 Scegli la risposta',
+    quiz_type_it:'✏️ Scrivilo', quiz_match:'🔗 Abbina le coppie',
+    quiz_placeholder:'Scrivi la tua risposta…', quiz_check:'Controlla →', quiz_next:'Avanti →',
+    quiz_question:'Domanda', quiz_of:'di', quiz_score:'Punteggio',
+    quiz_match_pick:(s)=>`Ora scegli la parola in ${s} corrispondente →`,
+    quiz_match_start:'Tocca una parola a sinistra per iniziare',
+    quiz_what_does:(w,s)=>`Cosa significa "${w}" in ${s}?`,
+    quiz_how_say:(w,tg)=>`Come si dice "${w}" in ${tg}?`,
+    quiz_correct_of:(c,tot)=>`${c} di ${tot} corrette`,
+    convo_title:'Pratica di Conversazione',
+    convo_subtitle:'Situazioni reali da praticare prima di partire. Tocca una scheda per aprirla.',
+    convo_tap_open:'Tocca per aprire →', convo_prefix:'Conversazione', convo_of:'di',
+    convo_you:'Tu', convo_them:'Loro', convo_prev:'← Precedente', convo_next:'Avanti →',
+    all_title:'Tutti i 30 Giorni', all_reset_btn:'↺ Azzera il Progresso',
+    all_subtitle:'Tocca un giorno per aprirlo · ↩ per annullare',
+    all_reset_confirm:(l)=>`Azzerare tutti i progressi di ${l} e ricominciare?`,
+    prog_title:'Pannello', prog_days_done:'Giorni Fatti', prog_of_30:'di 30',
+    prog_streak:'Serie', prog_last:'ultimo:', prog_start_today:'inizia oggi',
+    prog_mastered:'Padroneggiato', prog_of_words:(n)=>`di ${n} parole`,
+    prog_complete:'Completo', prog_course_progress:'avanzamento del corso',
+    prog_vocab:'Vocabolario', prog_seen:'Visto', prog_need_work:'Da ripassare',
+    prog_word:(n)=>n===1?'1 parola':`${n} parole`,
+    prog_quiz_perf:'Prestazioni al Quiz', prog_accuracy:'Precisione', prog_answered:'Risposte',
+    prog_reset_section:'Reimposta',
+    prog_reset_desc:(l)=>`Cancella tutti i progressi di ${l} e ricomincia.`,
+    prog_reset_btn:'Reimposta', prog_reset_confirm:(l)=>`Reimpostare tutti i progressi di ${l}?`,
+    nb_title:'Il Taccuino di Cuoio',
+    nb_subtitle:(n)=>`${n} di 30 voci sbloccate · Completa giorni per rivelarne di più`,
+    nb_review:'📍 Coda di Revisione', nb_drill:'Ripassare →',
+    nb_empty:'Niente ancora — segna le flashcard come "Da ripassare" e appariranno qui.',
+    nb_unlock:'🔒 Completa questo giorno per sbloccarlo', nb_got_it:'✓ Capito',
+    trans_title:'Traduttore', trans_loading:'Traduzione…', trans_btn:'Traduci →',
+    trans_masculine:'maschile', trans_feminine:'femminile',
+    trans_hear:'🔊 Ascoltalo', trans_save:'+ Salva nelle flashcard',
+    trans_saved_btn:'✓ Salvato nelle flashcard',
+    trans_tip:'Consiglio: Prova con le frasi, non solo parole singole. "Quanto costa?" funziona meglio di solo "quanto". Le parole salvate appaiono in Flashcard.',
+    trans_saved_cards:'Schede salvate:', trans_recent:'Recenti',
+    trans_error:'Traduzione fallita:',
+    toast_added_review:'📍 Aggiunto alla coda di revisione',
+    toast_removed:'Rimosso dalle flashcard', toast_saved:'✓ Salvato nelle flashcard',
+    toast_day_incomplete:(n)=>`Giorno ${n} segnato come incompleto.`,
+    trans_subtitle_cross:(s,tg)=>`Traduci dall'${s} in ${tg}. Ottieni la traduzione, IPA e guida alla pronuncia.`,
+  },
+  pt: {
+    nav_lesson:'Lição de Hoje', nav_flashcards:'Flashcards', nav_quiz:'Quiz',
+    nav_all:'Todas as Lições', nav_conversations:'Conversas',
+    nav_translator:'Tradutor', nav_notebook:'Caderno', nav_progress:'Progresso',
+    stat_day:'Dia', stat_streak:'Sequência', stat_mastered:'Dominadas', stat_progress:'Progresso',
+    lesson_vocabulary:'Vocabulário', lesson_key_phrases:'Frases-Chave',
+    lesson_grammar_tip:'Gramática / Dica Cultural', lesson_practice:'Prática',
+    lesson_cultural_tip:'Dica Cultural', lesson_tap_reveal:'toque para revelar',
+    lesson_mark_complete:'Marcar Dia Completo', lesson_completed:'✓ Concluído',
+    lesson_undo:'↩ Desfazer', day_label:'Dia',
+    nav_yesterday:'← Ontem', nav_tomorrow:'Amanhã →', nav_today:'Hoje',
+    tag_mastered:'★ Dominado', tag_done:'✓ Feito',
+    flash_subtitle:'Revise o vocabulário dos dias concluídos.',
+    flash_deck:'Baralho', flash_days_seen:'Dias vistos',
+    flash_all_days:'Todos os 30 dias + salvos', flash_need_work:'Precisa de revisão',
+    flash_saved_words:'Minhas palavras salvas', flash_shuffle:'⇄ Embaralhar', flash_mode:'Modo',
+    flash_ipa_on:'IPA na frente', flash_challenge:'Desafio',
+    flash_need_btn:'Revisar', flash_skip:'Pular', flash_got_it:'Entendi ✓',
+    flash_tap_flip:'Toque para virar', flash_say_it:'Diga — depois vire',
+    flash_empty_saved:'Nenhuma palavra salva ainda. Use a aba Tradutor e toque em "+ Salvar" para criar seu baralho.',
+    flash_empty_day1:'Conclua o Dia 1 para começar a usar os flashcards!', flash_cards:'cartões',
+    quiz_complete:'Quiz Concluído', quiz_unlock:'Conclua o Dia 1 para desbloquear o quiz.',
+    quiz_try_again:'Tentar novamente →', quiz_choose:'🔤 Escolha a resposta',
+    quiz_type_it:'✏️ Digite', quiz_match:'🔗 Combine os pares',
+    quiz_placeholder:'Digite sua resposta…', quiz_check:'Verificar →', quiz_next:'Próximo →',
+    quiz_question:'Pergunta', quiz_of:'de', quiz_score:'Pontuação',
+    quiz_match_pick:(s)=>`Agora escolha a palavra em ${s} correspondente →`,
+    quiz_match_start:'Toque em uma palavra à esquerda para começar',
+    quiz_what_does:(w,s)=>`O que significa "${w}" em ${s}?`,
+    quiz_how_say:(w,tg)=>`Como se diz "${w}" em ${tg}?`,
+    quiz_correct_of:(c,tot)=>`${c} de ${tot} corretas`,
+    convo_title:'Prática de Conversação',
+    convo_subtitle:'Situações reais para praticar antes de viajar. Toque em um cartão para abrir.',
+    convo_tap_open:'Toque para abrir →', convo_prefix:'Conversa', convo_of:'de',
+    convo_you:'Você', convo_them:'Eles', convo_prev:'← Anterior', convo_next:'Próximo →',
+    all_title:'Todos os 30 Dias', all_reset_btn:'↺ Redefinir Progresso',
+    all_subtitle:'Toque em um dia para abrir · ↩ para desfazer',
+    all_reset_confirm:(l)=>`Redefinir todo o progresso de ${l} e começar de novo?`,
+    prog_title:'Painel', prog_days_done:'Dias Feitos', prog_of_30:'de 30',
+    prog_streak:'Sequência', prog_last:'último:', prog_start_today:'comece hoje',
+    prog_mastered:'Dominadas', prog_of_words:(n)=>`de ${n} palavras`,
+    prog_complete:'Completo', prog_course_progress:'progresso do curso',
+    prog_vocab:'Vocabulário', prog_seen:'Visto', prog_need_work:'A revisar',
+    prog_word:(n)=>n===1?'1 palavra':`${n} palavras`,
+    prog_quiz_perf:'Desempenho no Quiz', prog_accuracy:'Precisão', prog_answered:'Respondidas',
+    prog_reset_section:'Redefinir',
+    prog_reset_desc:(l)=>`Apagar todo o progresso de ${l} e começar de novo.`,
+    prog_reset_btn:'Redefinir', prog_reset_confirm:(l)=>`Redefinir todo o progresso de ${l}?`,
+    nb_title:'O Caderno de Couro',
+    nb_subtitle:(n)=>`${n} de 30 entradas desbloqueadas · Conclua dias para revelar mais`,
+    nb_review:'📍 Fila de Revisão', nb_drill:'Revisar →',
+    nb_empty:'Nada aqui ainda — marque flashcards como "Revisar" e elas aparecerão aqui.',
+    nb_unlock:'🔒 Conclua este dia para desbloqueá-lo', nb_got_it:'✓ Entendi',
+    trans_title:'Tradutor', trans_loading:'Traduzindo…', trans_btn:'Traduzir →',
+    trans_masculine:'masculino', trans_feminine:'feminino',
+    trans_hear:'🔊 Ouvir', trans_save:'+ Salvar nos flashcards',
+    trans_saved_btn:'✓ Salvo nos flashcards',
+    trans_tip:'Dica: Tente frases, não apenas palavras. "Quanto custa isso?" funciona melhor que só "quanto". Palavras salvas aparecem em Flashcards.',
+    trans_saved_cards:'Cartões salvos:', trans_recent:'Recentes',
+    trans_error:'Falha na tradução:',
+    toast_added_review:'📍 Adicionado à fila de revisão',
+    toast_removed:'Removido dos flashcards', toast_saved:'✓ Salvo nos flashcards',
+    toast_day_incomplete:(n)=>`Dia ${n} marcado como incompleto.`,
+    trans_subtitle_cross:(s,tg)=>`Traduza do ${s} para o ${tg}. Obtenha a tradução, IPA e guia de pronúncia.`,
+  },
+};
+
+// Translate a UI string key into the current source/instruction language.
+// Falls back to English for any missing key or unsupported language.
+function t(key, ...args) {
+  const lang = currentSource();
+  const strings = UI_STRINGS[lang] || UI_STRINGS.en;
+  const val = strings[key] !== undefined ? strings[key] : UI_STRINGS.en[key];
+  if (val === undefined) return key;
+  return typeof val === 'function' ? val(...args) : val;
+}
+
+// Update nav button labels and header stat labels to current source language
+function updateNavLabels() {
+  const navMap = {
+    lesson:'nav_lesson', flashcards:'nav_flashcards', quiz:'nav_quiz',
+    all:'nav_all', conversations:'nav_conversations',
+    translator:'nav_translator', notebook:'nav_notebook', progress:'nav_progress',
+  };
+  document.querySelectorAll('nav button[data-view]').forEach(btn => {
+    const key = navMap[btn.dataset.view];
+    if (!key) return;
+    const badge = btn.querySelector('.nav-badge');
+    btn.textContent = t(key);
+    if (badge) btn.appendChild(badge);
+  });
+  const statMap = {
+    'stat-label-day':'stat_day', 'stat-label-streak':'stat_streak',
+    'stat-label-mastered':'stat_mastered', 'stat-label-progress':'stat_progress',
+  };
+  Object.entries(statMap).forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t(key);
+  });
+}
+
+
 // ── Direction helpers ────────────────────────────────────────
 function currentPair()     { return PAIRS[currentLang]; }
 function currentTarget()   { return PAIRS[currentLang].target; }
@@ -319,6 +685,7 @@ function setLanguage(lang) {
     gtag('event', 'language_switch', { language: lang });
   }
   refreshStats();
+  updateNavLabels();
   setView('lesson');
 }
 
@@ -458,14 +825,14 @@ function renderLessonView(dayNum) {
     if (!d) return `<div class="day-nav-card ghost"></div>`;
     const done     = state.completedDays.includes(d.day);
     const mastered = isDayMastered(d.day);
-    const label    = role === 'prev' ? '← Yesterday' : role === 'next' ? 'Tomorrow →' : 'Today';
-    const status   = mastered ? '<div class="card-check card-mastered">★ Mastered</div>'
-                   : done     ? '<div class="card-check">✓ Completed</div>'
+    const label    = role === 'prev' ? t('nav_yesterday') : role === 'next' ? t('nav_tomorrow') : t('nav_today');
+    const status   = mastered ? `<div class="card-check card-mastered">${t('tag_mastered')}</div>`
+                   : done     ? `<div class="card-check">${t('lesson_completed')}</div>`
                    : '';
     return `
       <div class="day-nav-card ${role === 'curr' ? 'today' : ''}" onclick="renderLessonView(${d.day})">
         <div class="card-label">${label}</div>
-        <div class="card-day">Day ${d.day}</div>
+        <div class="card-day">${t('day_label')} ${d.day}</div>
         <div class="card-title">${isTargetEnglish() && d.titleNative ? d.titleNative : d.title}</div>
         ${d.titleNative ? `<div class="card-title-native">${isTargetEnglish() ? d.title : d.titleNative}</div>` : ''}
         ${status}
@@ -482,10 +849,10 @@ function renderLessonView(dayNum) {
       <img id="lesson-banner-img" src="" alt=""
            style="width:100%;max-height:320px;object-fit:cover;object-position:center;opacity:0;transition:opacity 0.4s ease;display:block;">
     </div>
-    <h2>Day ${day.day}: ${isTargetEnglish() && day.titleNative ? day.titleNative : day.title}${day.titleNative ? `<span class="title-native"> — ${isTargetEnglish() ? day.title : day.titleNative}</span>` : ''}</h2>
+    <h2>${t('day_label')} ${day.day}: ${isTargetEnglish() && day.titleNative ? day.titleNative : day.title}${day.titleNative ? `<span class="title-native"> — ${isTargetEnglish() ? day.title : day.titleNative}</span>` : ''}</h2>
     <p class="subtitle">${day.focus || ''}</p>
 
-    <h3>Vocabulary</h3>
+    <h3>${t('lesson_vocabulary')}</h3>
     <div class="vocab-grid">
       ${day.vocab.map(v => `
         <div class="vocab-card" onclick="this.classList.toggle('flipped')" title="Click to flip">
@@ -494,7 +861,7 @@ function renderLessonView(dayNum) {
               <div class="fr">${getFrontWord(v)}</div>
               ${isTargetEnglish() ? '' : `<div class="ipa">${v.phonetic || v.ipa || ''}</div>`}
               <button class="speak-btn speak-btn-sm" onclick="event.stopPropagation();speakWord('${getSpeakWord(v).replace(/'/g,"\\'")}','${currentTarget()}')">🔊</button>
-              <div class="vocab-flip-hint">tap to reveal</div>
+              <div class="vocab-flip-hint">${t('lesson_tap_reveal')}</div>
             </div>
             <div class="vocab-face vocab-back">
               <div class="en">${getBackWord(v)}</div>
@@ -505,7 +872,7 @@ function renderLessonView(dayNum) {
       `).join('')}
     </div>
 
-    <h3>Key Phrases</h3>
+    <h3>${t('lesson_key_phrases')}</h3>
     <div class="phrase-list">
       ${day.phrases.map(p => `
         <div class="phrase">
@@ -517,13 +884,13 @@ function renderLessonView(dayNum) {
       `).join('')}
     </div>
 
-    <h3>Grammar / Cultural Tip</h3>
+    <h3>${t('lesson_grammar_tip')}</h3>
     <div class="grammar-box">
       <p>${day.grammar}</p>
     </div>
 
     ${day.practice && day.practice.length ? `
-    <h3>Practice</h3>
+    <h3>${t('lesson_practice')}</h3>
     <div class="practice-box">
       <ol>
         ${day.practice.map(p => `<li>${p}</li>`).join('')}
@@ -536,9 +903,9 @@ function renderLessonView(dayNum) {
 
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px;">
       <button class="complete-btn ${isCompleted?'done':''}" onclick="completeDay(${day.day})" style="${isCompleted?'flex:1;':'width:100%;'}">
-        ${isCompleted ? '✓ Completed' : 'Mark Day Complete'}
+        ${isCompleted ? t('lesson_completed') : t('lesson_mark_complete')}
       </button>
-      ${isCompleted ? `<button class="uncomplete-btn" onclick="uncompleteDay(${day.day})">↩ Undo</button>` : ''}
+      ${isCompleted ? `<button class="uncomplete-btn" onclick="uncompleteDay(${day.day})">${t('lesson_undo')}</button>` : ''}
     </div>
   `;
   content.innerHTML = html;
@@ -583,7 +950,7 @@ function uncompleteDay(dayNum, stayInAll) {
   state.streak = state.completedDays.length;
   saveState();
   refreshStats();
-  showToast(`Day ${dayNum} marked incomplete.`);
+  showToast(t('toast_day_incomplete', dayNum));
   if (stayInAll) renderAllView();
   else renderLessonView(dayNum);
 }
@@ -598,17 +965,17 @@ function renderFlashcardView() {
 function renderFlashcardCard() {
   if (flashState.pool.length === 0) {
     const emptyMsg = flashState.scope === 'saved'
-      ? 'No saved words yet. Use the Translator tab and tap "+ Save to flashcards" to build your custom deck.'
-      : 'Complete Day 1 to start using flashcards!';
+      ? t('flash_empty_saved')
+      : t('flash_empty_day1');
     content.innerHTML = `
-      <h2>Flashcards</h2>
-      <p class="subtitle">Drill the vocab from your completed days.</p>
+      <h2>${t('nav_flashcards')}</h2>
+      <p class="subtitle">${t('flash_subtitle')}</p>
       <div class="filter-bar">
         <select onchange="flashState.scope=this.value;flashState.index=0;flashState.flipped=false;renderFlashcardView()">
-          <option value="learned" ${flashState.scope==='learned'?'selected':''}>Days I've seen</option>
-          <option value="all" ${flashState.scope==='all'?'selected':''}>All 30 days + saved</option>
-          <option value="weak" ${flashState.scope==='weak'?'selected':''}>Need more work</option>
-          <option value="saved" ${flashState.scope==='saved'?'selected':''}>My saved words${state.savedVocab.length?` (${state.savedVocab.length})`:''}</option>
+          <option value="learned" ${flashState.scope==='learned'?'selected':''}>${t('flash_days_seen')}</option>
+          <option value="all" ${flashState.scope==='all'?'selected':''}>${t('flash_all_days')}</option>
+          <option value="weak" ${flashState.scope==='weak'?'selected':''}>${t('flash_need_work')}</option>
+          <option value="saved" ${flashState.scope==='saved'?'selected':''}>${t('flash_saved_words')}${state.savedVocab.length?` (${state.savedVocab.length})`:''}</option>
         </select>
       </div>
       <div class="empty">${emptyMsg}</div>
@@ -633,33 +1000,33 @@ function renderFlashcardCard() {
   const frontContent = flashState.flipped
     ? `<div class="word">${backWord}</div>${backIpa ? `<div class="ipa-large">${backIpa}</div>` : ''}<div class="hint">${dayLabel}</div>`
     : (showIpa
-        ? `<div class="word">${frontWord}</div>${frontIpa ? `<div class="ipa-large">${frontIpa}</div>` : ''}${speakBtn}<div class="hint">Tap to flip</div>`
-        : `<div class="word">${frontWord}</div>${speakBtn}<div class="hint pronunciation-challenge">Say it — then flip</div>`);
+        ? `<div class="word">${frontWord}</div>${frontIpa ? `<div class="ipa-large">${frontIpa}</div>` : ''}${speakBtn}<div class="hint">${t('flash_tap_flip')}</div>`
+        : `<div class="word">${frontWord}</div>${speakBtn}<div class="hint pronunciation-challenge">${t('flash_say_it')}</div>`);
   content.innerHTML = `
     <div class="flash-layout">
       <div class="flash-sidebar">
-        <h2>Flashcards</h2>
-        <p class="subtitle" style="margin-bottom:20px;">${flashState.pool.length} cards · ${flashState.index+1}/${flashState.pool.length}</p>
-        <div class="flash-sidebar-label">Deck</div>
+        <h2>${t('nav_flashcards')}</h2>
+        <p class="subtitle" style="margin-bottom:20px;">${flashState.pool.length} ${t('flash_cards')} · ${flashState.index+1}/${flashState.pool.length}</p>
+        <div class="flash-sidebar-label">${t('flash_deck')}</div>
         <select class="flash-select" onchange="flashState.scope=this.value;flashState.index=0;flashState.flipped=false;renderFlashcardView()">
-          <option value="learned" ${flashState.scope==='learned'?'selected':''}>Days I've seen</option>
-          <option value="all" ${flashState.scope==='all'?'selected':''}>All 30 days + saved</option>
-          <option value="weak" ${flashState.scope==='weak'?'selected':''}>Need more work</option>
-          <option value="saved" ${flashState.scope==='saved'?'selected':''}>My saved words${state.savedVocab.length?` (${state.savedVocab.length})`:''}</option>
+          <option value="learned" ${flashState.scope==='learned'?'selected':''}>${t('flash_days_seen')}</option>
+          <option value="all" ${flashState.scope==='all'?'selected':''}>${t('flash_all_days')}</option>
+          <option value="weak" ${flashState.scope==='weak'?'selected':''}>${t('flash_need_work')}</option>
+          <option value="saved" ${flashState.scope==='saved'?'selected':''}>${t('flash_saved_words')}${state.savedVocab.length?` (${state.savedVocab.length})`:''}</option>
         </select>
-        <button class="flash-sidebar-btn" onclick="rebuildFlashPool();shufflePool();renderFlashcardCard()">⇄ Shuffle</button>
-        <div class="flash-sidebar-label" style="margin-top:18px;">Mode</div>
-        <button class="ipa-mode-btn ${showIpa?'active':''}" style="width:100%;margin-bottom:6px;" onclick="flashState.ipaMode='show';flashState.flipped=false;renderFlashcardCard()">IPA on front</button>
-        <button class="ipa-mode-btn ${!showIpa?'active':''}" style="width:100%;" onclick="flashState.ipaMode='hide';flashState.flipped=false;renderFlashcardCard()">Challenge</button>
+        <button class="flash-sidebar-btn" onclick="rebuildFlashPool();shufflePool();renderFlashcardCard()">${t('flash_shuffle')}</button>
+        <div class="flash-sidebar-label" style="margin-top:18px;">${t('flash_mode')}</div>
+        <button class="ipa-mode-btn ${showIpa?'active':''}" style="width:100%;margin-bottom:6px;" onclick="flashState.ipaMode='show';flashState.flipped=false;renderFlashcardCard()">${t('flash_ipa_on')}</button>
+        <button class="ipa-mode-btn ${!showIpa?'active':''}" style="width:100%;" onclick="flashState.ipaMode='hide';flashState.flipped=false;renderFlashcardCard()">${t('flash_challenge')}</button>
       </div>
       <div class="flash-main">
         <div class="flashcard ${flashState.flipped?'flipped':''}" onclick="flashState.flipped=!flashState.flipped;renderFlashcardCard()">
           ${frontContent}
         </div>
         <div class="flashcard-controls">
-          <button class="btn-need" onclick="markCard('need')">Need work</button>
-          <button class="btn-skip" onclick="nextCard()">Skip</button>
-          <button class="btn-got" onclick="markCard('got')">Got it ✓</button>
+          <button class="btn-need" onclick="markCard('need')">${t('flash_need_btn')}</button>
+          <button class="btn-skip" onclick="nextCard()">${t('flash_skip')}</button>
+          <button class="btn-got" onclick="markCard('got')">${t('flash_got_it')}</button>
         </div>
       </div>
     </div>
@@ -704,7 +1071,7 @@ function markCard(type) {
     state.needWorkVocab[getNative(card)] = 0;
   } else {
     state.needWorkVocab[getNative(card)] = (state.needWorkVocab[getNative(card)]||0)+1;
-    showToast('📍 Added to Review Queue');
+    showToast(t('toast_added_review'));
   }
   saveState();
   refreshStats();
@@ -787,8 +1154,8 @@ function renderQuizView() {
     content.innerHTML = `
       <div class="quiz-qa-row">
         <div style="flex:2;min-width:0;">
-          <h2>Quiz</h2>
-          <p class="subtitle">Complete Day 1 to unlock the quiz.</p>
+          <h2>${t('nav_quiz')}</h2>
+          <p class="subtitle">${t('quiz_unlock')}</p>
           <div class="empty" style="padding:40px 0;">The Proctor is waiting.</div>
         </div>
         ${proctorCol}
@@ -807,11 +1174,11 @@ function renderQuizView() {
     content.innerHTML = `
       <div class="quiz-qa-row">
         <div style="flex:2;min-width:0;">
-          <h2>Quiz Complete</h2>
+          <h2>${t('quiz_complete')}</h2>
           <div class="quiz-stars">${starHTML}</div>
           <p class="star-verdict">"${verdict}"</p>
-          <p class="subtitle">${quizState.score} of ${quizState.questions.length} correct</p>
-          <button class="complete-btn" onclick="quizState={questions:[],current:0,score:0,answered:false};renderQuizView()">Try Again →</button>
+          <p class="subtitle">${t('quiz_correct_of', quizState.score, quizState.questions.length)}</p>
+          <button class="complete-btn" onclick="quizState={questions:[],current:0,score:0,answered:false};renderQuizView()">${t('quiz_try_again')}</button>
         </div>
         ${proctorCol}
       </div>
@@ -819,7 +1186,7 @@ function renderQuizView() {
     return;
   }
 
-  const progressLabel = `Question ${quizState.current + 1} of ${quizState.questions.length} · Score: ${quizState.score}`;
+  const progressLabel = `${t('quiz_question')} ${quizState.current + 1} ${t('quiz_of')} ${quizState.questions.length} · ${t('quiz_score')}: ${quizState.score}`;
   if (q.type === 'match-pairs') {
     renderMatchPairsQ(q, proctorCol, progressLabel);
   } else if (q.type === 'type-it') {
@@ -832,11 +1199,11 @@ function renderQuizView() {
 
 function renderMcQ(q, proctorCol, progressLabel) {
   content.innerHTML = `
-    <h2>Quiz</h2>
+    <h2>${t('nav_quiz')}</h2>
     <p class="subtitle">${progressLabel}</p>
     <div class="quiz-qa-row">
       <div class="quiz-q">
-        <div class="quiz-type-pill">🔤 Choose the answer</div>
+        <div class="quiz-type-pill">${t('quiz_choose')}</div>
         <div class="q">${escapeHtml(q.prompt)}</div>
         <div class="quiz-options">
           ${q.options.map((opt, i) => {
@@ -857,17 +1224,17 @@ function renderMcQ(q, proctorCol, progressLabel) {
       </div>
       ${proctorCol}
     </div>
-    <button class="complete-btn" onclick="quizState.current++;quizState.answered=false;renderQuizView()" style="${quizState.answered ? '' : 'visibility:hidden;pointer-events:none;'}">Next →</button>
+    <button class="complete-btn" onclick="quizState.current++;quizState.answered=false;renderQuizView()" style="${quizState.answered ? '' : 'visibility:hidden;pointer-events:none;'}">${t('quiz_next')}</button>
   `;
 }
 
 function renderTypeItQ(q, proctorCol, progressLabel) {
   content.innerHTML = `
-    <h2>Quiz</h2>
+    <h2>${t('nav_quiz')}</h2>
     <p class="subtitle">${progressLabel}</p>
     <div class="quiz-qa-row">
       <div class="quiz-q">
-        <div class="quiz-type-pill">✏️ Type it</div>
+        <div class="quiz-type-pill">${t('quiz_type_it')}</div>
         <div class="q">${escapeHtml(q.prompt)}</div>
         ${q.answered ? `
           <div class="quiz-feedback ${q.isCorrect ? 'correct' : 'wrong'}">
@@ -886,13 +1253,13 @@ function renderTypeItQ(q, proctorCol, progressLabel) {
               value="${escapeHtml(q.typed || '')}"
               onkeydown="if(event.key==='Enter'){if(quizState.questions[quizState.current].answered){quizState.current++;quizState.answered=false;renderQuizView();}else{answerTypeIt();}}"
               oninput="quizState.questions[quizState.current].typed=this.value">
-            <button class="type-it-submit" onclick="answerTypeIt()">Check →</button>
+            <button class="type-it-submit" onclick="answerTypeIt()">${t('quiz_check')}</button>
           </div>
         `}
       </div>
       ${proctorCol}
     </div>
-    <button class="complete-btn" onclick="quizState.current++;quizState.answered=false;renderQuizView()" style="${q.answered ? '' : 'visibility:hidden;pointer-events:none;'}">Next →</button>
+    <button class="complete-btn" onclick="quizState.current++;quizState.answered=false;renderQuizView()" style="${q.answered ? '' : 'visibility:hidden;pointer-events:none;'}">${t('quiz_next')}</button>
   `;
   if (!q.answered) setTimeout(() => document.getElementById('type-it-inp')?.focus(), 50);
 }
@@ -951,11 +1318,11 @@ function renderMatchPairsQ(q, proctorCol, progressLabel) {
   }).join('');
 
   content.innerHTML = `
-    <h2>Quiz</h2>
+    <h2>${t('nav_quiz')}</h2>
     <p class="subtitle">${progressLabel}</p>
     <div class="quiz-qa-row">
       <div class="quiz-q" style="flex:2;min-width:0;">
-        <div class="quiz-type-pill">🔗 Match the pairs</div>
+        <div class="quiz-type-pill">${t('quiz_match')}</div>
         <div class="match-grid">
           <div class="match-col">${leftHTML}</div>
           <div class="match-col">${rightHTML}</div>
@@ -965,12 +1332,12 @@ function renderMatchPairsQ(q, proctorCol, progressLabel) {
                <span class="feedback-mark">✓</span>
                <span class="feedback-quip">"${CORRECT_QUIPS[Math.floor(Math.random() * CORRECT_QUIPS.length)]}"</span>
              </div>`
-          : `<p class="match-hint">${q.selectedLeft !== null ? 'Now pick the matching English word →' : 'Tap a word on the left to start'}</p>`
+          : `<p class="match-hint">${q.selectedLeft !== null ? t('quiz_match_pick', LANGS[currentSource()].label) : t('quiz_match_start')}</p>`
         }
       </div>
       ${proctorCol}
     </div>
-    <button class="complete-btn" onclick="quizState.current++;quizState.answered=false;renderQuizView()" style="${allMatched ? '' : 'visibility:hidden;pointer-events:none;'}">Next →</button>
+    <button class="complete-btn" onclick="quizState.current++;quizState.answered=false;renderQuizView()" style="${allMatched ? '' : 'visibility:hidden;pointer-events:none;'}">${t('quiz_next')}</button>
   `;
 }
 
@@ -1061,15 +1428,15 @@ function generateQuiz() {
       quizState.questions.push({
         type: 'mc',
         prompt: showFrontToBack
-          ? `What does "${getFrontWord(item)}" mean in ${sourceLabel}?`
-          : `How do you say "${getBackWord(item)}" in ${targetLabel}?`,
+          ? t('quiz_what_does', getFrontWord(item), sourceLabel)
+          : t('quiz_how_say', getBackWord(item), targetLabel),
         options: opts,
         correct: correctText
       });
     } else {
       quizState.questions.push({
         type: 'type-it',
-        prompt: `What does "${getFrontWord(item)}" mean in ${sourceLabel}?`,
+        prompt: t('quiz_what_does', getFrontWord(item), sourceLabel),
         correct: getBackWord(item),
         phonetic: item.phonetic || '',
         answered: false,
@@ -1105,10 +1472,10 @@ function renderAllView() {
   const _label = LANGS[currentTarget()].label;
   content.innerHTML = `
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:4px;">
-      <h2 style="margin-bottom:0;">All 30 Days</h2>
-      <button class="reset-all-btn" onclick="if(confirm('Reset all ${_label} progress and start over?')){localStorage.removeItem(getStorageKey());location.reload();}">↺ Reset All Progress</button>
+      <h2 style="margin-bottom:0;">${t('all_title')}</h2>
+      <button class="reset-all-btn" onclick="if(confirm(t('all_reset_confirm', _label))){localStorage.removeItem(getStorageKey());location.reload();}">${t('all_reset_btn')}</button>
     </div>
-    <p class="subtitle" style="margin-bottom:20px;">Tap a day to open it · ↩ to undo completion</p>
+    <p class="subtitle" style="margin-bottom:20px;">${t('all_subtitle')}</p>
     <div class="day-grid">
       ${COURSE.map(d => {
         const completed = state.completedDays.includes(d.day);
@@ -1118,12 +1485,12 @@ function renderAllView() {
         if (mastered)  cls += ' mastered';
         if (d.day === state.currentDay) cls += ' current';
         return `<div class="${cls}" onclick="setView('lesson');renderLessonView(${d.day})">
-          <div class="num">Day ${d.day}</div>
+          <div class="num">${t('day_label')} ${d.day}</div>
           <div class="title">${d.title}</div>
           ${d.titleNative ? `<div class="title-native-small">${d.titleNative}</div>` : ''}
-          ${mastered  ? '<div class="mastery-tag">★ Mastered</div>' :
-            completed ? '<div class="mastery-tag" style="color:#4a9e5c;">✓ Done</div>' : ''}
-          ${completed ? `<button class="tile-undo-btn" onclick="event.stopPropagation();uncompleteDay(${d.day},true)" title="Undo completion">↩ Undo</button>` : ''}
+          ${mastered  ? `<div class="mastery-tag">${t('tag_mastered')}</div>` :
+            completed ? `<div class="mastery-tag" style="color:#4a9e5c;">${t('tag_done')}</div>` : ''}
+          ${completed ? `<button class="tile-undo-btn" onclick="event.stopPropagation();uncompleteDay(${d.day},true)" title="Undo completion">${t('lesson_undo')}</button>` : ''}
         </div>`;
       }).join('')}
     </div>
@@ -1133,8 +1500,8 @@ function renderAllView() {
 // CONVERSATIONS
 function renderConvosView() {
   content.innerHTML = `
-    <h2>Conversation Practice</h2>
-    <p class="subtitle">Real scenarios to drill before you go. Tap a card to open it.</p>
+    <h2>${t('convo_title')}</h2>
+    <p class="subtitle">${t('convo_subtitle')}</p>
     <div class="convo-grid">
       ${CONVERSATIONS.map((c, i) => `
         <div class="convo-card" onclick="openConvo(${i})">
@@ -1143,7 +1510,7 @@ function renderConvosView() {
             <h4 class="convo-card-title">${c.title}</h4>
             ${c.titleNative ? `<div class="convo-card-native">${c.titleNative}</div>` : ''}
             <div class="convo-card-scene">${c.scene || ''}</div>
-            <div class="convo-card-cta">Tap to open →</div>
+            <div class="convo-card-cta">${t('convo_tap_open')}</div>
           </div>
         </div>
       `).join('')}
@@ -1163,7 +1530,7 @@ function openConvo(i) {
   const modal = document.getElementById('convo-modal-content');
   modal.innerHTML = `
     <div class="cmodal-header">
-      <div class="cmodal-num">Conversation ${i + 1} of ${CONVERSATIONS.length}</div>
+      <div class="cmodal-num">${t('convo_prefix')} ${i + 1} ${t('convo_of')} ${CONVERSATIONS.length}</div>
       <h2 class="cmodal-title">${c.title}</h2>
       ${c.titleNative ? `<div class="cmodal-title-native">${c.titleNative}</div>` : ''}
     </div>
@@ -1171,7 +1538,7 @@ function openConvo(i) {
     <div class="cmodal-dialogue">
       ${c.lines.map(l => `
         <div class="cmodal-line ${l.who}">
-          <div class="cmodal-speaker">${l.who === 'you' ? 'You' : 'Them'}</div>
+          <div class="cmodal-speaker">${l.who === 'you' ? t('convo_you') : t('convo_them')}</div>
           <div class="cmodal-native-row">
             <span class="cmodal-native">${getNative(l)}</span>
             <button class="speak-btn speak-btn-sm cmodal-speak" onclick="speakWord(${JSON.stringify(getNative(l)).replace(/"/g,'&quot;')},'${currentTarget()}')">🔊</button>
@@ -1182,8 +1549,8 @@ function openConvo(i) {
       `).join('')}
     </div>
     <div class="cmodal-nav">
-      ${i > 0 ? `<button class="cmodal-prev" onclick="openConvo(${i-1})">← Previous</button>` : '<span></span>'}
-      ${i < CONVERSATIONS.length - 1 ? `<button class="cmodal-next" onclick="openConvo(${i+1})">Next →</button>` : '<span></span>'}
+      ${i > 0 ? `<button class="cmodal-prev" onclick="openConvo(${i-1})">${t('convo_prev')}</button>` : '<span></span>'}
+      ${i < CONVERSATIONS.length - 1 ? `<button class="cmodal-next" onclick="openConvo(${i+1})">${t('convo_next')}</button>` : '<span></span>'}
     </div>
   `;
   overlay.classList.add('open');
@@ -1212,67 +1579,67 @@ function renderProgressView() {
   const pair = currentPair();
 
   content.innerHTML = `
-    <h2>Dashboard</h2>
+    <h2>${t('prog_title')}</h2>
     <p class="subtitle">${langLabel} · ${pair.subtitle}</p>
 
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-value">${daysComplete}</div>
-        <div class="kpi-label">Days Done</div>
-        <div class="kpi-sub">of 30</div>
+        <div class="kpi-label">${t('prog_days_done')}</div>
+        <div class="kpi-sub">${t('prog_of_30')}</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-value">${state.streak}</div>
-        <div class="kpi-label">Day Streak</div>
-        <div class="kpi-sub">${state.lastVisit ? 'last: ' + state.lastVisit : 'start today'}</div>
+        <div class="kpi-label">${t('prog_streak')}</div>
+        <div class="kpi-sub">${state.lastVisit ? t('prog_last') + ' ' + state.lastVisit : t('prog_start_today')}</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-value">${mastered}</div>
-        <div class="kpi-label">Mastered</div>
-        <div class="kpi-sub">of ${totalVocab} words</div>
+        <div class="kpi-label">${t('prog_mastered')}</div>
+        <div class="kpi-sub">${t('prog_of_words', totalVocab)}</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-value">${pct}%</div>
-        <div class="kpi-label">Complete</div>
-        <div class="kpi-sub">course progress</div>
+        <div class="kpi-label">${t('prog_complete')}</div>
+        <div class="kpi-sub">${t('prog_course_progress')}</div>
       </div>
     </div>
 
     <div class="dash-section">
-      <div class="dash-section-title">Vocabulary</div>
+      <div class="dash-section-title">${t('prog_vocab')}</div>
       <div class="dash-row">
-        <span class="dash-row-label">Mastered</span>
+        <span class="dash-row-label">${t('prog_mastered')}</span>
         <div class="dash-row-right">
           <div class="mini-bar"><div class="mini-bar-fill" style="width:${masteryPct}%"></div></div>
           <span class="dash-pct">${masteryPct}%</span>
         </div>
       </div>
       <div class="dash-row">
-        <span class="dash-row-label">Seen</span>
+        <span class="dash-row-label">${t('prog_seen')}</span>
         <div class="dash-row-right">
           <div class="mini-bar"><div class="mini-bar-fill" style="width:${seenPct}%"></div></div>
           <span class="dash-pct">${seenPct}%</span>
         </div>
       </div>
       <div class="dash-row">
-        <span class="dash-row-label">Need work</span>
+        <span class="dash-row-label">${t('prog_need_work')}</span>
         <div class="dash-row-right">
-          <span class="dash-pct" style="color:var(--muted)">${needWork} word${needWork===1?'':'s'}</span>
+          <span class="dash-pct" style="color:var(--muted)">${t('prog_word', needWork)}</span>
         </div>
       </div>
     </div>
 
     <div class="dash-section">
-      <div class="dash-section-title">Quiz Performance</div>
+      <div class="dash-section-title">${t('prog_quiz_perf')}</div>
       <div class="dash-row">
-        <span class="dash-row-label">Accuracy</span>
+        <span class="dash-row-label">${t('prog_accuracy')}</span>
         <div class="dash-row-right">
           <div class="mini-bar"><div class="mini-bar-fill" style="width:${quizPct}%"></div></div>
           <span class="dash-pct">${quizPct}%</span>
         </div>
       </div>
       <div class="dash-row">
-        <span class="dash-row-label">Answered</span>
+        <span class="dash-row-label">${t('prog_answered')}</span>
         <div class="dash-row-right">
           <span class="dash-pct" style="color:var(--muted)">${state.quizScore.correct} / ${state.quizScore.total}</span>
         </div>
@@ -1280,10 +1647,10 @@ function renderProgressView() {
     </div>
 
     <div class="dash-section">
-      <div class="dash-section-title">Reset</div>
+      <div class="dash-section-title">${t('prog_reset_section')}</div>
       <div class="dash-row">
-        <span class="dash-row-label" style="color:var(--muted);font-size:13px;">Clear all ${langLabel} progress and start over.</span>
-        <button class="reset-btn" onclick="if(confirm('Reset all ${langLabel} progress?')){localStorage.removeItem(getStorageKey());location.reload();}">Reset</button>
+        <span class="dash-row-label" style="color:var(--muted);font-size:13px;">${t('prog_reset_desc', langLabel)}</span>
+        <button class="reset-btn" onclick="if(confirm(t('prog_reset_confirm', langLabel))){localStorage.removeItem(getStorageKey());location.reload();}">${t('prog_reset_btn')}</button>
       </div>
     </div>
   `;
@@ -1305,14 +1672,14 @@ function renderTranslatorView() {
   const recent = translatorState.recent;
   const pair = currentPair();
   content.innerHTML = `
-    <h2>Translator</h2>
-    <p class="subtitle">${pair.translatorSubtitle}</p>
+    <h2>${t('trans_title')}</h2>
+    <p class="subtitle">${isCrossPair() ? t('trans_subtitle_cross', LANGS[currentSource()].label, LANGS[currentTarget()].label) : pair.translatorSubtitle}</p>
     <form class="translator-form" onsubmit="event.preventDefault();doTranslate()">
       <input id="translate-input" type="text" placeholder="${pair.inputPlaceholder}" autofocus
              value="${(r?.input || '').replace(/"/g, '&quot;')}"
              onkeydown="if(event.key==='Enter')doTranslate()">
       <button id="translate-btn" type="submit" ${translatorState.loading?'disabled':''}>
-        ${translatorState.loading ? '<span class="loader"></span>Translating…' : 'Translate →'}
+        ${translatorState.loading ? `<span class="loader"></span>${t('trans_loading')}` : t('trans_btn')}
       </button>
     </form>
 
@@ -1320,18 +1687,18 @@ function renderTranslatorView() {
 
     ${r ? `
       <div class="translator-result">
-        ${r.gender ? `<span class="gender-tag">${r.gender === 'm' ? 'masculine' : r.gender === 'f' ? 'feminine' : r.gender}</span>` : ''}
+        ${r.gender ? `<span class="gender-tag">${r.gender === 'm' ? t('trans_masculine') : r.gender === 'f' ? t('trans_feminine') : r.gender}</span>` : ''}
         <div class="french-word">${escapeHtml(r.word)}</div>
         ${r.ipa ? `<div class="ipa">${escapeHtml(r.ipa)}</div>` : ''}
         ${r.phonetic ? `<div class="phonetic">${escapeHtml(r.phonetic)}</div>` : ''}
         <div class="translator-actions">
-          <button class="play-btn" onclick="speakWord(${JSON.stringify(r.word).replace(/"/g, '&quot;')})">
-            🔊 Hear it
+          <button class="play-btn" onclick="speakWord(${JSON.stringify(r.word).replace(/"/g, '&quot;')})"> 
+${t('trans_hear')}
           </button>
           <button class="save-btn ${isCardSaved(r.word) ? 'saved' : ''}"
                   onclick="toggleSaveCard()"
                   id="save-card-btn">
-            ${isCardSaved(r.word) ? '✓ Saved to flashcards' : '+ Save to flashcards'}
+            ${isCardSaved(r.word) ? t('trans_saved_btn') : t('trans_save')}
           </button>
         </div>
         ${r.literal ? `<div class="literal-note">📝 ${escapeHtml(r.literal)}</div>` : ''}
@@ -1344,11 +1711,11 @@ function renderTranslatorView() {
       </div>
     ` : ''}
 
-    <p class="translator-tip">Tip: Try phrases, not just single words. "How much is this?" works better than just "much". Saved words appear in the Flashcards tab under "My Saved Words".</p>
+    <p class="translator-tip">${t('trans_tip')}</p>
 
     ${state.savedVocab.length > 0 ? `
       <div class="saved-summary">
-        <h4>Saved cards: ${state.savedVocab.length}</h4>
+        <h4>${t('trans_saved_cards')} ${state.savedVocab.length}</h4>
         <div class="saved-list">
           ${state.savedVocab.slice(0, 6).map(v => `
             <div class="saved-chip" title="${escapeHtml(v.en)}">
@@ -1363,7 +1730,7 @@ function renderTranslatorView() {
 
     ${recent.length > 0 ? `
       <div class="recent-translations">
-        <h4>Recent</h4>
+        <h4>${t('trans_recent')}</h4>
         ${recent.map((item, i) => `
           <div class="recent-item" onclick="loadRecentTranslation(${i})">
             <div class="input-text">${escapeHtml(item.input)}</div>
@@ -1411,7 +1778,7 @@ async function doTranslate() {
     ].slice(0, 12);
     saveRecent();
   } catch (e) {
-    translatorState.error = `Translation failed: ${e.message}. Check your connection or try again.`;
+    translatorState.error = `${t('trans_error')} ${e.message}.`;
   } finally {
     translatorState.loading = false;
     renderTranslatorView();
@@ -1433,10 +1800,10 @@ function toggleSaveCard() {
   const wasSaved = isCardSaved(r.word);
   if (wasSaved) {
     removeSavedCard(r.word);
-    showToast('Removed from flashcards');
+    showToast(t('toast_removed'));
   } else {
     saveTranslationCard(r);
-    showToast('✓ Saved to flashcards');
+    showToast(t('toast_saved'));
   }
   renderTranslatorView();
   // brief animation hint
@@ -1520,8 +1887,8 @@ function renderNotebookView() {
   const reviewSection = `
     <div class="review-queue-section">
       <div class="review-queue-header">
-        <div class="review-queue-title">📍 Review Queue${reviewWords.length ? ` (${reviewWords.length})` : ''}</div>
-        ${reviewWords.length ? `<button class="review-queue-drill-btn" onclick="drillReviewQueue()">Drill these →</button>` : ''}
+        <div class="review-queue-title">${t('nb_review')}${reviewWords.length ? ` (${reviewWords.length})` : ''}</div>
+        ${reviewWords.length ? `<button class="review-queue-drill-btn" onclick="drillReviewQueue()">${t('nb_drill')}</button>` : ''}
       </div>
       ${reviewWords.length ? `
         <div class="review-word-list">
@@ -1536,15 +1903,15 @@ function renderNotebookView() {
     </div>`;
 
   content.innerHTML = `
-    <h2>The Leather Notebook</h2>
-    <p class="subtitle">${unlockedCount} of 30 entries unlocked · Complete days to reveal more</p>
+    <h2>${t('nb_title')}</h2>
+    <p class="subtitle">${t('nb_subtitle', unlockedCount)}</p>
     ${reviewSection}
     <div class="notebook-grid">
       ${entries.map(e => {
         if (e.unlocked && e.culture) {
           return `
             <div class="notebook-entry">
-              <div class="nb-day">Day ${e.day}</div>
+              <div class="nb-day">${t('day_label')} ${e.day}</div>
               <div class="nb-title">${e.title}</div>
               <div class="nb-title-native">${e.titleNative || ''}</div>
               <div class="nb-divider"></div>
@@ -1553,7 +1920,7 @@ function renderNotebookView() {
         } else {
           return `
             <div class="notebook-entry locked">
-              <div class="nb-day">Day ${e.day}</div>
+              <div class="nb-day">${t('day_label')} ${e.day}</div>
               <div class="nb-title">${e.title}</div>
               <div class="nb-lock">🔒 Complete this day to unlock</div>
             </div>`;
@@ -1656,6 +2023,7 @@ const subtitleEl = document.getElementById('lang-subtitle');
 const taglineEl  = document.getElementById('lang-tagline');
 if (subtitleEl) subtitleEl.textContent = currentPair().subtitle;
 if (taglineEl)  taglineEl.textContent  = currentPair().tagline;
+updateNavLabels();
 setView('lesson');
 
 // ============================================================
