@@ -379,18 +379,18 @@ const QUIZ_VERDICTS = {
 function getAllVocab() {
   const all = [];
   COURSE.forEach(d => d.vocab.forEach(v => all.push({...v, day:d.day})));
-  state.savedVocab.forEach(v => all.push({fr: v.fr, en: v.en, ipa: v.ipa || v.phonetic || '', day: 'saved'}));
+  state.savedVocab.forEach(v => all.push({fr: v.fr, en: v.en, ipa: v.ipa || '', phonetic: v.phonetic || '', day: 'saved'}));
   return all;
 }
 function getLearnedVocab() {
   const all = [];
   COURSE.filter(d => state.completedDays.includes(d.day) || d.day === state.currentDay)
     .forEach(d => d.vocab.forEach(v => all.push({...v, day:d.day})));
-  state.savedVocab.forEach(v => all.push({fr: v.fr, en: v.en, ipa: v.ipa || v.phonetic || '', day: 'saved'}));
+  state.savedVocab.forEach(v => all.push({fr: v.fr, en: v.en, ipa: v.ipa || '', phonetic: v.phonetic || '', day: 'saved'}));
   return all;
 }
 function getSavedVocab() {
-  return state.savedVocab.map(v => ({fr: v.fr, en: v.en, ipa: v.ipa || v.phonetic || '', day: 'saved'}));
+  return state.savedVocab.map(v => ({fr: v.fr, en: v.en, ipa: v.ipa || '', phonetic: v.phonetic || '', day: 'saved'}));
 }
 function isCardSaved(wordKey) {
   return state.savedVocab.some(v => (v.word || v.fr) === wordKey);
