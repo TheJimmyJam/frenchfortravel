@@ -671,7 +671,7 @@ function setLanguage(lang) {
   translatorState.recent = loadRecent();
   translatorState.error = null;
   // Reset flash/quiz state
-  flashState = { pool: [], index: 0, flipped: false, scope: 'learned', ipaMode: 'show' };
+  flashState = { pool: [], learned: [], index: 0, flipped: false, scope: 'learned', ipaMode: 'show' };
   quizState = { questions:[], current:0, score:0, answered:false };
   // Update header subtitle
   const subtitleEl = document.getElementById('lang-subtitle');
@@ -956,7 +956,7 @@ function uncompleteDay(dayNum, stayInAll) {
 }
 
 // FLASHCARDS
-let flashState = { pool: [], index: 0, flipped: false, scope: 'learned', ipaMode: 'show' };
+let flashState = { pool: [], learned: [], index: 0, flipped: false, scope: 'learned', ipaMode: 'show' };
 
 function renderFlashcardView() {
   rebuildFlashPool();
@@ -964,6 +964,22 @@ function renderFlashcardView() {
 }
 function renderFlashcardCard() {
   if (flashState.pool.length === 0) {
+    // All-done: either session complete or genuinely empty deck
+    if (flashState.learned.length > 0) {
+      const chips = flashState.learned.map(c =>
+        `<span class="learned-chip">${getFrontWord(c)}</span>`
+      ).join('');
+      content.innerHTML = `
+        <div class="flash-all-done">
+          <div class="all-done-icon">🎉</div>
+          <h3>All done!</h3>
+          <p>You learned <strong>${flashState.learned.length}</strong> card${flashState.learned.length===1?'':'s'} this session.</p>
+          <div class="flash-learned-chips" style="margin:16px 0;">${chips}</div>
+          <button class="complete-btn" onclick="resetFlashSession()" style="margin-top:8px;">Practice again ↺</button>
+        </div>
+      `;
+      return;
+    }
     const emptyMsg = flashState.scope === 'saved'
       ? t('flash_empty_saved')
       : t('flash_empty_day1');
@@ -1006,7 +1022,7 @@ function renderFlashcardCard() {
     <div class="flash-layout">
       <div class="flash-sidebar">
         <h2>${t('nav_flashcards')}</h2>
-        <p class="subtitle" style="margin-bottom:20px;">${flashState.pool.length} ${t('flash_cards')} · ${flashState.index+1}/${flashState.pool.length}</p>
+        <p class="subtitle" style="margin-bottom:20px;">${flashState.pool.length} ${t('flash_cards')} left · ${flashState.index+1}/${flashState.pool.length}</p>
         <div class="flash-sidebar-label">${t('flash_deck')}</div>
         <select class="flash-select" onchange="flashState.scope=this.value;flashState.index=0;flashState.flipped=false;renderFlashcardView()">
           <option value="learned" ${flashState.scope==='learned'?'selected':''}>${t('flash_days_seen')}</option>
@@ -1028,6 +1044,13 @@ function renderFlashcardCard() {
           <button class="btn-skip" onclick="nextCard()">${t('flash_skip')}</button>
           <button class="btn-got" onclick="markCard('got')">${t('flash_got_it')}</button>
         </div>
+        ${flashState.learned.length > 0 ? `
+        <div class="flash-learned-section">
+          <div class="flash-learned-header">✓ Learned (${flashState.learned.length})</div>
+          <div class="flash-learned-chips">
+            ${flashState.learned.map(c => `<span class="learned-chip">${getFrontWord(c)}</span>`).join('')}
+          </div>
+        </div>` : ''}
       </div>
     </div>
   `;
@@ -1054,6 +1077,7 @@ function rebuildFlashPool() {
     }
   }
   flashState.pool = pool;
+  flashState.learned = [];
   if (flashState.index >= pool.length) flashState.index = 0;
 }
 function shufflePool() {
@@ -1069,17 +1093,34 @@ function markCard(type) {
   if (type === 'got') {
     state.masteredVocab[getNative(card)] = (state.masteredVocab[getNative(card)]||0)+1;
     state.needWorkVocab[getNative(card)] = 0;
+    // Move card out of pool into learned bucket
+    flashState.pool.splice(flashState.index, 1);
+    flashState.learned.push(card);
+    flashState.flipped = false;
+    // If pool is now empty, fall through to render (shows completion state)
+    if (flashState.pool.length > 0 && flashState.index >= flashState.pool.length) {
+      flashState.index = 0;
+    }
+    saveState();
+    refreshStats();
+    renderFlashcardCard();
   } else {
     state.needWorkVocab[getNative(card)] = (state.needWorkVocab[getNative(card)]||0)+1;
     showToast(t('toast_added_review'));
+    saveState();
+    refreshStats();
+    nextCard();
   }
-  saveState();
-  refreshStats();
-  nextCard();
 }
 function nextCard() {
   flashState.flipped = false;
+  if (flashState.pool.length === 0) { renderFlashcardCard(); return; }
   flashState.index = (flashState.index + 1) % flashState.pool.length;
+  renderFlashcardCard();
+}
+function resetFlashSession() {
+  rebuildFlashPool();
+  shufflePool();
   renderFlashcardCard();
 }
 
@@ -1875,10 +1916,10 @@ function renderNotebookView() {
     day: day.day,
     title: day.title,
     titleNative: day.titleNative,
-    culture: day.culture,
+    culture: day.culture || day.grammar || day.focus || '',
     unlocked: completed.has(day.day) || day.day <= state.currentDay
   }));
-  const unlockedCount = entries.filter(e => e.unlocked && e.culture).length;
+  const unlockedCount = entries.filter(e => e.unlocked).length;
 
   // Build review queue from all vocab
   const allVocab = getAllVocab();
@@ -1908,21 +1949,20 @@ function renderNotebookView() {
     ${reviewSection}
     <div class="notebook-grid">
       ${entries.map(e => {
-        if (e.unlocked && e.culture) {
+        if (e.unlocked) {
           return `
             <div class="notebook-entry">
               <div class="nb-day">${t('day_label')} ${e.day}</div>
               <div class="nb-title">${e.title}</div>
               <div class="nb-title-native">${e.titleNative || ''}</div>
-              <div class="nb-divider"></div>
-              <div class="nb-culture">${e.culture}</div>
+              ${e.culture ? `<div class="nb-divider"></div><div class="nb-culture">${e.culture}</div>` : ''}
             </div>`;
         } else {
           return `
             <div class="notebook-entry locked">
               <div class="nb-day">${t('day_label')} ${e.day}</div>
               <div class="nb-title">${e.title}</div>
-              <div class="nb-lock">🔒 Complete this day to unlock</div>
+              <div class="nb-lock">${t('nb_unlock')}</div>
             </div>`;
         }
       }).join('')}
