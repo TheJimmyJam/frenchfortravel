@@ -231,15 +231,15 @@
 
 <div class="stats">
   <div class="stat-block stat-done">
-    <span class="stat-num"><span id="done-count">0</span>/90</span>
+    <span class="stat-num"><span id="done-count">0</span>/240</span>
     <span class="stat-label">✓ Lesson Made</span>
   </div>
   <div class="stat-block stat-lang">
-    <span class="stat-num"><span id="lang-count">0</span>/90</span>
+    <span class="stat-num"><span id="lang-count">0</span>/240</span>
     <span class="stat-label">🔤 Language Reviewed</span>
   </div>
   <div class="stat-block stat-qa">
-    <span class="stat-num"><span id="qa-count">0</span>/90</span>
+    <span class="stat-num"><span id="qa-count">0</span>/240</span>
     <span class="stat-label">⚙️ QA Reviewed</span>
   </div>
 </div>
@@ -268,41 +268,96 @@
   // Seed localStorage with all confirmed-live course pairs
   // done=true (lesson exists), qa=true (validated by script), lang=false (human review pending)
   const LIVE_PAIRS = {
-    "English__French":      "course-en-fr.js",
-    "English__Spanish":     "course-en-es.js",
-    "English__Portuguese":  "course-en-pt.js",
-    "English__Greek":       "course-en-el.js",
-    "English__Italian":     "course-en-it.js",
-    "English__German":      "course-en-de.js",
-    "English__Japanese":    "course-en-ja.js",
-    "English__Korean":      "course-en-ko.js",
-    "English__Albanian":    "course-en-sq.js",
-    "French__English":      "course-fr-en.js",
-    "French__Spanish":      "course-fr-es.js",
-    "French__Italian":      "course-fr-it.js",
-    "French__German":       "course-fr-de.js",
-    "Spanish__English":     "course-es-en.js",
-    "Spanish__French":      "course-es-fr.js",
-    "Spanish__Italian":     "course-es-it.js",
-    "Spanish__German":      "course-es-de.js",
-    "Spanish__Portuguese":  "course-es-pt.js",
-    "Portuguese__English":  "course-pt-en.js",
-    "Portuguese__Spanish":  "course-pt-es.js",
-    "Greek__English":       "course-el-en.js",
-    "Greek__French":        "course-el-fr.js",
-    "Greek__Spanish":       "course-el-es.js",
-    "Greek__Portuguese":    "course-el-pt.js",
-    "Greek__Italian":       "course-el-it.js",
-    "Greek__German":        "course-el-de.js",
-    "Greek__Japanese":      "course-el-ja.js",
-    "Greek__Korean":        "course-el-ko.js",
-    "Greek__Albanian":      "course-el-sq.js",
-    "Italian__French":      "course-it-fr.js",
-    "Italian__Spanish":     "course-it-es.js",
-    "Italian__German":      "course-it-de.js",
-    "German__French":       "course-de-fr.js",
-    "German__Spanish":      "course-de-es.js",
-    "German__Italian":      "course-de-it.js",
+    "English__French":       "course-en-fr.js",
+    "English__Spanish":      "course-en-es.js",
+    "English__Portuguese":   "course-en-pt.js",
+    "English__Greek":        "course-en-el.js",
+    "English__Italian":      "course-en-it.js",
+    "English__German":       "course-en-de.js",
+    "English__Japanese":     "course-en-ja.js",
+    "English__Korean":       "course-en-ko.js",
+    "English__Albanian":     "course-en-sq.js",
+    "French__English":       "course-fr-en.js",
+    "French__Spanish":       "course-fr-es.js",
+    "French__Portuguese":    "course-fr-pt.js",
+    "French__Greek":         "course-fr-el.js",
+    "French__Italian":       "course-fr-it.js",
+    "French__German":        "course-fr-de.js",
+    "French__Japanese":      "course-fr-ja.js",
+    "French__Korean":        "course-fr-ko.js",
+    "French__Albanian":      "course-fr-sq.js",
+    "Spanish__English":      "course-es-en.js",
+    "Spanish__French":       "course-es-fr.js",
+    "Spanish__Portuguese":   "course-es-pt.js",
+    "Spanish__Greek":        "course-es-el.js",
+    "Spanish__Italian":      "course-es-it.js",
+    "Spanish__German":       "course-es-de.js",
+    "Spanish__Japanese":     "course-es-ja.js",
+    "Spanish__Korean":       "course-es-ko.js",
+    "Spanish__Albanian":     "course-es-sq.js",
+    "Portuguese__English":   "course-pt-en.js",
+    "Portuguese__French":    "course-pt-fr.js",
+    "Portuguese__Spanish":   "course-pt-es.js",
+    "Portuguese__Greek":     "course-pt-el.js",
+    "Portuguese__Italian":   "course-pt-it.js",
+    "Portuguese__German":    "course-pt-de.js",
+    "Portuguese__Japanese":  "course-pt-ja.js",
+    "Portuguese__Korean":    "course-pt-ko.js",
+    "Portuguese__Albanian":  "course-pt-sq.js",
+    "Greek__English":        "course-el-en.js",
+    "Greek__French":         "course-el-fr.js",
+    "Greek__Spanish":        "course-el-es.js",
+    "Greek__Portuguese":     "course-el-pt.js",
+    "Greek__Italian":        "course-el-it.js",
+    "Greek__German":         "course-el-de.js",
+    "Greek__Japanese":       "course-el-ja.js",
+    "Greek__Korean":         "course-el-ko.js",
+    "Greek__Albanian":       "course-el-sq.js",
+    "Italian__English":      "course-it-en.js",
+    "Italian__French":       "course-it-fr.js",
+    "Italian__Spanish":      "course-it-es.js",
+    "Italian__Portuguese":   "course-it-pt.js",
+    "Italian__Greek":        "course-it-el.js",
+    "Italian__German":       "course-it-de.js",
+    "Italian__Japanese":     "course-it-ja.js",
+    "Italian__Korean":       "course-it-ko.js",
+    "Italian__Albanian":     "course-it-sq.js",
+    "German__English":       "course-de-en.js",
+    "German__French":        "course-de-fr.js",
+    "German__Spanish":       "course-de-es.js",
+    "German__Portuguese":    "course-de-pt.js",
+    "German__Greek":         "course-de-el.js",
+    "German__Italian":       "course-de-it.js",
+    "German__Japanese":      "course-de-ja.js",
+    "German__Korean":        "course-de-ko.js",
+    "German__Albanian":      "course-de-sq.js",
+    "Japanese__English":     "course-ja-en.js",
+    "Japanese__French":      "course-ja-fr.js",
+    "Japanese__Spanish":     "course-ja-es.js",
+    "Japanese__Portuguese":  "course-ja-pt.js",
+    "Japanese__Greek":       "course-ja-el.js",
+    "Japanese__Italian":     "course-ja-it.js",
+    "Japanese__German":      "course-ja-de.js",
+    "Japanese__Korean":      "course-ja-ko.js",
+    "Japanese__Albanian":    "course-ja-sq.js",
+    "Korean__English":       "course-ko-en.js",
+    "Korean__French":        "course-ko-fr.js",
+    "Korean__Spanish":       "course-ko-es.js",
+    "Korean__Portuguese":    "course-ko-pt.js",
+    "Korean__Greek":         "course-ko-el.js",
+    "Korean__Italian":       "course-ko-it.js",
+    "Korean__German":        "course-ko-de.js",
+    "Korean__Japanese":      "course-ko-ja.js",
+    "Korean__Albanian":      "course-ko-sq.js",
+    "Albanian__English":     "course-sq-en.js",
+    "Albanian__French":      "course-sq-fr.js",
+    "Albanian__Spanish":     "course-sq-es.js",
+    "Albanian__Portuguese":  "course-sq-pt.js",
+    "Albanian__Greek":       "course-sq-el.js",
+    "Albanian__Italian":     "course-sq-it.js",
+    "Albanian__German":      "course-sq-de.js",
+    "Albanian__Japanese":    "course-sq-ja.js",
+    "Albanian__Korean":      "course-sq-ko.js",
   };
 
   // Only seed if not already set by user
@@ -312,7 +367,7 @@
     }
   });
 
-  const languages = ["English","French","Spanish","Portuguese","Greek","Italian","German","Japanese","Korean","Albanian"];
+  const languages = ["English","French","Spanish","Portuguese","Greek","Italian","German","Japanese","Korean","Albanian","Dutch","Russian","Mandarin","Arabic","Hindi","Turkish"];
 
   // Build header
   const headerRow = document.getElementById('header-row');
