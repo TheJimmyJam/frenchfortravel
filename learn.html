@@ -1073,14 +1073,15 @@
     color: var(--ink);
     line-height: 1.3;
   }
-  .cmodal-speak {
+  /* Higher specificity than .speak-btn so position:absolute doesn't win */
+  .cmodal-speak.speak-btn {
     position: relative;
     bottom: auto;
     right: auto;
     flex-shrink: 0;
     opacity: 0.7;
   }
-  .cmodal-speak:hover { opacity: 1; }
+  .cmodal-speak.speak-btn:hover { opacity: 1; }
   .cmodal-phonetic {
     font-size: 13px;
     color: var(--gold-dark);
