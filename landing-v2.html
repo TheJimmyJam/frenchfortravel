@@ -63,7 +63,7 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 .sb:hover { border-color: var(--cream-35); }
 .sb--gold { background: var(--gold); color: var(--ink); border-color: transparent; }
 .sb--gold:hover { background: var(--gold-light); border-color: transparent; }
-.sb__track { display: flex; flex-direction: column; height: 1em; line-height: 1em; transition: transform .28s cubic-bezier(.4,0,.2,1); }
+.sb__track { display: flex; flex-direction: column; height: 1em; line-height: 1em; overflow: hidden; transition: transform .28s cubic-bezier(.4,0,.2,1); }
 .sb:hover .sb__track { transform: translateY(-1em); }
 .sb__txt { display: block; height: 1em; white-space: nowrap; }
 
@@ -260,15 +260,31 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 .feat-title { font-size: .88rem; font-weight: 700; color: var(--cream); line-height: 1.4; }
 .feat-body { font-size: .78rem; color: var(--muted); line-height: 1.6; }
 
-/* ─── 5. LANGUAGE PAIRS ──────────────────────────────────────────────────── */
-.pairs { background: var(--ink-soft); }
-.pairs__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: .75rem; margin-top: 2.5rem;
+/* ─── 5. LANGUAGE PAIRS — horizontal conveyor ────────────────────────────── */
+/* Cards fly in from the right, scroll through, exit off the left            */
+.pairs {
+  background: var(--ink-soft);
+  overflow: hidden;
+}
+.pairs__header {
+  padding: 5rem 2rem 2.5rem;
+  max-width: var(--max); margin: 0 auto;
+}
+.pairs__hint {
+  font-size: .72rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(248,243,231,.22);
+  margin-top: .5rem;
+}
+.pairs__track-wrap { overflow: hidden; padding-bottom: 4rem; }
+.pairs__track {
+  display: flex; gap: 1rem;
+  padding: 0 2rem;
+  width: max-content;
+  will-change: transform;
 }
 .pair-card {
-  padding: 1rem 1.25rem;
+  width: 210px; flex-shrink: 0;
+  padding: 1.1rem 1.25rem;
   border: 1px solid var(--cream-06); border-radius: 12px;
   background: var(--cream-06);
   display: flex; align-items: center; gap: .75rem;
@@ -280,13 +296,28 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 .pair-label { font-size: .82rem; font-weight: 600; }
 .pair-sub { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
 
-/* ─── 6. HOW IT WORKS ────────────────────────────────────────────────────── */
-.how { background: var(--ink); }
+/* ─── 6. HOW IT WORKS — hero-dark.png sticky logo bg ─────────────────────── */
+/* The site wordmark floats as a ghostly atmospheric backdrop                  */
+/* Steps fly in from the right as section pins                                 */
+.how { background: var(--ink); position: relative; overflow: hidden; }
+/* The wordmark image — large, centered, ghostly */
+.how__logo-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72%; max-width: 680px;
+  opacity: 0;                       /* GSAP fades it in */
+  filter: saturate(0) brightness(2.5);
+  pointer-events: none; z-index: 0;
+  will-change: opacity, transform;
+}
+.how .w { position: relative; z-index: 2; }
 .how__grid { display: grid; gap: 2rem; margin-top: 3rem; grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 640px) { .how__grid { grid-template-columns: 1fr; } }
 .how-step {
   padding: 2rem; border-radius: 16px;
-  border: 1px solid var(--cream-06); background: var(--cream-06);
+  border: 1px solid var(--cream-06); background: rgba(14,14,16,.85);
+  backdrop-filter: blur(8px);
 }
 .how-step__num {
   font-family: var(--serif); font-size: 3rem; font-weight: 700;
@@ -490,59 +521,67 @@ footer a:hover { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- ── 5. LANGUAGE PAIRS GRID ────────────────────────────────────────────── -->
-<section class="section pairs">
-  <div class="w">
+<!-- ── 5. LANGUAGE PAIRS — horizontal conveyor ────────────────────────────── -->
+<!-- Cards start off-screen right, scroll through the viewport, exit left     -->
+<section id="pairsSection" class="pairs">
+  <div class="pairs__header">
     <span class="eye" data-rev>AVAILABLE NOW</span>
-    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev style="--d:.1s">
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev>
       Any language.<br>Any direction.
     </h2>
-    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;margin-bottom:0;" data-rev style="--d:.2s">
+    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;margin-bottom:.5rem;" data-rev>
       Learn from your native language — not through English as an intermediary.
     </p>
-    <div class="pairs__grid">
+    <p class="pairs__hint">scroll to explore →</p>
+  </div>
+  <div class="pairs__track-wrap">
+    <div id="pairsTrack" class="pairs__track">
       <!-- EN→X -->
-      <a href="learn.html" class="pair-card" data-rev style="--d:.00s"><span class="pair-flags">🇬🇧→🇫🇷</span><div><div class="pair-label">English → French</div><div class="pair-sub">350+ vocab · 8 scenarios</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.04s"><span class="pair-flags">🇬🇧→🇪🇸</span><div><div class="pair-label">English → Spanish</div><div class="pair-sub">350+ vocab · 30-day path</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.08s"><span class="pair-flags">🇬🇧→🇩🇪</span><div><div class="pair-label">English → German</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.12s"><span class="pair-flags">🇬🇧→🇮🇹</span><div><div class="pair-label">English → Italian</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.16s"><span class="pair-flags">🇬🇧→🇵🇹</span><div><div class="pair-label">English → Portuguese</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.20s"><span class="pair-flags">🇬🇧→🇯🇵</span><div><div class="pair-label">English → Japanese</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.24s"><span class="pair-flags">🇬🇧→🇰🇷</span><div><div class="pair-label">English → Korean</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇬🇧→🇫🇷</span><div><div class="pair-label">English → French</div><div class="pair-sub">350+ vocab · 8 scenarios</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇬🇧→🇪🇸</span><div><div class="pair-label">English → Spanish</div><div class="pair-sub">350+ vocab · 30-day path</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇬🇧→🇩🇪</span><div><div class="pair-label">English → German</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇬🇧→🇮🇹</span><div><div class="pair-label">English → Italian</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇬🇧→🇵🇹</span><div><div class="pair-label">English → Portuguese</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇬🇧→🇯🇵</span><div><div class="pair-label">English → Japanese</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇬🇧→🇰🇷</span><div><div class="pair-label">English → Korean</div><div class="pair-sub">350+ vocab</div></div></a>
       <!-- X→EN -->
-      <a href="learn.html" class="pair-card" data-rev style="--d:.28s"><span class="pair-flags">🇫🇷→🇬🇧</span><div><div class="pair-label">French → English</div><div class="pair-sub">Field-corrected · 6 scenarios</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.32s"><span class="pair-flags">🇪🇸→🇬🇧</span><div><div class="pair-label">Spanish → English</div><div class="pair-sub">Field-corrected</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.36s"><span class="pair-flags">🇵🇹→🇬🇧</span><div><div class="pair-label">Portuguese → English</div><div class="pair-sub">Field-corrected</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇫🇷→🇬🇧</span><div><div class="pair-label">French → English</div><div class="pair-sub">Field-corrected · 6 scenarios</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇪🇸→🇬🇧</span><div><div class="pair-label">Spanish → English</div><div class="pair-sub">Field-corrected</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇵🇹→🇬🇧</span><div><div class="pair-label">Portuguese → English</div><div class="pair-sub">Field-corrected</div></div></a>
       <!-- Cross pairs -->
-      <a href="learn.html" class="pair-card" data-rev style="--d:.40s"><span class="pair-flags">🇫🇷→🇪🇸</span><div><div class="pair-label">French → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.44s"><span class="pair-flags">🇩🇪→🇪🇸</span><div><div class="pair-label">German → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.48s"><span class="pair-flags">🇩🇪→🇫🇷</span><div><div class="pair-label">German → French</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.52s"><span class="pair-flags">🇩🇪→🇮🇹</span><div><div class="pair-label">German → Italian</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.56s"><span class="pair-flags">🇪🇸→🇩🇪</span><div><div class="pair-label">Spanish → German</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="learn.html" class="pair-card" data-rev style="--d:.60s"><span class="pair-flags">🇮🇹→🇩🇪</span><div><div class="pair-label">Italian → German</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇫🇷→🇪🇸</span><div><div class="pair-label">French → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇩🇪→🇪🇸</span><div><div class="pair-label">German → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇩🇪→🇫🇷</span><div><div class="pair-label">German → French</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇩🇪→🇮🇹</span><div><div class="pair-label">German → Italian</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇪🇸→🇩🇪</span><div><div class="pair-label">Spanish → German</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card"><span class="pair-flags">🇮🇹→🇩🇪</span><div><div class="pair-label">Italian → German</div><div class="pair-sub">Full 30-day course</div></div></a>
     </div>
   </div>
 </section>
 
-<!-- ── 6. HOW IT WORKS ──────────────────────────────────────────────────── -->
-<section class="section how" id="how">
+<!-- ── 6. HOW IT WORKS — hero-dark.png wordmark as sticky bg ─────────────── -->
+<!-- Section pins. The site wordmark fades in as backdrop.                    -->
+<!-- Each step card flies in from the right, staggered, over the logo.        -->
+<section class="section how" id="howSection">
+  <!-- The full wordmark logo — ghostly background presence -->
+  <img id="howLogoBg" src="assets/hero-dark.png" alt="" aria-hidden="true" class="how__logo-bg">
   <div class="w">
     <span class="eye" data-rev>HOW IT WORKS</span>
-    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev style="--d:.1s">
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev>
       Three steps.<br>Thirty days.<br><em style="color:var(--gold)">Real fluency.</em>
     </h2>
     <div class="how__grid">
-      <div class="how-step" data-rev style="--d:.00s">
+      <div id="step1" class="how-step">
         <div class="how-step__num">01</div>
         <div class="how-step__title">Pick your language pair</div>
         <div class="how-step__body">Choose your native language and the one you want to learn. No sign-up required — start immediately from any device.</div>
       </div>
-      <div class="how-step" data-rev style="--d:.12s">
+      <div id="step2" class="how-step">
         <div class="how-step__num">02</div>
         <div class="how-step__title">Follow the 30-day path</div>
         <div class="how-step__body">Daily lessons build on each other. Vocab, grammar anchors, quizzes, and conversation scenarios — all in your native language frame.</div>
       </div>
-      <div class="how-step" data-rev style="--d:.24s">
+      <div id="step3" class="how-step">
         <div class="how-step__num">03</div>
         <div class="how-step__title">Practice until it sticks</div>
         <div class="how-step__body">Spaced repetition surfaces cards when you're about to forget. Conversation mode lets you work through realistic scenarios with audio on every line.</div>
@@ -647,18 +686,62 @@ featTl
   .from('#fc3', { x: 800, opacity: 0, duration: 1 }, 0.46)
   .from('#fc4', { x: 800, opacity: 0, duration: 1 }, 0.64);
 
-// ── Hero gentleman subtle float (CSS) ──────────────────────────────────
-// Small idle float animation to make him feel alive in the hero
+// ── Hero gentleman subtle float ─────────────────────────────────────────
 const heroGent = document.querySelector('.hero__gentleman');
 if (heroGent) {
-  gsap.to(heroGent, {
-    y: -14,
-    duration: 3.5,
-    ease: 'sine.inOut',
-    yoyo: true,
-    repeat: -1,
-  });
+  gsap.to(heroGent, { y: -14, duration: 3.5, ease: 'sine.inOut', yoyo: true, repeat: -1 });
 }
+
+// ── GSAP Effect 3: Language pairs horizontal conveyor ───────────────────
+// Cards start off-screen right, travel left across the viewport, exit left.
+// Pinned section — vertical scroll drives horizontal movement.
+const pairsTrack = document.querySelector('#pairsTrack');
+if (pairsTrack) {
+  const trackW = pairsTrack.scrollWidth;
+  const vw = window.innerWidth;
+  // Start: all cards sitting off the right edge
+  // End: all cards gone off the left edge
+  gsap.fromTo('#pairsTrack',
+    { x: vw + 40 },
+    {
+      x: -(trackW + 40),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#pairsSection',
+        start: 'top top',
+        end: () => `+=${trackW + vw + 400}`,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+      }
+    }
+  );
+}
+
+// ── GSAP Effect 4: How It Works — logo bloom + steps fly from right ─────
+// The hero-dark wordmark fades in as a ghostly backdrop.
+// The three step cards then fly in from the right, one at a time.
+const howTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#howSection',
+    start: 'top top',
+    end: '+=1400',
+    pin: true,
+    scrub: 1,
+    anticipatePin: 1,
+  }
+});
+// Logo bloom: scale up from small + fade in
+howTl.fromTo('#howLogoBg',
+  { scale: 0.65, opacity: 0 },
+  { scale: 1, opacity: 0.07, duration: 0.5 },
+  0
+);
+// Eyebrow and heading already visible via data-rev; step cards fly in
+howTl
+  .from('#step1', { x: 900, opacity: 0, duration: 1 }, 0.2)
+  .from('#step2', { x: 900, opacity: 0, duration: 1 }, 0.42)
+  .from('#step3', { x: 900, opacity: 0, duration: 1 }, 0.64);
 </script>
 </body>
 </html>
