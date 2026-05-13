@@ -273,9 +273,9 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 /* Gentleman ghost — large, bottom-right, atmospheric */
 .gentleman-ghost {
   position: absolute;
-  right: -2vw; top: 50%; transform: translateY(-50%);
+  right: -2vw; bottom: 0;
   height: 92vh; width: auto;
-  object-fit: contain; object-position: center right;
+  object-fit: contain; object-position: bottom right;
   opacity: 1;
   filter: drop-shadow(0 16px 60px rgba(212,175,55,.3));
   pointer-events: none; z-index: 0;
@@ -1174,6 +1174,23 @@ document.getElementById('lpOverlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closePicker();
 });
 
+
+
+// ── Align gentleman's feet to bottom of fc4 ────────────────────────────
+function alignGentlemanToFc4() {
+  const ghost = document.getElementById('gentlemanGhost');
+  const fc4 = document.getElementById('fc4');
+  const section = document.getElementById('featSection');
+  if (!ghost || !fc4 || !section) return;
+  const sectionRect = section.getBoundingClientRect();
+  const fc4Rect = fc4.getBoundingClientRect();
+  const offset = sectionRect.bottom - fc4Rect.bottom;
+  ghost.style.bottom = offset + 'px';
+  ghost.style.top = 'auto';
+  ghost.style.transform = 'none';
+}
+window.addEventListener('load', alignGentlemanToFc4);
+window.addEventListener('resize', alignGentlemanToFc4);
 
 // ── Hamburger menu toggle ──────────────────────────────────────────────
 (function initHamburger() {
