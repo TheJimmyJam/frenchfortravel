@@ -501,7 +501,7 @@ footer a:hover { color: var(--gold-light); }
       <a href="#featSection">Features</a>
       <a href="#howSection">How It Works</a>
     </div>
-    <a href="learn.html" class="nav__cta">Start Learning</a>
+    <a href="learn.html" class="nav__cta" id="navCta">Start Learning</a>
   </div>
 </nav>
 
@@ -885,6 +885,21 @@ function closePicker() {
 document.getElementById('lpOverlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closePicker();
 });
+
+// ── Nav CTA: "Continue Learning Fr → En" if a pair is saved ────────────
+(function updateNavCta() {
+  try {
+    const saved = localStorage.getItem('cll_lang');
+    if (!saved || !saved.includes('-')) return;
+    const [src, tgt] = saved.split('-');
+    const srcName = LANG_FLAGS[src] || src.toUpperCase();
+    const tgtName = LANG_FLAGS[tgt] || tgt.toUpperCase();
+    const btn = document.getElementById('navCta');
+    if (btn) {
+      btn.textContent = `Continue ${srcName} → ${tgtName}`;
+    }
+  } catch(e) {}
+})();
 
 // ── Direct pair navigation ──────────────────────────────────────────────
 // Called by every pair card — sets the correct src-tgt pair then loads learn.html
