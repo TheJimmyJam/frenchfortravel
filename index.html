@@ -348,6 +348,10 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
   text-transform: uppercase; color: rgba(248,243,231,.35); margin-bottom: 1rem;
 }
 .src-pills { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+@media (max-width: 600px) {
+  .src-pills { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .src-pill { justify-content: flex-start; }
+}
 .src-pill {
   display: flex; align-items: center; gap: .4rem;
   padding: .5rem 1rem; border-radius: 9999px;
