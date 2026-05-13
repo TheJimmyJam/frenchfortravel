@@ -232,13 +232,14 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
   right: -2vw; bottom: 0;
   height: 92vh; width: auto;
   object-fit: contain; object-position: bottom right;
-  opacity: .1;
-  filter: saturate(.4) brightness(1.4);
+  opacity: .32;
+  filter: saturate(.8) brightness(1.1);
   pointer-events: none; z-index: 0;
   will-change: transform, opacity;
 }
-@media (max-width: 768px) { .gentleman-ghost { height: 50vh; right: -10vw; opacity: .07; } }
-#featSection .w { position: relative; z-index: 1; width: 100%; }
+@media (max-width: 768px) { .gentleman-ghost { height: 50vh; right: -10vw; opacity: .12; } }
+#featSection .w { position: relative; z-index: 1; width: 100%; padding-right: 46%; }
+@media (max-width: 768px) { #featSection .w { padding-right: 2rem; } }
 .feat-header { max-width: 38rem; margin-bottom: 3rem; }
 .feat-label {
   font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 700;
