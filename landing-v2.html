@@ -260,41 +260,65 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 .feat-title { font-size: .88rem; font-weight: 700; color: var(--cream); line-height: 1.4; }
 .feat-body { font-size: .78rem; color: var(--muted); line-height: 1.6; }
 
-/* ─── 5. LANGUAGE PAIRS — horizontal conveyor ────────────────────────────── */
-/* Cards fly in from the right, scroll through, exit off the left            */
-.pairs {
-  background: var(--ink-soft);
-  overflow: hidden;
+/* ─── 5. LANGUAGE PAIRS — marquee + interactive picker ──────────────────── */
+.pairs { background: var(--ink-soft); padding: 5rem 0 4rem; }
+.pairs__header { max-width: var(--max); margin: 0 auto; padding: 0 2rem 2.5rem; }
+
+/* Auto-scrolling marquee — purely atmospheric, runs itself */
+.pairs__marquee {
+  overflow: hidden; margin: 0 0 3rem;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
 }
-.pairs__header {
-  padding: 5rem 2rem 2.5rem;
-  max-width: var(--max); margin: 0 auto;
+.pairs__marquee-track {
+  display: flex; gap: .75rem; width: max-content;
+  animation: marqueeScroll 40s linear infinite;
 }
-.pairs__hint {
-  font-size: .72rem; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase; color: rgba(248,243,231,.22);
-  margin-top: .5rem;
+.pairs__marquee:hover .pairs__marquee-track { animation-play-state: paused; }
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-.pairs__track-wrap { overflow: hidden; padding-bottom: 4rem; }
-.pairs__track {
-  display: flex; gap: 1rem;
-  padding: 0 2rem;
-  width: max-content;
-  will-change: transform;
+.marquee-chip {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .55rem 1rem; border: 1px solid var(--cream-06);
+  border-radius: 9999px; background: var(--cream-06);
+  font-size: .78rem; font-weight: 600; color: var(--cream-60);
+  white-space: nowrap; flex-shrink: 0;
 }
-.pair-card {
-  width: 210px; flex-shrink: 0;
-  padding: 1.1rem 1.25rem;
-  border: 1px solid var(--cream-06); border-radius: 12px;
-  background: var(--cream-06);
-  display: flex; align-items: center; gap: .75rem;
-  text-decoration: none; color: var(--cream);
-  transition: border-color .2s, background .2s;
+
+/* Interactive source picker */
+.pairs__picker { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.pairs__picker-label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(248,243,231,.35); margin-bottom: 1rem;
 }
-.pair-card:hover { border-color: rgba(212,175,55,.35); background: rgba(212,175,55,.05); }
-.pair-flags { font-size: 1.25rem; line-height: 1; }
-.pair-label { font-size: .82rem; font-weight: 600; }
-.pair-sub { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
+.src-pills { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.src-pill {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .5rem 1rem; border-radius: 9999px;
+  border: 1px solid var(--cream-06); background: transparent;
+  font-size: .82rem; font-weight: 600; color: var(--cream-60);
+  cursor: pointer; transition: border-color .18s, background .18s, color .18s;
+}
+.src-pill:hover { border-color: rgba(212,175,55,.3); color: var(--cream); }
+.src-pill.active { background: var(--gold); color: var(--ink); border-color: transparent; }
+.tgt-grid {
+  display: grid; gap: .75rem; min-height: 80px;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+}
+.tgt-card {
+  padding: 1.1rem 1.25rem; border: 1px solid var(--cream-06); border-radius: 12px;
+  background: var(--cream-06); display: flex; align-items: center; gap: .75rem;
+  text-decoration: none; color: var(--cream); cursor: pointer;
+  transition: border-color .2s, background .2s, transform .18s;
+  animation: tgtIn .2s ease both;
+}
+.tgt-card:hover { border-color: rgba(212,175,55,.4); background: rgba(212,175,55,.06); transform: translateY(-2px); }
+@keyframes tgtIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+.tgt-flags { font-size: 1.2rem; line-height: 1; flex-shrink: 0; }
+.tgt-label { font-size: .82rem; font-weight: 600; }
+.tgt-sub { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
 
 /* ─── 6. HOW IT WORKS — hero-dark.png sticky logo bg ─────────────────────── */
 /* The site wordmark floats as a ghostly atmospheric backdrop                  */
@@ -628,42 +652,34 @@ footer a:hover { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- ── 5. LANGUAGE PAIRS — horizontal conveyor ────────────────────────────── -->
-<!-- Cards start off-screen right, scroll through the viewport, exit left     -->
+<!-- ── 5. LANGUAGE PAIRS — marquee atmosphere + interactive picker ────────── -->
 <section id="pairsSection" class="pairs">
+
+  <!-- Header -->
   <div class="pairs__header">
-    <span class="eye" data-rev>AVAILABLE NOW</span>
+    <span class="eye" data-rev>90 LESSON PLANS · 10 LANGUAGES</span>
     <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev>
       Any language.<br>Any direction.
     </h2>
-    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;margin-bottom:.5rem;" data-rev>
+    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;" data-rev>
       Learn from your native language — not through English as an intermediary.
     </p>
-    <p class="pairs__hint">scroll to explore →</p>
   </div>
-  <div class="pairs__track-wrap">
-    <div id="pairsTrack" class="pairs__track">
-      <!-- EN→X -->
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('en','fr')" class="pair-card"><span class="pair-flags">🇬🇧→🇫🇷</span><div><div class="pair-label">English → French</div><div class="pair-sub">350+ vocab · 8 scenarios</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('en','es')" class="pair-card"><span class="pair-flags">🇬🇧→🇪🇸</span><div><div class="pair-label">English → Spanish</div><div class="pair-sub">350+ vocab · 30-day path</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('en','de')" class="pair-card"><span class="pair-flags">🇬🇧→🇩🇪</span><div><div class="pair-label">English → German</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('en','it')" class="pair-card"><span class="pair-flags">🇬🇧→🇮🇹</span><div><div class="pair-label">English → Italian</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('en','pt')" class="pair-card"><span class="pair-flags">🇬🇧→🇵🇹</span><div><div class="pair-label">English → Portuguese</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('en','ja')" class="pair-card"><span class="pair-flags">🇬🇧→🇯🇵</span><div><div class="pair-label">English → Japanese</div><div class="pair-sub">350+ vocab</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('en','ko')" class="pair-card"><span class="pair-flags">🇬🇧→🇰🇷</span><div><div class="pair-label">English → Korean</div><div class="pair-sub">350+ vocab</div></div></a>
-      <!-- X→EN -->
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('fr','en')" class="pair-card"><span class="pair-flags">🇫🇷→🇬🇧</span><div><div class="pair-label">French → English</div><div class="pair-sub">Field-corrected · 6 scenarios</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('es','en')" class="pair-card"><span class="pair-flags">🇪🇸→🇬🇧</span><div><div class="pair-label">Spanish → English</div><div class="pair-sub">Field-corrected</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('pt','en')" class="pair-card"><span class="pair-flags">🇵🇹→🇬🇧</span><div><div class="pair-label">Portuguese → English</div><div class="pair-sub">Field-corrected</div></div></a>
-      <!-- Cross pairs -->
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('fr','es')" class="pair-card"><span class="pair-flags">🇫🇷→🇪🇸</span><div><div class="pair-label">French → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('de','es')" class="pair-card"><span class="pair-flags">🇩🇪→🇪🇸</span><div><div class="pair-label">German → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('de','fr')" class="pair-card"><span class="pair-flags">🇩🇪→🇫🇷</span><div><div class="pair-label">German → French</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('de','it')" class="pair-card"><span class="pair-flags">🇩🇪→🇮🇹</span><div><div class="pair-label">German → Italian</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('es','de')" class="pair-card"><span class="pair-flags">🇪🇸→🇩🇪</span><div><div class="pair-label">Spanish → German</div><div class="pair-sub">Full 30-day course</div></div></a>
-      <a href="/learn.html" onclick="event.preventDefault();goToPair('it','de')" class="pair-card"><span class="pair-flags">🇮🇹→🇩🇪</span><div><div class="pair-label">Italian → German</div><div class="pair-sub">Full 30-day course</div></div></a>
+
+  <!-- Auto-scrolling marquee strip (purely atmospheric — runs itself) -->
+  <div class="pairs__marquee">
+    <div class="pairs__marquee-track" id="marqueeTrack">
+      <!-- populated by JS, duplicated for seamless loop -->
     </div>
   </div>
+
+  <!-- Interactive picker: tap your language, see your options -->
+  <div class="pairs__picker" data-rev>
+    <p class="pairs__picker-label">I speak —</p>
+    <div class="src-pills" id="srcPills"></div>
+    <div class="tgt-grid" id="tgtGrid"></div>
+  </div>
+
 </section>
 
 <!-- ── 6. HOW IT WORKS — hero-dark.png wordmark as sticky bg ─────────────── -->
@@ -883,30 +899,156 @@ if (heroGent) {
   gsap.to(heroGent, { y: -14, duration: 3.5, ease: 'sine.inOut', yoyo: true, repeat: -1 });
 }
 
-// ── GSAP Effect 3: Language pairs horizontal conveyor ───────────────────
-// Cards start off-screen right, travel left across the viewport, exit left.
-// Pinned section — vertical scroll drives horizontal movement.
-const pairsTrack = document.querySelector('#pairsTrack');
-if (pairsTrack) {
-  const trackW = pairsTrack.scrollWidth;
-  const vw = window.innerWidth;
-  // Start: all cards sitting off the right edge
-  // End: all cards gone off the left edge
-  gsap.fromTo('#pairsTrack',
-    { x: vw + 40 },
-    {
-      x: -(trackW + 40),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#pairsSection',
-        start: 'top top',
-        end: () => `+=${trackW + vw + 400}`,
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-      }
-    }
+// ── Language pairs data ─────────────────────────────────────────────────
+// All 90 combinations across 10 languages
+const PAIR_DATA = {
+  en: [
+    { tgt:'fr', flags:'🇬🇧→🇫🇷', label:'English → French',      sub:'350+ vocab · 8 scenarios' },
+    { tgt:'es', flags:'🇬🇧→🇪🇸', label:'English → Spanish',     sub:'350+ vocab · 30-day path' },
+    { tgt:'de', flags:'🇬🇧→🇩🇪', label:'English → German',      sub:'350+ vocab' },
+    { tgt:'it', flags:'🇬🇧→🇮🇹', label:'English → Italian',     sub:'350+ vocab' },
+    { tgt:'pt', flags:'🇬🇧→🇵🇹', label:'English → Portuguese',  sub:'350+ vocab' },
+    { tgt:'ja', flags:'🇬🇧→🇯🇵', label:'English → Japanese',    sub:'350+ vocab' },
+    { tgt:'ko', flags:'🇬🇧→🇰🇷', label:'English → Korean',      sub:'350+ vocab' },
+    { tgt:'el', flags:'🇬🇧→🇬🇷', label:'English → Greek',       sub:'350+ vocab' },
+    { tgt:'sq', flags:'🇬🇧→🇦🇱', label:'English → Albanian',    sub:'350+ vocab' },
+  ],
+  fr: [
+    { tgt:'en', flags:'🇫🇷→🇬🇧', label:'French → English',      sub:'Field-corrected · 6 scenarios' },
+    { tgt:'es', flags:'🇫🇷→🇪🇸', label:'French → Spanish',      sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇫🇷→🇩🇪', label:'French → German',       sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇫🇷→🇮🇹', label:'French → Italian',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇫🇷→🇵🇹', label:'French → Portuguese',   sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇫🇷→🇯🇵', label:'French → Japanese',     sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇫🇷→🇰🇷', label:'French → Korean',       sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇫🇷→🇬🇷', label:'French → Greek',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇫🇷→🇦🇱', label:'French → Albanian',     sub:'Full 30-day course' },
+  ],
+  es: [
+    { tgt:'en', flags:'🇪🇸→🇬🇧', label:'Spanish → English',     sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇪🇸→🇫🇷', label:'Spanish → French',      sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇪🇸→🇩🇪', label:'Spanish → German',      sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇪🇸→🇮🇹', label:'Spanish → Italian',     sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇪🇸→🇵🇹', label:'Spanish → Portuguese',  sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇪🇸→🇯🇵', label:'Spanish → Japanese',    sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇪🇸→🇰🇷', label:'Spanish → Korean',      sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇪🇸→🇬🇷', label:'Spanish → Greek',       sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇪🇸→🇦🇱', label:'Spanish → Albanian',    sub:'Full 30-day course' },
+  ],
+  de: [
+    { tgt:'en', flags:'🇩🇪→🇬🇧', label:'German → English',      sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇩🇪→🇫🇷', label:'German → French',       sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇩🇪→🇪🇸', label:'German → Spanish',      sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇩🇪→🇮🇹', label:'German → Italian',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇩🇪→🇵🇹', label:'German → Portuguese',   sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇩🇪→🇯🇵', label:'German → Japanese',     sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇩🇪→🇰🇷', label:'German → Korean',       sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇩🇪→🇬🇷', label:'German → Greek',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇩🇪→🇦🇱', label:'German → Albanian',     sub:'Full 30-day course' },
+  ],
+  it: [
+    { tgt:'en', flags:'🇮🇹→🇬🇧', label:'Italian → English',     sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇮🇹→🇫🇷', label:'Italian → French',      sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇮🇹→🇪🇸', label:'Italian → Spanish',     sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇮🇹→🇩🇪', label:'Italian → German',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇮🇹→🇵🇹', label:'Italian → Portuguese',  sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇮🇹→🇯🇵', label:'Italian → Japanese',    sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇮🇹→🇰🇷', label:'Italian → Korean',      sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇮🇹→🇬🇷', label:'Italian → Greek',       sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇮🇹→🇦🇱', label:'Italian → Albanian',    sub:'Full 30-day course' },
+  ],
+  pt: [
+    { tgt:'en', flags:'🇵🇹→🇬🇧', label:'Portuguese → English',  sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇵🇹→🇫🇷', label:'Portuguese → French',   sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇵🇹→🇪🇸', label:'Portuguese → Spanish',  sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇵🇹→🇩🇪', label:'Portuguese → German',   sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇵🇹→🇮🇹', label:'Portuguese → Italian',  sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇵🇹→🇯🇵', label:'Portuguese → Japanese', sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇵🇹→🇰🇷', label:'Portuguese → Korean',   sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇵🇹→🇬🇷', label:'Portuguese → Greek',    sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇵🇹→🇦🇱', label:'Portuguese → Albanian', sub:'Full 30-day course' },
+  ],
+  ja: [
+    { tgt:'en', flags:'🇯🇵→🇬🇧', label:'Japanese → English',    sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇯🇵→🇫🇷', label:'Japanese → French',     sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇯🇵→🇪🇸', label:'Japanese → Spanish',    sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇯🇵→🇩🇪', label:'Japanese → German',     sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇯🇵→🇮🇹', label:'Japanese → Italian',    sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇯🇵→🇵🇹', label:'Japanese → Portuguese', sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇯🇵→🇰🇷', label:'Japanese → Korean',     sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇯🇵→🇬🇷', label:'Japanese → Greek',      sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇯🇵→🇦🇱', label:'Japanese → Albanian',   sub:'Full 30-day course' },
+  ],
+  ko: [
+    { tgt:'en', flags:'🇰🇷→🇬🇧', label:'Korean → English',      sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇰🇷→🇫🇷', label:'Korean → French',       sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇰🇷→🇪🇸', label:'Korean → Spanish',      sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇰🇷→🇩🇪', label:'Korean → German',       sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇰🇷→🇮🇹', label:'Korean → Italian',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇰🇷→🇵🇹', label:'Korean → Portuguese',   sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇰🇷→🇯🇵', label:'Korean → Japanese',     sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇰🇷→🇬🇷', label:'Korean → Greek',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇰🇷→🇦🇱', label:'Korean → Albanian',     sub:'Full 30-day course' },
+  ],
+  el: [
+    { tgt:'en', flags:'🇬🇷→🇬🇧', label:'Greek → English',       sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇬🇷→🇫🇷', label:'Greek → French',        sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇬🇷→🇪🇸', label:'Greek → Spanish',       sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇬🇷→🇩🇪', label:'Greek → German',        sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇬🇷→🇮🇹', label:'Greek → Italian',       sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇬🇷→🇵🇹', label:'Greek → Portuguese',    sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇬🇷→🇯🇵', label:'Greek → Japanese',      sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇬🇷→🇰🇷', label:'Greek → Korean',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇬🇷→🇦🇱', label:'Greek → Albanian',      sub:'Full 30-day course' },
+  ],
+  sq: [
+    { tgt:'en', flags:'🇦🇱→🇬🇧', label:'Albanian → English',    sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇦🇱→🇫🇷', label:'Albanian → French',     sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇦🇱→🇪🇸', label:'Albanian → Spanish',    sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇦🇱→🇩🇪', label:'Albanian → German',     sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇦🇱→🇮🇹', label:'Albanian → Italian',    sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇦🇱→🇵🇹', label:'Albanian → Portuguese', sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇦🇱→🇯🇵', label:'Albanian → Japanese',   sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇦🇱→🇰🇷', label:'Albanian → Korean',     sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇦🇱→🇬🇷', label:'Albanian → Greek',      sub:'Full 30-day course' },
+  ],
+};
+
+// ── Build marquee (all pairs, duplicated for seamless CSS loop) ─────────
+(function buildMarquee() {
+  const allPairs = Object.entries(PAIR_DATA).flatMap(([src, targets]) =>
+    targets.map(p => `<span class="marquee-chip"><span>${p.flags}</span>${p.label}</span>`)
   );
+  const html = [...allPairs, ...allPairs].join(''); // duplicate for loop
+  document.getElementById('marqueeTrack').innerHTML = html;
+})();
+
+// ── Build source pills ──────────────────────────────────────────────────
+(function buildSrcPills() {
+  const pillsEl = document.getElementById('srcPills');
+  pillsEl.innerHTML = ALL_LANGS.map((l, i) =>
+    `<button class="src-pill${i===0?' active':''}" data-src="${l}" onclick="selectSrc('${l}')">${LANG_FLAGS[l]} ${LANG_NAMES[l]}</button>`
+  ).join('');
+  renderTargets('en');
+})();
+
+function selectSrc(src) {
+  document.querySelectorAll('.src-pill').forEach(p => p.classList.toggle('active', p.dataset.src === src));
+  renderTargets(src);
+}
+
+function renderTargets(src) {
+  const grid = document.getElementById('tgtGrid');
+  const pairs = PAIR_DATA[src] || [];
+  grid.innerHTML = pairs.map((p, i) =>
+    `<a href="/learn.html"
+        onclick="event.preventDefault();goToPair('${src}','${p.tgt}')"
+        class="tgt-card"
+        style="animation-delay:${i * 0.03}s">
+      <span class="tgt-flags">${p.flags}</span>
+      <div><div class="tgt-label">${p.label}</div><div class="tgt-sub">${p.sub}</div></div>
+    </a>`
+  ).join('');
 }
 
 // ── GSAP Effect 4: How It Works — logo bloom + steps fly from right ─────
