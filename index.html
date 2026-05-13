@@ -834,7 +834,7 @@
         <span class="sync-nudge-icon">🔒</span>
         <span class="sync-nudge-text">
           <strong>No account needed.</strong> Your progress saves automatically on this device.
-          <a href="/learn.html?signin=1" onclick="event.preventDefault(); window.location.href='/learn.html?signin=1';" class="sync-nudge-link">Sign in</a> anytime to sync across all your devices.
+          <a href="/learn.html" onclick="event.preventDefault(); localStorage.setItem('cll_open_auth','1'); startLearning();" class="sync-nudge-link">Sign in</a> anytime to sync across all your devices.
         </span>
       </div>
     </div>
@@ -1014,7 +1014,12 @@
     <img src="/assets/banner.png" alt="The Cunning Linguist" class="nav-banner">
   </a>
   <div>Built with care · Just language learning.</div>
-  <div style="margin-top:6px;opacity:0.6;font-size:12px;">© 2026 · The Cunning Linguist</div>
+  <div style="margin-top:8px;font-size:12px;opacity:0.6;">
+    © 2026 · The Cunning Linguist &nbsp;·&nbsp;
+    <a href="/privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    <a href="/tos.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Terms of Service</a>
+  </div>
 </footer>
 
 <script>
