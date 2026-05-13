@@ -2212,5 +2212,17 @@
 <script src="/js/course-sq-ko.js"></script>
 <script src="/js/course-sq-pt.js"></script>
 <script src="/js/app.js"></script>
+<script>
+// Auto-open sign-in modal if redirected from landing page with ?signin=1
+if (new URLSearchParams(window.location.search).get('signin') === '1') {
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      if (window.cllSync && window.cllSync.showAuthModal) {
+        window.cllSync.showAuthModal();
+      }
+    }, 600);
+  });
+}
+</script>
 </body>
 </html>
