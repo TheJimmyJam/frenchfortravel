@@ -612,12 +612,14 @@ function loadState() {
     lastVisit: null,
     quizScore: { correct: 0, total: 0 },
     graceUsed: 0,
-    graceMonth: null
+    graceMonth: null,
+    learnedCards: []   // persistent learned bucket: array of native-word keys
   };
 }
 // Migrations
 if (!Array.isArray(state.savedVocab)) state.savedVocab = [];
 if (!Array.isArray(state.shownMilestones)) state.shownMilestones = [];
+if (!Array.isArray(state.learnedCards)) state.learnedCards = [];
 if (state.graceUsed === undefined) state.graceUsed = 0;
 if (state.graceMonth === undefined) state.graceMonth = null;
 function saveState() {
@@ -915,8 +917,9 @@ function renderLessonView(dayNum) {
 function completeDay(dayNum) {
   if (!state.completedDays.includes(dayNum)) {
     state.completedDays.push(dayNum);
-    if (dayNum === state.currentDay && state.currentDay < 30) {
-      state.currentDay++;
+    // Always advance currentDay to at least dayNum+1, regardless of how you got here
+    if (dayNum >= state.currentDay && state.currentDay < 30) {
+      state.currentDay = Math.min(30, dayNum + 1);
     }
     // Update streak for completing today
     const today = new Date().toDateString();
@@ -930,12 +933,12 @@ function completeDay(dayNum) {
       saveState();
       setTimeout(() => showMilestoneToast(STREAK_MILESTONES[state.streak]), 400);
     }
-    if (state.currentDay <= 30) {
-      renderLessonView(state.currentDay);
-      content.scrollTop = 0;
-      window.scrollTo(0, 0);
-      return;
-    }
+    // Always navigate to the day after the one just completed
+    const nextDayNum = Math.min(30, dayNum + 1);
+    renderLessonView(nextDayNum);
+    content.scrollTop = 0;
+    window.scrollTo(0, 0);
+    return;
   }
   renderLessonView(dayNum);
 }
@@ -965,17 +968,17 @@ function renderFlashcardView() {
 function renderFlashcardCard() {
   if (flashState.pool.length === 0) {
     // All-done: either session complete or genuinely empty deck
-    if (flashState.learned.length > 0) {
-      const chips = flashState.learned.map(c =>
-        `<span class="learned-chip">${getFrontWord(c)}</span>`
+    if (state.learnedCards.length > 0) {
+      const chips = getLearnedCardObjects().slice(-20).map(c =>
+        `<span class="learned-chip">${getFrontWord(c)}<button class="chip-unlearn" onclick="unlearnCard(${JSON.stringify(getNative(c)).replace(/"/g,'&quot;')})" title="Move back to unlearned">↩</button></span>`
       ).join('');
       content.innerHTML = `
         <div class="flash-all-done">
           <div class="all-done-icon">🎉</div>
-          <h3>All done!</h3>
-          <p>You learned <strong>${flashState.learned.length}</strong> card${flashState.learned.length===1?'':'s'} this session.</p>
+          <h3>Deck complete!</h3>
+          <p>You have <strong>${state.learnedCards.length}</strong> card${state.learnedCards.length===1?'':'s'} in your learned bucket.</p>
           <div class="flash-learned-chips" style="margin:16px 0;">${chips}</div>
-          <button class="complete-btn" onclick="resetFlashSession()" style="margin-top:8px;">Practice again ↺</button>
+          <button class="complete-btn" onclick="resetLearnedBucket()" style="margin-top:8px;">↺ Reset &amp; practice again</button>
         </div>
       `;
       return;
@@ -1034,6 +1037,11 @@ function renderFlashcardCard() {
         <div class="flash-sidebar-label" style="margin-top:18px;">${t('flash_mode')}</div>
         <button class="ipa-mode-btn ${showIpa?'active':''}" style="width:100%;margin-bottom:6px;" onclick="flashState.ipaMode='show';flashState.flipped=false;renderFlashcardCard()">${t('flash_ipa_on')}</button>
         <button class="ipa-mode-btn ${!showIpa?'active':''}" style="width:100%;" onclick="flashState.ipaMode='hide';flashState.flipped=false;renderFlashcardCard()">${t('flash_challenge')}</button>
+        <div class="flash-sidebar-label" style="margin-top:22px;">Unlearned</div>
+        <div class="flash-bucket-count">${flashState.pool.length} card${flashState.pool.length===1?'':'s'}</div>
+        <div class="flash-sidebar-label" style="margin-top:14px;">Learned</div>
+        <div class="flash-bucket-count">${state.learnedCards.length} card${state.learnedCards.length===1?'':'s'}</div>
+        ${state.learnedCards.length > 0 ? `<button class="flash-sidebar-btn" style="margin-top:8px;font-size:11px;opacity:0.7;" onclick="resetLearnedBucket()">↺ Reset learned</button>` : ''}
       </div>
       <div class="flash-main">
         <div class="flashcard ${flashState.flipped?'flipped':''}" onclick="flashState.flipped=!flashState.flipped;renderFlashcardCard()">
@@ -1044,11 +1052,12 @@ function renderFlashcardCard() {
           <button class="btn-skip" onclick="nextCard()">${t('flash_skip')}</button>
           <button class="btn-got" onclick="markCard('got')">${t('flash_got_it')}</button>
         </div>
-        ${flashState.learned.length > 0 ? `
+        ${state.learnedCards.length > 0 ? `
         <div class="flash-learned-section">
-          <div class="flash-learned-header">✓ Learned (${flashState.learned.length})</div>
+          <div class="flash-learned-header">✓ Learned (${state.learnedCards.length})</div>
           <div class="flash-learned-chips">
-            ${flashState.learned.map(c => `<span class="learned-chip">${getFrontWord(c)}</span>`).join('')}
+            ${getLearnedCardObjects().slice(-20).map(c => `<span class="learned-chip">${getFrontWord(c)}<button class="chip-unlearn" onclick="unlearnCard(${JSON.stringify(getNative(c)).replace(/"/g,'&quot;')})" title="Move back to unlearned">↩</button></span>`).join('')}
+            ${state.learnedCards.length > 20 ? `<span class="learned-chip" style="opacity:0.5;">+${state.learnedCards.length-20} more</span>` : ''}
           </div>
         </div>` : ''}
       </div>
@@ -1076,8 +1085,10 @@ function rebuildFlashPool() {
       pool = [...personal, ...pool];
     }
   }
+  // Exclude cards already in the persistent learned bucket
+  const learnedSet = new Set(state.learnedCards);
+  pool = pool.filter(v => !learnedSet.has(getNative(v)));
   flashState.pool = pool;
-  flashState.learned = [];
   if (flashState.index >= pool.length) flashState.index = 0;
 }
 function shufflePool() {
@@ -1091,13 +1102,16 @@ function shufflePool() {
 function markCard(type) {
   const card = flashState.pool[flashState.index];
   if (type === 'got') {
-    state.masteredVocab[getNative(card)] = (state.masteredVocab[getNative(card)]||0)+1;
-    state.needWorkVocab[getNative(card)] = 0;
-    // Move card out of pool into learned bucket
+    const key = getNative(card);
+    state.masteredVocab[key] = (state.masteredVocab[key]||0)+1;
+    state.needWorkVocab[key] = 0;
+    // Add to persistent learned bucket if not already there
+    if (!state.learnedCards.includes(key)) {
+      state.learnedCards.push(key);
+    }
+    // Remove from active pool
     flashState.pool.splice(flashState.index, 1);
-    flashState.learned.push(card);
     flashState.flipped = false;
-    // If pool is now empty, fall through to render (shows completion state)
     if (flashState.pool.length > 0 && flashState.index >= flashState.pool.length) {
       flashState.index = 0;
     }
@@ -1119,6 +1133,26 @@ function nextCard() {
   renderFlashcardCard();
 }
 function resetFlashSession() {
+  rebuildFlashPool();
+  shufflePool();
+  renderFlashcardCard();
+}
+// Returns card objects for all keys in the persistent learned bucket
+function getLearnedCardObjects() {
+  const learnedSet = new Set(state.learnedCards);
+  return getAllVocab().filter(v => learnedSet.has(getNative(v)));
+}
+// Moves a single card back from learned → unlearned
+function unlearnCard(key) {
+  state.learnedCards = state.learnedCards.filter(k => k !== key);
+  saveState();
+  rebuildFlashPool();
+  renderFlashcardCard();
+}
+// Clears the persistent learned bucket and rebuilds the pool
+function resetLearnedBucket() {
+  state.learnedCards = [];
+  saveState();
   rebuildFlashPool();
   shufflePool();
   renderFlashcardCard();
