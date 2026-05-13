@@ -99,6 +99,50 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
   transition: background .2s;
 }
 .nav__cta:hover { background: var(--gold-light); }
+/* ─── HAMBURGER (mobile only) ───────────────────────────────────────────── */
+.nav__hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 36px; height: 36px; background: none; border: none; cursor: pointer;
+  padding: 4px; border-radius: 6px;
+}
+.nav__hamburger span {
+  display: block; height: 2px; background: var(--cream); border-radius: 2px;
+  transition: transform .25s, opacity .25s;
+}
+.nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__hamburger.open span:nth-child(2) { opacity: 0; }
+.nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav__mobile-menu {
+  display: none; flex-direction: column;
+  position: absolute; top: 64px; left: 0; right: 0;
+  background: rgba(14,14,16,.97);
+  border-bottom: 1px solid var(--cream-06);
+  padding: 1rem 2rem 1.5rem;
+  gap: 0;
+}
+.nav__mobile-menu.open { display: flex; }
+.nav__mobile-menu a {
+  font-size: .9rem; font-weight: 500; color: var(--cream-60);
+  text-decoration: none; padding: .85rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: color .15s;
+}
+.nav__mobile-menu a:last-child { border-bottom: none; }
+.nav__mobile-menu a:hover { color: var(--gold); }
+.nav__mobile-cta {
+  margin-top: 1rem;
+  font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink);
+  padding: .7rem 1.2rem; border-radius: 9999px;
+  text-decoration: none; text-align: center;
+}
+.feat-icon img { width: 3.25rem; height: 3.25rem; object-fit: cover; border-radius: 8px; display: block; }
+
+@media (max-width: 680px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+}
 
 /* ─── SECTION base ───────────────────────────────────────────────────────── */
 .section {
@@ -677,7 +721,19 @@ footer a:hover { color: var(--gold-light); }
       <a href="#howSection">How It Works</a>
       <a href="#monocleSection">Who</a>
     </div>
-    <a href="learn.html" class="nav__cta" id="navCta">Start Learning</a>
+    <div style="display:flex;align-items:center;gap:.75rem;">
+      <a href="learn.html" class="nav__cta" id="navCta">Start Learning</a>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="#pairsSection">Languages</a>
+    <a href="#featSection">Features</a>
+    <a href="#howSection">How It Works</a>
+    <a href="#monocleSection">Who</a>
+    <a href="learn.html" class="nav__mobile-cta">Start Learning</a>
   </div>
 </nav>
 
@@ -806,22 +862,22 @@ footer a:hover { color: var(--gold-light); }
     </div>
     <div class="feat-grid">
       <div id="fc1" class="feat-card">
-        <span class="feat-icon">🗓</span>
+        <span class="feat-icon"><img src="assets/logos/day 1 book.png" alt="30-Day Structured Courses"></span>
         <div class="feat-title">30-Day Structured Courses</div>
         <div class="feat-body">A guided path from Day 1 to confident conversation. 350+ vocabulary items, grammar anchors, and daily milestones — for every language pair.</div>
       </div>
       <div id="fc2" class="feat-card">
-        <span class="feat-icon">🃏</span>
+        <span class="feat-icon"><img src="assets/logos/cards and watch.png" alt="Spaced Repetition Flashcards"></span>
         <div class="feat-title">Spaced Repetition Flashcards</div>
         <div class="feat-body">The proven science of memory. Cards surface when you're about to forget them. Flip direction adapts based on whether you're learning to or from a language.</div>
       </div>
       <div id="fc3" class="feat-card">
-        <span class="feat-icon">💬</span>
+        <span class="feat-icon"><img src="assets/logos/dialogue boxes.png" alt="Real Conversation Scenarios"></span>
         <div class="feat-title">Real Conversation Scenarios</div>
         <div class="feat-body">8+ scenarios per pair: café, hotel, airport, métro, restaurant, workplace, and more. With per-line audio so you can hear every response.</div>
       </div>
       <div id="fc4" class="feat-card">
-        <span class="feat-icon">🌐</span>
+        <span class="feat-icon"><img src="assets/logos/globe.png" alt="90 Language Pairs"></span>
         <div class="feat-title">90 Language Pairs — Any to Any</div>
         <div class="feat-body">French → Spanish. Portuguese → Italian. Korean → Japanese. Learn in any direction. Not just English-first. Native-language instruction throughout.</div>
       </div>
@@ -1118,6 +1174,23 @@ document.getElementById('lpOverlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closePicker();
 });
 
+
+// ── Hamburger menu toggle ──────────────────────────────────────────────
+(function initHamburger() {
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function() {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+})();
 // ── Nav CTA: "Continue Learning Fr → En" if a pair is saved ────────────
 (function updateNavCta() {
   try {
