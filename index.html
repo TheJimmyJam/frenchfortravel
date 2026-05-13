@@ -1366,7 +1366,7 @@ const PAIR_DATA = {
 // ── Build marquee (all pairs, duplicated for seamless CSS loop) ─────────
 (function buildMarquee() {
   const allPairs = Object.entries(PAIR_DATA).flatMap(([src, targets]) =>
-    targets.map(p => `<span class="marquee-chip"><span style="display:inline-flex;gap:2px;align-items:center;">${flagImg(src,18)}${flagImg(p.tgt,18)}</span>${p.label}</span>`)
+    targets.map(p => `<span class="marquee-chip"><span>${p.flags}</span>${p.label}</span>`)
   );
   const html = [...allPairs, ...allPairs].join(''); // duplicate for loop
   document.getElementById('marqueeTrack').innerHTML = html;
@@ -1376,7 +1376,7 @@ const PAIR_DATA = {
 (function buildSrcPills() {
   const pillsEl = document.getElementById('srcPills');
   pillsEl.innerHTML = ALL_LANGS.map((l, i) =>
-    `<button class="src-pill${i===0?' active':''}" data-src="${l}" onclick="selectSrc('${l}')">${flagImg(l,20)} ${LANG_NAMES[l]}</button>`
+    `<button class="src-pill${i===0?' active':''}" data-src="${l}" onclick="selectSrc('${l}')">${LANG_FLAGS[l]} ${LANG_NAMES[l]}</button>`
   ).join('');
   renderTargets('en');
 })();
@@ -1394,7 +1394,7 @@ function renderTargets(src) {
         onclick="event.preventDefault();goToPair('${src}','${p.tgt}')"
         class="tgt-card"
         style="animation-delay:${i * 0.03}s">
-      <span class="tgt-flags" style="display:inline-flex;gap:3px;align-items:center;">${flagImg(src,22)}${flagImg(p.tgt,22)}</span>
+      <span class="tgt-flags">${p.flags}</span>
       <div><div class="tgt-label">${p.label}</div><div class="tgt-sub">${p.sub}</div></div>
     </a>`
   ).join('');
