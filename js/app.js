@@ -564,11 +564,19 @@ function getCourseData(pairKey) {
     // Use pair-specific conversations if they exist; otherwise fall back to base-language conversations
     let convos = window[convoVar];
     if (!convos) {
+      // Use direct variable refs — const vars don't attach to window
       const ck2 = (PAIRS[pairKey] || PAIRS['en-fr']).courseKey;
-      const fallbackVar = 'CONVERSATIONS_' + ck2.toUpperCase();
-      convos = window[fallbackVar] || [];
+      if (ck2 === 'es') convos = typeof CONVERSATIONS_ES !== 'undefined' ? CONVERSATIONS_ES : [];
+      else if (ck2 === 'sq') convos = typeof CONVERSATIONS_SQ !== 'undefined' ? CONVERSATIONS_SQ : [];
+      else if (ck2 === 'it') convos = typeof CONVERSATIONS_IT !== 'undefined' ? CONVERSATIONS_IT : [];
+      else if (ck2 === 'pt') convos = typeof CONVERSATIONS_PT !== 'undefined' ? CONVERSATIONS_PT : [];
+      else if (ck2 === 'el') convos = typeof CONVERSATIONS_EL !== 'undefined' ? CONVERSATIONS_EL : [];
+      else if (ck2 === 'ja') convos = typeof CONVERSATIONS_JA !== 'undefined' ? CONVERSATIONS_JA : [];
+      else if (ck2 === 'de') convos = typeof CONVERSATIONS_DE !== 'undefined' ? CONVERSATIONS_DE : [];
+      else if (ck2 === 'ko') convos = typeof CONVERSATIONS_KO !== 'undefined' ? CONVERSATIONS_KO : [];
+      else convos = typeof CONVERSATIONS_FR !== 'undefined' ? CONVERSATIONS_FR : [];
     }
-    return { course: window[pairVar], convos };
+    return { course: window[pairVar], convos: convos || [] };
   }
 
   // 2. Fall back to target-language course
@@ -757,18 +765,19 @@ const QUIZ_VERDICTS = {
 function getAllVocab() {
   const all = [];
   COURSE.forEach(d => d.vocab.forEach(v => all.push({...v, day:d.day})));
-  state.savedVocab.forEach(v => all.push({fr: v.fr, en: v.en, ipa: v.ipa || '', phonetic: v.phonetic || '', day: 'saved'}));
+  // Spread all fields so native-language keys (pt, es, etc.) are preserved for X→EN cards
+  state.savedVocab.forEach(v => all.push({...v, day:'saved'}));
   return all;
 }
 function getLearnedVocab() {
   const all = [];
   COURSE.filter(d => state.completedDays.includes(d.day) || d.day === state.currentDay)
     .forEach(d => d.vocab.forEach(v => all.push({...v, day:d.day})));
-  state.savedVocab.forEach(v => all.push({fr: v.fr, en: v.en, ipa: v.ipa || '', phonetic: v.phonetic || '', day: 'saved'}));
+  state.savedVocab.forEach(v => all.push({...v, day:'saved'}));
   return all;
 }
 function getSavedVocab() {
-  return state.savedVocab.map(v => ({fr: v.fr, en: v.en, ipa: v.ipa || '', phonetic: v.phonetic || '', day: 'saved'}));
+  return state.savedVocab.map(v => ({...v, day:'saved'}));
 }
 function isCardSaved(wordKey) {
   return state.savedVocab.some(v => (v.word || v.fr) === wordKey);
@@ -1489,7 +1498,10 @@ function handleMatchClick(side, idx) {
 function generateQuiz() {
   const learned = getLearnedVocab();
   const all = getAllVocab();
-  const pool = [...learned].sort(() => Math.random() - 0.5).slice(0, Math.min(10, learned.length));
+  const pool = [...learned]
+    .filter(item => getFrontWord(item) && getBackWord(item)) // skip cards with missing fields
+    .sort(() => Math.random() - 0.5)
+    .slice(0, Math.min(10, learned.length));
   const targetLabel = LANGS[currentTarget()].label;
   const sourceLabel = LANGS[currentSource()].label;
   quizState.questions = [];
