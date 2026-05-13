@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cunning Linguist — Pair Tracker</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      padding: 24px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-block {
+      text-align: center;
+    }
+
+    .stat-block .stat-num {
+      font-size: 20px;
+      font-weight: bold;
+      display: block;
+    }
+
+    .stat-block .stat-label {
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-done   .stat-num { color: #27ae60; }
+    .stat-lang   .stat-num { color: #f39c12; }
+    .stat-qa     .stat-num { color: #2980b9; }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      min-width: 700px;
+    }
+
+    th, td {
+      border: 1px solid #2c3e50;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    thead th {
+      background: #2c3e50;
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 8px 6px;
+      white-space: nowrap;
+    }
+
+    thead th:first-child {
+      font-size: 10px;
+      width: 110px;
+      min-width: 110px;
+      color: #aaa;
+      line-height: 1.4;
+    }
+
+    .row-header {
+      background: #34495e;
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 6px 10px;
+      white-space: nowrap;
+      width: 110px;
+      min-width: 110px;
+    }
+
+    .diagonal {
+      background: #3d3d3d;
+      color: #555;
+      font-size: 18px;
+      width: 150px;
+      min-width: 150px;
+    }
+
+    /* Cell states */
+    .pair-cell {
+      background: #16213e;
+      padding: 6px 7px;
+      width: 150px;
+      min-width: 150px;
+    }
+
+    .pair-cell.all-clear {
+      background: #1a2f1a;
+      border-color: #27ae60 !important;
+    }
+
+    /* File input */
+    .pair-cell input[type="text"] {
+      width: 100%;
+      background: #0f3460;
+      border: 1px solid #2c3e50;
+      border-radius: 3px;
+      color: #cce;
+      font-size: 9px;
+      padding: 3px 5px;
+      outline: none;
+      font-family: monospace;
+      margin-bottom: 5px;
+    }
+
+    .pair-cell input[type="text"]::placeholder {
+      color: #445;
+    }
+
+    .pair-cell.done input[type="text"],
+    .pair-cell.all-clear input[type="text"] {
+      border-color: #27ae60;
+      background: #0d2e1a;
+      color: #7dcea0;
+    }
+
+    /* Checkbox rows */
+    .cb-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 3px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .cb-row input[type="checkbox"] {
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin: 0;
+    }
+
+    .cb-row input.cb-done   { accent-color: #27ae60; }
+    .cb-row input.cb-lang   { accent-color: #f39c12; }
+    .cb-row input.cb-qa     { accent-color: #2980b9; }
+
+    .cb-text {
+      font-size: 9px;
+      color: #666;
+      user-select: none;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    .cb-row.checked-done .cb-text { color: #27ae60; }
+    .cb-row.checked-lang .cb-text { color: #f39c12; }
+    .cb-row.checked-qa   .cb-text { color: #2980b9; }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 18px;
+      font-size: 11px;
+      color: #888;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .reset-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 7px 20px;
+      background: transparent;
+      border: 1px solid #555;
+      color: #888;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 11px;
+      transition: all 0.2s;
+    }
+
+    .reset-btn:hover {
+      border-color: #e74c3c;
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌐 Cunning Linguist — Pair Tracker</h1>
+<p class="subtitle">Rows = Native Speaker &nbsp;|&nbsp; Columns = Language Being Learned</p>
+
+<div class="stats">
+  <div class="stat-block stat-done">
+    <span class="stat-num"><span id="done-count">0</span>/90</span>
+    <span class="stat-label">✓ Lesson Made</span>
+  </div>
+  <div class="stat-block stat-lang">
+    <span class="stat-num"><span id="lang-count">0</span>/90</span>
+    <span class="stat-label">🔤 Language Reviewed</span>
+  </div>
+  <div class="stat-block stat-qa">
+    <span class="stat-num"><span id="qa-count">0</span>/90</span>
+    <span class="stat-label">⚙️ QA Reviewed</span>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table id="matrix">
+    <thead>
+      <tr id="header-row">
+        <th>Native ↓ / Learning →</th>
+      </tr>
+    </thead>
+    <tbody id="matrix-body"></tbody>
+  </table>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#27ae60;"></div> Lesson made</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f39c12;"></div> Language accuracy reviewed</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2980b9;"></div> QA / all fields working</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#3d3d3d;"></div> N/A</div>
+</div>
+
+<button class="reset-btn" onclick="resetAll()">Reset all</button>
+
+<script>
+  // Seed localStorage with all confirmed-live course pairs
+  // done=true (lesson exists), qa=true (validated by script), lang=false (human review pending)
+  const LIVE_PAIRS = {
+    "English__French":      "course-en-fr.js",
+    "English__Spanish":     "course-en-es.js",
+    "English__Portuguese":  "course-en-pt.js",
+    "English__Greek":       "course-en-el.js",
+    "English__Italian":     "course-en-it.js",
+    "English__German":      "course-en-de.js",
+    "English__Japanese":    "course-en-ja.js",
+    "English__Korean":      "course-en-ko.js",
+    "English__Albanian":    "course-en-sq.js",
+    "French__English":      "course-fr-en.js",
+    "French__Spanish":      "course-fr-es.js",
+    "French__Italian":      "course-fr-it.js",
+    "French__German":       "course-fr-de.js",
+    "Spanish__English":     "course-es-en.js",
+    "Spanish__French":      "course-es-fr.js",
+    "Spanish__Italian":     "course-es-it.js",
+    "Spanish__German":      "course-es-de.js",
+    "Spanish__Portuguese":  "course-es-pt.js",
+    "Portuguese__English":  "course-pt-en.js",
+    "Portuguese__Spanish":  "course-pt-es.js",
+    "Greek__English":       "course-el-en.js",
+    "Greek__French":        "course-el-fr.js",
+    "Greek__Spanish":       "course-el-es.js",
+    "Greek__Portuguese":    "course-el-pt.js",
+    "Greek__Italian":       "course-el-it.js",
+    "Greek__German":        "course-el-de.js",
+    "Greek__Japanese":      "course-el-ja.js",
+    "Greek__Korean":        "course-el-ko.js",
+    "Greek__Albanian":      "course-el-sq.js",
+    "Italian__French":      "course-it-fr.js",
+    "Italian__Spanish":     "course-it-es.js",
+    "Italian__German":      "course-it-de.js",
+    "German__French":       "course-de-fr.js",
+    "German__Spanish":      "course-de-es.js",
+    "German__Italian":      "course-de-it.js",
+  };
+
+  // Only seed if not already set by user
+  Object.entries(LIVE_PAIRS).forEach(([key, file]) => {
+    if (!localStorage.getItem(key)) {
+      localStorage.setItem(key, JSON.stringify({ file, done: true, lang: false, qa: true }));
+    }
+  });
+
+  const languages = ["English","French","Spanish","Portuguese","Greek","Italian","German","Japanese","Korean","Albanian"];
+
+  // Build header
+  const headerRow = document.getElementById('header-row');
+  languages.forEach(lang => {
+    const th = document.createElement('th');
+    th.textContent = lang;
+    headerRow.appendChild(th);
+  });
+
+  // Build body
+  const tbody = document.getElementById('matrix-body');
+  languages.forEach(native => {
+    const tr = document.createElement('tr');
+
+    const rowHeader = document.createElement('td');
+    rowHeader.className = 'row-header';
+    rowHeader.textContent = native;
+    tr.appendChild(rowHeader);
+
+    languages.forEach(target => {
+      const td = document.createElement('td');
+
+      if (native === target) {
+        td.className = 'diagonal';
+        td.textContent = '—';
+      } else {
+        td.className = 'pair-cell';
+        const key = `${native}__${target}`;
+        const saved = JSON.parse(localStorage.getItem(key) || '{}');
+
+        // --- File input ---
+        const fileInput = document.createElement('input');
+        fileInput.type = 'text';
+        fileInput.placeholder = 'lesson_plan.js';
+        fileInput.spellcheck = false;
+        if (saved.file) fileInput.value = saved.file;
+
+        // --- Done checkbox ---
+        const doneRow = document.createElement('label');
+        doneRow.className = 'cb-row';
+        const cbDone = document.createElement('input');
+        cbDone.type = 'checkbox';
+        cbDone.className = 'cb-done';
+        const doneText = document.createElement('span');
+        doneText.className = 'cb-text';
+        doneText.textContent = 'Lesson done';
+        doneRow.appendChild(cbDone);
+        doneRow.appendChild(doneText);
+        if (saved.done || saved.file) { cbDone.checked = true; doneRow.classList.add('checked-done'); }
+
+        // --- Language accuracy checkbox ---
+        const langRow = document.createElement('label');
+        langRow.className = 'cb-row';
+        const cbLang = document.createElement('input');
+        cbLang.type = 'checkbox';
+        cbLang.className = 'cb-lang';
+        const langText = document.createElement('span');
+        langText.className = 'cb-text';
+        langText.textContent = 'Language reviewed';
+        langRow.appendChild(cbLang);
+        langRow.appendChild(langText);
+        if (saved.lang) { cbLang.checked = true; langRow.classList.add('checked-lang'); }
+
+        // --- QA checkbox ---
+        const qaRow = document.createElement('label');
+        qaRow.className = 'cb-row';
+        const cbQA = document.createElement('input');
+        cbQA.type = 'checkbox';
+        cbQA.className = 'cb-qa';
+        const qaText = document.createElement('span');
+        qaText.className = 'cb-text';
+        qaText.textContent = 'QA / fields working';
+        qaRow.appendChild(cbQA);
+        qaRow.appendChild(qaText);
+        if (saved.qa) { cbQA.checked = true; qaRow.classList.add('checked-qa'); }
+
+        // Apply initial cell state
+        applyDoneState(td, cbDone.checked);
+        applyAllClear(td, cbDone.checked, cbLang.checked, cbQA.checked);
+
+        // --- Events ---
+        fileInput.addEventListener('input', () => {
+          const hasFile = fileInput.value.trim().length > 0;
+          cbDone.checked = hasFile;
+          doneRow.classList.toggle('checked-done', hasFile);
+          applyDoneState(td, hasFile);
+          applyAllClear(td, cbDone.checked, cbLang.checked, cbQA.checked);
+          persist(key, fileInput, cbDone, cbLang, cbQA);
+          updateCounts();
+        });
+
+        cbDone.addEventListener('change', () => {
+          doneRow.classList.toggle('checked-done', cbDone.checked);
+          applyDoneState(td, cbDone.checked);
+          applyAllClear(td, cbDone.checked, cbLang.checked, cbQA.checked);
+          persist(key, fileInput, cbDone, cbLang, cbQA);
+          updateCounts();
+        });
+
+        cbLang.addEventListener('change', () => {
+          langRow.classList.toggle('checked-lang', cbLang.checked);
+          applyAllClear(td, cbDone.checked, cbLang.checked, cbQA.checked);
+          persist(key, fileInput, cbDone, cbLang, cbQA);
+          updateCounts();
+        });
+
+        cbQA.addEventListener('change', () => {
+          qaRow.classList.toggle('checked-qa', cbQA.checked);
+          applyAllClear(td, cbDone.checked, cbLang.checked, cbQA.checked);
+          persist(key, fileInput, cbDone, cbLang, cbQA);
+          updateCounts();
+        });
+
+        td.appendChild(fileInput);
+        td.appendChild(doneRow);
+        td.appendChild(langRow);
+        td.appendChild(qaRow);
+      }
+
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  function applyDoneState(td, done) {
+    td.classList.toggle('done', done);
+  }
+
+  function applyAllClear(td, done, lang, qa) {
+    td.classList.toggle('all-clear', done && lang && qa);
+  }
+
+  function persist(key, fileInput, cbDone, cbLang, cbQA) {
+    localStorage.setItem(key, JSON.stringify({
+      file: fileInput.value,
+      done: cbDone.checked,
+      lang: cbLang.checked,
+      qa:   cbQA.checked
+    }));
+  }
+
+  function updateCounts() {
+    document.getElementById('done-count').textContent =
+      document.querySelectorAll('.cb-done:checked').length;
+    document.getElementById('lang-count').textContent =
+      document.querySelectorAll('.cb-lang:checked').length;
+    document.getElementById('qa-count').textContent =
+      document.querySelectorAll('.cb-qa:checked').length;
+  }
+
+  function resetAll() {
+    if (!confirm('Reset all pairs? This will clear everything.')) return;
+    languages.forEach(n => languages.forEach(t => {
+      if (n !== t) localStorage.removeItem(`${n}__${t}`);
+    }));
+    location.reload();
+  }
+
+  updateCounts();
+</script>
+</body>
+</html>
