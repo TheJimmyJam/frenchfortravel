@@ -85,8 +85,7 @@ practice: [
 day: 3,
 title: "Jezelf voorstellen",
 titleNative: "Introducing Yourself",
-focus: "Of je nu in een hotel, pub of tourgroep bent, jezelf kort kunnen voorstellen voelt meteen natuurlijk. Je hoeft niet veel te
-zeggen: naam, herkomst en reden van bezoek zijn genoeg.",
+focus: "Of je nu in een hotel, pub of tourgroep bent, jezelf kort kunnen voorstellen voelt meteen natuurlijk. Je hoeft niet veel te zeggen: naam, herkomst en reden van bezoek zijn genoeg.",
 vocab: [
 
 { en: "name", nl: "naam", ipa: "NEEM" },
@@ -147,8 +146,7 @@ phrases: [
 { en: "It costs eight pounds.", nl: "Het kost acht pond.", ipa: "it kosts EET PAUNDS" },
 { en: "My number is nine.", nl: "Mijn nummer is negen.", ipa: "mai NUM-ber iz NAIN" }
 ],
-grammar: "In het Engels zet je het getal meestal vóór het zelfstandig
-naamwoord: two coffees, one ticket. Let op three: de th-klank is geen Nederlandse t of d, maar je tong komt licht tussen je tanden.",
+grammar: "In het Engels zet je het getal meestal vóór het zelfstandig naamwoord: two coffees, one ticket. Let op three: de th-klank is geen Nederlandse t of d, maar je tong komt licht tussen je tanden.",
 practice: [
 
 "Stel je voor dat je twee tickets koopt voor een museum in Edinburgh. Vraag er beleefd om.",
@@ -517,9 +515,7 @@ alstublieft?", ipa: "ken ai hev uh MEN-joe, PLIEZ" },
 alstublieft?", ipa: "ken wie hev thuh BIL, PLIEZ" },
 { en: "Can I pay by card?", nl: "Kan ik met kaart betalen?", ipa: "ken ai PEE bai KAARD" }
 ],
-grammar: "Mini-gesprek: Server: Hi, what can I get you? Traveler: Can I have a menu, please? Server: Of course. Traveler: What do you recommend?
-Server: The soup is very good. Traveler: Is there dairy in it? Server: No. Traveler: Great, I would like the soup and a coffee. Server: Anything else? Traveler: No, thank you. Later: Can I have the bill,
-please?",
+grammar: "Mini-gesprek: Server: Hi, what can I get you? Traveler: Can I have a menu, please? Server: Of course. Traveler: What do you recommend? Server: The soup is very good. Traveler: Is there dairy in it? Server: No. Traveler: Great, I would like the soup and a coffee. Server: Anything else? Traveler: No, thank you. Later: Can I have the bill, please?",
 practice: [
 
 "Speel het mini-gesprek alsof je in een café in Cambridge zit.",
@@ -775,10 +771,7 @@ ipa: "witsj PLAT-form doe ai nied" },
 { en: "Where is the exit?", nl: "Waar is de uitgang?", ipa: "wer iz thuh EK-sit" },
 { en: "Can you show me on the map?", nl: "Kunt u het op de kaart laten zien?", ipa: "ken joe SJOO mie on thuh MEP" }
 ],
-grammar: "Mini-gesprek: Traveler: I would like to check out.
-Receptionist: Of course. Do you need a taxi? Traveler: Yes, can you call a taxi to the station? Driver: Which station? Traveler: King's Cross,
-please. At the station: Which platform do I need? Staff: Platform four.
-Traveler: Is the train on time? Staff: Yes, it is.",
+grammar: "Mini-gesprek: Traveler: I would like to check out. Receptionist: Of course. Do you need a taxi? Traveler: Yes, can you call a taxi to the station? Driver: Which station? Traveler: King's Cross, please. At the station: Which platform do I need? Staff: Platform four. Traveler: Is the train on time? Staff: Yes, it is.",
 practice: [
 
 "Speel het mini-gesprek na als reisdag van hotel naar station.",
