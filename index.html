@@ -1108,6 +1108,16 @@ const LANG_FLAGS = {
   en:"🇬🇧", fr:"🇫🇷", es:"🇪🇸", pt:"🇧🇷",
   el:"🇬🇷", sq:"🇦🇱", it:"🇮🇹", ja:"🇯🇵", de:"🇩🇪", ko:"🇰🇷"
 };
+
+const LANG_IMG = {
+  en:"american flag.png", fr:"french flag.png", es:"spanish flag1.png", pt:"portuguese flag.png",
+  el:"greece flag.png",   sq:"albanian flag.png", it:"italian flag.png",  ja:"japanese flag.png",
+  de:"german flag.png",   ko:"korean flag.png"
+};
+function flagImg(code, size) {
+  size = size || 20;
+  return `<img src="assets/logos/flags/${LANG_IMG[code]}" alt="${code}" style="width:${size}px;height:${size}px;object-fit:cover;border-radius:3px;vertical-align:middle;display:inline-block;">`;
+}
 const ALL_LANGS = ['en','fr','es','pt','el','sq','it','ja','de','ko'];
 
 function buildDropdown(el, langs, selected) {
@@ -1356,7 +1366,7 @@ const PAIR_DATA = {
 // ── Build marquee (all pairs, duplicated for seamless CSS loop) ─────────
 (function buildMarquee() {
   const allPairs = Object.entries(PAIR_DATA).flatMap(([src, targets]) =>
-    targets.map(p => `<span class="marquee-chip"><span>${p.flags}</span>${p.label}</span>`)
+    targets.map(p => `<span class="marquee-chip"><span style="display:inline-flex;gap:2px;align-items:center;">${flagImg(src,18)}${flagImg(p.tgt,18)}</span>${p.label}</span>`)
   );
   const html = [...allPairs, ...allPairs].join(''); // duplicate for loop
   document.getElementById('marqueeTrack').innerHTML = html;
