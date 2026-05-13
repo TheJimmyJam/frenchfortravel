@@ -369,18 +369,24 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 /* The site wordmark floats as a ghostly atmospheric backdrop                  */
 /* Steps fly in from the right as section pins                                 */
 .how { background: var(--ink); position: relative; overflow: hidden; }
-/* The wordmark image — large, centered, ghostly */
+/* The wordmark image — right side of heading, full opacity */
 .how__logo-bg {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 72%; max-width: 680px;
-  opacity: 0;                       /* GSAP fades it in */
-  filter: saturate(0) brightness(2.5);
-  pointer-events: none; z-index: 0;
+  flex: 0 0 auto;
+  width: 42%; max-width: 520px;
+  opacity: 0;
+  pointer-events: none;
   will-change: opacity, transform;
+  object-fit: contain;
 }
+.how__header {
+  display: flex; align-items: center; gap: 3rem; margin-bottom: 3rem;
+}
+.how__header-text { flex: 1; }
 .how .w { position: relative; z-index: 2; }
+@media (max-width: 768px) {
+  .how__header { flex-direction: column; gap: 1.5rem; }
+  .how__logo-bg { width: 80%; max-width: 340px; }
+}
 .how__grid { display: grid; gap: 2rem; margin-top: 3rem; grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 640px) { .how__grid { grid-template-columns: 1fr; } }
 .how-step {
@@ -919,13 +925,16 @@ footer a:hover { color: var(--gold-light); }
 <!-- Section pins. The site wordmark fades in as backdrop.                    -->
 <!-- Each step card flies in from the right, staggered, over the logo.        -->
 <section class="section how" id="howSection">
-  <!-- The full wordmark logo — ghostly background presence -->
-  <img id="howLogoBg" src="assets/hero-dark.png" alt="" aria-hidden="true" class="how__logo-bg">
   <div class="w">
-    <span class="eye" data-rev>HOW IT WORKS</span>
-    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev>
-      Three steps.<br>Thirty days.<br><em style="color:var(--gold)">Real fluency.</em>
-    </h2>
+    <div class="how__header">
+      <div class="how__header-text">
+        <span class="eye" data-rev>HOW IT WORKS</span>
+        <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev>
+          Three steps.<br>Thirty days.<br><em style="color:var(--gold)">Real fluency.</em>
+        </h2>
+      </div>
+      <img id="howLogoBg" src="assets/hero-dark.png" alt="The Cunning Linguist" class="how__logo-bg">
+    </div>
     <div class="how__grid">
       <div id="step1" class="how-step">
         <div class="how-step__num">01</div>
@@ -1416,7 +1425,7 @@ const howTl = gsap.timeline({
 // Logo bloom: scale up from small + fade in
 howTl.fromTo('#howLogoBg',
   { scale: 0.65, opacity: 0 },
-  { scale: 1, opacity: 0.07, duration: 0.5 },
+  { scale: 1, opacity: 1, duration: 0.5 },
   0
 );
 // Eyebrow and heading already visible via data-rev; step cards fly in
