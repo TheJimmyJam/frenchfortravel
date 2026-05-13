@@ -351,123 +351,144 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 .how-step__body { font-size: .85rem; color: var(--muted); line-height: 1.65; }
 
 /* ─── 6b. MAN BEHIND THE MONOCLE ────────────────────────────────────────── */
+#monocleWrap { height: 100vh; }
 .monocle-section {
-  position: relative;
+  height: 100vh;
+  display: flex;
   background: var(--ink);
   color: var(--cream);
   overflow: hidden;
-  padding: 7rem 2rem;
+  position: relative;
 }
-.monocle-bg {
+/* Left: image panel */
+.monocle-left {
+  width: 46%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.monocle-img-wrap {
   position: absolute;
-  inset: 0;
-  background-image: url('/assets/logos/most interesting cunning linguist.png');
-  background-size: cover;
-  background-position: center 25%;
-  opacity: 0.13;
-  filter: sepia(20%) saturate(70%);
+  inset: -30px; /* oversized so parallax doesn't expose edges */
 }
-.monocle-bg::after {
+.monocle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: monocleFloat 5s ease-in-out infinite;
+  animation-delay: -2s;
+}
+@keyframes monocleFloat {
+  0%, 100% { transform: translateY(0px) scale(1.03); }
+  50%       { transform: translateY(-14px) scale(1.03); }
+}
+/* Right-edge fade: image bleeds into dark bg */
+.monocle-left::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, var(--ink) 0%, transparent 14%, transparent 86%, var(--ink) 100%),
-    linear-gradient(to right, var(--ink) 0%, transparent 14%, transparent 86%, var(--ink) 100%);
+  background: linear-gradient(to right, transparent 50%, var(--ink) 100%);
+  pointer-events: none;
 }
-.monocle-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
+/* Right: dossier */
+.monocle-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 3.5rem 2.5rem 1.5rem;
+  overflow: hidden;
 }
 .monocle-eyebrow {
   display: block;
-  font-size: .65rem;
+  font-size: .6rem;
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: rgba(212,175,55,.65);
-  margin-bottom: 1.1rem;
+  margin-bottom: .65rem;
 }
 .monocle-title {
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(1.7rem, 2.6vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 2.5rem;
+  line-height: 1.12;
+  margin-bottom: .9rem;
 }
 .monocle-title em { font-style: italic; color: var(--gold); }
-.monocle-bio {
-  max-width: 680px;
-  margin: 0 auto 4rem;
-}
+.monocle-bio { margin-bottom: .9rem; }
 .monocle-bio p {
-  font-size: 1rem;
-  color: rgba(248,243,231,.62);
-  line-height: 1.8;
-  margin-bottom: 1rem;
+  font-size: .85rem;
+  color: rgba(248,243,231,.6);
+  line-height: 1.72;
 }
 .monocle-tidbits {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: .9rem;
-  margin-bottom: 4rem;
-  text-align: left;
+  gap: .5rem;
+  margin-bottom: .9rem;
+  perspective: 900px;
 }
 .tidbit {
   background: rgba(212,175,55,.04);
-  border: 1px solid rgba(212,175,55,.14);
-  border-radius: 12px;
-  padding: 1.2rem 1.5rem;
-  font-size: .88rem;
-  color: rgba(248,243,231,.6);
-  line-height: 1.65;
+  border: 1px solid rgba(212,175,55,.13);
+  border-radius: 9px;
+  padding: .65rem .9rem;
+  font-size: .76rem;
+  color: rgba(248,243,231,.58);
+  line-height: 1.5;
 }
-.tidbit::before { content: '◆ '; color: var(--gold); font-size: .5rem; vertical-align: middle; }
+.tidbit::before { content: '◆ '; color: var(--gold); font-size: .42rem; vertical-align: middle; }
 .monocle-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: rgba(212,175,55,.14);
-  border: 1px solid rgba(212,175,55,.14);
-  border-radius: 16px;
+  background: rgba(212,175,55,.13);
+  border: 1px solid rgba(212,175,55,.13);
+  border-radius: 11px;
   overflow: hidden;
-  margin-bottom: 4.5rem;
 }
 .monocle-stat {
-  background: rgba(14,14,16,.88);
-  padding: 1.75rem 1.25rem;
+  background: rgba(14,14,16,.9);
+  padding: .85rem .6rem;
   text-align: center;
 }
 .monocle-stat-label {
   display: block;
-  font-size: .62rem;
-  letter-spacing: .13em;
+  font-size: .56rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(212,175,55,.52);
-  margin-bottom: .5rem;
+  color: rgba(212,175,55,.5);
+  margin-bottom: .3rem;
 }
 .monocle-stat-value {
   display: block;
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: .95rem;
   font-weight: 600;
   color: var(--cream);
-  line-height: 1.3;
+  line-height: 1.2;
+}
+/* Quotes — unpinned section below */
+.monocle-quotes-section {
+  background: var(--ink);
+  padding: 5rem 2rem 6rem;
+  text-align: center;
 }
 .monocle-quotes-label {
-  font-size: .62rem;
+  font-size: .6rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: rgba(212,175,55,.42);
-  margin-bottom: 1.5rem;
+  color: rgba(212,175,55,.4);
+  margin-bottom: 1.75rem;
 }
 .monocle-quotes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.1rem;
+  max-width: 1100px;
+  margin: 0 auto;
   text-align: left;
 }
 .monocle-quote {
@@ -478,7 +499,7 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 }
 .monocle-quote .q-mark {
   font-family: var(--serif);
-  font-size: 3.2rem;
+  font-size: 3rem;
   line-height: .75;
   color: rgba(212,175,55,.2);
   display: block;
@@ -491,11 +512,15 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
   font-style: italic;
 }
 @media (max-width: 860px) {
+  #monocleWrap { height: auto; }
+  .monocle-section { flex-direction: column; height: auto; }
+  .monocle-left { width: 100%; height: 55vw; }
+  .monocle-right { padding: 2rem 1.5rem; }
   .monocle-tidbits { grid-template-columns: 1fr; }
-  .monocle-quotes  { grid-template-columns: 1fr 1fr; }
+  .monocle-quotes { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
-  .monocle-stats  { grid-template-columns: 1fr 1fr; }
+  .monocle-stats { grid-template-columns: 1fr 1fr; }
   .monocle-quotes { grid-template-columns: 1fr; }
 }
 
@@ -864,50 +889,57 @@ footer a:hover { color: var(--gold-light); }
 </section>
 
 <!-- ── 6b. MAN BEHIND THE MONOCLE ─────────────────────────────────────────── -->
-<section class="monocle-section" id="monocleSection">
-  <div class="monocle-bg"></div>
-  <div class="monocle-inner">
+<!-- Pin wrap: height 100vh so GSAP adds scroll space on top, not inside -->
+<div id="monocleWrap">
+  <section class="monocle-section" id="monocleSection">
 
-    <div id="monocleHeader">
-      <span class="monocle-eyebrow">The Man Behind the Monocle</span>
-      <h2 class="monocle-title">He's a polyglot.<br>He's a gentleman.<br><em>He's The Cunning Linguist.</em></h2>
+    <!-- Left: library image -->
+    <div class="monocle-left">
+      <div class="monocle-img-wrap" id="monocleImgWrap">
+        <img class="monocle-img" src="/assets/logos/most interesting cunning linguist.png" alt="The Cunning Linguist in his private library">
+      </div>
     </div>
 
-    <div class="monocle-bio" id="monocleBio">
-      <p>Nobody knows exactly where he's from. He speaks eleven languages without an accent in any of them, which is either impressive or suspicious, depending on who you ask. He travels with a leather notebook, a good hat, and the unshakeable conviction that the subjunctive mood is underused in modern conversation.</p>
-      <p>He built this platform because he believes language learning shouldn't take a decade or feel like homework. Thirty minutes a day. Thirty days. That's all he asks.</p>
+    <!-- Right: dossier reveals on scroll -->
+    <div class="monocle-right" id="monocleRight">
+      <span class="monocle-eyebrow" id="monocleEyebrow">The Man Behind the Monocle</span>
+      <h2 class="monocle-title" id="monocleTitle">He's a polyglot.<br>He's a gentleman.<br><em>He's The Cunning Linguist.</em></h2>
+      <div class="monocle-bio" id="monocleBio">
+        <p>Nobody knows exactly where he's from. He speaks eleven languages without an accent in any of them — impressive or suspicious, depending on who you ask. He travels with a leather notebook, a good hat, and the conviction that the subjunctive mood is tragically underused in modern conversation.</p>
+      </div>
+      <div class="monocle-tidbits" id="monocleTidbits">
+        <div class="tidbit" id="monocle-t0">Fluent in 11 languages, conversational in 3 more, and once bluffed through an entire dinner party in Finnish</div>
+        <div class="tidbit" id="monocle-t1">Has strong opinions about the subjunctive mood, which he will share whether you ask or not</div>
+        <div class="tidbit" id="monocle-t2">Considers ordering in the local language a moral obligation, not a party trick</div>
+        <div class="tidbit" id="monocle-t3">Believes French was right about everything, linguistically speaking</div>
+        <div class="tidbit" id="monocle-t4">Once corrected a native speaker's grammar. The native speaker agreed.</div>
+        <div class="tidbit" id="monocle-t5">Keeps a notebook of phrases he finds "delightfully untranslatable" — it is not a small notebook</div>
+        <div class="tidbit" id="monocle-t6">Can identify your home country from a single syllable, but is too polite to mention it immediately</div>
+        <div class="tidbit" id="monocle-t7">His monocle is purely aesthetic. Probably.</div>
+      </div>
+      <div class="monocle-stats" id="monocleStats">
+        <div class="monocle-stat"><span class="monocle-stat-label">Languages spoken</span><span class="monocle-stat-value">11 (fluently)</span></div>
+        <div class="monocle-stat"><span class="monocle-stat-label">Countries visited</span><span class="monocle-stat-value">47 and counting</span></div>
+        <div class="monocle-stat"><span class="monocle-stat-label">Monocles owned</span><span class="monocle-stat-value">One. It's the right one.</span></div>
+        <div class="monocle-stat"><span class="monocle-stat-label">Favorite language</span><span class="monocle-stat-value">Whichever one you're learning</span></div>
+        <div class="monocle-stat"><span class="monocle-stat-label">Opinion on Duolingo</span><span class="monocle-stat-value">No comment</span></div>
+        <div class="monocle-stat"><span class="monocle-stat-label">Known weakness</span><span class="monocle-stat-value">Dutch. He won't explain.</span></div>
+      </div>
     </div>
 
-    <div class="monocle-tidbits" id="monocleTidbits">
-      <div class="tidbit">Fluent in 11 languages, conversational in 3 more, and once successfully bluffed his way through an entire dinner party in Finnish</div>
-      <div class="tidbit">Has strong opinions about the subjunctive mood, which he will share whether you ask or not</div>
-      <div class="tidbit">Considers ordering in the local language a moral obligation, not a party trick</div>
-      <div class="tidbit">Believes French was right about everything, linguistically speaking</div>
-      <div class="tidbit">Once corrected a native speaker's grammar. The native speaker agreed.</div>
-      <div class="tidbit">Keeps a small notebook of phrases he finds "delightfully untranslatable" — it is not a small notebook</div>
-      <div class="tidbit">Can identify your home country from a single syllable, but is too polite to mention it immediately</div>
-      <div class="tidbit">His monocle is purely aesthetic. Probably.</div>
-    </div>
+  </section>
+</div>
 
-    <div class="monocle-stats" id="monocleStats">
-      <div class="monocle-stat"><span class="monocle-stat-label">Languages spoken</span><span class="monocle-stat-value">11 (fluently)</span></div>
-      <div class="monocle-stat"><span class="monocle-stat-label">Countries visited</span><span class="monocle-stat-value">47 and counting</span></div>
-      <div class="monocle-stat"><span class="monocle-stat-label">Monocles owned</span><span class="monocle-stat-value">One. It's the right one.</span></div>
-      <div class="monocle-stat"><span class="monocle-stat-label">Favorite language</span><span class="monocle-stat-value">Whichever one you're learning</span></div>
-      <div class="monocle-stat"><span class="monocle-stat-label">Opinion on Duolingo</span><span class="monocle-stat-value">No comment</span></div>
-      <div class="monocle-stat"><span class="monocle-stat-label">Known weakness</span><span class="monocle-stat-value">Dutch. He won't explain.</span></div>
-    </div>
-
-    <p class="monocle-quotes-label">On the Subject of Languages</p>
-    <div class="monocle-quotes" id="monocleQuotes">
-      <div class="monocle-quote"><span class="q-mark">"</span><p>French is the language of love. Spanish is the language of passion. English is the language of asking if you take Visa.</p></div>
-      <div class="monocle-quote"><span class="q-mark">"</span><p>The best time to learn a language was ten years ago. The second best time is before your next trip. The third best time is after your third glass of wine — but results may vary.</p></div>
-      <div class="monocle-quote"><span class="q-mark">"</span><p>I never use a phrase book. I prefer to gesture confidently and let the locals fill in the gaps. It works surprisingly often.</p></div>
-      <div class="monocle-quote"><span class="q-mark">"</span><p>Fluency is not the goal. Connection is. Fluency is merely the pleasant side effect of showing up every day.</p></div>
-      <div class="monocle-quote"><span class="q-mark">"</span><p>I once ordered a coffee in seven different languages. They brought me seven coffees. I have no regrets whatsoever.</p></div>
-      <div class="monocle-quote"><span class="q-mark">"</span><p>To speak another's language is to borrow a piece of how they see the world. Return it with interest — by speaking it well.</p></div>
-    </div>
-
+<!-- 6c. Quotes — unpinned, deal in below the pin -->
+<section class="monocle-quotes-section" id="monocleQuotesSection">
+  <p class="monocle-quotes-label">On the Subject of Languages</p>
+  <div class="monocle-quotes" id="monocleQuotes">
+    <div class="monocle-quote"><span class="q-mark">"</span><p>French is the language of love. Spanish is the language of passion. English is the language of asking if you take Visa.</p></div>
+    <div class="monocle-quote"><span class="q-mark">"</span><p>The best time to learn a language was ten years ago. The second best time is before your next trip. The third best time is after your third glass of wine — but results may vary.</p></div>
+    <div class="monocle-quote"><span class="q-mark">"</span><p>I never use a phrase book. I prefer to gesture confidently and let the locals fill in the gaps. It works surprisingly often.</p></div>
+    <div class="monocle-quote"><span class="q-mark">"</span><p>Fluency is not the goal. Connection is. Fluency is merely the pleasant side effect of showing up every day.</p></div>
+    <div class="monocle-quote"><span class="q-mark">"</span><p>I once ordered a coffee in seven different languages. They brought me seven coffees. I have no regrets whatsoever.</p></div>
+    <div class="monocle-quote"><span class="q-mark">"</span><p>To speak another's language is to borrow a piece of how they see the world. Return it with interest — by speaking it well.</p></div>
   </div>
 </section>
 
@@ -1291,27 +1323,52 @@ howTl
   .from('#step2', { x: 900, opacity: 0, duration: 1 }, 0.42)
   .from('#step3', { x: 900, opacity: 0, duration: 1 }, 0.64);
 
-// ── Man Behind the Monocle ───────────────────────────────────────────────
-gsap.from('#monocleHeader', {
-  y: 70, opacity: 0, duration: 1.2, ease: 'power3.out',
-  scrollTrigger: { trigger: '#monocleSection', start: 'top 72%' }
+// ── Man Behind the Monocle — pinned dossier reveal ──────────────────────
+const monocleTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#monocleWrap',
+    start: 'top top',
+    end: '+=2400',
+    pin: true,
+    scrub: 1,
+    anticipatePin: 1
+  }
 });
-gsap.from('#monocleBio', {
-  y: 40, opacity: 0, duration: 0.9, ease: 'power2.out',
-  scrollTrigger: { trigger: '#monocleBio', start: 'top 82%' }
+// Image slides in from left
+monocleTl.from('#monocleImgWrap', { x: -100, opacity: 0, duration: 0.5 }, 0);
+// Eyebrow + title reveal
+monocleTl.from('#monocleEyebrow', { y: 18, opacity: 0, duration: 0.28 }, 0.15);
+monocleTl.from('#monocleTitle',   { y: 28, opacity: 0, duration: 0.38 }, 0.3);
+// Bio fades in
+monocleTl.from('#monocleBio', { y: 18, opacity: 0, duration: 0.32 }, 0.65);
+// Tidbits flip in one by one like index cards
+[0,1,2,3,4,5,6,7].forEach(function(i) {
+  monocleTl.from('#monocle-t' + i, {
+    rotationX: 80, opacity: 0, duration: 0.22,
+    transformOrigin: 'top center', ease: 'power2.out'
+  }, 1.0 + i * 0.24);
 });
-gsap.from('#monocleTidbits .tidbit', {
-  x: function(i) { return i % 2 === 0 ? -70 : 70; },
-  opacity: 0, duration: 0.65, stagger: 0.09, ease: 'power2.out',
-  scrollTrigger: { trigger: '#monocleTidbits', start: 'top 78%' }
+// Stats row slides up
+monocleTl.from('#monocleStats .monocle-stat', {
+  y: 24, opacity: 0, duration: 0.18, stagger: 0.07
+}, 1.0 + 8 * 0.24 + 0.12);
+
+// Parallax: image drifts up as scroll plays through the pin
+gsap.to('#monocleImgWrap', {
+  y: -70, ease: 'none',
+  scrollTrigger: {
+    trigger: '#monocleWrap',
+    start: 'top top',
+    end: '+=2400',
+    scrub: true
+  }
 });
-gsap.from('#monocleStats .monocle-stat', {
-  y: 40, opacity: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out',
-  scrollTrigger: { trigger: '#monocleStats', start: 'top 82%' }
-});
+
+// Quotes deal in like cards below (unpinned)
 gsap.from('#monocleQuotes .monocle-quote', {
-  y: 60, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out',
-  scrollTrigger: { trigger: '#monocleQuotes', start: 'top 82%' }
+  rotation: function(i) { return i % 2 === 0 ? -3 : 3; },
+  y: 70, opacity: 0, duration: 0.7, stagger: 0.11, ease: 'power3.out',
+  scrollTrigger: { trigger: '#monocleQuotesSection', start: 'top 78%' }
 });
 </script>
 </body>
