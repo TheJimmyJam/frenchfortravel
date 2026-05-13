@@ -583,9 +583,9 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 @media (max-width: 860px) {
   #monocleWrap { height: auto; }
   .monocle-section { flex-direction: column; height: auto; }
-  .monocle-left { width: 100%; height: 100vw; }
+  .monocle-left { width: 100%; height: 100vw; background: var(--ink); }
   .monocle-img-wrap { inset: 0; }
-  .monocle-img { object-position: top center; animation: none; }
+  .monocle-img { object-fit: contain; object-position: center top; animation: none; }
   .monocle-right { padding: 2rem 1.5rem; }
   .monocle-tidbits { grid-template-columns: 1fr; }
   .monocle-quotes { grid-template-columns: 1fr 1fr; }
