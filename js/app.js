@@ -1045,11 +1045,11 @@ function renderFlashcardCard() {
   const speakText  = getSpeakWord(card);
   const speakBtn = `<button class="speak-btn" onclick="event.stopPropagation();speakWord('${speakText.replace(/'/g,"\\'")}','${currentTarget()}')" title="Hear pronunciation">🔊</button>`;
   // Front = target language (getFrontWord). Back = source language (getBackWord).
-  // IPA lives with the target/front side (not shown when target is English).
+  // IPA lives with the target word (always front side per spec).
   const frontWord = getFrontWord(card);
   const backWord  = getBackWord(card);
-  const frontIpa  = isTargetEnglish() ? '' : ipa;
-  const backIpa   = isTargetEnglish() ? ipa : '';
+  const frontIpa  = ipa;
+  const backIpa   = '';
   // Front/back content depends on IPA mode
   const frontContent = flashState.flipped
     ? `<div class="word">${backWord}</div>${backIpa ? `<div class="ipa-large">${backIpa}</div>` : ''}<div class="hint">${dayLabel}</div>`
