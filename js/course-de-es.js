@@ -934,3 +934,134 @@ var COURSE_DE_ES = [
     ]
   }
 ];
+
+var CONVERSATIONS_DE_ES = [
+  {
+    title: "En el aeropuerto",
+    scene: "Du landest am Flughafen Madrid-Barajas und gehst durch die Passkontrolle. Der Beamte stellt dir Routinefragen.",
+    lines: [
+      { who: "them", es: "Buenos días. El pasaporte, por favor.", de: "Guten Morgen. Den Pass, bitte." },
+      { who: "you",  es: "Buenos días. Aquí tiene.", de: "Guten Morgen. Hier bitte." },
+      { who: "them", es: "¿Cuál es el motivo de su visita?", de: "Was ist der Zweck Ihres Besuchs?" },
+      { who: "you",  es: "Turismo. Estoy aquí dos semanas.", de: "Tourismus. Ich bin zwei Wochen hier." },
+      { who: "them", es: "¿Dónde va a alojarse?", de: "Wo werden Sie übernachten?" },
+      { who: "you",  es: "En un hotel en el centro de Madrid.", de: "In einem Hotel im Stadtzentrum von Madrid." },
+      { who: "them", es: "¿Tiene algo que declarar?", de: "Haben Sie etwas zu verzollen?" },
+      { who: "you",  es: "No, nada que declarar.", de: "Nein, nichts zu verzollen." },
+      { who: "them", es: "Muy bien. Bienvenido a España. Que lo pase bien.", de: "Sehr gut. Willkommen in Spanien. Viel Spaß." },
+      { who: "you",  es: "Muchas gracias.", de: "Vielen Dank." }
+    ]
+  },
+  {
+    title: "Registro en el hotel",
+    scene: "Du kommst am frühen Abend in deinem Hotel in Barcelona an und checkst ein. Du hast eine Reservierung.",
+    lines: [
+      { who: "you",  es: "Buenas tardes. Tengo una reserva a nombre de Müller.", de: "Guten Abend. Ich habe eine Reservierung auf den Namen Müller." },
+      { who: "them", es: "Buenas tardes. Un momento... Müller, sí. Tres noches, habitación doble.", de: "Guten Abend. Einen Moment... Müller, ja. Drei Nächte, Doppelzimmer." },
+      { who: "you",  es: "Correcto.", de: "Genau." },
+      { who: "them", es: "¿Me puede dar su pasaporte y una tarjeta de crédito?", de: "Können Sie mir Ihren Pass und eine Kreditkarte geben?" },
+      { who: "you",  es: "Claro, aquí tiene.", de: "Natürlich, hier bitte." },
+      { who: "them", es: "Su habitación es la 214, en la segunda planta. El desayuno está incluido, de siete a diez.", de: "Ihr Zimmer ist die 214, im zweiten Stock. Das Frühstück ist inklusive, von sieben bis zehn." },
+      { who: "you",  es: "¿Cuál es la contraseña del wifi?", de: "Was ist das WLAN-Passwort?" },
+      { who: "them", es: "Está en la tarjeta de la habitación. Aquí tiene la llave.", de: "Es steht auf der Zimmerkarte. Hier ist Ihr Schlüssel." },
+      { who: "you",  es: "Perfecto. Muchas gracias.", de: "Perfekt. Vielen Dank." },
+      { who: "them", es: "De nada. ¡Que descanse!", de: "Bitte sehr. Erholen Sie sich gut!" }
+    ]
+  },
+  {
+    title: "En el café por la mañana",
+    scene: "Du gehst am Morgen in eine Bar in Sevilla für einen Kaffee und ein Frühstück. Die Kellnerin kommt sofort.",
+    lines: [
+      { who: "them", es: "¡Buenos días! ¿Qué va a tomar?", de: "Guten Morgen! Was nehmen Sie?" },
+      { who: "you",  es: "Buenos días. Un café con leche y un croissant, por favor.", de: "Guten Morgen. Einen Café con leche und ein Croissant, bitte." },
+      { who: "them", es: "¿Solo o con leche el café?", de: "Den Kaffee solo oder mit Milch?" },
+      { who: "you",  es: "Con leche, por favor. Grande.", de: "Mit Milch, bitte. Groß." },
+      { who: "them", es: "¿Quiere algo más? Tenemos tostadas con tomate.", de: "Möchten Sie noch etwas? Wir haben Toastbrot mit Tomate." },
+      { who: "you",  es: "¿Qué es eso exactamente?", de: "Was ist das genau?" },
+      { who: "them", es: "Pan tostado con tomate natural y aceite de oliva. Es típico de aquí.", de: "Geröstetes Brot mit frischer Tomate und Olivenöl. Das ist hier typisch." },
+      { who: "you",  es: "Sí, una tostada también, por favor.", de: "Ja, auch ein Toastbrot, bitte." },
+      { who: "them", es: "Perfecto. Enseguida.", de: "Perfekt. Sofort." },
+      { who: "you",  es: "Gracias. ¿Cuánto es todo?", de: "Danke. Wie viel ist alles zusammen?" }
+    ]
+  },
+  {
+    title: "Pedir indicaciones",
+    scene: "Du bist in Valencia und suchst den Zentralmarkt (Mercado Central). Du sprichst eine Passantin an.",
+    lines: [
+      { who: "you",  es: "Perdone, buenos días. ¿Sabe dónde está el Mercado Central?", de: "Entschuldigung, guten Morgen. Wissen Sie, wo der Mercado Central ist?" },
+      { who: "them", es: "Sí, claro. No está muy lejos. Siga todo recto por esta calle.", de: "Ja, natürlich. Er ist nicht sehr weit. Gehen Sie diese Straße geradeaus." },
+      { who: "you",  es: "¿Todo recto?", de: "Geradeaus?" },
+      { who: "them", es: "Sí, unos doscientos metros. Luego gire a la izquierda en la plaza.", de: "Ja, etwa zweihundert Meter. Dann links auf den Platz abbiegen." },
+      { who: "you",  es: "¿A la izquierda en la plaza?", de: "Links auf dem Platz?" },
+      { who: "them", es: "Exacto. Verá el mercado justo enfrente, es un edificio grande con cúpula azul.", de: "Genau. Sie sehen den Markt direkt gegenüber — ein großes Gebäude mit blauer Kuppel." },
+      { who: "you",  es: "¿Cuánto tiempo se tarda a pie?", de: "Wie lange dauert es zu Fuß?" },
+      { who: "them", es: "Unos cinco minutos.", de: "Etwa fünf Minuten." },
+      { who: "you",  es: "Perfecto. Muchas gracias, es usted muy amable.", de: "Perfekt. Vielen Dank, Sie sind sehr freundlich." },
+      { who: "them", es: "De nada. ¡Que disfrute del mercado!", de: "Bitte sehr. Viel Spaß auf dem Markt!" }
+    ]
+  },
+  {
+    title: "En el restaurante",
+    scene: "Du isst am Abend in einem Tapas-Restaurant in Madrid. Der Kellner kommt an den Tisch.",
+    lines: [
+      { who: "them", es: "Buenas noches. ¿Tienen reserva?", de: "Guten Abend. Haben Sie eine Reservierung?" },
+      { who: "you",  es: "No, lo siento. ¿Tienen alguna mesa libre?", de: "Nein, leider nicht. Haben Sie noch einen freien Tisch?" },
+      { who: "them", es: "Sí, para dos personas. Por aquí, por favor.", de: "Ja, für zwei Personen. Hier entlang, bitte." },
+      { who: "you",  es: "Gracias. ¿Qué recomienda de las tapas?", de: "Danke. Was empfehlen Sie bei den Tapas?" },
+      { who: "them", es: "Las croquetas y el jamón ibérico están muy bien. Y el pulpo a la gallega esta noche.", de: "Die Kroketten und der iberische Schinken sind sehr gut. Und der galizische Tintenfisch heute Abend." },
+      { who: "you",  es: "Perfecto. Traiga las croquetas, el jamón y una ración de pulpo, por favor.", de: "Perfekt. Bringen Sie die Kroketten, den Schinken und eine Portion Tintenfisch, bitte." },
+      { who: "them", es: "¿Para beber?", de: "Zum Trinken?" },
+      { who: "you",  es: "Una jarra de sangría y agua, por favor.", de: "Einen Krug Sangría und Wasser, bitte." },
+      { who: "them", es: "Marchando. ¿Algo más?", de: "Kommt sofort. Noch etwas?" },
+      { who: "you",  es: "De momento no, gracias. Ah — ¿está incluido el pan?", de: "Im Moment nicht, danke. Ah — ist das Brot inklusive?" }
+    ]
+  },
+  {
+    title: "De compras",
+    scene: "Du suchst in einem Geschäft in Barcelona eine Jacke. Eine Verkäuferin kommt auf dich zu.",
+    lines: [
+      { who: "them", es: "¡Hola! ¿Le puedo ayudar en algo?", de: "Hallo! Kann ich Ihnen helfen?" },
+      { who: "you",  es: "Hola, sí. Estoy buscando una chaqueta, algo informal.", de: "Hallo, ja. Ich suche eine Jacke, etwas Legeres." },
+      { who: "them", es: "¿Qué talla usa usted?", de: "Welche Größe haben Sie?" },
+      { who: "you",  es: "La L, creo. Talla europea 52.", de: "L, glaube ich. Europäische Größe 52." },
+      { who: "them", es: "Estas de aquí acaban de llegar. ¿Le gusta este estilo?", de: "Diese hier sind gerade neu eingetroffen. Gefällt Ihnen dieser Stil?" },
+      { who: "you",  es: "Sí, me gusta. ¿La tienen en azul marino?", de: "Ja, die gefällt mir. Haben Sie die in Marineblau?" },
+      { who: "them", es: "Voy a mirar en el almacén. Un momento.", de: "Ich schaue kurz im Lager nach. Einen Moment." },
+      { who: "you",  es: "Claro, sin prisa.", de: "Klar, keine Eile." },
+      { who: "them", es: "Sí, la tenemos en azul marino, talla L. ¿Quiere probársela?", de: "Ja, wir haben sie in Marineblau, Größe L. Möchten Sie sie anprobieren?" },
+      { who: "you",  es: "Sí, por favor. ¿Dónde están los probadores?", de: "Ja, bitte. Wo sind die Umkleidekabinen?" }
+    ]
+  },
+  {
+    title: "En el taxi",
+    scene: "Du nimmst ein Taxi vom Hotel zum Bahnhof Atocha in Madrid. Es ist Berufsverkehr.",
+    lines: [
+      { who: "them", es: "¡Buenas! ¿Adónde le llevo?", de: "Hallo! Wohin soll ich Sie fahren?" },
+      { who: "you",  es: "A la estación de Atocha, por favor.", de: "Zum Bahnhof Atocha, bitte." },
+      { who: "them", es: "Perfecto. Hay algo de tráfico a esta hora, pero llegamos.", de: "Perfekt. Es gibt etwas Verkehr um diese Zeit, aber wir kommen an." },
+      { who: "you",  es: "¿Cuánto tiempo cree que tardará?", de: "Wie lange schätzen Sie, wird es dauern?" },
+      { who: "them", es: "Unos veinte minutos, más o menos.", de: "Ungefähr zwanzig Minuten, mehr oder weniger." },
+      { who: "you",  es: "Bien. Mi tren sale a las once.", de: "Gut. Mein Zug fährt um elf ab." },
+      { who: "them", es: "Llegará sin problema. ¿Es su primera vez en Madrid?", de: "Sie kommen ohne Problem an. Ist das Ihr erstes Mal in Madrid?" },
+      { who: "you",  es: "Sí, y me está gustando mucho.", de: "Ja, und es gefällt mir sehr gut." },
+      { who: "them", es: "¡Qué bueno! Tiene que volver en verano. Es otra cosa.", de: "Wie schön! Sie müssen im Sommer wiederkommen. Das ist noch einmal etwas ganz anderes." },
+      { who: "you",  es: "Lo tendré en cuenta. ¿Acepta tarjeta?", de: "Das nehme ich mir zu Herzen. Nehmen Sie Karte?" }
+    ]
+  },
+  {
+    title: "Conversación casual",
+    scene: "Du sitzt auf einer Terrasse in Granada. Die Person am Nebentisch spricht dich freundlich an.",
+    lines: [
+      { who: "them", es: "¿Está de vacaciones por aquí?", de: "Sind Sie hier im Urlaub?" },
+      { who: "you",  es: "Sí, estoy viajando por el sur de España dos semanas.", de: "Ja, ich reise zwei Wochen durch Südspanien." },
+      { who: "them", es: "¡Qué bien! ¿De dónde es usted?", de: "Wie schön! Woher kommen Sie?" },
+      { who: "you",  es: "Soy de Alemania, de Múnich.", de: "Ich komme aus Deutschland, aus München." },
+      { who: "them", es: "¡Alemania! ¿Es la primera vez que viene a Granada?", de: "Deutschland! Ist es das erste Mal, dass Sie nach Granada kommen?" },
+      { who: "you",  es: "Sí, y es preciosa. La Alhambra es impresionante.", de: "Ja, und sie ist wunderschön. Die Alhambra ist beeindruckend." },
+      { who: "them", es: "Es lo más bonito de España, en mi opinión. ¿Ha probado el gazpacho?", de: "Es ist das Schönste in Spanien, meiner Meinung nach. Haben Sie schon Gazpacho probiert?" },
+      { who: "you",  es: "Sí, ayer. Está muy bueno.", de: "Ja, gestern. Er ist sehr gut." },
+      { who: "them", es: "¡Habla muy bien el español para ser alemán!", de: "Sie sprechen sehr gut Spanisch für einen Deutschen!" },
+      { who: "you",  es: "Muchas gracias, pero todavía estoy aprendiendo. ¡Lo intento!", de: "Vielen Dank, aber ich lerne noch. Ich versuche es!" }
+    ]
+  }
+];
