@@ -65,6 +65,31 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 
 .divider { border: none; border-top: 1px solid var(--cream-06); margin: 2.5rem 0; }
 
+.tos-character-block {
+  display: flex; align-items: flex-end; gap: 2.5rem;
+  border: 1px solid rgba(212,175,55,.2); border-radius: 16px;
+  background: rgba(212,175,55,.04); padding: 2rem 2rem 0;
+  margin: 3rem 0 0; overflow: hidden;
+}
+.tos-character-block img {
+  flex: 0 0 auto; width: 200px; align-self: flex-end;
+  filter: drop-shadow(0 4px 24px rgba(212,175,55,.2));
+}
+.tos-character-text { flex: 1; padding-bottom: 2rem; }
+.tos-character-text blockquote {
+  font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+  font-style: italic; color: var(--cream); line-height: 1.45;
+  margin-bottom: .75rem;
+}
+.tos-character-text cite {
+  font-size: .78rem; color: var(--gold); opacity: .75;
+  font-style: normal; letter-spacing: .06em; text-transform: uppercase;
+}
+@media (max-width: 560px) {
+  .tos-character-block { flex-direction: column; align-items: center; padding: 1.5rem 1.5rem 0; gap: 1.5rem; }
+  .tos-character-block img { width: 150px; }
+  .tos-character-text { padding-bottom: 1.5rem; text-align: center; }
+}
 footer { border-top: 1px solid var(--cream-06); padding: 2.5rem 0; text-align: center; background: var(--ink-soft); }
 footer p { font-size: .78rem; color: var(--muted); }
 footer a { color: var(--gold); text-decoration: none; }
@@ -162,6 +187,14 @@ footer a:hover { color: var(--gold-light); }
     <hr class="divider">
     <p style="font-size:.8rem;color:var(--muted);">These terms were last reviewed May 2026. Written to be clear and fair — if something seems off, reach out before assuming the worst.</p>
 
+  </div>
+
+  <div class="tos-character-block">
+    <div class="tos-character-text">
+      <blockquote>"I have read every clause. In six languages. Twice."</blockquote>
+      <cite>— The Cunning Linguist</cite>
+    </div>
+    <img src="assets/logos/terms%20of%20service%20CL.png" alt="The Cunning Linguist, having read the terms">
   </div>
 </main>
 
