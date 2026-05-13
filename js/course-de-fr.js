@@ -934,3 +934,134 @@ var COURSE_DE_FR = [
     ]
   }
 ];
+
+var CONVERSATIONS_DE_FR = [
+{
+title: "Contrôle des passeports à Charles de Gaulle",
+scene: "Du bist gerade am Flughafen Charles de Gaulle in Paris gelandet. Am Schalter der Passkontrolle fragt dich ein Beamter nach deinem Reisepass und dem Grund deiner Reise.",
+lines: [
+{ who: "them", fr: "Bonjour, votre passeport, s'il vous plaît.", de: "Guten Tag, Ihren Reisepass bitte." },
+{ who: "you", fr: "Bonjour, le voici.", de: "Guten Tag, hier ist er." },
+{ who: "them", fr: "Vous venez pour combien de temps ?", de: "Wie lange bleiben Sie?" },
+{ who: "you", fr: "Je reste une semaine à Paris.", de: "Ich bleibe eine Woche in Paris." },
+{ who: "them", fr: "C'est pour le tourisme ?", de: "Ist es zum Tourismus?" },
+{ who: "you", fr: "Oui, je visite la ville.", de: "Ja, ich besuche die Stadt." },
+{ who: "them", fr: "Vous avez une adresse en France ?", de: "Haben Sie eine Adresse in Frankreich?" },
+{ who: "you", fr: "Oui, mon hôtel est dans le Marais.", de: "Ja, mein Hotel ist im Marais." },
+{ who: "them", fr: "Très bien. Bienvenue en France.", de: "Sehr gut. Willkommen in Frankreich." },
+{ who: "you", fr: "Merci beaucoup. Bonne journée.", de: "Vielen Dank. Schönen Tag." }
+]
+},
+{
+title: "Arrivée à l'hôtel à Paris",
+scene: "Du kommst nach deiner Anreise in einem Hotel in Paris an. An der Rezeption möchtest du einchecken und fragst nach deinem Zimmer.",
+lines: [
+{ who: "them", fr: "Bonsoir, bienvenue à l'hôtel.", de: "Guten Abend, willkommen im Hotel." },
+{ who: "you", fr: "Bonsoir, j'ai une réservation.", de: "Guten Abend, ich habe eine Reservierung." },
+{ who: "them", fr: "À quel nom, s'il vous plaît ?", de: "Auf welchen Namen, bitte?" },
+{ who: "you", fr: "Au nom de Müller.", de: "Auf den Namen Müller." },
+{ who: "them", fr: "Oui, pour trois nuits.", de: "Ja, für drei Nächte." },
+{ who: "you", fr: "Exactement. La chambre est prête ?", de: "Genau. Ist das Zimmer fertig?" },
+{ who: "them", fr: "Oui, voici votre clé.", de: "Ja, hier ist Ihr Schlüssel." },
+{ who: "you", fr: "Merci. Le petit-déjeuner est inclus ?", de: "Danke. Ist das Frühstück inbegriffen?" },
+{ who: "them", fr: "Oui, de sept heures à dix heures.", de: "Ja, von sieben Uhr bis zehn Uhr." },
+{ who: "you", fr: "Parfait, merci pour votre aide.", de: "Perfekt, danke für Ihre Hilfe." }
+]
+},
+{
+title: "Petit-déjeuner au café",
+scene: "Es ist Morgen in Paris, und du sitzt in einem kleinen Café. Eine Bedienung kommt an deinen Tisch, und du möchtest Frühstück bestellen.",
+lines: [
+{ who: "them", fr: "Bonjour, vous avez choisi ?", de: "Guten Morgen, haben Sie gewählt?" },
+{ who: "you", fr: "Oui, je voudrais un café crème.", de: "Ja, ich hätte gern einen Milchkaffee." },
+{ who: "them", fr: "Bien sûr. Avec quelque chose à manger ?", de: "Natürlich. Mit etwas zu essen?" },
+{ who: "you", fr: "Un croissant et un jus d'orange.", de: "Ein Croissant und einen Orangensaft." },
+{ who: "them", fr: "Très bien. Le jus pressé ?", de: "Sehr gut. Frisch gepresster Saft?" },
+{ who: "you", fr: "Oui, s'il vous plaît.", de: "Ja, bitte." },
+{ who: "them", fr: "Vous prenez ça ici ?", de: "Nehmen Sie das hier?" },
+{ who: "you", fr: "Oui, je mange sur place.", de: "Ja, ich esse hier." },
+{ who: "them", fr: "Parfait, j'arrive tout de suite.", de: "Perfekt, ich komme sofort." },
+{ who: "you", fr: "Merci, c'est très gentil.", de: "Danke, das ist sehr freundlich." }
+]
+},
+{
+title: "Demander le chemin vers un monument",
+scene: "Du bist in Paris unterwegs und suchst den Weg zu einem bekannten Wahrzeichen. Du sprichst eine Person auf der Straße an und bittest höflich um Hilfe.",
+lines: [
+{ who: "you", fr: "Excusez-moi, je cherche Notre-Dame.", de: "Entschuldigen Sie, ich suche Notre-Dame." },
+{ who: "them", fr: "Bien sûr, ce n'est pas loin.", de: "Natürlich, es ist nicht weit." },
+{ who: "you", fr: "Je peux y aller à pied ?", de: "Kann ich zu Fuß dorthin gehen?" },
+{ who: "them", fr: "Oui, environ dix minutes.", de: "Ja, ungefähr zehn Minuten." },
+{ who: "you", fr: "Je prends quelle rue ?", de: "Welche Straße nehme ich?" },
+{ who: "them", fr: "Allez tout droit, puis à gauche.", de: "Gehen Sie geradeaus, dann links." },
+{ who: "you", fr: "Après le pont ?", de: "Nach der Brücke?" },
+{ who: "them", fr: "Oui, juste après le pont.", de: "Ja, direkt nach der Brücke." },
+{ who: "you", fr: "Merci, vous m'aidez beaucoup.", de: "Danke, Sie helfen mir sehr." },
+{ who: "them", fr: "Avec plaisir, bonne visite.", de: "Gern geschehen, viel Spaß beim Besuch." }
+]
+},
+{
+title: "Dîner dans un bistrot",
+scene: "Am Abend betrittst du ein kleines Bistro ohne Reservierung. Du fragst nach einem Tisch, bestellst etwas zu essen und möchtest am Ende bezahlen.",
+lines: [
+{ who: "you", fr: "Bonsoir, vous avez une table libre ?", de: "Guten Abend, haben Sie einen Tisch frei?" },
+{ who: "them", fr: "Pour une personne ?", de: "Für eine Person?" },
+{ who: "you", fr: "Oui, seulement moi.", de: "Ja, nur ich." },
+{ who: "them", fr: "Bien sûr, suivez-moi.", de: "Natürlich, folgen Sie mir." },
+{ who: "you", fr: "Merci. Je peux voir la carte ?", de: "Danke. Kann ich die Speisekarte sehen?" },
+{ who: "them", fr: "Voilà. Le plat du jour est excellent.", de: "Hier bitte. Das Tagesgericht ist ausgezeichnet." },
+{ who: "you", fr: "Je prends le plat du jour.", de: "Ich nehme das Tagesgericht." },
+{ who: "them", fr: "Très bon choix. Et à boire ?", de: "Sehr gute Wahl. Und zu trinken?" },
+{ who: "you",  fr: "Un verre de vin rouge, s'il vous plaît.", de: "Ein Glas Rotwein, bitte." },
+{ who: "them", fr: "Parfait. Je vous apporte l'addition aussi.", de: "Perfekt. Ich bringe Ihnen auch die Rechnung." }
+]
+},
+{
+title: "Acheter des vêtements dans une boutique",
+scene: "Du gehst in eine kleine Boutique, weil du ein Hemd oder eine Jacke kaufen möchtest. Eine Verkäuferin hilft dir mit Größe, Farbe und Anprobe.",
+lines: [
+{ who: "them", fr: "Bonjour, je peux vous aider ?", de: "Guten Tag, kann ich Ihnen helfen?" },
+{ who: "you", fr: "Oui, je cherche une chemise.", de: "Ja, ich suche ein Hemd." },
+{ who: "them", fr: "Quelle taille faites-vous ?", de: "Welche Größe haben Sie?" },
+{ who: "you", fr: "Je fais du moyen.", de: "Ich trage Größe Medium." },
+{ who: "them", fr: "Vous préférez quelle couleur ?", de: "Welche Farbe bevorzugen Sie?" },
+{ who: "you", fr: "Bleu foncé, si possible.", de: "Dunkelblau, wenn möglich." },
+{ who: "them", fr: "Essayez celle-ci, elle est jolie.", de: "Probieren Sie dieses hier, es ist schön." },
+{ who: "you", fr: "Où sont les cabines ?", de: "Wo sind die Umkleidekabinen?" },
+{ who: "them", fr: "Au fond, à droite.", de: "Hinten rechts." },
+{ who: "you", fr: "Merci, je vais l'essayer.", de: "Danke, ich werde es anprobieren." }
+]
+},
+{
+title: "Prendre un taxi",
+scene: "Du steigst in ein Taxi und möchtest zu einem Ziel in Paris fahren. Du nennst die Adresse, fragst nach der Fahrzeit und bezahlst am Ende.",
+lines: [
+{ who: "them", fr: "Bonjour, vous allez où ?", de: "Guten Tag, wohin fahren Sie?" },
+{ who: "you", fr: "À la gare de Lyon, s'il vous plaît.", de: "Zum Bahnhof Lyon, bitte." },
+{ who: "them", fr: "D'accord. Vous êtes pressé ?", de: "In Ordnung. Haben Sie es eilig?" },
+{ who: "you", fr: "Un peu, mon train part bientôt.", de: "Ein bisschen, mein Zug fährt bald." },
+{ who: "them", fr: "Je vais prendre le chemin rapide.", de: "Ich nehme den schnellen Weg." },
+{ who: "you", fr: "Merci. Ça prend combien de temps ?", de: "Danke. Wie lange dauert das?" },
+{ who: "them", fr: "Environ vingt minutes sans trafic.", de: "Ungefähr zwanzig Minuten ohne Verkehr." },
+{ who: "you", fr: "Parfait. Je peux payer par carte ?", de: "Perfekt. Kann ich mit Karte bezahlen?" },
+{ who: "them", fr: "Oui, bien sûr.", de: "Ja, natürlich." },
+{ who: "you", fr: "Merci, gardez la monnaie.", de: "Danke, behalten Sie das Wechselgeld." }
+]
+},
+{
+title: "Petite conversation en terrasse",
+scene: "Du sitzt auf einer Terrasse und trinkst etwas, als ein freundlicher Einheimischer ein Gespräch beginnt. Ihr sprecht locker über Paris, das Wetter und deine Reise.",
+lines: [
+{ who: "them", fr: "Vous aimez Paris jusqu'ici ?", de: "Gefällt Ihnen Paris bisher?" },
+{ who: "you", fr: "Oui, beaucoup. La ville est magnifique.", de: "Ja, sehr. Die Stadt ist wunderschön." },
+{ who: "them", fr: "C'est votre première visite ?", de: "Ist das Ihr erster Besuch?" },
+{ who: "you", fr: "Oui, je découvre tout.", de: "Ja, ich entdecke alles." },
+{ who: "them", fr: "Vous avez déjà vu la Seine ?", de: "Haben Sie die Seine schon gesehen?" },
+{ who: "you", fr: "Oui, je me suis promené hier.", de: "Ja, ich bin gestern spazieren gegangen." },
+{ who: "them", fr: "Avec ce soleil, c'est parfait.", de: "Bei dieser Sonne ist es perfekt." },
+{ who: "you", fr: "Oui, le temps est vraiment agréable.", de: "Ja, das Wetter ist wirklich angenehm." },
+{ who: "them", fr: "Profitez bien de votre séjour.", de: "Genießen Sie Ihren Aufenthalt." },
+{ who: "you", fr: "Merci, vous êtes très sympa.", de: "Danke, Sie sind sehr nett." }
+]
+}
+];
