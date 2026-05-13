@@ -3,1175 +3,1095 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Cunning Linguist — Personalized Language Coach</title>
-<meta name="description" content="Your personalized language coach. 7 languages, 30-day courses, real-world conversations.">
-<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-<meta property="og:title" content="The Cunning Linguist — Personalized Language Coach">
-<meta property="og:description" content="Your personalized language coach. 7 languages, 30-day courses, real-world conversations.">
-<meta property="og:image" content="/assets/og-image.jpg">
-<meta property="og:type" content="website">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4TK17SVJWQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4TK17SVJWQ');
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>The Cunning Linguist — Learn Languages From Where You Already Are</title>
+<meta name="description" content="15+ language pairs. 30-day courses. Real conversations. Learn any language from the one you already speak.">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --gold: #d4af37;
-    --gold-light: #e6c558;
-    --gold-dark: #a8851d;
-    --ink: #0e0e10;
-    --ink-soft: #1a1a1f;
-    --cream: #f8f3e7;
-    --cream-soft: #faf6ec;
-    --paper: #ffffff;
-    --muted: #6b6b73;
-  }
-  html, body { height: 100%; }
-  body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--ink);
-    background: var(--cream-soft);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+/* ─── Reset & tokens ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:        #0e0e10;
+  --ink-soft:   #1a1a1f;
+  --gold:       #d4af37;
+  --gold-light: #e6c558;
+  --gold-dim:   rgba(212,175,55,0.55);
+  --cream:      #f8f3e7;
+  --cream-soft: #faf6ec;
+  --cream-60:   rgba(248,243,231,0.6);
+  --cream-35:   rgba(248,243,231,0.35);
+  --cream-12:   rgba(248,243,231,0.12);
+  --cream-06:   rgba(248,243,231,0.06);
+  --muted:      rgba(248,243,231,0.5);
+  --serif:      "Cormorant Garamond", Georgia, serif;
+  --sans:       "Inter", -apple-system, sans-serif;
+  --max:        72rem;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--ink); color: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-  /* === HERO === */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    background:
-      radial-gradient(circle at 70% 20%, rgba(212,175,55,0.12), transparent 50%),
-      radial-gradient(circle at 20% 80%, rgba(212,175,55,0.08), transparent 55%),
-      linear-gradient(135deg, #1a1a1f 0%, #0e0e10 70%, #050507 100%);
-    color: var(--cream);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 80% 90%, rgba(212,175,55,0.06), transparent 40%);
-    pointer-events: none;
-  }
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 1px 1px, rgba(212,175,55,0.04) 1px, transparent 0);
-    background-size: 24px 24px;
-    pointer-events: none;
-    opacity: 0.5;
-  }
-  .nav-top {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  .brand-mini {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-  .brand-mini img.nav-banner {
-    height: 52px;
-    width: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  }
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-  }
-  .nav-links a {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    opacity: 0.85;
-    transition: opacity 0.15s;
-  }
-  .nav-links a:hover { opacity: 1; color: var(--gold); }
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+.w { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.serif { font-family: var(--serif); }
+.eye {
+  font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(212,175,55,.65);
+  display: block; margin-bottom: 1.25rem;
+}
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px 40px 32px;
-    width: 100%;
-  }
-  .hero-text {
-    padding: 16px 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  .hero-picker-section {
-    position: relative;
-    z-index: 2;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    width: 100%;
-  }
-  .hero-picker-section .picker-card {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .hero-pretitle {
-    color: var(--gold);
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 600;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .hero-pretitle::before {
-    content: "";
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-  }
-  .hero h1 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(42px, 6vw, 76px);
-    font-weight: 600;
-    line-height: 1.05;
-    margin-bottom: 24px;
-    letter-spacing: -1px;
-    color: var(--cream);
-  }
-  .hero h1 .accent {
-    color: var(--gold);
-    font-style: italic;
-  }
-  .hero-tagline {
-    font-size: 19px;
-    line-height: 1.6;
-    opacity: 0.85;
-    margin-bottom: 0;
-    max-width: 480px;
-    color: var(--cream);
-  }
+/* ─── Scroll reveal ──────────────────────────────────────────────────────── */
+[data-rev] { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; transition-delay: var(--d, 0s); }
+[data-rev][data-vis] { opacity: 1; transform: translateY(0); }
 
-  /* === LANGUAGE PICKER === */
-  .picker-card {
-    background: rgba(248,243,231,0.06);
-    border: 1px solid rgba(212,175,55,0.35);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 28px;
-    border-radius: 16px;
-    margin-bottom: 0;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .picker-card h3 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 18px;
-    letter-spacing: 0.5px;
-  }
-  .picker-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
-  }
-  .picker-label {
-    font-size: 12px;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    min-width: 140px;
-  }
-  .picker-select {
-    flex: 1;
-    min-width: 180px;
-    padding: 14px 18px;
-    background: rgba(255,255,255,0.95);
-    color: var(--ink);
-    border: 1.5px solid rgba(212,175,55,0.4);
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M6 8L0 0h12z' fill='%23d4af37'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 18px center;
-    padding-right: 44px;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .picker-select:hover { border-color: var(--gold); }
-  .picker-select:focus {
-    outline: 2px solid var(--gold);
-    outline-offset: 2px;
-    border-color: var(--gold);
-  }
-  .picker-arrow {
-    color: var(--gold);
-    font-size: 28px;
-    text-align: center;
-    margin: 8px 0;
-    opacity: 0.7;
-  }
-  .start-btn {
-    margin-top: 20px;
-    width: 100%;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-    color: var(--ink);
-    border: none;
-    padding: 18px 32px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
-    font-family: inherit;
-  }
-  .start-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(212,175,55,0.4);
-  }
-  .start-btn:active { transform: translateY(0); }
-  .start-btn:disabled {
-    background: rgba(212,175,55,0.25);
-    color: rgba(248,243,231,0.5);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-  .picker-note {
-    margin-top: 14px;
-    font-size: 13px;
-    color: rgba(248,243,231,0.7);
-    text-align: center;
-    line-height: 1.5;
-    min-height: 18px;
-  }
-  .sync-nudge {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-top: 16px;
-    padding: 11px 14px;
-    background: rgba(212,175,55,0.07);
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: 10px;
-    font-size: 12.5px;
-    color: rgba(248,243,231,0.6);
-    line-height: 1.5;
-    text-align: left;
-  }
-  .sync-nudge-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
-  .sync-nudge-text strong { color: rgba(248,243,231,0.9); font-weight: 600; }
-  .sync-nudge-link {
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .sync-nudge-link:hover { text-decoration: underline; }
-  .picker-note strong { color: var(--gold); }
-  .picker-note .badge-soon {
-    background: rgba(212,175,55,0.2);
-    color: var(--gold);
-    padding: 2px 8px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+/* ─── Word reveal ────────────────────────────────────────────────────────── */
+.wr { display: inline; opacity: 0; filter: blur(4px); transition: none; }
+.wg-vis .wr { animation: wFade .55s ease forwards; animation-delay: var(--wd, 0s); }
+@keyframes wFade { from { opacity:0; filter:blur(4px); } to { opacity:1; filter:blur(0); } }
 
-  .hero-figure {
-    position: relative;
-    text-align: center;
-  }
-  .hero-figure img {
-    max-width: 100%;
-    max-height: 280px;
-    width: auto;
-    height: auto;
-    border-radius: 8px;
-    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.7)) drop-shadow(0 0 30px rgba(212,175,55,0.15));
-  }
-  .hero-figure::after {
-    content: "";
-    position: absolute;
-    width: 70%;
-    height: 30px;
-    bottom: 5%;
-    left: 15%;
-    background: radial-gradient(ellipse, rgba(212,175,55,0.35), transparent 60%);
-    filter: blur(14px);
-    z-index: -1;
-  }
+/* ─── Slide button ───────────────────────────────────────────────────────── */
+.sb {
+  display: inline-flex; align-items: center; overflow: hidden;
+  border-radius: 9999px; padding: .72rem 1.75rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; text-decoration: none;
+  border: 1px solid var(--cream-12); color: var(--cream-60);
+  transition: border-color .2s;
+}
+.sb:hover { border-color: var(--cream-35); }
+.sb--gold { background: var(--gold); color: var(--ink); border-color: transparent; }
+.sb--gold:hover { background: var(--gold-light); border-color: transparent; }
+.sb__track { display: flex; flex-direction: column; height: 1em; line-height: 1em; overflow: hidden; transition: transform .28s cubic-bezier(.4,0,.2,1); }
+.sb:hover .sb__track { transform: translateY(-1em); }
+.sb__txt { display: block; height: 1em; white-space: nowrap; }
 
-  /* === HERO QUOTE === */
-  .hero-quote {
-    text-align: center;
-    padding: 16px 8px 0;
-    border-top: 1px solid rgba(212,175,55,0.25);
-  }
-  .hero-quote-mark {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 52px;
-    line-height: 0.5;
-    color: var(--gold);
-    opacity: 0.5;
-    display: block;
-    margin-bottom: 8px;
-  }
-  .hero-quote p {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 17px;
-    font-style: italic;
-    color: rgba(248,243,231,0.8);
-    line-height: 1.5;
-    margin-bottom: 8px;
-  }
-  .hero-quote cite {
-    font-size: 12px;
-    color: var(--gold);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-style: normal;
-    font-weight: 600;
-  }
+/* ─── Gold dot grid (ambient texture) ───────────────────────────────────── */
+.dot-grid::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(212,175,55,.05) 1px, transparent 0);
+  background-size: 28px 28px;
+}
 
-  /* === ABOUT === */
-  .about-section {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 100px 40px;
-  }
-  .about-grid {
-    max-width: 1200px;
-    margin: 0 auto 80px;
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 80px;
-    align-items: start;
-  }
-  .about-pretitle {
-    color: var(--gold);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .about-pretitle::before {
-    content: "";
-    width: 32px;
-    height: 1px;
-    background: var(--gold);
-  }
-  .about-section h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(32px, 4vw, 50px);
-    font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: 28px;
-    color: var(--cream);
-    letter-spacing: -0.5px;
-  }
-  .about-section h2 em {
-    color: var(--gold);
-    font-style: italic;
-  }
-  .about-bio {
-    font-size: 17px;
-    line-height: 1.75;
-    color: rgba(248,243,231,0.8);
-    margin-bottom: 32px;
-  }
-  .attributes {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .attributes li {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    font-size: 15px;
-    color: rgba(248,243,231,0.75);
-    line-height: 1.5;
-  }
-  .attributes li::before {
-    content: "◆";
-    color: var(--gold);
-    font-size: 8px;
-    margin-top: 6px;
-    flex-shrink: 0;
-  }
-  .about-aside {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    position: sticky;
-    top: 30px;
-  }
-  .about-aside img {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-    display: block;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
-  }
-  .char-stats {
-    background: rgba(212,175,55,0.07);
-    border: 1px solid rgba(212,175,55,0.25);
-    border-radius: 14px;
-    padding: 22px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .char-stat {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 14px;
-    border-bottom: 1px solid rgba(212,175,55,0.12);
-    padding-bottom: 10px;
-    gap: 12px;
-  }
-  .char-stat:last-child { border-bottom: none; padding-bottom: 0; }
-  .char-stat-label { color: rgba(248,243,231,0.55); letter-spacing: 0.3px; }
-  .char-stat-value { color: var(--gold-light); font-weight: 600; text-align: right; font-family: "Cormorant Garamond", serif; font-size: 16px; }
+/* ─── NAV ────────────────────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(14px) saturate(180%);
+  background: rgba(14,14,16,.82);
+  border-bottom: 1px solid var(--cream-06);
+}
+.nav__inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav__brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav__brand img { height: 36px; border-radius: 6px; }
+.nav__brand-text { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--cream); }
+.nav__links { display: flex; align-items: center; gap: 2rem; }
+.nav__links a { font-size: .82rem; font-weight: 500; color: var(--cream-60); text-decoration: none; transition: color .15s; }
+.nav__links a:hover { color: var(--gold); }
+.nav__cta {
+  font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink); border: none;
+  padding: .55rem 1.2rem; border-radius: 9999px; cursor: pointer; text-decoration: none;
+  transition: background .2s;
+}
+.nav__cta:hover { background: var(--gold-light); }
 
-  /* === QUOTES GRID === */
-  .quotes-section {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .quotes-label {
-    color: var(--gold);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .quotes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  .quote-card {
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: 14px;
-    padding: 28px;
-    background: rgba(212,175,55,0.04);
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .quote-card:hover {
-    border-color: rgba(212,175,55,0.45);
-    background: rgba(212,175,55,0.08);
-  }
-  .quote-card p {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 20px;
-    font-style: italic;
-    line-height: 1.5;
-    color: rgba(248,243,231,0.88);
-    margin-bottom: 16px;
-  }
-  .quote-card .q-open {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 48px;
-    line-height: 0.8;
-    color: var(--gold);
-    opacity: 0.4;
-    display: block;
-    margin-bottom: 8px;
-  }
+/* ─── SECTION base ───────────────────────────────────────────────────────── */
+.section {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--cream-06);
+  position: relative;
+}
+.section:last-of-type { border-bottom: none; }
 
-  @media (max-width: 900px) {
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-aside { position: static; }
-    .about-aside img { max-width: 200px; }
-    .about-section { padding: 60px 20px; }
-  }
+/* ─── 1. HERO ────────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh; padding: 8rem 0 5rem;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+  background: radial-gradient(ellipse 70% 60% at 20% 55%, rgba(212,175,55,.08) 0%, transparent 60%),
+              linear-gradient(160deg, #1a1a1f 0%, #0e0e10 60%);
+}
+.hero .dot-grid::before { opacity: .6; }
+.hero__inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: center;
+  position: relative; z-index: 1;
+}
+@media (max-width: 768px) { .hero__inner { grid-template-columns: 1fr; } }
+.hero__h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700; letter-spacing: -.01em; line-height: 1.08;
+  margin-bottom: 1.5rem;
+}
+.hero__h1 em { font-style: italic; color: var(--gold); }
+.hero__sub {
+  font-size: clamp(.95rem, 1.8vw, 1.15rem); color: var(--cream-60);
+  max-width: 38rem; line-height: 1.7; margin-bottom: 2rem;
+}
+.hero__ctas { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.hero__footnote { font-size: .75rem; color: var(--muted); }
+.hero__right {
+  position: relative; display: flex;
+  align-items: flex-end; justify-content: center;
+  min-height: 60vh;
+}
+.hero__gentleman {
+  height: 72vh; width: auto; object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 16px 60px rgba(212,175,55,.2));
+}
+@media (max-width: 768px) { .hero__right { display: none; } }
 
-  /* === FEATURES === */
-  section {
-    padding: 80px 40px;
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .section-title {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 16px;
-    letter-spacing: -0.5px;
-  }
-  .section-subtitle {
-    text-align: center;
-    font-size: 17px;
-    color: var(--muted);
-    max-width: 640px;
-    margin: 0 auto 60px;
-    line-height: 1.6;
-  }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  @media (max-width: 700px) {
-    .features-grid { grid-template-columns: 1fr; }
-  }
-  .feature {
-    background: white;
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: 16px;
-    padding: 32px 28px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .feature:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(14,14,16,0.08);
-    border-color: var(--gold);
-  }
-  .feature-icon {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, var(--ink), var(--ink-soft));
-    color: var(--gold);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    margin-bottom: 20px;
-  }
-  .feature h3 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  .feature p {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.6;
-  }
+/* ─── 2. SCALE-UP WRAP ───────────────────────────────────────────────────── */
+#scaleWrap {
+  position: relative; height: 100vh;
+  background: var(--ink);
+}
+#scalePanel {
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: radial-gradient(ellipse 80% 70% at 50% 50%, #1e1a0e 0%, #0e0e10 65%);
+  transform-origin: center center;
+  will-change: transform, border-radius;
+}
+/* Gold grid inside scale panel */
+#scalePanel::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+#scalePanel::after {
+  content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 35vh;
+  background: linear-gradient(to bottom, transparent, #0e0e10);
+  pointer-events: none; z-index: 2;
+}
+.scale-content {
+  position: relative; z-index: 1; text-align: center;
+  max-width: 50rem; padding: 0 2rem;
+}
+.scale-ornament {
+  font-size: 2rem; color: var(--gold); opacity: .6;
+  display: block; margin-bottom: 1.5rem; letter-spacing: .3em;
+}
+.scale-h {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 700; letter-spacing: -.01em; line-height: 1.18;
+  margin-bottom: 1.25rem;
+}
+.scale-h em { font-style: italic; color: var(--gold); }
+.scale-sub {
+  font-size: clamp(.9rem, 1.5vw, 1.1rem); color: var(--cream-60);
+  line-height: 1.65;
+}
 
+/* ─── 3. PROBLEM ─────────────────────────────────────────────────────────── */
+.problem { background: var(--ink); }
+.problem__stat {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 600; letter-spacing: -.01em; line-height: 1.38;
+  max-width: 54rem; margin-bottom: 3.5rem;
+}
+.problem__stat .gold-line { display: block; color: var(--gold); margin-top: .2rem; }
+.problem__items { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3.5rem; }
+.problem__item {
+  display: flex; gap: 1.5rem; align-items: baseline;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--cream-06); border-radius: 12px;
+  background: var(--cream-06);
+  font-size: .95rem; line-height: 1.65; color: var(--cream-60);
+}
+.problem__item strong { color: var(--cream); }
+.problem__num { font-size: .65rem; font-weight: 700; letter-spacing: .08em; color: var(--gold); min-width: 1.5rem; flex-shrink: 0; }
+.contrast { padding-top: 1rem; }
+.contrast__a { font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 2.2rem); font-weight: 600; color: var(--cream-35); line-height: 1.3; margin-bottom: .2rem; letter-spacing: -.01em; }
+.contrast__b { font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 2.2rem); font-weight: 600; color: var(--cream); line-height: 1.3; letter-spacing: -.01em; }
 
-  /* === PHRASE OF THE DAY === */
-  .potd-section {
-    background: var(--ink);
-    padding: 48px 40px;
-    border-top: 1px solid rgba(212,175,55,0.15);
-    border-bottom: 1px solid rgba(212,175,55,0.15);
-  }
-  .potd-card {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .potd-eyebrow {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--gold);
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-  .potd-phrase {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 600;
-    color: var(--cream);
-    line-height: 1.2;
-    margin-bottom: 10px;
-  }
-  .potd-phonetic {
-    font-size: 15px;
-    color: rgba(248,243,231,0.55);
-    font-style: italic;
-    margin-bottom: 14px;
-    letter-spacing: 0.5px;
-  }
-  .potd-english {
-    font-size: 17px;
-    color: var(--gold-light);
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-  .potd-meta {
-    font-size: 12px;
-    color: rgba(248,243,231,0.35);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
+/* ─── 4. FEATURES (Gentleman section) ───────────────────────────────────── */
+#featSection {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: var(--ink);
+  padding: 6rem 0;
+  position: relative; overflow: hidden;
+}
+/* Gentleman ghost — large, bottom-right, atmospheric */
+.gentleman-ghost {
+  position: absolute;
+  right: -2vw; bottom: 0;
+  height: 92vh; width: auto;
+  object-fit: contain; object-position: bottom right;
+  opacity: .1;
+  filter: saturate(.4) brightness(1.4);
+  pointer-events: none; z-index: 0;
+  will-change: transform, opacity;
+}
+@media (max-width: 768px) { .gentleman-ghost { height: 50vh; right: -10vw; opacity: .07; } }
+#featSection .w { position: relative; z-index: 1; width: 100%; }
+.feat-header { max-width: 38rem; margin-bottom: 3rem; }
+.feat-label {
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 700;
+  letter-spacing: -.02em; color: var(--cream-60);
+  margin-bottom: 0;
+}
+.feat-grid { display: flex; flex-direction: column; gap: .9rem; max-width: 42rem; }
+.feat-card {
+  display: grid; grid-template-columns: 3.5rem 1fr;
+  gap: .5rem 1.25rem; align-items: start;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(212,175,55,.2); border-radius: 14px;
+  background: rgba(212,175,55,.04);
+  will-change: transform, opacity;
+  transition: border-color .2s, background .2s;
+}
+.feat-card:hover { border-color: rgba(212,175,55,.4); background: rgba(212,175,55,.07); }
+.feat-icon { font-size: 1.5rem; grid-row: span 2; display: flex; align-items: center; }
+.feat-title { font-size: .88rem; font-weight: 700; color: var(--cream); line-height: 1.4; }
+.feat-body { font-size: .78rem; color: var(--muted); line-height: 1.6; }
 
-  /* === HOW IT WORKS === */
-  .how {
-    background: white;
-  }
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-  }
-  .step {
-    text-align: center;
-    padding: 20px;
-  }
-  .step-num {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 56px;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 14px;
-  }
-  .step h4 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .step p {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.6;
-  }
+/* ─── 5. LANGUAGE PAIRS — marquee + interactive picker ──────────────────── */
+.pairs { background: var(--ink-soft); padding: 5rem 0 4rem; }
+.pairs__header { max-width: var(--max); margin: 0 auto; padding: 0 2rem 2.5rem; }
 
-  /* === FINAL CTA === */
-  .final-cta {
-    background: linear-gradient(135deg, #1a1a1f 0%, #0e0e10 100%);
-    color: var(--cream);
-    padding: 100px 40px;
-    text-align: center;
-  }
-  .final-cta h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(36px, 5vw, 60px);
-    font-weight: 500;
-    margin-bottom: 18px;
-    line-height: 1.1;
-  }
-  .final-cta h2 em {
-    color: var(--gold);
-    font-style: italic;
-  }
-  .final-cta p {
-    font-size: 18px;
-    opacity: 0.85;
-    max-width: 600px;
-    margin: 0 auto 40px;
-  }
-  .final-cta .start-btn {
-    width: auto;
-    padding: 18px 40px;
-  }
+/* Auto-scrolling marquee — purely atmospheric, runs itself */
+.pairs__marquee {
+  overflow: hidden; margin: 0 0 3rem;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.pairs__marquee-track {
+  display: flex; gap: .75rem; width: max-content;
+  animation: marqueeScroll 90s linear infinite;
+}
+.pairs__marquee:hover .pairs__marquee-track { animation-play-state: paused; }
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-chip {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .55rem 1rem; border: 1px solid var(--cream-06);
+  border-radius: 9999px; background: var(--cream-06);
+  font-size: .78rem; font-weight: 600; color: var(--cream-60);
+  white-space: nowrap; flex-shrink: 0;
+}
 
-  /* === FOOTER === */
-  footer {
-    background: var(--ink);
-    color: rgba(248,243,231,0.6);
-    padding: 40px;
-    text-align: center;
-    font-size: 14px;
-  }
-  footer .brand-mini { justify-content: center; margin-bottom: 16px; }
-  footer .brand-mini img.nav-banner { height: 44px; }
+/* Interactive source picker */
+.pairs__picker { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.pairs__picker-label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(248,243,231,.35); margin-bottom: 1rem;
+}
+.src-pills { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.src-pill {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .5rem 1rem; border-radius: 9999px;
+  border: 1px solid var(--cream-06); background: transparent;
+  font-size: .82rem; font-weight: 600; color: var(--cream-60);
+  cursor: pointer; transition: border-color .18s, background .18s, color .18s;
+}
+.src-pill:hover { border-color: rgba(212,175,55,.3); color: var(--cream); }
+.src-pill.active { background: var(--gold); color: var(--ink); border-color: transparent; }
+.tgt-grid {
+  display: grid; gap: .75rem; min-height: 80px;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+}
+.tgt-card {
+  padding: 1.1rem 1.25rem; border: 1px solid var(--cream-06); border-radius: 12px;
+  background: var(--cream-06); display: flex; align-items: center; gap: .75rem;
+  text-decoration: none; color: var(--cream); cursor: pointer;
+  transition: border-color .2s, background .2s, transform .18s;
+  animation: tgtIn .2s ease both;
+}
+.tgt-card:hover { border-color: rgba(212,175,55,.4); background: rgba(212,175,55,.06); transform: translateY(-2px); }
+@keyframes tgtIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+.tgt-flags { font-size: 1.2rem; line-height: 1; flex-shrink: 0; }
+.tgt-label { font-size: .82rem; font-weight: 600; }
+.tgt-sub { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
 
-  /* === RESPONSIVE === */
-  @media (max-width: 900px) {
-    .hero-content {
-      grid-template-columns: 1fr;
-      gap: 32px;
-      text-align: center;
-    }
-    .hero-pretitle { justify-content: center; }
-    .hero-pretitle::before { display: none; }
-    .hero-tagline { margin-left: auto; margin-right: auto; margin-bottom: 0; }
-    .hero-right { order: -1; }
-    .hero-figure { max-width: 320px; margin: 0 auto; }
-    .hero-figure img { max-height: 220px; }
-    .nav-top { padding: 16px 20px; }
-    .nav-links { gap: 18px; }
-    section { padding: 60px 20px; }
-    .picker-label { min-width: 100%; }
-    .free-points { gap: 18px; }
-  }
-  @media (max-width: 600px) {
-    .hero-content { padding: 20px; }
-    .nav-links a { display: none; }
-    .brand-mini { display: none; }
-  }
+/* ─── 6. HOW IT WORKS — hero-dark.png sticky logo bg ─────────────────────── */
+/* The site wordmark floats as a ghostly atmospheric backdrop                  */
+/* Steps fly in from the right as section pins                                 */
+.how { background: var(--ink); position: relative; overflow: hidden; }
+/* The wordmark image — large, centered, ghostly */
+.how__logo-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72%; max-width: 680px;
+  opacity: 0;                       /* GSAP fades it in */
+  filter: saturate(0) brightness(2.5);
+  pointer-events: none; z-index: 0;
+  will-change: opacity, transform;
+}
+.how .w { position: relative; z-index: 2; }
+.how__grid { display: grid; gap: 2rem; margin-top: 3rem; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 640px) { .how__grid { grid-template-columns: 1fr; } }
+.how-step {
+  padding: 2rem; border-radius: 16px;
+  border: 1px solid var(--cream-06); background: rgba(14,14,16,.85);
+  backdrop-filter: blur(8px);
+}
+.how-step__num {
+  font-family: var(--serif); font-size: 3rem; font-weight: 700;
+  color: rgba(212,175,55,.3); line-height: 1; margin-bottom: 1rem;
+}
+.how-step__title { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+.how-step__body { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+/* ─── 7. CTA ─────────────────────────────────────────────────────────────── */
+.cta-section { background: var(--ink); padding-bottom: 8rem; }
+.cta-box {
+  border: 1px solid rgba(212,175,55,.2); border-radius: 20px;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(212,175,55,.05) 0%, transparent 70%);
+  padding: 5rem 3rem; text-align: center;
+}
+@media (max-width: 640px) { .cta-box { padding: 3rem 1.5rem; } }
+.cta-ornament { font-size: 1.4rem; color: var(--gold); opacity: .5; letter-spacing: .3em; display: block; margin-bottom: 1.5rem; }
+.cta-h {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700; letter-spacing: -.01em; line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.cta-h em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: .95rem; color: var(--muted); max-width: 36rem; margin: 0 auto 2.5rem; line-height: 1.65; }
+.cta-btns { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+
+/* ─── LANGUAGE PICKER MODAL ──────────────────────────────────────────────── */
+.lp-overlay {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(14,14,16,.82);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease;
+}
+.lp-overlay.is-open { opacity: 1; pointer-events: all; }
+.lp-card {
+  background: #1a1a1f;
+  border: 1px solid rgba(212,175,55,.25);
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2rem;
+  width: min(420px, calc(100vw - 3rem));
+  position: relative;
+}
+.lp-card h3 {
+  font-family: var(--serif); font-size: 1.55rem; font-weight: 700;
+  letter-spacing: -.01em; margin-bottom: 1.75rem; color: var(--cream);
+}
+.lp-close {
+  position: absolute; top: 1.1rem; right: 1.25rem;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-size: 1.3rem; line-height: 1;
+  transition: color .15s;
+}
+.lp-close:hover { color: var(--cream); }
+.lp-row {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: .75rem;
+}
+.lp-label {
+  font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+  min-width: 5.5rem;
+}
+.lp-select {
+  flex: 1;
+  appearance: none;
+  background: rgba(248,243,231,.05);
+  border: 1px solid rgba(212,175,55,.2);
+  border-radius: 10px;
+  padding: .65rem 1rem;
+  font-size: .9rem; font-family: var(--sans);
+  color: var(--cream);
+  cursor: pointer;
+  transition: border-color .2s;
+  outline: none;
+}
+.lp-select:hover, .lp-select:focus { border-color: var(--gold); }
+.lp-arrow {
+  text-align: center; color: var(--gold-dim);
+  font-size: 1.1rem; margin: .25rem 0 .6rem;
+  padding-left: 6.5rem;
+}
+.lp-note {
+  font-size: .78rem; color: var(--muted);
+  margin: .6rem 0 1.25rem;
+  min-height: 1.1em;
+}
+.lp-note strong { color: var(--gold); }
+.lp-start {
+  width: 100%;
+  background: var(--gold); color: var(--ink);
+  border: none; border-radius: 9999px;
+  padding: .85rem 1.5rem;
+  font-size: .82rem; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; cursor: pointer;
+  transition: background .2s;
+}
+.lp-start:hover { background: var(--gold-light); }
+.lp-nudge {
+  display: flex; align-items: flex-start; gap: .6rem;
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(248,243,231,.07);
+  font-size: .74rem; color: var(--muted); line-height: 1.55;
+}
+.lp-nudge a { color: var(--gold); text-decoration: none; }
+.lp-nudge a:hover { color: var(--gold-light); }
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────────── */
+footer {
+  background: var(--ink-soft);
+  border-top: 1px solid var(--cream-06);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+footer p { font-size: .78rem; color: var(--muted); }
+footer a { color: var(--gold); text-decoration: none; }
+footer a:hover { color: var(--gold-light); }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <nav class="nav-top">
-    <a href="/" class="brand-mini">
-      <img src="/assets/banner.png" alt="The Cunning Linguist" class="nav-banner">
-    </a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#how">How it works</a>
-      <a href="#features">Features</a>
+<!-- ── LANGUAGE PICKER MODAL ─────────────────────────────────────────────── -->
+<div id="lpOverlay" class="lp-overlay" role="dialog" aria-modal="true" aria-label="Choose your language pair">
+  <div class="lp-card">
+    <button class="lp-close" onclick="closePicker()" aria-label="Close">✕</button>
+    <h3>Choose your language pair</h3>
+    <div class="lp-row">
+      <span class="lp-label">I speak</span>
+      <select id="src-lang" class="lp-select" onchange="onSrcChange()"></select>
     </div>
-  </nav>
+    <div class="lp-arrow">↓</div>
+    <div class="lp-row">
+      <span class="lp-label">I want to learn</span>
+      <select id="tgt-lang" class="lp-select" onchange="updatePickerNote()"></select>
+    </div>
+    <p id="picker-note" class="lp-note"></p>
+    <button id="lp-start-btn" class="lp-start" onclick="startLearning()">Start Learning →</button>
+    <div class="lp-nudge">
+      <span>🔒</span>
+      <span><strong style="color:var(--cream)">No account needed.</strong> Progress saves automatically on this device.
+      <a href="/learn.html" onclick="event.preventDefault(); try{localStorage.setItem('cll_open_auth','1')}catch(e){}; startLearning();">Sign in</a> to sync across devices.</span>
+    </div>
+  </div>
+</div>
 
-  <div class="hero-content">
-    <div class="hero-text">
-      <div class="hero-pretitle">The Ultimate Language Learning Platform</div>
-      <h1>Speak like<br>you <span class="accent">mean it.</span></h1>
-      <p class="hero-tagline">
-        Pick what you speak. Pick what you want to learn. We'll handle the rest — daily lessons, smart flashcards, real-time translation, and real conversations to get you fluent enough to actually use it.
+<!-- ── NAV ─────────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="assets/hero-dark.png" alt="The Cunning Linguist">
+    </a>
+    <div class="nav__links">
+      <a href="#pairsSection">Languages</a>
+      <a href="#featSection">Features</a>
+      <a href="#howSection">How It Works</a>
+    </div>
+    <a href="learn.html" class="nav__cta" id="navCta">Start Learning</a>
+  </div>
+</nav>
+
+<!-- ── 1. HERO ──────────────────────────────────────────────────────────── -->
+<section class="hero dot-grid">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <span class="eye" data-rev>FREE LANGUAGE LEARNING PLATFORM</span>
+      <h1 class="hero__h1" data-rev style="--d:.1s">
+        Learn languages<br>from <em>where</em><br>you already are.
+      </h1>
+      <p class="hero__sub" data-rev style="--d:.2s">
+        15+ language pairs. 30-day structured courses. Real conversations.
+        The Cunning Linguist teaches you from your native language — not from English.
+      </p>
+      <div class="hero__ctas" data-rev style="--d:.3s">
+        <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
+          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
+        </button>
+        <a href="#features" class="sb">
+          <span class="sb__track"><span class="sb__txt">See Features</span><span class="sb__txt" aria-hidden="true">See Features</span></span>
+        </a>
+      </div>
+      <p class="hero__footnote" data-rev style="--d:.4s">
+        No account required. Pick a language pair and go.
       </p>
     </div>
-
-    <div class="hero-right">
-      <div class="hero-figure">
-        <img src="/assets/hero-dark.png" alt="The Cunning Linguist — a dapper polyglot in a top hat">
-      </div>
-      <div class="hero-quote">
-        <span class="hero-quote-mark">"</span>
-        <p>A gentleman who speaks only one language is simply a man with one personality.</p>
-        <cite>— The Cunning Linguist</cite>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-picker-section">
-    <div class="picker-card">
-      <h3>Choose your language pair</h3>
-      <div class="picker-row">
-        <span class="picker-label">I speak</span>
-        <select id="src-lang" class="picker-select" onchange="onSrcChange()">
-          <option value="en" selected>🇬🇧 English</option>
-          <option value="fr">🇫🇷 French</option>
-          <option value="es">🇪🇸 Spanish</option>
-          <option value="pt">🇧🇷 Portuguese</option>
-          <option value="el">🇬🇷 Greek</option>
-          <option value="sq">🇦🇱 Albanian</option>
-          <option value="it">🇮🇹 Italian</option>
-          <option value="ja">🇯🇵 Japanese</option>
-          <option value="de">🇩🇪 German</option>
-          <option value="ko">🇰🇷 Korean</option>
-        </select>
-      </div>
-      <div class="picker-arrow">↓</div>
-      <div class="picker-row">
-        <span class="picker-label">I want to learn</span>
-        <select id="tgt-lang" class="picker-select" onchange="updatePickerNote()">
-          <option value="fr" selected>🇫🇷 French</option>
-          <option value="es">🇪🇸 Spanish</option>
-          <option value="pt">🇧🇷 Portuguese</option>
-          <option value="el">🇬🇷 Greek</option>
-          <option value="sq">🇦🇱 Albanian</option>
-          <option value="it">🇮🇹 Italian</option>
-          <option value="ja">🇯🇵 Japanese</option>
-          <option value="de">🇩🇪 German</option>
-          <option value="ko">🇰🇷 Korean</option>
-        </select>
-      </div>
-      <button id="start-btn" class="start-btn" onclick="startLearning()">Start Learning →</button>
-      <div id="picker-note" class="picker-note"></div>
-      <div class="sync-nudge">
-        <span class="sync-nudge-icon">🔒</span>
-        <span class="sync-nudge-text">
-          <strong>No account needed.</strong> Your progress saves automatically on this device.
-          <a href="/learn.html" onclick="event.preventDefault(); localStorage.setItem('cll_open_auth','1'); startLearning();" class="sync-nudge-link">Sign in</a> anytime to sync across all your devices.
-        </span>
-      </div>
-    </div>
-  </div>
-</header>
-
-<section class="potd-section">
-  <div class="container">
-    <div class="potd-card">
-      <div class="potd-eyebrow">🎩 Phrase of the Day</div>
-      <div class="potd-phrase" id="potd-phrase">…</div>
-      <div class="potd-phonetic" id="potd-phonetic">…</div>
-      <div class="potd-english" id="potd-english">…</div>
-      <div class="potd-meta" id="potd-meta">…</div>
+    <div class="hero__right" data-rev style="--d:.15s">
+      <img src="assets/gentleman.png" alt="The Cunning Linguist mascot" class="hero__gentleman">
     </div>
   </div>
 </section>
 
-<section id="features">
-  <div class="container">
-    <h2 class="section-title">Built like a real coursebook.<br><em class="serif" style="color:var(--gold);font-weight:500;">Without the textbook.</em></h2>
-    <p class="section-subtitle">Six tools that work together. Use them daily for 20–30 minutes and you'll go from zero to café-confident in a month.</p>
+<!-- ── 2. SCALE-UP PANEL ────────────────────────────────────────────────── -->
+<!-- Starts as a centered card, grows to full-screen as you scroll           -->
+<div id="scaleWrap">
+  <div id="scalePanel">
+    <div class="scale-content">
+      <span class="scale-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+      <h2 class="scale-h">
+        The language you learn <em>from</em><br>changes everything.
+      </h2>
+      <p class="scale-sub">
+        Every app teaches you French. Almost none teach you French <em>from Spanish</em>.
+        The native-language context is what makes vocabulary stick.
+      </p>
+    </div>
+  </div>
+</div>
 
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon">📅</div>
-        <h3>30 Daily Lessons</h3>
-        <p>One bite-sized lesson per day. Vocab, key phrases, a grammar tip, and practice — built around real travel scenarios you'll actually face.</p>
+<!-- ── 3. PROBLEM ESCALATION ─────────────────────────────────────────────── -->
+<section class="section problem">
+  <div class="w">
+    <span class="eye" data-rev>THE PROBLEM WITH LANGUAGE LEARNING</span>
+    <h2 class="problem__stat">
+      <span data-wg>
+        <span class="wr" style="--wd:.00s">Most</span>
+        <span class="wr" style="--wd:.04s">apps</span>
+        <span class="wr" style="--wd:.08s">assume</span>
+        <span class="wr" style="--wd:.12s">English</span>
+        <span class="wr" style="--wd:.16s">is</span>
+        <span class="wr" style="--wd:.20s">the</span>
+        <span class="wr" style="--wd:.24s">center</span>
+        <span class="wr" style="--wd:.28s">of</span>
+        <span class="wr" style="--wd:.32s">the</span>
+        <span class="wr" style="--wd:.36s">language-learning</span>
+        <span class="wr" style="--wd:.40s">world.</span>
+        <span class="wr" style="--wd:.46s">You</span>
+        <span class="wr" style="--wd:.50s">end</span>
+        <span class="wr" style="--wd:.54s">up</span>
+        <span class="wr" style="--wd:.58s">translating</span>
+        <span class="wr" style="--wd:.62s">everything</span>
+        <span class="wr" style="--wd:.66s">twice.</span>
+      </span>
+      <span class="gold-line" data-wg>
+        <span class="wr" style="--wd:.00s">That's</span>
+        <span class="wr" style="--wd:.05s">not</span>
+        <span class="wr" style="--wd:.10s">how</span>
+        <span class="wr" style="--wd:.15s">fluency</span>
+        <span class="wr" style="--wd:.20s">works.</span>
+      </span>
+    </h2>
+
+    <div class="problem__items">
+      <div class="problem__item" data-rev style="--d:.00s">
+        <span class="problem__num">01</span>
+        <span><strong>Duolingo and competitors are English-first</strong> — even when you're a Spanish speaker learning French, you're routed through English definitions.</span>
       </div>
-      <div class="feature">
-        <div class="feature-icon">🃏</div>
-        <h3>Smart Flashcards</h3>
-        <p>Mark cards "Got it" or "Need work." The system tracks what's solid and serves up what's shaky. Spaced repetition without the academic feel.</p>
+      <div class="problem__item" data-rev style="--d:.10s">
+        <span class="problem__num">02</span>
+        <span><strong>Vocabulary without context doesn't stick</strong> — isolated word drills miss the grammatical bridges that actually build fluency.</span>
       </div>
-      <div class="feature">
-        <div class="feature-icon">🎯</div>
-        <h3>Quizzes</h3>
-        <p>Three question types — choose the answer, type it out, and match the pairs — all drawn from what you've already learned.</p>
+      <div class="problem__item" data-rev style="--d:.20s">
+        <span class="problem__num">03</span>
+        <span><strong>Conversations are what matter</strong> — but most apps skip real-world scenarios like cafés, airports, and workplaces until you're "advanced enough."</span>
       </div>
-      <div class="feature">
-        <div class="feature-icon">🪄</div>
-        <h3>Real-Time Translator</h3>
-        <p>Type any phrase. Get the translation, IPA, an English-friendly pronunciation, and a sample sentence. Hear it spoken aloud. Save it as a flashcard.</p>
+      <div class="problem__item" data-rev style="--d:.30s">
+        <span class="problem__num">04</span>
+        <span><strong>There's no path</strong> — random lessons without a 30-day structure leave most learners stuck at "bonjour" for six months.</span>
       </div>
-      <div class="feature">
-        <div class="feature-icon">💬</div>
-        <h3>Real Conversations</h3>
-        <p>Full dialogues for the situations that matter — café, hotel, lost passport. Practice both sides until the rhythm feels natural.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📈</div>
-        <h3>Progress Tracking</h3>
-        <p>Streaks, mastery counts, quiz accuracy. Just enough to see you're moving — never enough to feel like a chore.</p>
-      </div>
+    </div>
+
+    <div class="contrast" data-rev>
+      <p class="contrast__a">Without native context, you're always translating.</p>
+      <p class="contrast__b">With The Cunning Linguist, you think in the language.</p>
     </div>
   </div>
 </section>
 
-<section class="about-section" id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="about-pretitle">The Man Behind the Monocle</div>
-      <h2>He's a polyglot.<br>He's a gentleman.<br><em>He's The Cunning Linguist.</em></h2>
-      <p class="about-bio">Nobody knows exactly where he's from. He speaks eleven languages without an accent in any of them, which is either impressive or suspicious, depending on who you ask. He travels with a leather notebook, a good hat, and the unshakeable conviction that the subjunctive mood is underused in modern conversation.</p>
-      <p class="about-bio">He built this platform because he believes language learning shouldn't take a decade or feel like homework. Thirty minutes a day. Thirty days. That's all he asks.</p>
-      <ul class="attributes">
-        <li>Fluent in 11 languages, conversational in 3 more, and once successfully bluffed his way through an entire dinner party in Finnish</li>
-        <li>Has strong opinions about the subjunctive mood, which he will share whether you ask or not</li>
-        <li>Considers ordering in the local language a moral obligation, not a party trick</li>
-        <li>Believes French was right about everything, linguistically speaking</li>
-        <li>Once corrected a native speaker's grammar. The native speaker agreed.</li>
-        <li>Keeps a small notebook of phrases he finds "delightfully untranslatable" — it is not a small notebook</li>
-        <li>Can identify your home country from a single syllable, but is too polite to mention it immediately</li>
-        <li>His monocle is purely aesthetic. Probably.</li>
-      </ul>
+<!-- ── 4. FEATURES — gentleman ghost background ──────────────────────────── -->
+<!-- Section pins; gentleman ghost on the right; feature cards fly in        -->
+<section id="featSection">
+  <!-- The ghostly gentleman — atmospheric background presence -->
+  <img
+    id="gentlemanGhost"
+    src="assets/gentleman.png"
+    alt=""
+    aria-hidden="true"
+    class="gentleman-ghost"
+  >
+  <div class="w">
+    <div class="feat-header">
+      <span class="eye" id="featEye">WHAT YOU GET</span>
+      <p class="feat-label" id="featLabel">Everything you need to go from zero to conversation.</p>
     </div>
-
-    <div class="about-aside">
-      <img src="/assets/cunning-man.png" alt="The Cunning Linguist">
-      <div class="char-stats">
-        <div class="char-stat">
-          <span class="char-stat-label">Languages spoken</span>
-          <span class="char-stat-value">11 (fluently)</span>
-        </div>
-        <div class="char-stat">
-          <span class="char-stat-label">Countries visited</span>
-          <span class="char-stat-value">47 and counting</span>
-        </div>
-        <div class="char-stat">
-          <span class="char-stat-label">Monocles owned</span>
-          <span class="char-stat-value">One. It's the right one.</span>
-        </div>
-        <div class="char-stat">
-          <span class="char-stat-label">Favorite language</span>
-          <span class="char-stat-value">Whichever one you're learning</span>
-        </div>
-        <div class="char-stat">
-          <span class="char-stat-label">Opinion on Duolingo</span>
-          <span class="char-stat-value">No comment</span>
-        </div>
-        <div class="char-stat">
-          <span class="char-stat-label">Known weakness</span>
-          <span class="char-stat-value">Dutch. He won't explain.</span>
-        </div>
+    <div class="feat-grid">
+      <div id="fc1" class="feat-card">
+        <span class="feat-icon">🗓</span>
+        <div class="feat-title">30-Day Structured Courses</div>
+        <div class="feat-body">A guided path from Day 1 to confident conversation. 350+ vocabulary items, grammar anchors, and daily milestones — for every language pair.</div>
       </div>
-    </div>
-  </div>
-
-  <div class="quotes-section">
-    <div class="quotes-label">On the Subject of Languages</div>
-    <div class="quotes-grid">
-      <div class="quote-card">
-        <span class="q-open">"</span>
-        <p>French is the language of love. Spanish is the language of passion. English is the language of asking if you take Visa.</p>
+      <div id="fc2" class="feat-card">
+        <span class="feat-icon">🃏</span>
+        <div class="feat-title">Spaced Repetition Flashcards</div>
+        <div class="feat-body">The proven science of memory. Cards surface when you're about to forget them. Flip direction adapts based on whether you're learning to or from a language.</div>
       </div>
-      <div class="quote-card">
-        <span class="q-open">"</span>
-        <p>The best time to learn a language was ten years ago. The second best time is before your next trip. The third best time is after your third glass of wine — but results may vary.</p>
+      <div id="fc3" class="feat-card">
+        <span class="feat-icon">💬</span>
+        <div class="feat-title">Real Conversation Scenarios</div>
+        <div class="feat-body">8+ scenarios per pair: café, hotel, airport, métro, restaurant, workplace, and more. With per-line audio so you can hear every response.</div>
       </div>
-      <div class="quote-card">
-        <span class="q-open">"</span>
-        <p>I never use a phrase book. I prefer to gesture confidently and let the locals fill in the gaps. It works surprisingly often.</p>
-      </div>
-      <div class="quote-card">
-        <span class="q-open">"</span>
-        <p>Fluency is not the goal. Connection is. Fluency is merely the pleasant side effect of showing up every day.</p>
-      </div>
-      <div class="quote-card">
-        <span class="q-open">"</span>
-        <p>I once ordered a coffee in seven different languages. They brought me seven coffees. I have no regrets whatsoever.</p>
-      </div>
-      <div class="quote-card">
-        <span class="q-open">"</span>
-        <p>To speak another's language is to borrow a piece of how they see the world. Return it with interest — by speaking it well.</p>
+      <div id="fc4" class="feat-card">
+        <span class="feat-icon">🌐</span>
+        <div class="feat-title">15+ Language Pairs — Any to Any</div>
+        <div class="feat-body">French → Spanish. Portuguese → Italian. Korean → Japanese. Learn in any direction. Not just English-first. Native-language instruction throughout.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="how" id="how">
-  <div class="container">
-    <h2 class="section-title">How it works</h2>
-    <p class="section-subtitle">The whole thing fits in with your morning coffee.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Pick your pair</h4>
-        <p>Pick the language you speak and the one you want to learn. We open the door.</p>
+<!-- ── 5. LANGUAGE PAIRS — marquee atmosphere + interactive picker ────────── -->
+<section id="pairsSection" class="pairs">
+
+  <!-- Header -->
+  <div class="pairs__header">
+    <span class="eye" data-rev>90 LESSON PLANS · 10 LANGUAGES</span>
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev>
+      Any language.<br>Any direction.
+    </h2>
+    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;" data-rev>
+      Learn from your native language — not through English as an intermediary.
+    </p>
+  </div>
+
+  <!-- Auto-scrolling marquee strip (purely atmospheric — runs itself) -->
+  <div class="pairs__marquee">
+    <div class="pairs__marquee-track" id="marqueeTrack">
+      <!-- populated by JS, duplicated for seamless loop -->
+    </div>
+  </div>
+
+  <!-- Interactive picker: tap your language, see your options -->
+  <div class="pairs__picker" data-rev>
+    <p class="pairs__picker-label">I speak —</p>
+    <div class="src-pills" id="srcPills"></div>
+    <div class="tgt-grid" id="tgtGrid"></div>
+  </div>
+
+</section>
+
+<!-- ── 6. HOW IT WORKS — hero-dark.png wordmark as sticky bg ─────────────── -->
+<!-- Section pins. The site wordmark fades in as backdrop.                    -->
+<!-- Each step card flies in from the right, staggered, over the logo.        -->
+<section class="section how" id="howSection">
+  <!-- The full wordmark logo — ghostly background presence -->
+  <img id="howLogoBg" src="assets/hero-dark.png" alt="" aria-hidden="true" class="how__logo-bg">
+  <div class="w">
+    <span class="eye" data-rev>HOW IT WORKS</span>
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev>
+      Three steps.<br>Thirty days.<br><em style="color:var(--gold)">Real fluency.</em>
+    </h2>
+    <div class="how__grid">
+      <div id="step1" class="how-step">
+        <div class="how-step__num">01</div>
+        <div class="how-step__title">Pick your language pair</div>
+        <div class="how-step__body">Choose your native language and the one you want to learn. No sign-up required — start immediately from any device.</div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>One lesson, daily</h4>
-        <p>Read it, drill the flashcards, take the quiz. 20 minutes. Mark the day done.</p>
+      <div id="step2" class="how-step">
+        <div class="how-step__num">02</div>
+        <div class="how-step__title">Follow the 30-day path</div>
+        <div class="how-step__body">Daily lessons build on each other. Vocab, grammar anchors, quizzes, and conversation scenarios — all in your native language frame.</div>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Translate as you go</h4>
-        <p>Hear something in the wild? Type it in. Save it to your custom deck.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>Show up</h4>
-        <p>30 days later, you can navigate a real trip. Not fluent. Confident. That's the goal.</p>
+      <div id="step3" class="how-step">
+        <div class="how-step__num">03</div>
+        <div class="how-step__title">Practice until it sticks</div>
+        <div class="how-step__body">Spaced repetition surfaces cards when you're about to forget. Conversation mode lets you work through realistic scenarios with audio on every line.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="final-cta">
-  <h2>Bonjour. <em>Tungjatjeta.</em><br>Ciao. <em>こんにちは.</em></h2>
-  <p>Pick a pair upstairs and start. Thirty days to confident.</p>
-  <button class="start-btn" onclick="document.getElementById('src-lang').scrollIntoView({behavior:'smooth',block:'center'})">Choose Your Languages</button>
+<!-- ── 7. CTA ───────────────────────────────────────────────────────────── -->
+<section class="section cta-section">
+  <div class="w">
+    <div class="cta-box" data-rev>
+      <span class="cta-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+      <h2 class="cta-h">
+        The world speaks more than <em>one</em> language.<br>So should you.
+      </h2>
+      <p class="cta-sub">
+        Free forever. No account needed. Pick a language pair and start Day 1 right now.
+      </p>
+      <div class="cta-btns">
+        <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
+          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
+        </button>
+        <a href="#pairsSection" class="sb">
+          <span class="sb__track"><span class="sb__txt">Browse Language Pairs</span><span class="sb__txt" aria-hidden="true">Browse Language Pairs</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
 <footer>
-  <a href="/" class="brand-mini">
-    <img src="/assets/banner.png" alt="The Cunning Linguist" class="nav-banner">
-  </a>
-  <div>Built with care · Just language learning.</div>
-  <div style="margin-top:8px;font-size:12px;opacity:0.6;">
-    © 2026 · The Cunning Linguist &nbsp;·&nbsp;
-    <a href="/privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Privacy Policy</a>
-    &nbsp;·&nbsp;
-    <a href="/tos.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Terms of Service</a>
+  <div class="w">
+    <p>
+      <a href="index.html">The Cunning Linguist</a> &nbsp;·&nbsp;
+      Free language learning platform &nbsp;·&nbsp;
+      <a href="learn.html">Start learning</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="tos.html">Terms of Service</a>
+    </p>
   </div>
 </footer>
 
+<!-- ── GSAP from CDN ────────────────────────────────────────────────────── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
 <script>
-// ============================================================
-// PHRASE OF THE DAY
-// ============================================================
-const DAILY_PHRASES = [
-  { phrase:"Bonjour, je voudrais un café, s'il vous plaît.", phonetic:"bohn-ZHOOR, zhuh voo-DREH uhn kah-FEH, seel voo PLEH", english:"Good morning, I'd like a coffee, please.", lang:"French 🇫🇷" },
-  { phrase:"¿Dónde está la estación de tren?", phonetic:"DOHN-deh es-TAH lah es-tah-SYOHN deh TREN", english:"Where is the train station?", lang:"Spanish 🇪🇸" },
-  { phrase:"Γεια σου! Πού είναι το μετρό;", phonetic:"YAH soo! POO EE-neh toh meh-TROH", english:"Hello! Where is the metro?", lang:"Greek 🇬🇷" },
-  { phrase:"すみません、駅はどこですか？", phonetic:"soo-mee-MAH-sen, EH-kee wah DOH-koh dehs-kah", english:"Excuse me, where is the station?", lang:"Japanese 🇯🇵" },
-  { phrase:"Scusa, parli inglese?", phonetic:"SKOO-zah, PAR-lee een-GLEH-zeh", english:"Excuse me, do you speak English?", lang:"Italian 🇮🇹" },
-  { phrase:"Faloni shqip?", phonetic:"fah-LOH-nee SHKEEP", english:"Do you speak Albanian?", lang:"Albanian 🇦🇱" },
-  { phrase:"Você pode me ajudar?", phonetic:"voh-SAY POH-jee mee ah-zhoo-DAR", english:"Can you help me?", lang:"Portuguese 🇧🇷" },
-  { phrase:"L'addition, s'il vous plaît.", phonetic:"lah-dee-SYOHN, seel voo PLEH", english:"The bill, please.", lang:"French 🇫🇷" },
-  { phrase:"¡Una mesa para dos, por favor!", phonetic:"OO-nah MEH-sah PAH-rah dohs, por fah-BOR", english:"A table for two, please!", lang:"Spanish 🇪🇸" },
-  { phrase:"おまかせでおねがいします。", phonetic:"oh-mah-KAH-seh deh oh-neh-gah-ee-shmahs", english:"Chef's choice, please.", lang:"Japanese 🇯🇵" },
-  { phrase:"Dov'è il bagno?", phonetic:"doh-VEH eel BAH-nyoh", english:"Where is the bathroom?", lang:"Italian 🇮🇹" },
-  { phrase:"Πόσο κάνει αυτό;", phonetic:"POH-soh KAH-nee ahf-TOH", english:"How much does this cost?", lang:"Greek 🇬🇷" },
-  { phrase:"Quanto custa isso?", phonetic:"KWAHN-too KOOS-tah EE-soo", english:"How much does this cost?", lang:"Portuguese 🇧🇷" },
-  { phrase:"Faloni mirë shqip!", phonetic:"fah-LOH-nee MEER shkeep", english:"You speak Albanian well!", lang:"Albanian 🇦🇱" },
-  { phrase:"Je ne comprends pas.", phonetic:"zhuh nuh kohm-PRAHN pah", english:"I don't understand.", lang:"French 🇫🇷" },
-  { phrase:"かんぱい！", phonetic:"KAHM-pai", english:"Cheers!", lang:"Japanese 🇯🇵" },
-  { phrase:"¿Me puede recomendar algo?", phonetic:"meh PWEH-deh reh-koh-men-DAR AHL-goh", english:"Can you recommend something?", lang:"Spanish 🇪🇸" },
-  { phrase:"Vorrei prenotare un tavolo.", phonetic:"vor-REH-ee preh-noh-TAH-reh oon TAH-voh-loh", english:"I'd like to reserve a table.", lang:"Italian 🇮🇹" },
-  { phrase:"Ευχαριστώ πολύ!", phonetic:"ef-kha-rees-TOH poh-LEE", english:"Thank you very much!", lang:"Greek 🇬🇷" },
-  { phrase:"Gostaria de ver o cardápio.", phonetic:"gohs-tah-REE-ah jee ver oo kar-DAH-pyoo", english:"I'd like to see the menu.", lang:"Portuguese 🇧🇷" },
-  { phrase:"ありがとうございます。", phonetic:"ah-ree-GAH-toh go-zah-ee-mahs", english:"Thank you very much.", lang:"Japanese 🇯🇵" },
-  { phrase:"C'est magnifique!", phonetic:"seh mah-nyee-FEEK", english:"It's magnificent!", lang:"French 🇫🇷" },
-  { phrase:"¿Cuánto tiempo tarda en llegar?", phonetic:"KWAHN-toh TYEM-poh TAR-dah en YEH-gar", english:"How long does it take to get there?", lang:"Spanish 🇪🇸" },
-  { phrase:"Ke keni specialitetin e ditës?", phonetic:"keh KEH-nee speh-chah-lee-TEH-teen eh DEE-tesh", english:"What's the special of the day?", lang:"Albanian 🇦🇱" },
-  { phrase:"Ho bisogno di aiuto.", phonetic:"oh bee-ZOH-nyoh dee ah-YOO-toh", english:"I need help.", lang:"Italian 🇮🇹" },
-  { phrase:"すこしにほんごをはなします。", phonetic:"soo-KOH-shee nee-HON-goh oh hah-nah-shee-mahs", english:"I speak a little Japanese.", lang:"Japanese 🇯🇵" },
-  { phrase:"Onde fica a praia mais próxima?", phonetic:"OHN-jee FEE-kah ah PRY-ah mice PROH-shee-mah", english:"Where is the nearest beach?", lang:"Portuguese 🇧🇷" },
-  { phrase:"Καλημέρα! Τι κάνετε;", phonetic:"kah-lee-MEH-rah! tee KAH-neh-teh", english:"Good morning! How are you?", lang:"Greek 🇬🇷" },
-  { phrase:"Excusez-moi, je suis perdu.", phonetic:"ex-koo-zeh-MWAH, zhuh swee pair-DOO", english:"Excuse me, I'm lost.", lang:"French 🇫🇷" },
-  { phrase:"¡Que aproveche!", phonetic:"keh ah-proh-BEH-cheh", english:"Enjoy your meal!", lang:"Spanish 🇪🇸" },
-  { phrase:"Posso avere il conto?", phonetic:"POS-soh ah-VEH-reh eel KON-toh", english:"Can I have the bill?", lang:"Italian 🇮🇹" },
-  { phrase:"Faleminderit shumë!", phonetic:"fah-leh-meen-DEH-reet SHOO-meh", english:"Thank you very much!", lang:"Albanian 🇦🇱" },
-  { phrase:"ごちそうさまでした！", phonetic:"go-chee-SOH-sah-mah-desh-tah", english:"That was a feast! (after eating)", lang:"Japanese 🇯🇵" },
-  { phrase:"Bom dia! Tudo bem?", phonetic:"BOHM JEE-ah! TOO-doo BEHM", english:"Good morning! All good?", lang:"Portuguese 🇧🇷" },
-  { phrase:"Παρακαλώ, πού είναι το ξενοδοχείο;", phonetic:"pah-rah-kah-LOH, POO EE-neh toh kseh-noh-doh-KHEE-oh", english:"Please, where is the hotel?", lang:"Greek 🇬🇷" },
-  { phrase:"Un verre de vin rouge, s'il vous plaît.", phonetic:"uhn VEHR duh vahn ROOZH, seel voo PLEH", english:"A glass of red wine, please.", lang:"French 🇫🇷" },
-  { phrase:"またきます！", phonetic:"mah-tah kee-MAHS", english:"I'll be back!", lang:"Japanese 🇯🇵" },
-  { phrase:"¿Habla usted inglés?", phonetic:"AH-blah oos-TED een-GLÉS", english:"Do you speak English?", lang:"Spanish 🇪🇸" },
-  { phrase:"Saludos. ¿Qué hay de especial hoy?", phonetic:"sah-LOO-dohs. keh AY deh es-peh-SYAL oy", english:"Hi. What's special today?", lang:"Spanish 🇪🇸" },
-  { phrase:"Mi chiamo… Piacere di conoscerti.", phonetic:"mee KYAH-moh… pyah-CHEH-reh dee koh-NOH-shehr-tee", english:"My name is… Pleased to meet you.", lang:"Italian 🇮🇹" },
-  { phrase:"Të lutem, ku është restoranti?", phonetic:"tuh LOO-tem, koo ESH-teh rehs-toh-RAHN-tee", english:"Please, where is the restaurant?", lang:"Albanian 🇦🇱" },
-  { phrase:"Desculpe, eu não entendo.", phonetic:"desh-KOOL-peh, eh-oo NOWNG ehn-TEN-doo", english:"Sorry, I don't understand.", lang:"Portuguese 🇧🇷" },
-  { phrase:"Guten Tag! Einen Kaffee, bitte.", phonetic:"GOO-ten tahk! EYE-nen kah-FEH, BIT-teh", english:"Good day! A coffee, please.", lang:"German 🇩🇪" },
-  { phrase:"Wo ist der Bahnhof?", phonetic:"VOH ist dair BAHN-hohf", english:"Where is the train station?", lang:"German 🇩🇪" },
-  { phrase:"Das war sehr lecker!", phonetic:"das vahr zayr LEK-er", english:"That was very delicious!", lang:"German 🇩🇪" },
-  { phrase:"Prost! Auf Ihr Wohl!", phonetic:"PROHST! owf eer VOHL", english:"Cheers! To your health!", lang:"German 🇩🇪" },
-  { phrase:"Ich verstehe nicht. Bitte nochmal.", phonetic:"ich fer-SHTAY-eh nicht. BIT-teh NOKH-mahl", english:"I don't understand. Once more, please.", lang:"German 🇩🇪" },
-  { phrase:"Die Rechnung, bitte.", phonetic:"dee RECH-noong, BIT-teh", english:"The bill, please.", lang:"German 🇩🇪" },
-  { phrase:"안녕하세요! 잘 지내셨어요?", phonetic:"an-nyeong-ha-se-yo! jal ji-nae-syeot-eo-yo", english:"Hello! Have you been well?", lang:"Korean 🇰🇷" },
-  { phrase:"아메리카노 한 잔 주세요.", phonetic:"a-me-ri-ka-no han jan ju-se-yo", english:"One Americano please.", lang:"Korean 🇰🇷" },
-  { phrase:"이거 얼마예요?", phonetic:"i-geo eol-ma-ye-yo", english:"How much is this?", lang:"Korean 🇰🇷" },
-  { phrase:"정말 맛있어요! 잘 먹었습니다.", phonetic:"jeong-mal mas-it-eo-yo! jal meok-eot-seum-ni-da", english:"So delicious! Thank you for the meal.", lang:"Korean 🇰🇷" },
-  { phrase:"대박! 진짜요?", phonetic:"dae-bak! jin-jja-yo", english:"No way! Really?", lang:"Korean 🇰🇷" },
-  { phrase:"화이팅! 할 수 있어요!", phonetic:"hwa-i-ting! hal su it-eo-yo", english:"You can do it! Fighting!", lang:"Korean 🇰🇷" },
-];
+gsap.registerPlugin(ScrollTrigger);
 
-(function initPhraseOfDay() {
-  const start = new Date(new Date().getFullYear(), 0, 0);
-  const dayOfYear = Math.floor((Date.now() - start) / 86400000);
-  const p = DAILY_PHRASES[dayOfYear % DAILY_PHRASES.length];
-  document.getElementById('potd-phrase').textContent = p.phrase;
-  document.getElementById('potd-phonetic').textContent = p.phonetic;
-  document.getElementById('potd-english').textContent = p.english;
-  document.getElementById('potd-meta').textContent = p.lang + ' · Phrase ' + ((dayOfYear % DAILY_PHRASES.length) + 1) + ' of ' + DAILY_PHRASES.length;
-})();
+// ── Intersection Observer: fade-up reveals ──────────────────────────────
+const ro = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.setAttribute('data-vis',''); ro.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-rev]').forEach(el => ro.observe(el));
 
+// ── Intersection Observer: word-group reveals ───────────────────────────
+const wo = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('wg-vis'); wo.unobserve(e.target); } });
+}, { threshold: 0.2 });
+document.querySelectorAll('[data-wg]').forEach(el => wo.observe(el));
+
+// ── GSAP Effect 1: Scale-up panel ──────────────────────────────────────
+// Card starts small + rounded, grows to fill the viewport as you scroll
+gsap.fromTo('#scalePanel',
+  { scale: 0.40, borderRadius: '24px' },
+  {
+    scale: 1,
+    borderRadius: '0px',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#scaleWrap',
+      start: 'top top',
+      end: '+=950',
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+    }
+  }
+);
+
+// ── GSAP Effect 2: Feature cards fly in from the right ─────────────────
+// The section pins. Gentleman ghost already visible.
+// Each card slides in from off-screen right, past the gentleman, landing in stack.
+const featTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#featSection',
+    start: 'top top',
+    end: '+=1200',
+    pin: true,
+    scrub: 1,
+    anticipatePin: 1,
+  }
+});
+
+// Gentleman rises in as section enters
+featTl.from('#gentlemanGhost', { y: 50, opacity: 0, duration: 0.5 }, 0);
+
+// Feature cards fly in from right, staggered
+featTl
+  .from('#fc1', { x: 800, opacity: 0, duration: 1 }, 0.1)
+  .from('#fc2', { x: 800, opacity: 0, duration: 1 }, 0.28)
+  .from('#fc3', { x: 800, opacity: 0, duration: 1 }, 0.46)
+  .from('#fc4', { x: 800, opacity: 0, duration: 1 }, 0.64);
+
+// ── Language picker modal ───────────────────────────────────────────────
 const LANG_NAMES = {
-  en: "English", fr: "French", es: "Spanish", sq: "Albanian", it: "Italian",
-  pt: "Portuguese", el: "Greek", ja: "Japanese", de: "German", ko: "Korean"
+  en:"English", fr:"French", es:"Spanish", pt:"Portuguese",
+  el:"Greek", sq:"Albanian", it:"Italian", ja:"Japanese", de:"German", ko:"Korean"
 };
 const LANG_FLAGS = {
-  en: "🇬🇧", fr: "🇫🇷", es: "🇪🇸", sq: "🇦🇱", it: "🇮🇹",
-  pt: "🇧🇷", el: "🇬🇷", ja: "🇯🇵", de: "🇩🇪", ko: "🇰🇷"
+  en:"🇬🇧", fr:"🇫🇷", es:"🇪🇸", pt:"🇧🇷",
+  el:"🇬🇷", sq:"🇦🇱", it:"🇮🇹", ja:"🇯🇵", de:"🇩🇪", ko:"🇰🇷"
 };
-// All supported language codes (for building target dropdowns)
 const ALL_LANGS = ['en','fr','es','pt','el','sq','it','ja','de','ko'];
 
-function getPair() {
-  const src = document.getElementById('src-lang').value;
-  const tgt = document.getElementById('tgt-lang').value;
-  return { src, tgt };
+function buildDropdown(el, langs, selected) {
+  el.innerHTML = langs.map(l =>
+    `<option value="${l}"${l===selected?' selected':''}>${LANG_FLAGS[l]} ${LANG_NAMES[l]}</option>`
+  ).join('');
 }
 
-// Rebuild target dropdown excluding the selected source language
 function onSrcChange() {
   const src = document.getElementById('src-lang').value;
   const tgtEl = document.getElementById('tgt-lang');
-  const prevTgt = tgtEl.value;
-  tgtEl.innerHTML = ALL_LANGS
-    .filter(l => l !== src)
-    .map(l => `<option value="${l}">${LANG_FLAGS[l]} ${LANG_NAMES[l]}</option>`)
-    .join('');
-  // Restore previous selection if still valid
-  if (prevTgt && prevTgt !== src && [...tgtEl.options].some(o => o.value === prevTgt)) {
-    tgtEl.value = prevTgt;
-  }
+  const prev = tgtEl.value;
+  const tgtLangs = ALL_LANGS.filter(l => l !== src);
+  buildDropdown(tgtEl, tgtLangs, tgtLangs.includes(prev) ? prev : tgtLangs[0]);
   updatePickerNote();
 }
 
 function updatePickerNote() {
-  const { src, tgt } = getPair();
+  const src = document.getElementById('src-lang').value;
+  const tgt = document.getElementById('tgt-lang').value;
   const note = document.getElementById('picker-note');
-  const btn = document.getElementById('start-btn');
-  btn.disabled = false;
-  note.innerHTML = `<strong style="color:var(--gold);">Ready</strong> · ${LANG_NAMES[src]} → ${LANG_NAMES[tgt]} · 30-day course available`;
+  const btn  = document.getElementById('lp-start-btn');
+  note.innerHTML = `<strong>Ready</strong> · ${LANG_NAMES[src]} → ${LANG_NAMES[tgt]} · 30-day course available`;
   btn.textContent = `Start ${LANG_NAMES[tgt]} Course →`;
 }
 
 function startLearning() {
-  const { src, tgt } = getPair();
-  // Build pair key e.g. 'en-fr', 'fr-en'
-  const pairKey = src + '-' + tgt;
-  try {
-    localStorage.setItem('cll_lang', pairKey);
-  } catch {}
+  const src = document.getElementById('src-lang').value;
+  const tgt = document.getElementById('tgt-lang').value;
+  try { localStorage.setItem('cll_lang', src + '-' + tgt); } catch(e) {}
   window.location.href = '/learn.html';
 }
 
-// Init
-updatePickerNote();
-
-// Restore last selected pair from localStorage
-try {
-  const saved = localStorage.getItem('cll_lang');
-  if (saved) {
-    // Handle both new pair keys ('en-fr') and old single codes ('fr')
-    let src = 'en', tgt = 'fr';
-    if (saved.includes('-')) {
-      [src, tgt] = saved.split('-');
-    } else {
-      tgt = saved; // legacy: 'fr' → en-fr
-    }
-    const srcEl = document.getElementById('src-lang');
-    if ([...srcEl.options].some(o => o.value === src)) {
-      srcEl.value = src;
-      onSrcChange(); // rebuild tgt dropdown for this src
-    }
-    const tgtEl = document.getElementById('tgt-lang');
-    if ([...tgtEl.options].some(o => o.value === tgt)) {
-      tgtEl.value = tgt;
-      updatePickerNote();
-    }
+function openPicker() {
+  const overlay = document.getElementById('lpOverlay');
+  // Initialise dropdowns on first open
+  if (!document.getElementById('src-lang').options.length) {
+    buildDropdown(document.getElementById('src-lang'), ALL_LANGS, 'en');
+    buildDropdown(document.getElementById('tgt-lang'), ALL_LANGS.filter(l=>l!=='en'), 'fr');
+    // Restore last saved pair
+    try {
+      const saved = localStorage.getItem('cll_lang');
+      if (saved && saved.includes('-')) {
+        const [s, t] = saved.split('-');
+        const srcEl = document.getElementById('src-lang');
+        const tgtEl = document.getElementById('tgt-lang');
+        if ([...srcEl.options].some(o=>o.value===s)) { srcEl.value = s; onSrcChange(); }
+        if ([...tgtEl.options].some(o=>o.value===t)) { tgtEl.value = t; }
+      }
+    } catch(e) {}
   }
-} catch {}
-</script>
+  updatePickerNote();
+  overlay.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
 
+function closePicker() {
+  document.getElementById('lpOverlay').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('lpOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closePicker();
+});
+
+// ── Nav CTA: "Continue Learning Fr → En" if a pair is saved ────────────
+(function updateNavCta() {
+  try {
+    const saved = localStorage.getItem('cll_lang');
+    if (!saved || !saved.includes('-')) return;
+    const [src, tgt] = saved.split('-');
+    const srcName = LANG_FLAGS[src] || src.toUpperCase();
+    const tgtName = LANG_FLAGS[tgt] || tgt.toUpperCase();
+    const btn = document.getElementById('navCta');
+    if (btn) {
+      btn.textContent = `Continue ${srcName} → ${tgtName}`;
+    }
+  } catch(e) {}
+})();
+
+// ── Direct pair navigation ──────────────────────────────────────────────
+// Called by every pair card — sets the correct src-tgt pair then loads learn.html
+function goToPair(src, tgt) {
+  try { localStorage.setItem('cll_lang', src + '-' + tgt); } catch(e) {}
+  window.location.href = '/learn.html';
+}
+// Close on Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePicker(); });
+
+// ── Hero gentleman subtle float ─────────────────────────────────────────
+const heroGent = document.querySelector('.hero__gentleman');
+if (heroGent) {
+  gsap.to(heroGent, { y: -14, duration: 3.5, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+}
+
+// ── Language pairs data ─────────────────────────────────────────────────
+// All 90 combinations across 10 languages
+const PAIR_DATA = {
+  en: [
+    { tgt:'fr', flags:'🇬🇧→🇫🇷', label:'English → French',      sub:'350+ vocab · 8 scenarios' },
+    { tgt:'es', flags:'🇬🇧→🇪🇸', label:'English → Spanish',     sub:'350+ vocab · 30-day path' },
+    { tgt:'de', flags:'🇬🇧→🇩🇪', label:'English → German',      sub:'350+ vocab' },
+    { tgt:'it', flags:'🇬🇧→🇮🇹', label:'English → Italian',     sub:'350+ vocab' },
+    { tgt:'pt', flags:'🇬🇧→🇵🇹', label:'English → Portuguese',  sub:'350+ vocab' },
+    { tgt:'ja', flags:'🇬🇧→🇯🇵', label:'English → Japanese',    sub:'350+ vocab' },
+    { tgt:'ko', flags:'🇬🇧→🇰🇷', label:'English → Korean',      sub:'350+ vocab' },
+    { tgt:'el', flags:'🇬🇧→🇬🇷', label:'English → Greek',       sub:'350+ vocab' },
+    { tgt:'sq', flags:'🇬🇧→🇦🇱', label:'English → Albanian',    sub:'350+ vocab' },
+  ],
+  fr: [
+    { tgt:'en', flags:'🇫🇷→🇬🇧', label:'French → English',      sub:'Field-corrected · 6 scenarios' },
+    { tgt:'es', flags:'🇫🇷→🇪🇸', label:'French → Spanish',      sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇫🇷→🇩🇪', label:'French → German',       sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇫🇷→🇮🇹', label:'French → Italian',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇫🇷→🇵🇹', label:'French → Portuguese',   sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇫🇷→🇯🇵', label:'French → Japanese',     sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇫🇷→🇰🇷', label:'French → Korean',       sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇫🇷→🇬🇷', label:'French → Greek',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇫🇷→🇦🇱', label:'French → Albanian',     sub:'Full 30-day course' },
+  ],
+  es: [
+    { tgt:'en', flags:'🇪🇸→🇬🇧', label:'Spanish → English',     sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇪🇸→🇫🇷', label:'Spanish → French',      sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇪🇸→🇩🇪', label:'Spanish → German',      sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇪🇸→🇮🇹', label:'Spanish → Italian',     sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇪🇸→🇵🇹', label:'Spanish → Portuguese',  sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇪🇸→🇯🇵', label:'Spanish → Japanese',    sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇪🇸→🇰🇷', label:'Spanish → Korean',      sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇪🇸→🇬🇷', label:'Spanish → Greek',       sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇪🇸→🇦🇱', label:'Spanish → Albanian',    sub:'Full 30-day course' },
+  ],
+  de: [
+    { tgt:'en', flags:'🇩🇪→🇬🇧', label:'German → English',      sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇩🇪→🇫🇷', label:'German → French',       sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇩🇪→🇪🇸', label:'German → Spanish',      sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇩🇪→🇮🇹', label:'German → Italian',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇩🇪→🇵🇹', label:'German → Portuguese',   sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇩🇪→🇯🇵', label:'German → Japanese',     sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇩🇪→🇰🇷', label:'German → Korean',       sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇩🇪→🇬🇷', label:'German → Greek',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇩🇪→🇦🇱', label:'German → Albanian',     sub:'Full 30-day course' },
+  ],
+  it: [
+    { tgt:'en', flags:'🇮🇹→🇬🇧', label:'Italian → English',     sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇮🇹→🇫🇷', label:'Italian → French',      sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇮🇹→🇪🇸', label:'Italian → Spanish',     sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇮🇹→🇩🇪', label:'Italian → German',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇮🇹→🇵🇹', label:'Italian → Portuguese',  sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇮🇹→🇯🇵', label:'Italian → Japanese',    sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇮🇹→🇰🇷', label:'Italian → Korean',      sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇮🇹→🇬🇷', label:'Italian → Greek',       sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇮🇹→🇦🇱', label:'Italian → Albanian',    sub:'Full 30-day course' },
+  ],
+  pt: [
+    { tgt:'en', flags:'🇵🇹→🇬🇧', label:'Portuguese → English',  sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇵🇹→🇫🇷', label:'Portuguese → French',   sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇵🇹→🇪🇸', label:'Portuguese → Spanish',  sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇵🇹→🇩🇪', label:'Portuguese → German',   sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇵🇹→🇮🇹', label:'Portuguese → Italian',  sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇵🇹→🇯🇵', label:'Portuguese → Japanese', sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇵🇹→🇰🇷', label:'Portuguese → Korean',   sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇵🇹→🇬🇷', label:'Portuguese → Greek',    sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇵🇹→🇦🇱', label:'Portuguese → Albanian', sub:'Full 30-day course' },
+  ],
+  ja: [
+    { tgt:'en', flags:'🇯🇵→🇬🇧', label:'Japanese → English',    sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇯🇵→🇫🇷', label:'Japanese → French',     sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇯🇵→🇪🇸', label:'Japanese → Spanish',    sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇯🇵→🇩🇪', label:'Japanese → German',     sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇯🇵→🇮🇹', label:'Japanese → Italian',    sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇯🇵→🇵🇹', label:'Japanese → Portuguese', sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇯🇵→🇰🇷', label:'Japanese → Korean',     sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇯🇵→🇬🇷', label:'Japanese → Greek',      sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇯🇵→🇦🇱', label:'Japanese → Albanian',   sub:'Full 30-day course' },
+  ],
+  ko: [
+    { tgt:'en', flags:'🇰🇷→🇬🇧', label:'Korean → English',      sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇰🇷→🇫🇷', label:'Korean → French',       sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇰🇷→🇪🇸', label:'Korean → Spanish',      sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇰🇷→🇩🇪', label:'Korean → German',       sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇰🇷→🇮🇹', label:'Korean → Italian',      sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇰🇷→🇵🇹', label:'Korean → Portuguese',   sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇰🇷→🇯🇵', label:'Korean → Japanese',     sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇰🇷→🇬🇷', label:'Korean → Greek',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇰🇷→🇦🇱', label:'Korean → Albanian',     sub:'Full 30-day course' },
+  ],
+  el: [
+    { tgt:'en', flags:'🇬🇷→🇬🇧', label:'Greek → English',       sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇬🇷→🇫🇷', label:'Greek → French',        sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇬🇷→🇪🇸', label:'Greek → Spanish',       sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇬🇷→🇩🇪', label:'Greek → German',        sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇬🇷→🇮🇹', label:'Greek → Italian',       sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇬🇷→🇵🇹', label:'Greek → Portuguese',    sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇬🇷→🇯🇵', label:'Greek → Japanese',      sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇬🇷→🇰🇷', label:'Greek → Korean',        sub:'Full 30-day course' },
+    { tgt:'sq', flags:'🇬🇷→🇦🇱', label:'Greek → Albanian',      sub:'Full 30-day course' },
+  ],
+  sq: [
+    { tgt:'en', flags:'🇦🇱→🇬🇧', label:'Albanian → English',    sub:'Field-corrected' },
+    { tgt:'fr', flags:'🇦🇱→🇫🇷', label:'Albanian → French',     sub:'Full 30-day course' },
+    { tgt:'es', flags:'🇦🇱→🇪🇸', label:'Albanian → Spanish',    sub:'Full 30-day course' },
+    { tgt:'de', flags:'🇦🇱→🇩🇪', label:'Albanian → German',     sub:'Full 30-day course' },
+    { tgt:'it', flags:'🇦🇱→🇮🇹', label:'Albanian → Italian',    sub:'Full 30-day course' },
+    { tgt:'pt', flags:'🇦🇱→🇵🇹', label:'Albanian → Portuguese', sub:'Full 30-day course' },
+    { tgt:'ja', flags:'🇦🇱→🇯🇵', label:'Albanian → Japanese',   sub:'Full 30-day course' },
+    { tgt:'ko', flags:'🇦🇱→🇰🇷', label:'Albanian → Korean',     sub:'Full 30-day course' },
+    { tgt:'el', flags:'🇦🇱→🇬🇷', label:'Albanian → Greek',      sub:'Full 30-day course' },
+  ],
+};
+
+// ── Build marquee (all pairs, duplicated for seamless CSS loop) ─────────
+(function buildMarquee() {
+  const allPairs = Object.entries(PAIR_DATA).flatMap(([src, targets]) =>
+    targets.map(p => `<span class="marquee-chip"><span>${p.flags}</span>${p.label}</span>`)
+  );
+  const html = [...allPairs, ...allPairs].join(''); // duplicate for loop
+  document.getElementById('marqueeTrack').innerHTML = html;
+})();
+
+// ── Build source pills ──────────────────────────────────────────────────
+(function buildSrcPills() {
+  const pillsEl = document.getElementById('srcPills');
+  pillsEl.innerHTML = ALL_LANGS.map((l, i) =>
+    `<button class="src-pill${i===0?' active':''}" data-src="${l}" onclick="selectSrc('${l}')">${LANG_FLAGS[l]} ${LANG_NAMES[l]}</button>`
+  ).join('');
+  renderTargets('en');
+})();
+
+function selectSrc(src) {
+  document.querySelectorAll('.src-pill').forEach(p => p.classList.toggle('active', p.dataset.src === src));
+  renderTargets(src);
+}
+
+function renderTargets(src) {
+  const grid = document.getElementById('tgtGrid');
+  const pairs = PAIR_DATA[src] || [];
+  grid.innerHTML = pairs.map((p, i) =>
+    `<a href="/learn.html"
+        onclick="event.preventDefault();goToPair('${src}','${p.tgt}')"
+        class="tgt-card"
+        style="animation-delay:${i * 0.03}s">
+      <span class="tgt-flags">${p.flags}</span>
+      <div><div class="tgt-label">${p.label}</div><div class="tgt-sub">${p.sub}</div></div>
+    </a>`
+  ).join('');
+}
+
+// ── GSAP Effect 4: How It Works — logo bloom + steps fly from right ─────
+// The hero-dark wordmark fades in as a ghostly backdrop.
+// The three step cards then fly in from the right, one at a time.
+const howTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#howSection',
+    start: 'top top',
+    end: '+=1400',
+    pin: true,
+    scrub: 1,
+    anticipatePin: 1,
+  }
+});
+// Logo bloom: scale up from small + fade in
+howTl.fromTo('#howLogoBg',
+  { scale: 0.65, opacity: 0 },
+  { scale: 1, opacity: 0.07, duration: 0.5 },
+  0
+);
+// Eyebrow and heading already visible via data-rev; step cards fly in
+howTl
+  .from('#step1', { x: 900, opacity: 0, duration: 1 }, 0.2)
+  .from('#step2', { x: 900, opacity: 0, duration: 1 }, 0.42)
+  .from('#step3', { x: 900, opacity: 0, duration: 1 }, 0.64);
+</script>
 </body>
 </html>
