@@ -35,7 +35,25 @@ const LANGS = {
         headerBorder: 'rgba(220, 0, 0, 0.65)', statBg: 'rgba(20, 20, 20, 0.7)', statBorder: 'rgba(220, 0, 0, 0.45)' },
   ko: { label: 'Korean',     flag: '🇰🇷', speechLang: 'ko-KR',
         headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/kr.png) center/cover no-repeat',
-        headerBorder: 'rgba(205, 46, 58, 0.65)', statBg: 'rgba(0, 30, 90, 0.6)', statBorder: 'rgba(205, 46, 58, 0.45)' }
+        headerBorder: 'rgba(205, 46, 58, 0.65)', statBg: 'rgba(0, 30, 90, 0.6)', statBorder: 'rgba(205, 46, 58, 0.45)' },
+  nl: { label: 'Dutch',      flag: '🇳🇱', speechLang: 'nl-NL',
+        headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/nl.png) center/cover no-repeat',
+        headerBorder: 'rgba(255, 102, 0, 0.65)', statBg: 'rgba(0, 40, 100, 0.6)', statBorder: 'rgba(255, 102, 0, 0.45)' },
+  ru: { label: 'Russian',    flag: '🇷🇺', speechLang: 'ru-RU',
+        headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/ru.png) center/cover no-repeat',
+        headerBorder: 'rgba(213, 43, 30, 0.65)', statBg: 'rgba(0, 51, 160, 0.6)', statBorder: 'rgba(213, 43, 30, 0.45)' },
+  zh: { label: 'Mandarin',   flag: '🇨🇳', speechLang: 'zh-CN',
+        headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/cn.png) center/cover no-repeat',
+        headerBorder: 'rgba(255, 222, 0, 0.65)', statBg: 'rgba(140, 20, 20, 0.6)', statBorder: 'rgba(255, 222, 0, 0.45)' },
+  ar: { label: 'Arabic',     flag: '🇸🇦', speechLang: 'ar-SA',
+        headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/sa.png) center/cover no-repeat',
+        headerBorder: 'rgba(0, 122, 61, 0.65)', statBg: 'rgba(0, 60, 25, 0.6)', statBorder: 'rgba(0, 122, 61, 0.45)' },
+  hi: { label: 'Hindi',      flag: '🇮🇳', speechLang: 'hi-IN',
+        headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/in.png) center/cover no-repeat',
+        headerBorder: 'rgba(255, 153, 51, 0.65)', statBg: 'rgba(19, 136, 8, 0.3)', statBorder: 'rgba(255, 153, 51, 0.45)' },
+  tr: { label: 'Turkish',    flag: '🇹🇷', speechLang: 'tr-TR',
+        headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/tr.png) center/cover no-repeat',
+        headerBorder: 'rgba(227, 10, 23, 0.65)', statBg: 'rgba(90, 0, 10, 0.6)', statBorder: 'rgba(227, 10, 23, 0.45)' }
 };
 
 // Direction pairs: source → target with all pair-specific config.
@@ -80,6 +98,30 @@ const PAIRS = {
              inputPlaceholder:'e.g. where is the subway station',
              translatorSubtitle:'Type any English word or phrase. Get the Korean translation, Hangul, and a pronunciation guide. Tap the speaker to hear it.' },
 
+  'en-nl': { source:'en', target:'nl', courseKey:'nl', storageKey:'en_nl_learner_v1', recentKey:'en_nl_translator_recent',
+             subtitle:'English → Dutch',     tagline:'30 days to Amsterdam-confidence',
+             inputPlaceholder:'e.g. where is the train station',
+             translatorSubtitle:'Type any English word or phrase. Get the Dutch translation, IPA, and a pronunciation guide. Tap the speaker to hear it.' },
+  'en-ru': { source:'en', target:'ru', courseKey:'ru', storageKey:'en_ru_learner_v1', recentKey:'en_ru_translator_recent',
+             subtitle:'English → Russian',   tagline:'30 days to Moscow-confidence',
+             inputPlaceholder:'e.g. where is the metro',
+             translatorSubtitle:'Type any English word or phrase. Get the Russian translation, IPA, and a pronunciation guide. Tap the speaker to hear it.' },
+  'en-zh': { source:'en', target:'zh', courseKey:'zh', storageKey:'en_zh_learner_v1', recentKey:'en_zh_translator_recent',
+             subtitle:'English → Mandarin',  tagline:'30 days to Beijing-confidence',
+             inputPlaceholder:'e.g. where is the restaurant',
+             translatorSubtitle:'Type any English word or phrase. Get the Mandarin translation, pinyin, and a pronunciation guide. Tap the speaker to hear it.' },
+  'en-ar': { source:'en', target:'ar', courseKey:'ar', storageKey:'en_ar_learner_v1', recentKey:'en_ar_translator_recent',
+             subtitle:'English → Arabic',    tagline:'30 days to Arabic-confidence',
+             inputPlaceholder:'e.g. where is the hotel',
+             translatorSubtitle:'Type any English word or phrase. Get the Arabic translation, transliteration, and a pronunciation guide. Tap the speaker to hear it.' },
+  'en-hi': { source:'en', target:'hi', courseKey:'hi', storageKey:'en_hi_learner_v1', recentKey:'en_hi_translator_recent',
+             subtitle:'English → Hindi',     tagline:'30 days to Mumbai-confidence',
+             inputPlaceholder:'e.g. how much does this cost',
+             translatorSubtitle:'Type any English word or phrase. Get the Hindi translation, transliteration, and a pronunciation guide. Tap the speaker to hear it.' },
+  'en-tr': { source:'en', target:'tr', courseKey:'tr', storageKey:'en_tr_learner_v1', recentKey:'en_tr_translator_recent',
+             subtitle:'English → Turkish',   tagline:'30 days to Istanbul-confidence',
+             inputPlaceholder:'e.g. where is the bazaar',
+             translatorSubtitle:'Type any English word or phrase. Get the Turkish translation, IPA, and a pronunciation guide. Tap the speaker to hear it.' },
   // ── X → English (reverse pairs) ─────────────────────────────────────────────
   'fr-en': { source:'fr', target:'en', courseKey:'fr', storageKey:'fr_en_learner_v1', recentKey:'fr_en_translator_recent',
              subtitle:'Français → English',   tagline:'30 jours pour maîtriser l\'anglais',
@@ -117,6 +159,30 @@ const PAIRS = {
              subtitle:'한국어 → English',      tagline:'30일간의 영어 자신감',
              inputPlaceholder:'예: 화장실이 어디에 있나요',
              translatorSubtitle:'한국어 단어나 문장을 입력하세요. 영어 번역, IPA 및 발음 가이드를 받아보세요. 스피커를 탭하여 들으세요.' },
+  'nl-en': { source:'nl', target:'en', courseKey:'nl', storageKey:'nl_en_learner_v1', recentKey:'nl_en_translator_recent',
+             subtitle:'Nederlands → English',  tagline:'30 dagen naar Engels-zelfvertrouwen',
+             inputPlaceholder:'bijv. waar is het station',
+             translatorSubtitle:'Typ een Nederlands woord of zin. Krijg de Engelse vertaling, IPA en uitspraakgids. Tik op de luidspreker om het te horen.' },
+  'ru-en': { source:'ru', target:'en', courseKey:'ru', storageKey:'ru_en_learner_v1', recentKey:'ru_en_translator_recent',
+             subtitle:'Русский → English',     tagline:'30 дней к уверенному английскому',
+             inputPlaceholder:'напр. где находится метро',
+             translatorSubtitle:'Введите русское слово или фразу. Получите перевод на английский, IPA и руководство по произношению.' },
+  'zh-en': { source:'zh', target:'en', courseKey:'zh', storageKey:'zh_en_learner_v1', recentKey:'zh_en_translator_recent',
+             subtitle:'普通话 → English',       tagline:'30天英语自信心',
+             inputPlaceholder:'例如：火车站在哪里',
+             translatorSubtitle:'输入普通话单词或短语。获取英语翻译、拼音和发音指南。点击扬声器收听。' },
+  'ar-en': { source:'ar', target:'en', courseKey:'ar', storageKey:'ar_en_learner_v1', recentKey:'ar_en_translator_recent',
+             subtitle:'العربية → English',      tagline:'٣٠ يوماً نحو الثقة بالإنجليزية',
+             inputPlaceholder:'مثال: أين المحطة',
+             translatorSubtitle:'اكتب كلمة أو جملة بالعربية. احصل على الترجمة الإنجليزية والنطق الصوتي.' },
+  'hi-en': { source:'hi', target:'en', courseKey:'hi', storageKey:'hi_en_learner_v1', recentKey:'hi_en_translator_recent',
+             subtitle:'हिन्दी → English',       tagline:'30 दिनों में अंग्रेज़ी में आत्मविश्वास',
+             inputPlaceholder:'उदा. स्टेशन कहाँ है',
+             translatorSubtitle:'हिंदी में कोई शब्द या वाक्यांश टाइप करें। अंग्रेज़ी अनुवाद, IPA और उच्चारण मार्गदर्शिका प्राप्त करें।' },
+  'tr-en': { source:'tr', target:'en', courseKey:'tr', storageKey:'tr_en_learner_v1', recentKey:'tr_en_translator_recent',
+             subtitle:'Türkçe → English',       tagline:'30 günde İngilizce özgüveni',
+             inputPlaceholder:'örn. tren istasyonu nerede',
+             translatorSubtitle:'Türkçe bir kelime veya cümle yazın. İngilizce çeviri, IPA ve telaffuz rehberi alın.' },
 };
 
 // ── Auto-generate cross pairs (non-English ↔ non-English) ───────────────────
@@ -125,7 +191,7 @@ const PAIRS = {
 // automatically. Cross pairs are intentionally NOT shown on the landing page
 // until a native course file exists — surfaced progressively as content ships.
 (function() {
-  const NON_EN = ['fr','es','sq','it','pt','el','ja','de','ko'];
+  const NON_EN = ['fr','es','sq','it','pt','el','ja','de','ko','nl','ru','zh','ar','hi','tr'];
   NON_EN.forEach(src => {
     NON_EN.forEach(tgt => {
       if (src === tgt) return;
