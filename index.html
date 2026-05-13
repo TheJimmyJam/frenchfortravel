@@ -1376,7 +1376,7 @@ const PAIR_DATA = {
 (function buildSrcPills() {
   const pillsEl = document.getElementById('srcPills');
   pillsEl.innerHTML = ALL_LANGS.map((l, i) =>
-    `<button class="src-pill${i===0?' active':''}" data-src="${l}" onclick="selectSrc('${l}')">${LANG_FLAGS[l]} ${LANG_NAMES[l]}</button>`
+    `<button class="src-pill${i===0?' active':''}" data-src="${l}" onclick="selectSrc('${l}')">${flagImg(l,20)} ${LANG_NAMES[l]}</button>`
   ).join('');
   renderTargets('en');
 })();
@@ -1394,7 +1394,7 @@ function renderTargets(src) {
         onclick="event.preventDefault();goToPair('${src}','${p.tgt}')"
         class="tgt-card"
         style="animation-delay:${i * 0.03}s">
-      <span class="tgt-flags">${p.flags}</span>
+      <span class="tgt-flags" style="display:inline-flex;gap:3px;align-items:center;">${flagImg(src,22)}${flagImg(p.tgt,22)}</span>
       <div><div class="tgt-label">${p.label}</div><div class="tgt-sub">${p.sub}</div></div>
     </a>`
   ).join('');
