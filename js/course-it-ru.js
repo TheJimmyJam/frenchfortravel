@@ -1,0 +1,313 @@
+var COURSE_IT_RU = [
+{
+  day: 1,
+  title: "Saluti essenziali a Mosca",
+  titleNative: "Основные приветствия в Москве",
+  focus: "Inizi con i saluti più utili per entrare in un negozio, parlare con il personale dell’hotel o salutare qualcuno in metropolitana a Mosca. L’obiettivo è riconoscere subito formule gentili e rispondere in modo semplice.",
+  vocab: [{ ru: "здравствуйте", it: "buongiorno/salve", ipa: "ˈzdrast-vuj-tʲe" }, { ru: "привет", it: "ciao", ipa: "prʲɪˈvʲet" }, { ru: "спасибо", it: "grazie", ipa: "spɐˈsʲi-bə" }, { ru: "пожалуйста", it: "per favore/prego", ipa: "pɐˈʐa-lʊj-stə" }, { ru: "да", it: "sì", ipa: "da" }, { ru: "нет", it: "no", ipa: "nʲet" }, { ru: "извините", it: "mi scusi", ipa: "ɪz-vʲɪˈnʲi-tʲe" }, { ru: "хорошо", it: "bene", ipa: "xɐ-rɐˈʂo" }, { ru: "плохо", it: "male", ipa: "ˈplo-xə" }, { ru: "до свидания", it: "arrivederci", ipa: "də svʲɪˈda-nʲɪ-jə" }],
+  phrases: [{ ru: "Здравствуйте!", it: "Salve!", ipa: "ˈzdrast-vuj-tʲe" }, { ru: "Привет!", it: "Ciao!", ipa: "prʲɪˈvʲet" }, { ru: "Спасибо большое.", it: "Grazie mille.", ipa: "spɐˈsʲi-bə bɐlʲˈʂo-jə" }, { ru: "Извините, пожалуйста.", it: "Mi scusi, per favore.", ipa: "ɪz-vʲɪˈnʲi-tʲe pɐˈʐa-lʊj-stə" }, { ru: "До свидания!", it: "Arrivederci!", ipa: "də svʲɪˈda-nʲɪ-jə" }, { ru: "Всё хорошо.", it: "Va tutto bene.", ipa: "fsʲo xɐ-rɐˈʂo" }],
+  grammar: "In russo esistono forme più formali e più informali. Здравствуйте è sicuro con sconosciuti, personale e persone più grandi; привет è informale, come “ciao”. La parola пожалуйста serve sia per “per favore” sia per “prego”, quindi la userai spesso.",
+  practice: ["Saluta formalmente un receptionist usando здравствуйте.", "Ringrazia qualcuno con спасибо большое.", "Scusati in modo gentile usando извините, пожалуйста.", "Scegli tra привет e здравствуйте per parlare con un cameriere.", "Ripeti ad alta voce да, нет, хорошо e плохо."]
+},
+{
+  day: 2,
+  title: "Presentarsi a San Pietroburgo",
+  titleNative: "Представиться в Санкт-Петербурге",
+  focus: "Impari a dire chi sei e da dove vieni durante un primo incontro a San Pietroburgo. Userai frasi semplici per presentarti in hotel, in un tour o con altri viaggiatori.",
+  vocab: [{ ru: "я", it: "io", ipa: "ja" }, { ru: "вы", it: "Lei/voi", ipa: "vɨ" }, { ru: "ты", it: "tu", ipa: "tɨ" }, { ru: "имя", it: "nome", ipa: "ˈi-mʲə" }, { ru: "Италия", it: "Italia", ipa: "ɪˈta-lʲɪ-jə" }, { ru: "итальянец", it: "italiano", ipa: "ɪ-tɐˈlʲja-nʲɪts" }, { ru: "итальянка", it: "italiana", ipa: "ɪ-tɐˈlʲjan-kə" }, { ru: "турист", it: "turista", ipa: "tʊˈrʲist" }, { ru: "город", it: "città", ipa: "ˈgo-rət" }, { ru: "очень", it: "molto", ipa: "ˈo-tɕɪnʲ" }],
+  phrases: [{ ru: "Меня зовут Марко.", it: "Mi chiamo Marco.", ipa: "mʲɪˈnʲa zɐˈvut ˈmar-kə" }, { ru: "Я из Италии.", it: "Sono dall’Italia.", ipa: "ja ɪz ɪˈta-lʲɪ-jɪ" }, { ru: "Я турист.", it: "Sono turista.", ipa: "ja tʊˈrʲist" }, { ru: "Очень приятно.", it: "Molto piacere.", ipa: "ˈo-tɕɪnʲ prʲɪˈjat-nə" }, { ru: "Как вас зовут?", it: "Come si chiama?", ipa: "kak vas zɐˈvut" }, { ru: "Это мой первый раз здесь.", it: "È la mia prima volta qui.", ipa: "ˈe-tə moj ˈpʲer-vɨj ras zdʲesʲ" }],
+  grammar: "Per dire “mi chiamo”, il russo usa меня зовут, letteralmente “mi chiamano”. Con persone sconosciute usa вас, la forma cortese di “Lei”. Per dire provenienza, я из Италии significa “sono dall’Italia”.",
+  practice: ["Di “Mi chiamo…” usando меня зовут.", "Di che sei dall’Italia con я из Италии.", "Chiedi cortesemente il nome di una persona.", "Rispondi a un incontro con очень приятно.", "Crea una mini-presentazione di tre frasi."]
+},
+{
+  day: 3,
+  title: "Numeri e prezzi al mercato",
+  titleNative: "Числа и цены на рынке",
+  focus: "Impari i numeri base per comprare acqua, frutta o biglietti in un mercato russo. L’attenzione è su prezzi, quantità e risposte rapide.",
+  vocab: [{ ru: "один", it: "uno", ipa: "ɐˈdʲin" }, { ru: "два", it: "due", ipa: "dva" }, { ru: "три", it: "tre", ipa: "trʲi" }, { ru: "четыре", it: "quattro", ipa: "tɕɪˈtɨ-rʲe" }, { ru: "пять", it: "cinque", ipa: "pʲatʲ" }, { ru: "шесть", it: "sei", ipa: "ʂestʲ" }, { ru: "семь", it: "sette", ipa: "sʲemʲ" }, { ru: "восемь", it: "otto", ipa: "ˈvo-sʲɪmʲ" }, { ru: "девять", it: "nove", ipa: "ˈdʲe-vʲɪtʲ" }, { ru: "десять", it: "dieci", ipa: "ˈdʲe-sʲɪtʲ" }],
+  phrases: [{ ru: "Сколько стоит?", it: "Quanto costa?", ipa: "ˈskolʲ-kə ˈsto-it" }, { ru: "Один билет, пожалуйста.", it: "Un biglietto, per favore.", ipa: "ɐˈdʲin bʲɪˈlʲet pɐˈʐa-lʊj-stə" }, { ru: "Два кофе, пожалуйста.", it: "Due caffè, per favore.", ipa: "dva ˈko-fʲe pɐˈʐa-lʊj-stə" }, { ru: "Это дорого.", it: "È caro.", ipa: "ˈe-tə ˈdo-rə-gə" }, { ru: "Это нормально.", it: "Va bene così.", ipa: "ˈe-tə nɐrˈmalʲ-nə" }, { ru: "У меня есть деньги.", it: "Ho soldi.", ipa: "u mʲɪˈnʲa jestʲ ˈdʲenʲ-gʲɪ" }],
+  grammar: "In russo i numeri cambiano spesso la forma della parola dopo, ma all’inizio puoi usare formule fisse come один билет o два кофе. Сколько стоит? è una frase chiave: funziona in negozi, mercati, taxi e biglietterie.",
+  practice: ["Conta da uno a dieci in russo.", "Chiedi il prezzo di un souvenir.", "Ordina due caffè.", "Di che qualcosa è caro.", "Fai tre combinazioni con numero + oggetto."]
+},
+{
+  day: 4,
+  title: "Frasi di sopravvivenza in viaggio",
+  titleNative: "Фразы для выживания в поездке",
+  focus: "Impari frasi da usare quando non capisci, hai bisogno di aiuto o vuoi parlare più lentamente. Sono essenziali nelle stazioni, negli aeroporti e nei luoghi turistici.",
+  vocab: [{ ru: "помощь", it: "aiuto", ipa: "ˈpo-məɕ" }, { ru: "медленно", it: "lentamente", ipa: "ˈmʲed-lʲɪ-nə" }, { ru: "понимать", it: "capire", ipa: "pə-nʲɪˈmatʲ" }, { ru: "говорить", it: "parlare", ipa: "gə-vɐˈrʲitʲ" }, { ru: "русский", it: "russo", ipa: "ˈru-skʲɪj" }, { ru: "английский", it: "inglese", ipa: "ɐnˈglʲij-skʲɪj" }, { ru: "итальянский", it: "italiano", ipa: "ɪ-tɐˈlʲjan-skʲɪj" }, { ru: "можно", it: "si può/posso", ipa: "ˈmoʐ-nə" }, { ru: "нельзя", it: "non si può", ipa: "nʲɪlʲˈzʲa" }, { ru: "сейчас", it: "adesso", ipa: "sʲɪˈtɕas" }],
+  phrases: [{ ru: "Я не понимаю.", it: "Non capisco.", ipa: "ja nʲe pə-nʲɪˈma-jʊ" }, { ru: "Говорите медленно, пожалуйста.", it: "Parli lentamente, per favore.", ipa: "gə-vɐˈrʲi-tʲe ˈmʲed-lʲɪ-nə pɐˈʐa-lʊj-stə" }, { ru: "Вы говорите по-английски?", it: "Parla inglese?", ipa: "vɨ gə-vɐˈrʲi-tʲe pə ɐnˈglʲij-skʲɪ" }, { ru: "Можно?", it: "Posso? / È possibile?", ipa: "ˈmoʐ-nə" }, { ru: "Мне нужна помощь.", it: "Ho bisogno di aiuto.", ipa: "mnʲe nʊʐˈna ˈpo-məɕ" }, { ru: "Я говорю немного по-русски.", it: "Parlo un po’ russo.", ipa: "ja gə-vɐˈrʲu nʲɪˈmno-gə pə ˈru-skʲɪ" }],
+  grammar: "Я не significa “io non” davanti a un verbo. Per chiedere se qualcuno parla una lingua, usa вы говорите по-...? La parola можно è molto pratica: con intonazione interrogativa può significare “posso?” o “si può?”.",
+  practice: ["Di che non capisci.", "Chiedi a qualcuno di parlare lentamente.", "Chiedi se parla inglese.", "Di che parli un po’ russo.", "Usa можно per chiedere permesso in un museo."]
+},
+{
+  day: 5,
+  title: "In aeroporto a Mosca",
+  titleNative: "В аэропорту Москвы",
+  focus: "Impari parole e frasi utili per arrivo, bagagli e controlli all’aeroporto. La scena è l’arrivo a Sheremetyevo o Domodedovo.",
+  vocab: [{ ru: "аэропорт", it: "aeroporto", ipa: "ɐ-e-rɐˈport" }, { ru: "паспорт", it: "passaporto", ipa: "ˈpas-pərt" }, { ru: "багаж", it: "bagaglio", ipa: "bɐˈgaʂ" }, { ru: "чемодан", it: "valigia", ipa: "tɕɪ-mɐˈdan" }, { ru: "рейс", it: "volo", ipa: "rejs" }, { ru: "выход", it: "uscita/gate", ipa: "ˈvɨ-xət" }, { ru: "контроль", it: "controllo", ipa: "kɐnˈtrolʲ" }, { ru: "таможня", it: "dogana", ipa: "tɐˈmoʐ-nʲə" }, { ru: "такси", it: "taxi", ipa: "tɐkˈsʲi" }, { ru: "центр", it: "centro", ipa: "tsentr" }],
+  phrases: [{ ru: "Где багаж?", it: "Dov’è il bagaglio?", ipa: "gdʲe bɐˈgaʂ" }, { ru: "Вот мой паспорт.", it: "Ecco il mio passaporto.", ipa: "vot moj ˈpas-pərt" }, { ru: "Мне нужно такси.", it: "Ho bisogno di un taxi.", ipa: "mnʲe ˈnuʐ-nə tɐkˈsʲi" }, { ru: "Где выход?", it: "Dov’è l’uscita?", ipa: "gdʲe ˈvɨ-xət" }, { ru: "Я лечу в Москву.", it: "Volo a Mosca.", ipa: "ja lʲɪˈtɕu v mɐˈskvu" }, { ru: "Это мой чемодан.", it: "Questa è la mia valigia.", ipa: "ˈe-tə moj tɕɪ-mɐˈdan" }],
+  grammar: "Где significa “dove” ed è una delle parole più utili in viaggio. In russo non si usa spesso l’articolo, quindi где багаж può significare “dov’è il bagaglio?” senza articolo. Мне нужно significa “mi serve” o “ho bisogno di”.",
+  practice: ["Chiedi dov’è l’uscita.", "Mostra il tuo passaporto con вот мой паспорт.", "Di che hai bisogno di un taxi.", "Chiedi dove sono i bagagli.", "Crea una frase con где + luogo."]
+},
+{
+  day: 6,
+  title: "Hotel e check-in",
+  titleNative: "Отель и регистрация",
+  focus: "Impari a fare il check-in in hotel, chiedere la camera e confermare una prenotazione. È utile in città come Kazan, Mosca o San Pietroburgo.",
+  vocab: [{ ru: "отель", it: "hotel", ipa: "ɐˈtelʲ" }, { ru: "гостиница", it: "albergo", ipa: "gɐˈsʲtʲi-nʲɪ-tsə" }, { ru: "номер", it: "camera/numero", ipa: "ˈno-mʲer" }, { ru: "ключ", it: "chiave", ipa: "klʲutɕ" }, { ru: "бронь", it: "prenotazione", ipa: "bronʲ" }, { ru: "паспорт", it: "passaporto", ipa: "ˈpas-pərt" }, { ru: "ночь", it: "notte", ipa: "notɕ" }, { ru: "лифт", it: "ascensore", ipa: "lʲift" }, { ru: "завтрак", it: "colazione", ipa: "ˈzaf-trək" }, { ru: "интернет", it: "internet", ipa: "ɪn-tʲɪrˈnʲet" }],
+  phrases: [{ ru: "У меня есть бронь.", it: "Ho una prenotazione.", ipa: "u mʲɪˈnʲa jestʲ bronʲ" }, { ru: "Мне нужен номер.", it: "Mi serve una camera.", ipa: "mnʲe ˈnu-ʐen ˈno-mʲer" }, { ru: "Где лифт?", it: "Dov’è l’ascensore?", ipa: "gdʲe lʲift" }, { ru: "Завтрак включён?", it: "La colazione è inclusa?", ipa: "ˈzaf-trək vklʲʊˈtɕon" }, { ru: "Можно ключ?", it: "Posso avere la chiave?", ipa: "ˈmoʐ-nə klʲutɕ" }, { ru: "Какой пароль от Wi-Fi?", it: "Qual è la password del Wi-Fi?", ipa: "kɐˈkoj pɐˈrolʲ ɐt vaj-faj" }],
+  grammar: "У меня есть significa “io ho” o letteralmente “presso di me c’è”. È la struttura più comune per dire che possiedi qualcosa. Per chiedere qualcosa in modo semplice, puoi usare можно + oggetto.",
+  practice: ["Di che hai una prenotazione.", "Chiedi se la colazione è inclusa.", "Chiedi la password del Wi-Fi.", "Chiedi dove si trova l’ascensore.", "Simula un check-in con tre frasi."]
+},
+{
+  day: 7,
+  title: "Caffè e colazione",
+  titleNative: "Кафе и завтрак",
+  focus: "Impari a ordinare caffè, tè e cibo semplice in un bar russo. Userai formule gentili per ordinare e pagare.",
+  vocab: [{ ru: "кафе", it: "caffè/bar", ipa: "kɐˈfɛ" }, { ru: "кофе", it: "caffè", ipa: "ˈko-fʲe" }, { ru: "чай", it: "tè", ipa: "tɕaj" }, { ru: "вода", it: "acqua", ipa: "vɐˈda" }, { ru: "молоко", it: "latte", ipa: "mə-lɐˈko" }, { ru: "сахар", it: "zucchero", ipa: "ˈsa-xər" }, { ru: "хлеб", it: "pane", ipa: "xlʲep" }, { ru: "сыр", it: "formaggio", ipa: "sɨr" }, { ru: "каша", it: "porridge", ipa: "ˈka-ʂə" }, { ru: "счёт", it: "conto", ipa: "ɕːot" }],
+  phrases: [{ ru: "Один кофе, пожалуйста.", it: "Un caffè, per favore.", ipa: "ɐˈdʲin ˈko-fʲe pɐˈʐa-lʊj-stə" }, { ru: "Чай без сахара.", it: "Tè senza zucchero.", ipa: "tɕaj bʲes ˈsa-xə-rə" }, { ru: "Вода без газа.", it: "Acqua naturale.", ipa: "vɐˈda bʲez ˈga-zə" }, { ru: "Можно счёт?", it: "Posso avere il conto?", ipa: "ˈmoʐ-nə ɕːot" }, { ru: "Мне кофе с молоком.", it: "Per me caffè con latte.", ipa: "mnʲe ˈko-fʲe s mə-lɐˈkom" }, { ru: "Это вкусно.", it: "È buono.", ipa: "ˈe-tə ˈfkus-nə" }],
+  grammar: "С significa “con”, mentre без significa “senza”. Queste due parole sono fondamentali per ordinare cibo e bevande. Nota che alcune parole cambiano forma dopo preposizioni, ma per viaggiare puoi memorizzare frasi complete.",
+  practice: ["Ordina un caffè con latte.", "Chiedi acqua naturale.", "Di che qualcosa è buono.", "Chiedi il conto in modo gentile.", "Crea due ordini usando с e без."]
+},
+{
+  day: 8,
+  title: "Ristoranti e menu",
+  titleNative: "Рестораны и меню",
+  focus: "Impari a leggere un menu semplice e ordinare in un ristorante. La scena può essere una cena vicino alla Prospettiva Nevskij a San Pietroburgo.",
+  vocab: [{ ru: "ресторан", it: "ristorante", ipa: "rʲɪ-stɐˈran" }, { ru: "меню", it: "menu", ipa: "mʲɪˈnʲu" }, { ru: "суп", it: "zuppa", ipa: "sup" }, { ru: "салат", it: "insalata", ipa: "sɐˈlat" }, { ru: "рыба", it: "pesce", ipa: "ˈrɨ-bə" }, { ru: "мясо", it: "carne", ipa: "ˈmʲa-sə" }, { ru: "курица", it: "pollo", ipa: "ˈku-rʲɪ-tsə" }, { ru: "картошка", it: "patate", ipa: "kɐrˈtoʂ-kə" }, { ru: "десерт", it: "dolce", ipa: "dʲɪˈzʲert" }, { ru: "вино", it: "vino", ipa: "vʲɪˈno" }],
+  phrases: [{ ru: "Можно меню?", it: "Posso avere il menu?", ipa: "ˈmoʐ-nə mʲɪˈnʲu" }, { ru: "Что вы рекомендуете?", it: "Cosa consiglia?", ipa: "ʂto vɨ rʲɪ-kɐ-mʲɪnˈdu-jɪ-tʲe" }, { ru: "Я хочу суп.", it: "Vorrei una zuppa.", ipa: "ja xɐˈtɕu sup" }, { ru: "Без мяса, пожалуйста.", it: "Senza carne, per favore.", ipa: "bʲez ˈmʲa-sə pɐˈʐa-lʊj-stə" }, { ru: "Это остро?", it: "È piccante?", ipa: "ˈe-tə ˈos-trə" }, { ru: "Можно оплатить картой?", it: "Posso pagare con carta?", ipa: "ˈmoʐ-nə ɐ-plɐˈtʲitʲ ˈkar-təj" }],
+  grammar: "Я хочу significa “voglio” o “vorrei” in modo diretto. Per essere più cortesi, aggiungi пожалуйста. Le domande sì/no spesso mantengono l’ordine normale delle parole e cambiano solo l’intonazione.",
+  practice: ["Chiedi il menu.", "Ordina una zuppa.", "Chiedi se un piatto è piccante.", "Di che vuoi qualcosa senza carne.", "Chiedi se puoi pagare con carta."]
+},
+{
+  day: 9,
+  title: "Trasporto pubblico e metro",
+  titleNative: "Общественный транспорт и метро",
+  focus: "Impari parole per usare la metro di Mosca, comprare biglietti e capire fermate. È una delle situazioni più frequenti per un viaggiatore.",
+  vocab: [{ ru: "метро", it: "metropolitana", ipa: "mʲɪˈtro" }, { ru: "станция", it: "stazione", ipa: "ˈstan-tsɨ-jə" }, { ru: "билет", it: "biglietto", ipa: "bʲɪˈlʲet" }, { ru: "карта", it: "carta/mappa", ipa: "ˈkar-tə" }, { ru: "поезд", it: "treno", ipa: "ˈpo-jɪst" }, { ru: "автобус", it: "autobus", ipa: "ˈaf-to-bus" }, { ru: "трамвай", it: "tram", ipa: "trɐmˈvaj" }, { ru: "остановка", it: "fermata", ipa: "ɐ-stɐˈnof-kə" }, { ru: "линия", it: "linea", ipa: "ˈlʲi-nʲɪ-jə" }, { ru: "центр", it: "centro", ipa: "tsentr" }],
+  phrases: [{ ru: "Где метро?", it: "Dov’è la metro?", ipa: "gdʲe mʲɪˈtro" }, { ru: "Мне нужен билет.", it: "Mi serve un biglietto.", ipa: "mnʲe ˈnu-ʐen bʲɪˈlʲet" }, { ru: "Какая линия?", it: "Quale linea?", ipa: "kɐˈka-jə ˈlʲi-nʲɪ-jə" }, { ru: "Это моя станция.", it: "Questa è la mia stazione.", ipa: "ˈe-tə mɐˈja ˈstan-tsɨ-jə" }, { ru: "Сколько остановок?", it: "Quante fermate?", ipa: "ˈskolʲ-kə ɐ-stɐˈno-vək" }, { ru: "Я еду в центр.", it: "Vado in centro.", ipa: "ja ˈje-du f tsentr" }],
+  grammar: "Per dire “vado” con un mezzo, spesso si usa я еду. È diverso da “cammino”, ma utile per metro, taxi, autobus e treno. Моя significa “mia” con parole femminili come станция.",
+  practice: ["Chiedi dov’è la metro.", "Di che vai in centro.", "Chiedi quante fermate mancano.", "Compra un biglietto.", "Pronuncia станция e остановка lentamente."]
+},
+{
+  day: 10,
+  title: "Taxi e app di ride-hailing",
+  titleNative: "Такси и приложения для поездок",
+  focus: "Impari a comunicare con un tassista o un autista di app in Russia. Saprai confermare indirizzo, prezzo e destinazione.",
+  vocab: [{ ru: "такси", it: "taxi", ipa: "tɐkˈsʲi" }, { ru: "адрес", it: "indirizzo", ipa: "ˈa-drʲɪs" }, { ru: "водитель", it: "autista", ipa: "vɐˈdʲi-tʲɪlʲ" }, { ru: "машина", it: "macchina", ipa: "mɐˈʂɨ-nə" }, { ru: "цена", it: "prezzo", ipa: "tsɨˈna" }, { ru: "наличные", it: "contanti", ipa: "nɐˈlʲitɕ-nɨ-jə" }, { ru: "карта", it: "carta", ipa: "ˈkar-tə" }, { ru: "быстро", it: "velocemente", ipa: "ˈbɨ-strə" }, { ru: "налево", it: "a sinistra", ipa: "nɐˈlʲe-və" }, { ru: "направо", it: "a destra", ipa: "nɐˈpra-və" }],
+  phrases: [{ ru: "Вот адрес.", it: "Ecco l’indirizzo.", ipa: "vot ˈa-drʲɪs" }, { ru: "Мне нужно туда.", it: "Devo andare lì.", ipa: "mnʲe ˈnuʐ-nə tʊˈda" }, { ru: "Сколько стоит поездка?", it: "Quanto costa la corsa?", ipa: "ˈskolʲ-kə ˈsto-it pɐˈjest-kə" }, { ru: "Можно картой?", it: "Posso pagare con carta?", ipa: "ˈmoʐ-nə ˈkar-təj" }, { ru: "Остановите здесь.", it: "Si fermi qui.", ipa: "ɐ-stɐ-nɐˈvʲi-tʲe zdʲesʲ" }, { ru: "Поверните направо.", it: "Giri a destra.", ipa: "pɐ-vʲɪrˈnʲi-tʲe nɐˈpra-və" }],
+  grammar: "Туда significa “lì” come direzione, cioè “verso quel posto”. Здесь significa “qui”. Per dare indicazioni semplici, usa направо per “a destra” e налево per “a sinistra”.",
+  practice: ["Mostra un indirizzo con вот адрес.", "Chiedi il costo della corsa.", "Di all’autista di fermarsi qui.", "Dai due indicazioni: destra e sinistra.", "Chiedi se puoi pagare con carta."]
+},
+{
+  day: 11,
+  title: "Chiedere indicazioni in città",
+  titleNative: "Спросить дорогу в городе",
+  focus: "Impari a chiedere dov’è un luogo e capire risposte brevi. Userai questa lezione camminando tra musei, piazze e stazioni.",
+  vocab: [{ ru: "улица", it: "strada", ipa: "ˈu-lʲɪ-tsə" }, { ru: "площадь", it: "piazza", ipa: "ˈplo-ɕːətʲ" }, { ru: "музей", it: "museo", ipa: "mʊˈzʲej" }, { ru: "банк", it: "banca", ipa: "bank" }, { ru: "аптека", it: "farmacia", ipa: "ɐpˈtʲe-kə" }, { ru: "туалет", it: "bagno", ipa: "tʊ-ɐˈlʲet" }, { ru: "рядом", it: "vicino", ipa: "ˈrʲa-dəm" }, { ru: "далеко", it: "lontano", ipa: "dɐ-lʲɪˈko" }, { ru: "прямо", it: "dritto", ipa: "ˈprʲa-mə" }, { ru: "здесь", it: "qui", ipa: "zdʲesʲ" }],
+  phrases: [{ ru: "Где музей?", it: "Dov’è il museo?", ipa: "gdʲe mʊˈzʲej" }, { ru: "Это далеко?", it: "È lontano?", ipa: "ˈe-tə dɐ-lʲɪˈko" }, { ru: "Идите прямо.", it: "Vada dritto.", ipa: "ɪˈdʲi-tʲe ˈprʲa-mə" }, { ru: "Аптека рядом?", it: "La farmacia è vicina?", ipa: "ɐpˈtʲe-kə ˈrʲa-dəm" }, { ru: "Поверните налево.", it: "Giri a sinistra.", ipa: "pɐ-vʲɪrˈnʲi-tʲe nɐˈlʲe-və" }, { ru: "Мне нужен туалет.", it: "Ho bisogno del bagno.", ipa: "mnʲe ˈnu-ʐen tʊ-ɐˈlʲet" }],
+  grammar: "Идите è la forma cortese per dire “vada” o “andate”. È molto utile quando qualcuno ti dà indicazioni. Рядом significa “vicino” e può bastare come risposta breve.",
+  practice: ["Chiedi dov’è una farmacia.", "Chiedi se un museo è lontano.", "Ripeti “vada dritto” in russo.", "Chiedi dov’è il bagno.", "Combina прямо, налево e направо in un percorso."]
+},
+{
+  day: 12,
+  title: "Shopping e souvenir",
+  titleNative: "Покупки и сувениры",
+  focus: "Impari a comprare souvenir, chiedere prezzo e scegliere colori o taglie. La scena è un negozio di souvenir vicino alla Piazza Rossa.",
+  vocab: [{ ru: "магазин", it: "negozio", ipa: "mɐ-gɐˈzʲin" }, { ru: "сувенир", it: "souvenir", ipa: "sʊ-vʲɪˈnʲir" }, { ru: "цена", it: "prezzo", ipa: "tsɨˈna" }, { ru: "рубль", it: "rublo", ipa: "rublʲ" }, { ru: "дешёвый", it: "economico", ipa: "dʲɪˈʂo-vɨj" }, { ru: "дорогой", it: "caro", ipa: "dɐ-rɐˈgoj" }, { ru: "красный", it: "rosso", ipa: "ˈkras-nɨj" }, { ru: "синий", it: "blu", ipa: "ˈsʲi-nʲɪj" }, { ru: "маленький", it: "piccolo", ipa: "ˈma-lʲɪnʲ-kʲɪj" }, { ru: "большой", it: "grande", ipa: "bɐlʲˈʂoj" }],
+  phrases: [{ ru: "Сколько это стоит?", it: "Quanto costa questo?", ipa: "ˈskolʲ-kə ˈe-tə ˈsto-it" }, { ru: "Я просто смотрю.", it: "Sto solo guardando.", ipa: "ja ˈpro-stə smɐˈtrʲu" }, { ru: "Есть другой цвет?", it: "C’è un altro colore?", ipa: "jestʲ drʊˈgoj tsvʲet" }, { ru: "Это слишком дорого.", it: "È troppo caro.", ipa: "ˈe-tə ˈslɨʂ-kəm ˈdo-rə-gə" }, { ru: "Можно дешевле?", it: "Si può a meno?", ipa: "ˈmoʐ-nə dʲɪˈʂev-lʲe" }, { ru: "Я беру это.", it: "Prendo questo.", ipa: "ja bʲɪˈru ˈe-tə" }],
+  grammar: "Questo/questa in russo può essere semplicemente это quando indichi un oggetto. Я беру significa “prendo” e va bene in negozi, mercati e bar. Слишком significa “troppo” e aiuta a negoziare con gentilezza.",
+  practice: ["Chiedi il prezzo di un souvenir.", "Di che stai solo guardando.", "Chiedi un altro colore.", "Di che qualcosa è troppo caro.", "Scegli un oggetto con я беру это."]
+},
+{
+  day: 13,
+  title: "Colori, taglie e vestiti",
+  titleNative: "Цвета, размеры и одежда",
+  focus: "Impari a parlare di vestiti, taglie e preferenze in un negozio russo. È utile per comprare una giacca, una sciarpa o un regalo.",
+  vocab: [{ ru: "одежда", it: "vestiti", ipa: "ɐˈdʲeʐ-də" }, { ru: "размер", it: "taglia", ipa: "rɐzˈmʲer" }, { ru: "рубашка", it: "camicia", ipa: "rʊˈbaʂ-kə" }, { ru: "куртка", it: "giacca", ipa: "ˈkurt-kə" }, { ru: "шапка", it: "cappello", ipa: "ˈʂap-kə" }, { ru: "шарф", it: "sciarpa", ipa: "ʂarf" }, { ru: "белый", it: "bianco", ipa: "ˈbʲe-lɨj" }, { ru: "чёрный", it: "nero", ipa: "ˈtɕor-nɨj" }, { ru: "зелёный", it: "verde", ipa: "zʲɪˈlʲo-nɨj" }, { ru: "жёлтый", it: "giallo", ipa: "ˈʐol-tɨj" }],
+  phrases: [{ ru: "Какой размер?", it: "Che taglia?", ipa: "kɐˈkoj rɐzˈmʲer" }, { ru: "У вас есть маленький размер?", it: "Avete una taglia piccola?", ipa: "u vas jestʲ ˈma-lʲɪnʲ-kʲɪj rɐzˈmʲer" }, { ru: "Можно примерить?", it: "Posso provarlo?", ipa: "ˈmoʐ-nə prʲɪˈmʲe-rʲɪtʲ" }, { ru: "Мне нравится эта куртка.", it: "Mi piace questa giacca.", ipa: "mnʲe ˈnra-vʲɪ-tsə ˈe-tə ˈkurt-kə" }, { ru: "Это слишком большое.", it: "È troppo grande.", ipa: "ˈe-tə ˈslɨʂ-kəm bɐlʲˈʂo-jə" }, { ru: "Я ищу шарф.", it: "Cerco una sciarpa.", ipa: "ja ɪˈɕːu ʂarf" }],
+  grammar: "Мне нравится significa “mi piace” e letteralmente “a me piace”. Per dire che cerchi qualcosa, usa я ищу + oggetto. In russo gli aggettivi cambiano, ma puoi imparare prima combinazioni frequenti come большой размер.",
+  practice: ["Chiedi se puoi provare una giacca.", "Di che cerchi una sciarpa.", "Chiedi una taglia piccola.", "Di che una cosa ti piace.", "Nomina tre colori in russo."]
+},
+{
+  day: 14,
+  title: "Giorni, orari e appuntamenti",
+  titleNative: "Дни, время и встречи",
+  focus: "Impari a parlare di giorni e orari per visite guidate, prenotazioni e incontri. Userai frasi pratiche per organizzare la giornata.",
+  vocab: [{ ru: "сегодня", it: "oggi", ipa: "sʲɪˈvod-nʲə" }, { ru: "завтра", it: "domani", ipa: "ˈzaf-trə" }, { ru: "вчера", it: "ieri", ipa: "ftɕɪˈra" }, { ru: "утро", it: "mattina", ipa: "ˈu-trə" }, { ru: "день", it: "giorno/pomeriggio", ipa: "dʲenʲ" }, { ru: "вечер", it: "sera", ipa: "ˈvʲe-tɕɪr" }, { ru: "час", it: "ora", ipa: "tɕas" }, { ru: "минута", it: "minuto", ipa: "mʲɪˈnu-tə" }, { ru: "встреча", it: "incontro", ipa: "ˈfstrʲe-tɕə" }, { ru: "поздно", it: "tardi", ipa: "ˈpoz-nə" }],
+  phrases: [{ ru: "Который час?", it: "Che ore sono?", ipa: "kɐˈto-rɨj tɕas" }, { ru: "Сегодня утром.", it: "Stamattina.", ipa: "sʲɪˈvod-nʲə ˈu-trəm" }, { ru: "Завтра вечером.", it: "Domani sera.", ipa: "ˈzaf-trə ˈvʲe-tɕɪ-rəm" }, { ru: "У меня встреча.", it: "Ho un incontro.", ipa: "u mʲɪˈnʲa ˈfstrʲe-tɕə" }, { ru: "Я опоздал.", it: "Sono in ritardo.", ipa: "ja ɐ-pɐˈzdal" }, { ru: "Можно в семь?", it: "È possibile alle sette?", ipa: "ˈmoʐ-nə f sʲemʲ" }],
+  grammar: "Per gli orari, spesso puoi usare в + numero: в семь significa “alle sette”. Сегодня, завтра e вчера sono parole molto frequenti e di solito si mettono vicino all’inizio della frase. У меня встреча significa “ho un incontro”.",
+  practice: ["Chiedi che ore sono.", "Di “domani sera” in russo.", "Chiedi se è possibile alle sette.", "Di che hai un incontro.", "Crea tre frasi con oggi, domani e ieri."]
+},
+{
+  day: 15,
+  title: "Meteo e abbigliamento",
+  titleNative: "Погода и одежда",
+  focus: "Impari a parlare del tempo, utile perché il clima russo può cambiare molto tra stagioni e città. Saprai chiedere se fa freddo, caldo o se serve un ombrello.",
+  vocab: [{ ru: "погода", it: "tempo/meteo", ipa: "pɐˈgo-də" }, { ru: "холодно", it: "fa freddo", ipa: "ˈxo-ləd-nə" }, { ru: "жарко", it: "fa caldo", ipa: "ˈʐar-kə" }, { ru: "тепло", it: "mite/caldo", ipa: "tʲɪˈplo" }, { ru: "дождь", it: "pioggia", ipa: "doʂtʲ" }, { ru: "снег", it: "neve", ipa: "snʲek" }, { ru: "ветер", it: "vento", ipa: "ˈvʲe-tʲɪr" }, { ru: "зонт", it: "ombrello", ipa: "zont" }, { ru: "пальто", it: "cappotto", ipa: "pɐlʲˈto" }, { ru: "обувь", it: "scarpe", ipa: "ˈo-bufʲ" }],
+  phrases: [{ ru: "Сегодня холодно.", it: "Oggi fa freddo.", ipa: "sʲɪˈvod-nʲə ˈxo-ləd-nə" }, { ru: "Идёт дождь.", it: "Piove.", ipa: "ɪˈdʲot doʂtʲ" }, { ru: "Идёт снег.", it: "Nevica.", ipa: "ɪˈdʲot snʲek" }, { ru: "Мне нужен зонт.", it: "Mi serve un ombrello.", ipa: "mnʲe ˈnu-ʐen zont" }, { ru: "Какая погода завтра?", it: "Che tempo fa domani?", ipa: "kɐˈka-jə pɐˈgo-də ˈzaf-trə" }, { ru: "На улице тепло.", it: "Fuori è mite.", ipa: "nɐ ˈu-lʲɪ-tsə tʲɪˈplo" }],
+  grammar: "Per dire “fa freddo” o “fa caldo”, il russo usa forme impersonali: холодно, жарко, тепло. Идёт дождь significa letteralmente “va la pioggia”, ma equivale a “piove”. На улице significa “fuori” o “per strada”.",
+  practice: ["Di che oggi fa freddo.", "Chiedi il meteo per domani.", "Di che ti serve un ombrello.", "Di “piove” e “nevica”.", "Crea una frase su cosa indossi quando fa freddo."]
+},
+{
+  day: 16,
+  title: "Farmacia e piccoli problemi",
+  titleNative: "Аптека и небольшие проблемы",
+  focus: "Impari a chiedere aiuto in farmacia per mal di testa, raffreddore o allergia. L’obiettivo è spiegare sintomi semplici senza panico.",
+  vocab: [{ ru: "аптека", it: "farmacia", ipa: "ɐpˈtʲe-kə" }, { ru: "лекарство", it: "medicina", ipa: "lʲɪˈkar-stvə" }, { ru: "голова", it: "testa", ipa: "gɐ-lɐˈva" }, { ru: "живот", it: "pancia", ipa: "ʐɨˈvot" }, { ru: "горло", it: "gola", ipa: "ˈgor-lə" }, { ru: "температура", it: "febbre/temperatura", ipa: "tʲɪm-pʲɪ-rɐˈtu-rə" }, { ru: "боль", it: "dolore", ipa: "bolʲ" }, { ru: "аллергия", it: "allergia", ipa: "ɐ-lʲɪrˈgʲi-jə" }, { ru: "простуда", it: "raffreddore", ipa: "prɐˈstu-də" }, { ru: "врач", it: "medico", ipa: "vratɕ" }],
+  phrases: [{ ru: "У меня болит голова.", it: "Mi fa male la testa.", ipa: "u mʲɪˈnʲa bɐˈlʲit gɐ-lɐˈva" }, { ru: "У меня болит горло.", it: "Mi fa male la gola.", ipa: "u mʲɪˈnʲa bɐˈlʲit ˈgor-lə" }, { ru: "Мне нужно лекарство.", it: "Mi serve una medicina.", ipa: "mnʲe ˈnuʐ-nə lʲɪˈkar-stvə" }, { ru: "У меня аллергия.", it: "Ho un’allergia.", ipa: "u mʲɪˈnʲa ɐ-lʲɪrˈgʲi-jə" }, { ru: "Где ближайшая аптека?", it: "Dov’è la farmacia più vicina?", ipa: "gdʲe blʲɪˈʐaj-ʂa-jə ɐpˈtʲe-kə" }, { ru: "Мне нужен врач.", it: "Mi serve un medico.", ipa: "mnʲe ˈnu-ʐen vratɕ" }],
+  grammar: "У меня болит + parte del corpo significa “mi fa male…”. È una struttura molto utile e facile da adattare. Ближайшая significa “più vicina” e si usa spesso per farmacia, banca, metro o ospedale.",
+  practice: ["Di che ti fa male la testa.", "Chiedi la farmacia più vicina.", "Di che hai un’allergia.", "Chiedi una medicina.", "Di che ti serve un medico."]
+},
+{
+  day: 17,
+  title: "Emergenze e sicurezza",
+  titleNative: "Чрезвычайные ситуации и безопасность",
+  focus: "Impari frasi per situazioni urgenti: perdere documenti, chiamare aiuto o parlare con la polizia. Sono frasi da conoscere anche se speri di non usarle.",
+  vocab: [{ ru: "полиция", it: "polizia", ipa: "pɐˈlʲi-tsɨ-jə" }, { ru: "помогите", it: "aiuto/aiutatemi", ipa: "pɐ-mɐˈgʲi-tʲe" }, { ru: "опасно", it: "pericoloso", ipa: "ɐˈpas-nə" }, { ru: "документы", it: "documenti", ipa: "dɐ-kʊˈmʲen-tɨ" }, { ru: "паспорт", it: "passaporto", ipa: "ˈpas-pərt" }, { ru: "телефон", it: "telefono", ipa: "tʲɪ-lʲɪˈfon" }, { ru: "кошелёк", it: "portafoglio", ipa: "kɐ-ʂɨˈlʲok" }, { ru: "потерять", it: "perdere", ipa: "pɐ-tʲɪˈrʲatʲ" }, { ru: "украли", it: "hanno rubato", ipa: "ʊˈkra-lʲɪ" }, { ru: "срочно", it: "urgentemente", ipa: "ˈsrotɕ-nə" }],
+  phrases: [{ ru: "Помогите, пожалуйста!", it: "Aiuto, per favore!", ipa: "pɐ-mɐˈgʲi-tʲe pɐˈʐa-lʊj-stə" }, { ru: "Я потерял паспорт.", it: "Ho perso il passaporto.", ipa: "ja pɐ-tʲɪˈrʲal ˈpas-pərt" }, { ru: "У меня украли кошелёк.", it: "Mi hanno rubato il portafoglio.", ipa: "u mʲɪˈnʲa ʊˈkra-lʲɪ kɐ-ʂɨˈlʲok" }, { ru: "Позвоните в полицию.", it: "Chiami la polizia.", ipa: "pɐ-zvɐˈnʲi-tʲe f pɐˈlʲi-tsɨ-jʊ" }, { ru: "Это срочно.", it: "È urgente.", ipa: "ˈe-tə ˈsrotɕ-nə" }, { ru: "Мне нужна помощь сейчас.", it: "Ho bisogno di aiuto adesso.", ipa: "mnʲe nʊʐˈna ˈpo-məɕ sʲɪˈtɕas" }],
+  grammar: "Помогите è la forma cortese o plurale di “aiutate”. Per dire “mi hanno rubato…”, puoi usare у меня украли + oggetto. Anche se non conosci tutta la grammatica, queste frasi fisse sono molto importanti.",
+  practice: ["Di che hai perso il passaporto.", "Chiedi aiuto in modo urgente.", "Di che ti hanno rubato il portafoglio.", "Chiedi di chiamare la polizia.", "Ripeti lentamente срочно e полиция."]
+},
+{
+  day: 18,
+  title: "Telefonare e messaggi",
+  titleNative: "Звонки и сообщения",
+  focus: "Impari parole per telefono, messaggi e contatti. È utile per chiamare un hotel, confermare un tour o parlare con un autista.",
+  vocab: [{ ru: "телефон", it: "telefono", ipa: "tʲɪ-lʲɪˈfon" }, { ru: "номер", it: "numero", ipa: "ˈno-mʲer" }, { ru: "сообщение", it: "messaggio", ipa: "sɐ-ɐpˈɕːe-nʲɪ-jə" }, { ru: "звонок", it: "chiamata", ipa: "zvɐˈnok" }, { ru: "позвонить", it: "chiamare", ipa: "pɐ-zvɐˈnʲitʲ" }, { ru: "написать", it: "scrivere", ipa: "nɐ-pʲɪˈsatʲ" }, { ru: "связь", it: "connessione", ipa: "svʲasʲ" }, { ru: "зарядка", it: "caricatore", ipa: "zɐˈrʲat-kə" }, { ru: "интернет", it: "internet", ipa: "ɪn-tʲɪrˈnʲet" }, { ru: "почта", it: "posta/email", ipa: "ˈpotɕ-tə" }],
+  phrases: [{ ru: "Какой у вас номер?", it: "Qual è il suo numero?", ipa: "kɐˈkoj u vas ˈno-mʲer" }, { ru: "Я вам напишу.", it: "Le scrivo.", ipa: "ja vam nɐ-pʲɪˈʂu" }, { ru: "Можно позвонить?", it: "Posso chiamare?", ipa: "ˈmoʐ-nə pɐ-zvɐˈnʲitʲ" }, { ru: "У меня нет связи.", it: "Non ho connessione.", ipa: "u mʲɪˈnʲa nʲet svʲaˈzʲi" }, { ru: "Мне нужна зарядка.", it: "Mi serve un caricatore.", ipa: "mnʲe nʊʐˈna zɐˈrʲat-kə" }, { ru: "Отправьте сообщение.", it: "Mandi un messaggio.", ipa: "ɐtˈprafʲ-tʲe sɐ-ɐpˈɕːe-nʲɪ-jə" }],
+  grammar: "У меня нет significa “non ho”. È il contrario di у меня есть. Per parlare in modo cortese con “Lei”, usa вам: я вам напишу significa “Le scriverò”.",
+  practice: ["Chiedi il numero di telefono.", "Di che non hai connessione.", "Chiedi un caricatore.", "Di che scriverai un messaggio.", "Chiedi se puoi chiamare."]
+},
+{
+  day: 19,
+  title: "Musei, biglietti e cultura",
+  titleNative: "Музеи, билеты и культура",
+  focus: "Impari a comprare biglietti per musei, chiedere orari e capire indicazioni. La scena è una visita all’Ermitage o a una galleria di Mosca.",
+  vocab: [{ ru: "музей", it: "museo", ipa: "mʊˈzʲej" }, { ru: "билет", it: "biglietto", ipa: "bʲɪˈlʲet" }, { ru: "касса", it: "cassa", ipa: "ˈka-sə" }, { ru: "выставка", it: "mostra", ipa: "ˈvɨ-stəf-kə" }, { ru: "картина", it: "quadro", ipa: "kɐrˈtʲi-nə" }, { ru: "зал", it: "sala", ipa: "zal" }, { ru: "аудиогид", it: "audioguida", ipa: "ˈaʊ-dʲɪ-o-gʲit" }, { ru: "открыто", it: "aperto", ipa: "ɐtˈkrɨ-tə" }, { ru: "закрыто", it: "chiuso", ipa: "zɐˈkrɨ-tə" }, { ru: "фото", it: "foto", ipa: "ˈfo-tə" }],
+  phrases: [{ ru: "Два билета, пожалуйста.", it: "Due biglietti, per favore.", ipa: "dva bʲɪˈlʲe-tə pɐˈʐa-lʊj-stə" }, { ru: "Музей открыт?", it: "Il museo è aperto?", ipa: "mʊˈzʲej ɐtˈkrɨt" }, { ru: "Когда закрывается?", it: "Quando chiude?", ipa: "kɐgˈda zɐ-krɨˈva-jɪ-tsə" }, { ru: "Можно фотографировать?", it: "Si possono fare foto?", ipa: "ˈmoʐ-nə fɐ-tɐ-grɐˈfʲi-rə-vətʲ" }, { ru: "Где касса?", it: "Dov’è la cassa?", ipa: "gdʲe ˈka-sə" }, { ru: "У вас есть аудиогид?", it: "Avete un’audioguida?", ipa: "u vas jestʲ ˈaʊ-dʲɪ-o-gʲit" }],
+  grammar: "Можно + verbo all’infinito è una struttura utilissima: можно фотографировать? significa “si può fotografare?”. Quando chiedi orari, когда significa “quando”. Открыто e закрыто sono parole da riconoscere su cartelli e porte.",
+  practice: ["Compra due biglietti.", "Chiedi se il museo è aperto.", "Chiedi quando chiude.", "Chiedi se puoi fotografare.", "Chiedi se c’è un’audioguida."]
+},
+{
+  day: 20,
+  title: "Vita quotidiana e oggetti utili",
+  titleNative: "Повседневная жизнь и полезные вещи",
+  focus: "Impari oggetti e frasi per piccole necessità quotidiane: lavanderia, caricatore, acqua, chiavi e negozi. Questa lezione ti rende più autonomo.",
+  vocab: [{ ru: "вещь", it: "cosa/oggetto", ipa: "vʲeɕː" }, { ru: "ключ", it: "chiave", ipa: "klʲutɕ" }, { ru: "сумка", it: "borsa", ipa: "ˈsum-kə" }, { ru: "рюкзак", it: "zaino", ipa: "rʲʊkˈzak" }, { ru: "бутылка", it: "bottiglia", ipa: "bʊˈtɨl-kə" }, { ru: "зарядка", it: "caricatore", ipa: "zɐˈrʲat-kə" }, { ru: "прачечная", it: "lavanderia", ipa: "ˈpra-tɕɪtɕ-nə-jə" }, { ru: "магазин", it: "negozio", ipa: "mɐ-gɐˈzʲin" }, { ru: "еда", it: "cibo", ipa: "jɪˈda" }, { ru: "вода", it: "acqua", ipa: "vɐˈda" }],
+  phrases: [{ ru: "Где мой ключ?", it: "Dov’è la mia chiave?", ipa: "gdʲe moj klʲutɕ" }, { ru: "Мне нужна вода.", it: "Mi serve acqua.", ipa: "mnʲe nʊʐˈna vɐˈda" }, { ru: "Где ближайший магазин?", it: "Dov’è il negozio più vicino?", ipa: "gdʲe blʲɪˈʐaj-ʂɨj mɐ-gɐˈzʲin" }, { ru: "Я потерял сумку.", it: "Ho perso la borsa.", ipa: "ja pɐ-tʲɪˈrʲal ˈsum-kʊ" }, { ru: "Мне нужна прачечная.", it: "Mi serve una lavanderia.", ipa: "mnʲe nʊʐˈna ˈpra-tɕɪtɕ-nə-jə" }, { ru: "Это моя вещь.", it: "Questa è la mia cosa.", ipa: "ˈe-tə mɐˈja vʲeɕː" }],
+  grammar: "Мой e моя significano “mio/mia”; la forma dipende dal genere della parola russa. Puoi memorizzare esempi: мой ключ, моя сумка. Ближайший significa “più vicino” con parole maschili come магазин.",
+  practice: ["Chiedi dov’è la tua chiave.", "Chiedi il negozio più vicino.", "Di che hai perso la borsa.", "Chiedi una lavanderia.", "Crea tre frasi con мне нужна o мне нужен."]
+},
+{
+  day: 21,
+  title: "Parlare con persone del posto",
+  titleNative: "Разговор с местными",
+  focus: "Impari frasi semplici per fare conversazione con persone del posto. Userai complimenti, domande leggere e risposte naturali.",
+  vocab: [{ ru: "местный", it: "locale", ipa: "ˈmʲes-nɨj" }, { ru: "разговор", it: "conversazione", ipa: "rɐz-gɐˈvor" }, { ru: "интересно", it: "interessante", ipa: "ɪn-tʲɪˈrʲes-nə" }, { ru: "красиво", it: "bello", ipa: "krɐˈsʲi-və" }, { ru: "город", it: "città", ipa: "ˈgo-rət" }, { ru: "страна", it: "paese", ipa: "strɐˈna" }, { ru: "люди", it: "persone", ipa: "ˈlʲu-dʲɪ" }, { ru: "музыка", it: "musica", ipa: "ˈmu-zɨ-kə" }, { ru: "еда", it: "cibo", ipa: "jɪˈda" }, { ru: "культура", it: "cultura", ipa: "kʊlʲˈtu-rə" }],
+  phrases: [{ ru: "Ваш город красивый.", it: "La vostra città è bella.", ipa: "vaʂ ˈgo-rət krɐˈsʲi-vɨj" }, { ru: "Мне здесь нравится.", it: "Qui mi piace.", ipa: "mnʲe zdʲesʲ ˈnra-vʲɪ-tsə" }, { ru: "Это очень интересно.", it: "È molto interessante.", ipa: "ˈe-tə ˈo-tɕɪnʲ ɪn-tʲɪˈrʲes-nə" }, { ru: "Какая здесь хорошая еда!", it: "Che buon cibo qui!", ipa: "kɐˈka-jə zdʲesʲ xɐˈro-ʂa-jə jɪˈda" }, { ru: "Вы местный?", it: "Lei è del posto?", ipa: "vɨ ˈmʲes-nɨj" }, { ru: "Я из Италии, из Рима.", it: "Sono dall’Italia, da Roma.", ipa: "ja ɪz ɪˈta-lʲɪ-jɪ ɪz ˈrʲi-mə" }],
+  grammar: "Мне нравится può essere usato anche senza oggetto preciso: мне здесь нравится significa “mi piace qui”. Ваш significa “vostro/suo” in modo cortese. I complimenti semplici sono molto apprezzati se detti con tono gentile.",
+  practice: ["Di che la città è bella.", "Di che ti piace stare lì.", "Chiedi se qualcuno è del posto.", "Fai un complimento sul cibo.", "Presentati con città e paese."]
+},
+{
+  day: 22,
+  title: "Invitare e accettare",
+  titleNative: "Приглашать и соглашаться",
+  focus: "Impari a proporre un caffè, accettare o rifiutare con gentilezza. È utile per socializzare durante tour, ostelli o eventi.",
+  vocab: [{ ru: "кафе", it: "caffè/bar", ipa: "kɐˈfɛ" }, { ru: "встреча", it: "incontro", ipa: "ˈfstrʲe-tɕə" }, { ru: "сегодня", it: "oggi", ipa: "sʲɪˈvod-nʲə" }, { ru: "завтра", it: "domani", ipa: "ˈzaf-trə" }, { ru: "можно", it: "possibile", ipa: "ˈmoʐ-nə" }, { ru: "конечно", it: "certo", ipa: "kɐˈnʲeʂ-nə" }, { ru: "жаль", it: "peccato", ipa: "ʐalʲ" }, { ru: "вместе", it: "insieme", ipa: "ˈvmʲes-tʲe" }, { ru: "позже", it: "più tardi", ipa: "ˈpoʐ-ʐe" }, { ru: "свободен", it: "libero", ipa: "svɐˈbo-dʲen" }],
+  phrases: [{ ru: "Пойдём в кафе?", it: "Andiamo in un caffè?", ipa: "pɐjˈdʲom f kɐˈfɛ" }, { ru: "Вы свободны сегодня?", it: "È libero oggi?", ipa: "vɨ svɐˈbod-nɨ sʲɪˈvod-nʲə" }, { ru: "Конечно, с удовольствием.", it: "Certo, con piacere.", ipa: "kɐˈnʲeʂ-nə s ʊ-dɐˈvolʲ-stvʲɪ-jəm" }, { ru: "К сожалению, не могу.", it: "Purtroppo non posso.", ipa: "k sɐ-ʐɐˈlʲe-nʲɪ-jʊ nʲe mɐˈgu" }, { ru: "Может быть позже.", it: "Forse più tardi.", ipa: "ˈmo-ʐet bɨtʲ ˈpoʐ-ʐe" }, { ru: "Давайте встретимся завтра.", it: "Incontriamoci domani.", ipa: "dɐˈvaj-tʲe fstrʲɪˈtʲim-sʲə ˈzaf-trə" }],
+  grammar: "Давайте è una parola utile per proporre qualcosa in modo cortese: давайте встретимся significa “incontriamoci”. Не могу significa “non posso”. Пойдём è informale e va bene con persone conosciute.",
+  practice: ["Invita qualcuno a un caffè.", "Accetta con entusiasmo.", "Rifiuta cortesemente.", "Proponi di incontrarsi domani.", "Di “forse più tardi” in russo."]
+},
+{
+  day: 23,
+  title: "Alla stazione dei treni",
+  titleNative: "На вокзале",
+  focus: "Impari a comprare biglietti e chiedere informazioni sui treni. La scena è un viaggio da Mosca a San Pietroburgo.",
+  vocab: [{ ru: "вокзал", it: "stazione ferroviaria", ipa: "vɐgˈzal" }, { ru: "поезд", it: "treno", ipa: "ˈpo-jɪst" }, { ru: "платформа", it: "binario/piattaforma", ipa: "plɐtˈfor-mə" }, { ru: "билет", it: "biglietto", ipa: "bʲɪˈlʲet" }, { ru: "место", it: "posto", ipa: "ˈmʲes-tə" }, { ru: "купе", it: "cuccetta/scompartimento", ipa: "kʊˈpɛ" }, { ru: "плацкарт", it: "vagone letto aperto", ipa: "plɐtsˈkart" }, { ru: "расписание", it: "orario", ipa: "rɐ-spʲɪˈsa-nʲɪ-jə" }, { ru: "прибытие", it: "arrivo", ipa: "prʲɪˈbɨ-tʲɪ-jə" }, { ru: "отправление", it: "partenza", ipa: "ɐt-prɐˈvlʲe-nʲɪ-jə" }],
+  phrases: [{ ru: "Где вокзал?", it: "Dov’è la stazione ferroviaria?", ipa: "gdʲe vɐgˈzal" }, { ru: "Мне нужен билет до Петербурга.", it: "Mi serve un biglietto per Pietroburgo.", ipa: "mnʲe ˈnu-ʐen bʲɪˈlʲet dɐ pʲɪ-tʲɪrˈbur-gə" }, { ru: "Какая платформа?", it: "Quale binario?", ipa: "kɐˈka-jə plɐtˈfor-mə" }, { ru: "Когда отправление?", it: "Quando è la partenza?", ipa: "kɐgˈda ɐt-prɐˈvlʲe-nʲɪ-jə" }, { ru: "Это моё место?", it: "Questo è il mio posto?", ipa: "ˈe-tə mɐˈjo ˈmʲes-tə" }, { ru: "Поезд опаздывает?", it: "Il treno è in ritardo?", ipa: "ˈpo-jɪst ɐˈpaz-dɨ-və-jɪt" }],
+  grammar: "До + città indica destinazione: до Петербурга significa “fino a Pietroburgo/per Pietroburgo”. Моё significa “mio” con parole neutre come место. Quando chiedi il binario, какая платформа è diretto e naturale.",
+  practice: ["Chiedi un biglietto per San Pietroburgo.", "Chiedi quale binario.", "Chiedi quando parte il treno.", "Controlla se un posto è tuo.", "Chiedi se il treno è in ritardo."]
+},
+{
+  day: 24,
+  title: "Noleggio, bagagli e deposito",
+  titleNative: "Аренда, багаж и камера хранения",
+  focus: "Impari a gestire bagagli, armadietti, deposito e piccoli noleggi. È utile quando arrivi presto o parti tardi.",
+  vocab: [{ ru: "багаж", it: "bagaglio", ipa: "bɐˈgaʂ" }, { ru: "камера хранения", it: "deposito bagagli", ipa: "ˈka-mʲɪ-rə xrɐˈnʲe-nʲɪ-jə" }, { ru: "сумка", it: "borsa", ipa: "ˈsum-kə" }, { ru: "чемодан", it: "valigia", ipa: "tɕɪ-mɐˈdan" }, { ru: "аренда", it: "noleggio", ipa: "ɐˈrʲen-də" }, { ru: "велосипед", it: "bicicletta", ipa: "vʲɪ-lɐ-sʲɪˈpʲet" }, { ru: "час", it: "ora", ipa: "tɕas" }, { ru: "день", it: "giorno", ipa: "dʲenʲ" }, { ru: "квитанция", it: "ricevuta", ipa: "kvʲɪˈtan-tsɨ-jə" }, { ru: "номерок", it: "numerino", ipa: "nɐ-mʲɪˈrok" }],
+  phrases: [{ ru: "Где камера хранения?", it: "Dov’è il deposito bagagli?", ipa: "gdʲe ˈka-mʲɪ-rə xrɐˈnʲe-nʲɪ-jə" }, { ru: "Можно оставить багаж?", it: "Posso lasciare il bagaglio?", ipa: "ˈmoʐ-nə ɐˈsta-vʲɪtʲ bɐˈgaʂ" }, { ru: "На один день.", it: "Per un giorno.", ipa: "nɐ ɐˈdʲin dʲenʲ" }, { ru: "Сколько стоит аренда?", it: "Quanto costa il noleggio?", ipa: "ˈskolʲ-kə ˈsto-it ɐˈrʲen-də" }, { ru: "Мне нужна квитанция.", it: "Mi serve una ricevuta.", ipa: "mnʲe nʊʐˈna kvʲɪˈtan-tsɨ-jə" }, { ru: "Это мой чемодан.", it: "Questa è la mia valigia.", ipa: "ˈe-tə moj tɕɪ-mɐˈdan" }],
+  grammar: "Оставить significa “lasciare” in frasi come lasciare un bagaglio. На один день significa “per un giorno” ed è utile per noleggi e depositi. Il russo usa spesso на per indicare durata prevista.",
+  practice: ["Chiedi dov’è il deposito bagagli.", "Chiedi se puoi lasciare una valigia.", "Chiedi il prezzo del noleggio.", "Di “per un giorno”.", "Chiedi una ricevuta."]
+},
+{
+  day: 25,
+  title: "Banca, cambio e pagamenti",
+  titleNative: "Банк, обмен и оплата",
+  focus: "Impari a parlare di contanti, carte, cambio valuta e ricevute. È utile in banca, nei negozi e nei ristoranti.",
+  vocab: [{ ru: "банк", it: "banca", ipa: "bank" }, { ru: "обмен", it: "cambio", ipa: "ɐbˈmʲen" }, { ru: "деньги", it: "soldi", ipa: "ˈdʲenʲ-gʲɪ" }, { ru: "карта", it: "carta", ipa: "ˈkar-tə" }, { ru: "наличные", it: "contanti", ipa: "nɐˈlʲitɕ-nɨ-jə" }, { ru: "банкомат", it: "bancomat", ipa: "bɐn-kɐˈmat" }, { ru: "чек", it: "scontrino", ipa: "tɕek" }, { ru: "комиссия", it: "commissione", ipa: "kɐˈmʲi-sʲɪ-jə" }, { ru: "евро", it: "euro", ipa: "ˈje-vrə" }, { ru: "рубли", it: "rubli", ipa: "rʊˈblʲi" }],
+  phrases: [{ ru: "Где банкомат?", it: "Dov’è il bancomat?", ipa: "gdʲe bɐn-kɐˈmat" }, { ru: "Можно оплатить картой?", it: "Posso pagare con carta?", ipa: "ˈmoʐ-nə ɐ-plɐˈtʲitʲ ˈkar-təj" }, { ru: "У вас есть обмен?", it: "Fate cambio valuta?", ipa: "u vas jestʲ ɐbˈmʲen" }, { ru: "Какая комиссия?", it: "Qual è la commissione?", ipa: "kɐˈka-jə kɐˈmʲi-sʲɪ-jə" }, { ru: "Мне нужен чек.", it: "Mi serve lo scontrino.", ipa: "mnʲe ˈnu-ʐen tɕek" }, { ru: "Я хочу поменять евро.", it: "Vorrei cambiare euro.", ipa: "ja xɐˈtɕu pɐ-mʲɪˈnʲatʲ ˈje-vrə" }],
+  grammar: "Оплатить significa “pagare” e картой significa “con carta”. Поменять significa “cambiare” in contesto di valuta. Quando chiedi commissioni, какая комиссия è una domanda breve e chiara.",
+  practice: ["Chiedi dov’è un bancomat.", "Chiedi se puoi pagare con carta.", "Di che vuoi cambiare euro.", "Chiedi la commissione.", "Chiedi lo scontrino."]
+},
+{
+  day: 26,
+  title: "Prenotazioni e conferme",
+  titleNative: "Бронирования и подтверждения",
+  focus: "Impari a confermare una prenotazione per ristorante, hotel o tour. L’obiettivo è evitare confusione su nome, ora e numero di persone.",
+  vocab: [{ ru: "бронь", it: "prenotazione", ipa: "bronʲ" }, { ru: "подтверждение", it: "conferma", ipa: "pɐt-tvʲɪrˈʐdʲe-nʲɪ-jə" }, { ru: "имя", it: "nome", ipa: "ˈi-mʲə" }, { ru: "фамилия", it: "cognome", ipa: "fɐˈmʲi-lʲɪ-jə" }, { ru: "столик", it: "tavolo", ipa: "ˈsto-lʲɪk" }, { ru: "человек", it: "persona", ipa: "tɕɪ-lɐˈvʲek" }, { ru: "время", it: "ora/tempo", ipa: "ˈvrʲe-mʲə" }, { ru: "ошибка", it: "errore", ipa: "ɐˈʂɨp-kə" }, { ru: "подождите", it: "aspetti", ipa: "pɐ-dɐˈʐdʲi-tʲe" }, { ru: "готово", it: "pronto/fatto", ipa: "gɐˈto-və" }],
+  phrases: [{ ru: "Я хочу подтвердить бронь.", it: "Vorrei confermare la prenotazione.", ipa: "ja xɐˈtɕu pɐt-tvʲɪrˈdʲitʲ bronʲ" }, { ru: "Бронь на имя Каннон.", it: "Prenotazione a nome Cannon.", ipa: "bronʲ nɐ ˈi-mʲə ˈka-nən" }, { ru: "Столик на двоих.", it: "Tavolo per due.", ipa: "ˈsto-lʲɪk nɐ dvɐˈjix" }, { ru: "На какое время?", it: "Per che ora?", ipa: "nɐ kɐˈko-jə ˈvrʲe-mʲə" }, { ru: "Здесь ошибка.", it: "C’è un errore qui.", ipa: "zdʲesʲ ɐˈʂɨp-kə" }, { ru: "Подождите, пожалуйста.", it: "Aspetti, per favore.", ipa: "pɐ-dɐˈʐdʲi-tʲe pɐˈʐa-lʊj-stə" }],
+  grammar: "На имя significa “a nome di”. На двоих significa “per due persone” e cambia con il numero, ma puoi memorizzarlo come frase fissa. Подождите è una forma cortese molto comune: “aspetti”.",
+  practice: ["Conferma una prenotazione.", "Di “a nome…” con il tuo cognome.", "Prenota un tavolo per due.", "Segnala che c’è un errore.", "Chiedi “per che ora?”."]
+},
+{
+  day: 27,
+  title: "Lamentele gentili e soluzioni",
+  titleNative: "Вежливые жалобы и решения",
+  focus: "Impari a spiegare piccoli problemi in modo educato: camera fredda, ordine sbagliato o rumore. L’obiettivo è ottenere aiuto senza sembrare aggressivo.",
+  vocab: [{ ru: "проблема", it: "problema", ipa: "prɐˈblʲe-mə" }, { ru: "номер", it: "camera", ipa: "ˈno-mʲer" }, { ru: "холодный", it: "freddo", ipa: "ˈxo-ləd-nɨj" }, { ru: "грязный", it: "sporco", ipa: "ˈgrʲaz-nɨj" }, { ru: "шумно", it: "rumoroso", ipa: "ˈʂum-nə" }, { ru: "заказ", it: "ordine", ipa: "zɐˈkas" }, { ru: "ошибка", it: "errore", ipa: "ɐˈʂɨp-kə" }, { ru: "помочь", it: "aiutare", ipa: "pɐˈmotɕ" }, { ru: "исправить", it: "correggere/sistemare", ipa: "ɪsˈpra-vʲɪtʲ" }, { ru: "менеджер", it: "manager", ipa: "ˈmʲe-nʲɪ-dʐer" }],
+  phrases: [{ ru: "У меня проблема.", it: "Ho un problema.", ipa: "u mʲɪˈnʲa prɐˈblʲe-mə" }, { ru: "В номере холодно.", it: "In camera fa freddo.", ipa: "v ˈno-mʲɪ-rʲe ˈxo-ləd-nə" }, { ru: "Здесь слишком шумно.", it: "Qui è troppo rumoroso.", ipa: "zdʲesʲ ˈslɨʂ-kəm ˈʂum-nə" }, { ru: "Это не мой заказ.", it: "Questo non è il mio ordine.", ipa: "ˈe-tə nʲe moj zɐˈkas" }, { ru: "Можно исправить?", it: "Si può sistemare?", ipa: "ˈmoʐ-nə ɪsˈpra-vʲɪtʲ" }, { ru: "Позовите менеджера, пожалуйста.", it: "Chiami il manager, per favore.", ipa: "pɐ-zɐˈvʲi-tʲe ˈmʲe-nʲɪ-dʐe-rə pɐˈʐa-lʊj-stə" }],
+  grammar: "Чтобы essere gentili, inizia con извините o пожалуйста. Это не мой… significa “questo non è il mio…”. Можно исправить? è una domanda molto utile perché chiede una soluzione, non solo segnala un problema.",
+  practice: ["Di che hai un problema.", "Spiega che in camera fa freddo.", "Di che un ordine non è tuo.", "Chiedi se si può sistemare.", "Chiedi un manager in modo educato."]
+},
+{
+  day: 28,
+  title: "Esperienze locali e consigli",
+  titleNative: "Местный опыт и советы",
+  focus: "Impari a chiedere consigli autentici su ristoranti, quartieri e luoghi da visitare. Userai domande naturali per scoprire la città come un locale.",
+  vocab: [{ ru: "совет", it: "consiglio", ipa: "sɐˈvʲet" }, { ru: "место", it: "posto", ipa: "ˈmʲes-tə" }, { ru: "район", it: "quartiere", ipa: "rɐˈjon" }, { ru: "лучший", it: "migliore", ipa: "ˈlutɕ-ʂɨj" }, { ru: "любимый", it: "preferito", ipa: "lʲʊˈbʲi-mɨj" }, { ru: "ресторан", it: "ristorante", ipa: "rʲɪ-stɐˈran" }, { ru: "бар", it: "bar", ipa: "bar" }, { ru: "парк", it: "parco", ipa: "park" }, { ru: "вид", it: "vista", ipa: "vʲit" }, { ru: "прогулка", it: "passeggiata", ipa: "prɐˈgul-kə" }],
+  phrases: [{ ru: "Что вы советуете?", it: "Cosa consiglia?", ipa: "ʂto vɨ sɐˈvʲe-tʊ-jɪ-tʲe" }, { ru: "Где хороший ресторан?", it: "Dov’è un buon ristorante?", ipa: "gdʲe xɐˈro-ʂɨj rʲɪ-stɐˈran" }, { ru: "Какой ваш любимый район?", it: "Qual è il suo quartiere preferito?", ipa: "kɐˈkoj vaʂ lʲʊˈbʲi-mɨj rɐˈjon" }, { ru: "Где красивый вид?", it: "Dov’è una bella vista?", ipa: "gdʲe krɐˈsʲi-vɨj vʲit" }, { ru: "Я хочу местный опыт.", it: "Voglio un’esperienza locale.", ipa: "ja xɐˈtɕu ˈmʲes-nɨj ˈo-pɨt" }, { ru: "Куда пойти вечером?", it: "Dove andare la sera?", ipa: "kʊˈda pɐjˈtʲi ˈvʲe-tɕɪ-rəm" }],
+  grammar: "Куда significa “verso dove” e si usa quando c’è movimento: куда пойти? significa “dove andare?”. Где è per posizione: где ресторан? significa “dov’è il ristorante?”. Questa differenza è importante per chiedere consigli.",
+  practice: ["Chiedi un consiglio a una persona locale.", "Chiedi un buon ristorante.", "Chiedi il quartiere preferito.", "Chiedi dove andare la sera.", "Chiedi dove trovare una bella vista."]
+},
+{
+  day: 29,
+  title: "Conversazioni più naturali",
+  titleNative: "Более естественные разговоры",
+  focus: "Impari parole di collegamento per sembrare più naturale quando parli. Potrai unire frasi, spiegare preferenze e reagire con più fluidità.",
+  vocab: [{ ru: "потому что", it: "perché", ipa: "pɐ-tɐˈmu ʂtə" }, { ru: "но", it: "ma", ipa: "no" }, { ru: "и", it: "e", ipa: "i" }, { ru: "или", it: "oppure", ipa: "ˈi-lʲɪ" }, { ru: "тоже", it: "anche", ipa: "ˈto-ʐe" }, { ru: "ещё", it: "ancora/altro", ipa: "jɪˈɕːo" }, { ru: "уже", it: "già", ipa: "ʊˈʐe" }, { ru: "потом", it: "poi", ipa: "pɐˈtom" }, { ru: "сначала", it: "prima", ipa: "snɐˈtɕa-lə" }, { ru: "может быть", it: "forse", ipa: "ˈmo-ʐet bɨtʲ" }],
+  phrases: [{ ru: "Я тоже.", it: "Anch’io.", ipa: "ja ˈto-ʐe" }, { ru: "Может быть завтра.", it: "Forse domani.", ipa: "ˈmo-ʐet bɨtʲ ˈzaf-trə" }, { ru: "Сначала кофе, потом музей.", it: "Prima caffè, poi museo.", ipa: "snɐˈtɕa-lə ˈko-fʲe pɐˈtom mʊˈzʲej" }, { ru: "Я хочу, но не могу.", it: "Voglio, ma non posso.", ipa: "ja xɐˈtɕu no nʲe mɐˈgu" }, { ru: "Ещё один, пожалуйста.", it: "Ancora uno, per favore.", ipa: "jɪˈɕːo ɐˈdʲin pɐˈʐa-lʊj-stə" }, { ru: "Уже поздно.", it: "È già tardi.", ipa: "ʊˈʐe ˈpoz-nə" }],
+  grammar: "Le parole di collegamento rendono il tuo russo molto più naturale anche con frasi semplici. Но, и, или funzionano come “ma, e, oppure”. Сначала e потом sono ottime per raccontare un piano della giornata.",
+  practice: ["Unisci due frasi con но.", "Di “prima caffè, poi museo”.", "Chiedi ancora uno di qualcosa.", "Di “forse domani”.", "Crea un piano con сначала e потом."]
+},
+{
+  day: 30,
+  title: "Giornata completa in Russia",
+  titleNative: "Полный день в России",
+  focus: "Ripassi tutto simulando una giornata completa: hotel, metro, cibo, museo, shopping e conversazione. L’obiettivo è combinare frasi semplici in situazioni reali.",
+  vocab: [{ ru: "день", it: "giorno", ipa: "dʲenʲ" }, { ru: "план", it: "piano", ipa: "plan" }, { ru: "утром", it: "al mattino", ipa: "ˈu-trəm" }, { ru: "днём", it: "di giorno", ipa: "dnʲom" }, { ru: "вечером", it: "di sera", ipa: "ˈvʲe-tɕɪ-rəm" }, { ru: "сегодня", it: "oggi", ipa: "sʲɪˈvod-nʲə" }, { ru: "город", it: "città", ipa: "ˈgo-rət" }, { ru: "еда", it: "cibo", ipa: "jɪˈda" }, { ru: "билет", it: "biglietto", ipa: "bʲɪˈlʲet" }, { ru: "помощь", it: "aiuto", ipa: "ˈpo-məɕ" }],
+  phrases: [{ ru: "Сегодня у меня план.", it: "Oggi ho un piano.", ipa: "sʲɪˈvod-nʲə u mʲɪˈnʲa plan" }, { ru: "Утром я пью кофе.", it: "Al mattino bevo caffè.", ipa: "ˈu-trəm ja pʲju ˈko-fʲe" }, { ru: "Днём я иду в музей.", it: "Di giorno vado al museo.", ipa: "dnʲom ja ɪˈdu v mʊˈzʲej" }, { ru: "Вечером я ужинаю.", it: "Di sera ceno.", ipa: "ˈvʲe-tɕɪ-rəm ja ˈu-ʐɨ-nə-jʊ" }, { ru: "Мне нравится этот город.", it: "Mi piace questa città.", ipa: "mnʲe ˈnra-vʲɪ-tsə ˈe-tət ˈgo-rət" }, { ru: "Спасибо за помощь.", it: "Grazie per l’aiuto.", ipa: "spɐˈsʲi-bə zɐ ˈpo-məɕ" }],
+  grammar: "Per raccontare una giornata, usa parole temporali come утром, днём e вечером. Я иду significa “vado a piedi/sto andando”, mentre я еду è più adatto ai mezzi. Con poche frasi collegate puoi già gestire molte situazioni di viaggio.",
+  practice: ["Descrivi il tuo piano per oggi in tre frasi.", "Di cosa fai al mattino.", "Di cosa fai di sera.", "Ringrazia qualcuno per l’aiuto.", "Crea una mini-conversazione con hotel, metro e caffè."]
+}
+];
+
+var CONVERSATIONS_IT_RU = [
+{ title: "Ordinare in un caffè a Mosca", scene: "Sei in un piccolo caffè vicino a una stazione della metro di Mosca. Vuoi ordinare un caffè con latte e qualcosa di semplice da mangiare.", lines: [{ who: "them", ru: "Здравствуйте, что будете?", it: "Salve, cosa prende?" }, { who: "you", ru: "Здравствуйте, один кофе с молоком, пожалуйста.", it: "Salve, un caffè con latte, per favore." }, { who: "them", ru: "Сахар нужен?", it: "Serve zucchero?" }, { who: "you", ru: "Нет, без сахара, спасибо.", it: "No, senza zucchero, grazie." }, { who: "them", ru: "Что-нибудь ещё?", it: "Qualcos’altro?" }, { who: "you", ru: "Да, один хлеб с сыром, пожалуйста.", it: "Sì, un pane con formaggio, per favore." }, { who: "them", ru: "Вода нужна?", it: "Serve acqua?" }, { who: "you", ru: "Да, вода без газа.", it: "Sì, acqua naturale." }, { who: "them", ru: "Хорошо, с вас пятьсот рублей.", it: "Bene, sono cinquecento rubli." }, { who: "you", ru: "Можно оплатить картой?", it: "Posso pagare con carta?" }, { who: "them", ru: "Да, конечно.", it: "Sì, certo." }, { who: "you", ru: "Спасибо большое.", it: "Grazie mille." }] },
+{ title: "Check-in in hotel a San Pietroburgo", scene: "Arrivi in un hotel a San Pietroburgo nel tardo pomeriggio. Hai una prenotazione e vuoi chiedere anche la password del Wi-Fi.", lines: [{ who: "them", ru: "Добрый вечер, чем могу помочь?", it: "Buonasera, come posso aiutare?" }, { who: "you", ru: "Добрый вечер, у меня есть бронь.", it: "Buonasera, ho una prenotazione." }, { who: "them", ru: "На какое имя?", it: "A che nome?" }, { who: "you", ru: "Бронь на имя Каннон.", it: "Prenotazione a nome Cannon." }, { who: "them", ru: "Можно ваш паспорт?", it: "Posso avere il suo passaporto?" }, { who: "you", ru: "Да, вот мой паспорт.", it: "Sì, ecco il mio passaporto." }, { who: "them", ru: "Ваш номер готов.", it: "La sua camera è pronta." }, { who: "you", ru: "Спасибо, где лифт?", it: "Grazie, dov’è l’ascensore?" }, { who: "them", ru: "Лифт справа.", it: "L’ascensore è a destra." }, { who: "you", ru: "Какой пароль от Wi-Fi?", it: "Qual è la password del Wi-Fi?" }, { who: "them", ru: "Пароль написан на ключе.", it: "La password è scritta sulla chiave." }, { who: "you", ru: "Отлично, спасибо.", it: "Perfetto, grazie." }] },
+{ title: "Chiedere indicazioni per un museo", scene: "Sei nel centro di Mosca e vuoi raggiungere un museo. Fermi una persona per strada e chiedi indicazioni in modo cortese.", lines: [{ who: "you", ru: "Извините, пожалуйста.", it: "Mi scusi, per favore." }, { who: "them", ru: "Да, слушаю.", it: "Sì, mi dica." }, { who: "you", ru: "Где музей?", it: "Dov’è il museo?" }, { who: "them", ru: "Идите прямо, потом налево.", it: "Vada dritto, poi a sinistra." }, { who: "you", ru: "Это далеко?", it: "È lontano?" }, { who: "them", ru: "Нет, десять минут пешком.", it: "No, dieci minuti a piedi." }, { who: "you", ru: "Спасибо, а где касса?", it: "Grazie, e dov’è la cassa?" }, { who: "them", ru: "Касса у входа.", it: "La cassa è all’ingresso." }, { who: "you", ru: "Можно фотографировать внутри?", it: "Si può fotografare dentro?" }, { who: "them", ru: "Да, но без вспышки.", it: "Sì, ma senza flash." }, { who: "you", ru: "Спасибо за помощь.", it: "Grazie per l’aiuto." }, { who: "them", ru: "Пожалуйста.", it: "Prego." }] },
+{ title: "Cena in un ristorante russo", scene: "Sei in un ristorante tradizionale a Kazan. Vuoi chiedere il menu, ordinare una zuppa e controllare se un piatto è piccante.", lines: [{ who: "them", ru: "Добрый вечер, столик на одного?", it: "Buonasera, tavolo per uno?" }, { who: "you", ru: "Да, на одного, пожалуйста.", it: "Sì, per uno, per favore." }, { who: "them", ru: "Вот меню.", it: "Ecco il menu." }, { who: "you", ru: "Спасибо, что вы рекомендуете?", it: "Grazie, cosa consiglia?" }, { who: "them", ru: "Сегодня хороший суп и рыба.", it: "Oggi sono buoni la zuppa e il pesce." }, { who: "you", ru: "Я хочу суп, пожалуйста.", it: "Vorrei una zuppa, per favore." }, { who: "them", ru: "Конечно, ещё что-нибудь?", it: "Certo, qualcos’altro?" }, { who: "you", ru: "Рыба острая?", it: "Il pesce è piccante?" }, { who: "them", ru: "Нет, не острая.", it: "No, non è piccante." }, { who: "you", ru: "Тогда рыбу тоже.", it: "Allora anche il pesce." }, { who: "them", ru: "Хорошо.", it: "Va bene." }, { who: "you", ru: "И воду без газа, пожалуйста.", it: "E acqua naturale, per favore." }] },
+{ title: "Comprare un biglietto della metro", scene: "Sei in una stazione della metropolitana di Mosca. Vuoi comprare un biglietto e capire quale linea prendere per il centro.", lines: [{ who: "them", ru: "Здравствуйте, вам билет?", it: "Salve, vuole un biglietto?" }, { who: "you", ru: "Да, один билет, пожалуйста.", it: "Sì, un biglietto, per favore." }, { who: "them", ru: "На одну поездку?", it: "Per una corsa?" }, { who: "you", ru: "Да, на одну поездку.", it: "Sì, per una corsa." }, { who: "them", ru: "Вот билет.", it: "Ecco il biglietto." }, { who: "you", ru: "Спасибо, какая линия в центр?", it: "Grazie, quale linea va in centro?" }, { who: "them", ru: "Красная линия.", it: "La linea rossa." }, { who: "you", ru: "Сколько остановок?", it: "Quante fermate?" }, { who: "them", ru: "Три остановки.", it: "Tre fermate." }, { who: "you", ru: "Это моя станция?", it: "Questa è la mia stazione?" }, { who: "them", ru: "Нет, следующая.", it: "No, la prossima." }, { who: "you", ru: "Спасибо большое.", it: "Grazie mille." }] },
+{ title: "Shopping di souvenir", scene: "Sei in un negozio di souvenir vicino alla Piazza Rossa. Vuoi comprare un piccolo regalo e chiedere se esiste in un altro colore.", lines: [{ who: "them", ru: "Здравствуйте, могу помочь?", it: "Salve, posso aiutare?" }, { who: "you", ru: "Здравствуйте, я просто смотрю.", it: "Salve, sto solo guardando." }, { who: "them", ru: "Конечно.", it: "Certo." }, { who: "you", ru: "Сколько это стоит?", it: "Quanto costa questo?" }, { who: "them", ru: "Это стоит тысячу рублей.", it: "Costa mille rubli." }, { who: "you", ru: "Это слишком дорого.", it: "È troppo caro." }, { who: "them", ru: "Есть дешевле.", it: "Ce n’è uno più economico." }, { who: "you", ru: "Есть другой цвет?", it: "C’è un altro colore?" }, { who: "them", ru: "Да, есть синий и красный.", it: "Sì, c’è blu e rosso." }, { who: "you", ru: "Я беру синий.", it: "Prendo quello blu." }, { who: "them", ru: "Вам нужен пакет?", it: "Le serve una busta?" }, { who: "you", ru: "Да, пожалуйста.", it: "Sì, per favore." }] },
+{ title: "In farmacia per mal di testa", scene: "Hai mal di testa mentre viaggi a San Pietroburgo. Entri in una farmacia e chiedi una medicina semplice.", lines: [{ who: "them", ru: "Здравствуйте, что вам нужно?", it: "Salve, di cosa ha bisogno?" }, { who: "you", ru: "Здравствуйте, у меня болит голова.", it: "Salve, mi fa male la testa." }, { who: "them", ru: "У вас есть температура?", it: "Ha la febbre?" }, { who: "you", ru: "Нет, температуры нет.", it: "No, non ho febbre." }, { who: "them", ru: "Вам нужно лекарство от боли?", it: "Le serve una medicina per il dolore?" }, { who: "you", ru: "Да, пожалуйста.", it: "Sì, per favore." }, { who: "them", ru: "У вас есть аллергия?", it: "Ha allergie?" }, { who: "you", ru: "Да, у меня аллергия на аспирин.", it: "Sì, ho allergia all’aspirina." }, { who: "them", ru: "Тогда возьмите это лекарство.", it: "Allora prenda questa medicina." }, { who: "you", ru: "Сколько стоит?", it: "Quanto costa?" }, { who: "them", ru: "Триста рублей.", it: "Trecento rubli." }, { who: "you", ru: "Спасибо, можно чек?", it: "Grazie, posso avere lo scontrino?" }] },
+{ title: "Fare conversazione con una persona locale", scene: "Sei seduto in un parco a Mosca e inizi una conversazione con una persona del posto. Vuoi fare piccoli commenti sulla città e chiedere un consiglio per la sera.", lines: [{ who: "you", ru: "Здравствуйте, можно спросить?", it: "Salve, posso chiedere una cosa?" }, { who: "them", ru: "Да, конечно.", it: "Sì, certo." }, { who: "you", ru: "Вы местный?", it: "Lei è del posto?" }, { who: "them", ru: "Да, я из Москвы.", it: "Sì, sono di Mosca." }, { who: "you", ru: "Ваш город очень красивый.", it: "La sua città è molto bella." }, { who: "them", ru: "Спасибо, вам здесь нравится?", it: "Grazie, le piace qui?" }, { who: "you", ru: "Да, мне здесь очень нравится.", it: "Sì, mi piace molto qui." }, { who: "them", ru: "Что вы уже видели?", it: "Cosa ha già visto?" }, { who: "you", ru: "Я видел музей и центр.", it: "Ho visto il museo e il centro." }, { who: "them", ru: "Куда хотите пойти вечером?", it: "Dove vuole andare la sera?" }, { who: "you", ru: "Что вы советуете?", it: "Cosa consiglia?" }, { who: "them", ru: "Пойдите в парк у реки, там красивый вид.", it: "Vada al parco vicino al fiume, lì c’è una bella vista." }] }
+];
