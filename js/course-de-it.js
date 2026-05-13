@@ -746,3 +746,134 @@ var COURSE_DE_IT = [
 if (typeof window !== 'undefined') {
   window.COURSE_DE_IT = COURSE_DE_IT;
 }
+
+var CONVERSATIONS_DE_IT = [
+  {
+    title: "All'aeroporto",
+    scene: "Du bist gerade am Flughafen Fiumicino in Rom gelandet und gehst durch die Passkontrolle. Ein Beamter prüft deinen Reisepass.",
+    lines: [
+      { who: "them", it: "Buongiorno. Il passaporto, per favore.", de: "Guten Morgen. Den Reisepass, bitte." },
+      { who: "you",  it: "Buongiorno. Eccolo.", de: "Guten Morgen. Hier bitte." },
+      { who: "them", it: "Qual è il motivo della sua visita?", de: "Was ist der Zweck Ihres Besuchs?" },
+      { who: "you",  it: "Turismo. Resto due settimane.", de: "Tourismus. Ich bleibe zwei Wochen." },
+      { who: "them", it: "Dove alloggerà?", de: "Wo werden Sie übernachten?" },
+      { who: "you",  it: "In un hotel nel centro di Roma.", de: "In einem Hotel im Stadtzentrum von Rom." },
+      { who: "them", it: "Ha qualcosa da dichiarare?", de: "Haben Sie etwas zu verzollen?" },
+      { who: "you",  it: "No, niente da dichiarare.", de: "Nein, nichts zu verzollen." },
+      { who: "them", it: "Perfetto. Benvenuto in Italia.", de: "Perfekt. Willkommen in Italien." },
+      { who: "you",  it: "Grazie mille. Buona giornata.", de: "Vielen Dank. Schönen Tag." }
+    ]
+  },
+  {
+    title: "Check-in in hotel",
+    scene: "Du kommst am Abend in deinem Hotel in Florenz an und möchtest einchecken. Du hast eine Reservierung auf deinen Namen.",
+    lines: [
+      { who: "you",  it: "Buonasera. Ho una prenotazione a nome Müller.", de: "Guten Abend. Ich habe eine Reservierung auf den Namen Müller." },
+      { who: "them", it: "Buonasera. Un momento... Müller, sì. Tre notti, camera doppia.", de: "Guten Abend. Einen Moment... Müller, ja. Drei Nächte, Doppelzimmer." },
+      { who: "you",  it: "Esatto.", de: "Genau." },
+      { who: "them", it: "Mi serve il passaporto e una carta di credito.", de: "Ich brauche Ihren Pass und eine Kreditkarte." },
+      { who: "you",  it: "Certo, eccoli.", de: "Natürlich, hier bitte." },
+      { who: "them", it: "La sua camera è la 310, al terzo piano.", de: "Ihr Zimmer ist die 310, im dritten Stock." },
+      { who: "you",  it: "La colazione è inclusa?", de: "Ist das Frühstück inklusive?" },
+      { who: "them", it: "Sì, dalle sette alle dieci, al piano terra.", de: "Ja, von sieben bis zehn, im Erdgeschoss." },
+      { who: "you",  it: "Qual è la password del wifi?", de: "Was ist das WLAN-Passwort?" },
+      { who: "them", it: "È sul biglietto nella sua camera. Ecco la chiave.", de: "Es steht auf der Karte in Ihrem Zimmer. Hier ist Ihr Schlüssel." }
+    ]
+  },
+  {
+    title: "Al bar la mattina",
+    scene: "Es ist Morgen in Neapel. Du gehst in eine Bar für einen Espresso und ein Frühstück. In Italien trinkt man Kaffee meistens im Stehen an der Theke.",
+    lines: [
+      { who: "them", it: "Buongiorno! Cosa prende?", de: "Guten Morgen! Was nehmen Sie?" },
+      { who: "you",  it: "Buongiorno. Un cappuccino e un cornetto, per favore.", de: "Guten Morgen. Einen Cappuccino und ein Croissant, bitte." },
+      { who: "them", it: "Il cornetto alla crema o vuoto?", de: "Das Croissant mit Creme oder ohne Füllung?" },
+      { who: "you",  it: "Alla crema, grazie.", de: "Mit Creme, danke." },
+      { who: "them", it: "Prende al banco o si siede?", de: "Nehmen Sie es an der Theke oder setzen Sie sich?" },
+      { who: "you",  it: "Al banco, grazie.", de: "An der Theke, danke." },
+      { who: "them", it: "Subito. Vuole anche un bicchiere d'acqua?", de: "Sofort. Möchten Sie auch ein Glas Wasser?" },
+      { who: "you",  it: "Sì, volentieri.", de: "Ja, gerne." },
+      { who: "them", it: "Ecco a lei. Buona colazione!", de: "Hier bitte. Guten Appetit!" },
+      { who: "you",  it: "Grazie. Quant'è?", de: "Danke. Was macht das?" }
+    ]
+  },
+  {
+    title: "Chiedere indicazioni",
+    scene: "Du bist in Venedig und suchst den Rialto-Markt. Du sprichst eine Passantin auf der Straße an und bittest höflich um den Weg.",
+    lines: [
+      { who: "you",  it: "Scusi, buongiorno. Sa dov'è il mercato di Rialto?", de: "Entschuldigung, guten Morgen. Wissen Sie, wo der Rialto-Markt ist?" },
+      { who: "them", it: "Certo! Non è lontano. Vada sempre dritto.", de: "Natürlich! Es ist nicht weit. Gehen Sie immer geradeaus." },
+      { who: "you",  it: "Sempre dritto?", de: "Immer geradeaus?" },
+      { who: "them", it: "Sì, poi giri a sinistra dopo il ponte.", de: "Ja, dann links abbiegen nach der Brücke." },
+      { who: "you",  it: "Dopo il ponte, a sinistra. Capito.", de: "Nach der Brücke, links. Verstanden." },
+      { who: "them", it: "Esatto. Vedrà il mercato subito.", de: "Genau. Sie sehen den Markt sofort." },
+      { who: "you",  it: "Quanto ci vuole a piedi?", de: "Wie lange dauert es zu Fuß?" },
+      { who: "them", it: "Cinque minuti, non di più.", de: "Fünf Minuten, nicht mehr." },
+      { who: "you",  it: "Perfetto. Grazie mille, è molto gentile.", de: "Perfekt. Vielen Dank, Sie sind sehr freundlich." },
+      { who: "them", it: "Prego! Buona passeggiata.", de: "Bitte! Schönen Spaziergang." }
+    ]
+  },
+  {
+    title: "A cena al ristorante",
+    scene: "Du möchtest am Abend in einem Trattoria in Bologna essen. Du hast keine Reservierung, fragst nach einem Tisch und bestellst ein typisch bologneses Gericht.",
+    lines: [
+      { who: "you",  it: "Buonasera. Avete un tavolo libero per due?", de: "Guten Abend. Haben Sie einen freien Tisch für zwei?" },
+      { who: "them", it: "Buonasera. Sì, da questa parte.", de: "Guten Abend. Ja, hier entlang." },
+      { who: "you",  it: "Grazie. Cosa consiglia?", de: "Danke. Was empfehlen Sie?" },
+      { who: "them", it: "Le tagliatelle al ragù sono il nostro piatto forte.", de: "Die Tagliatelle al ragù sind unser Spezialgebiet." },
+      { who: "you",  it: "Perfetto. Prendo quelle.", de: "Perfekt. Die nehme ich." },
+      { who: "them", it: "E da bere?", de: "Und zu trinken?" },
+      { who: "you",  it: "Una carafa di vino rosso della casa.", de: "Eine Karaffe Hauswein, Rotwein." },
+      { who: "them", it: "Subito. Volete anche il pane?", de: "Sofort. Möchten Sie auch Brot?" },
+      { who: "you",  it: "Sì, grazie. E il conto, alla fine.", de: "Ja, danke. Und die Rechnung am Ende." },
+      { who: "them", it: "Naturalmente. Buon appetito!", de: "Natürlich. Guten Appetit!" }
+    ]
+  },
+  {
+    title: "In un negozio di abbigliamento",
+    scene: "Du suchst in einer Boutique in Mailand ein Hemd. Eine Verkäuferin kommt auf dich zu und hilft dir bei Größe und Farbe.",
+    lines: [
+      { who: "them", it: "Buongiorno, posso aiutarla?", de: "Guten Morgen, kann ich Ihnen helfen?" },
+      { who: "you",  it: "Sì, sto cercando una camicia.", de: "Ja, ich suche ein Hemd." },
+      { who: "them", it: "Che taglia porta?", de: "Welche Größe tragen Sie?" },
+      { who: "you",  it: "La media, credo. O la quarantadue europea.", de: "Medium, glaube ich. Oder Europäische 42." },
+      { who: "them", it: "Preferisce un colore particolare?", de: "Bevorzugen Sie eine bestimmte Farbe?" },
+      { who: "you",  it: "Blu scuro o grigio, se possibile.", de: "Dunkelblau oder Grau, wenn möglich." },
+      { who: "them", it: "Provi questa — è appena arrivata.", de: "Probieren Sie diese — sie ist gerade angekommen." },
+      { who: "you",  it: "Mi piace. Dov'è il camerino?", de: "Die gefällt mir. Wo ist die Umkleidekabine?" },
+      { who: "them", it: "In fondo a destra.", de: "Hinten rechts." },
+      { who: "you",  it: "Grazie, vado a provarla.", de: "Danke, ich probiere sie an." }
+    ]
+  },
+  {
+    title: "In taxi",
+    scene: "Du nimmst ein Taxi vom Hotel zum Hauptbahnhof (Stazione Centrale) in Mailand. Es ist Berufsverkehr und du fragst nach der Fahrtzeit.",
+    lines: [
+      { who: "them", it: "Buongiorno. Dove la porto?", de: "Guten Morgen. Wohin soll ich Sie fahren?" },
+      { who: "you",  it: "Alla Stazione Centrale, per favore.", de: "Zum Hauptbahnhof, bitte." },
+      { who: "them", it: "Certo. C'è un po' di traffico a quest'ora.", de: "Natürlich. Es gibt etwas Verkehr um diese Zeit." },
+      { who: "you",  it: "Quanto tempo ci vorrà?", de: "Wie lange wird es dauern?" },
+      { who: "them", it: "Una ventina di minuti, più o meno.", de: "Etwa zwanzig Minuten, mehr oder weniger." },
+      { who: "you",  it: "Va bene. Il mio treno parte alle undici.", de: "In Ordnung. Mein Zug fährt um elf ab." },
+      { who: "them", it: "Arriveremo in tempo, non si preoccupi.", de: "Wir kommen rechtzeitig an, keine Sorge." },
+      { who: "you",  it: "Posso pagare con la carta?", de: "Kann ich mit Karte bezahlen?" },
+      { who: "them", it: "Sì, accettiamo carte.", de: "Ja, wir akzeptieren Karten." },
+      { who: "you",  it: "Perfetto. Grazie mille.", de: "Perfekt. Vielen Dank." }
+    ]
+  },
+  {
+    title: "Conversazione informale",
+    scene: "Du sitzt auf einer Piazza in Siena und trinkst einen Aperitivo. Eine freundliche Person am Nebentisch beginnt ein Gespräch mit dir.",
+    lines: [
+      { who: "them", it: "È in vacanza da queste parti?", de: "Sind Sie hier in der Gegend im Urlaub?" },
+      { who: "you",  it: "Sì, sto girando la Toscana per dieci giorni.", de: "Ja, ich reise zehn Tage durch die Toskana." },
+      { who: "them", it: "Che bello! Da dove viene?", de: "Wie schön! Woher kommen Sie?" },
+      { who: "you",  it: "Vengo dalla Germania, da Monaco.", de: "Ich komme aus Deutschland, aus München." },
+      { who: "them", it: "Monaco! È la prima volta in Toscana?", de: "München! Ist es das erste Mal in der Toskana?" },
+      { who: "you",  it: "Sì, e mi sta piacendo moltissimo.", de: "Ja, und es gefällt mir sehr." },
+      { who: "them", it: "Ha già assaggiato il vino di qui?", de: "Haben Sie schon den hiesigen Wein probiert?" },
+      { who: "you",  it: "Sì, il Chianti è eccellente.", de: "Ja, der Chianti ist ausgezeichnet." },
+      { who: "them", it: "Parla molto bene l'italiano per essere tedesco!", de: "Sie sprechen sehr gut Italienisch für einen Deutschen!" },
+      { who: "you",  it: "Grazie, sto ancora imparando. Mi esercito!", de: "Danke, ich lerne noch. Ich übe!" }
+    ]
+  }
+];
