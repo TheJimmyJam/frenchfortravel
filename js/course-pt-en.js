@@ -963,3 +963,134 @@ var COURSE_PT_EN = [
     ]
   }
 ];
+
+var CONVERSATIONS_PT_EN = [
+{
+title: "Passport Control at the Airport",
+scene: "Você acabou de chegar a um aeroporto em um país de língua inglesa. No controle de passaportes, o agente faz algumas perguntas sobre sua viagem.",
+lines: [
+{ who: "them", en: "Good morning. Passport, please.", pt: "Bom dia. Passaporte, por favor." },
+{ who: "you",  en: "Good morning. Here it is.", pt: "Bom dia. Aqui está." },
+{ who: "them", en: "What is the purpose of your visit?", pt: "Qual é o motivo da sua visita?" },
+{ who: "you",  en: "I'm here for vacation.", pt: "Estou aqui de férias." },
+{ who: "them", en: "How long will you stay?", pt: "Quanto tempo você vai ficar?" },
+{ who: "you",  en: "I'll stay for one week.", pt: "Vou ficar por uma semana." },
+{ who: "them", en: "Where are you staying?", pt: "Onde você vai ficar hospedado?" },
+{ who: "you",  en: "At a hotel downtown.", pt: "Em um hotel no centro." },
+{ who: "them", en: "Alright. Welcome, and enjoy your trip.", pt: "Certo. Bem-vindo e aproveite sua viagem." },
+{ who: "you",  en: "Thank you. Have a nice day.", pt: "Obrigado. Tenha um bom dia." }
+]
+},
+{
+title: "Hotel Check-In",
+scene: "Você chega ao hotel depois de uma longa viagem. Na recepção, você precisa confirmar sua reserva e pedir informações básicas sobre o quarto.",
+lines: [
+{ who: "them", en: "Good evening. Welcome to our hotel.", pt: "Boa noite. Bem-vindo ao nosso hotel." },
+{ who: "you",  en: "Good evening. I have a reservation.", pt: "Boa noite. Eu tenho uma reserva." },
+{ who: "them", en: "May I have your name, please?", pt: "Posso saber seu nome, por favor?" },
+{ who: "you",  en: "Yes, it's under Silva.", pt: "Sim, está no nome de Silva." },
+{ who: "them", en: "I found it. Two nights, correct?", pt: "Encontrei. Duas noites, correto?" },
+{ who: "you",  en: "Yes, that's right.", pt: "Sim, isso mesmo." },
+{ who: "them", en: "Here is your room key.", pt: "Aqui está a chave do seu quarto." },
+{ who: "you",  en: "Thank you. What time is breakfast?", pt: "Obrigado. Que horas é o café da manhã?" },
+{ who: "them", en: "From seven to ten downstairs.", pt: "Das sete às dez no andar de baixo." },
+{ who: "you",  en: "Great, thank you for your help.", pt: "Ótimo, obrigado pela ajuda." }
+]
+},
+{
+title: "Breakfast at a Café",
+scene: "É de manhã e você entra em um café perto do hotel. Você quer pedir algo simples para comer e beber antes de passear pela cidade.",
+lines: [
+{ who: "them", en: "Good morning. What can I get you?", pt: "Bom dia. O que posso trazer para você?" },
+{ who: "you",  en: "I'd like a coffee, please.", pt: "Eu gostaria de um café, por favor." },
+{ who: "them", en: "Sure. Any milk or sugar?", pt: "Claro. Leite ou açúcar?" },
+{ who: "you",  en: "A little milk, please.", pt: "Um pouco de leite, por favor." },
+{ who: "them", en: "Would you like something to eat?", pt: "Você gostaria de algo para comer?" },
+{ who: "you",  en: "Yes, a croissant and eggs.", pt: "Sim, um croissant e ovos." },
+{ who: "them", en: "How would you like the eggs?", pt: "Como você gostaria dos ovos?" },
+{ who: "you",  en: "Scrambled, please.", pt: "Mexidos, por favor." },
+{ who: "them", en: "Perfect. I'll bring that out.", pt: "Perfeito. Vou trazer isso." },
+{ who: "you",  en: "Thank you very much.", pt: "Muito obrigado." }
+]
+},
+{
+title: "Asking for Directions",
+scene: "Você está andando pela cidade e quer visitar um ponto turístico famoso. Você para uma pessoa na rua e pede ajuda para encontrar o caminho.",
+lines: [
+{ who: "you",  en: "Excuse me, where is the museum?", pt: "Com licença, onde fica o museu?" },
+{ who: "them", en: "It's about ten minutes away.", pt: "Fica a cerca de dez minutos daqui." },
+{ who: "you",  en: "Can I walk there?", pt: "Posso ir andando até lá?" },
+{ who: "them", en: "Yes, it's an easy walk.", pt: "Sim, é uma caminhada fácil." },
+{ who: "you",  en: "Which way should I go?", pt: "Para que lado devo ir?" },
+{ who: "them", en: "Go straight, then turn left.", pt: "Siga em frente, depois vire à esquerda." },
+{ who: "you",  en: "Is it near the park?", pt: "Fica perto do parque?" },
+{ who: "them", en: "Yes, right across from it.", pt: "Sim, bem em frente a ele." },
+{ who: "you",  en: "Thank you. That really helps.", pt: "Obrigado. Isso ajuda muito." },
+{ who: "them", en: "You're welcome. Enjoy the museum.", pt: "De nada. Aproveite o museu." }
+]
+},
+{
+title: "Dinner at a Restaurant",
+scene: "À noite, você entra em um restaurante sem reserva. Você pergunta se há mesa disponível, faz um pedido simples e depois pede a conta.",
+lines: [
+{ who: "you",  en: "Hi, do you have a table?", pt: "Oi, vocês têm uma mesa?" },
+{ who: "them", en: "For how many people?", pt: "Para quantas pessoas?" },
+{ who: "you",  en: "Just one, please.", pt: "Só uma, por favor." },
+{ who: "them", en: "Sure, follow me.", pt: "Claro, me acompanhe." },
+{ who: "you",  en: "Can I see the menu?", pt: "Posso ver o cardápio?" },
+{ who: "them", en: "Of course. The special is salmon.", pt: "Claro. O prato especial é salmão." },
+{ who: "you",  en: "I'll have the salmon.", pt: "Vou querer o salmão." },
+{ who: "them", en: "Great choice. Anything to drink?", pt: "Ótima escolha. Algo para beber?" },
+{ who: "you",  en: "A glass of water, please.", pt: "Um copo de água, por favor." },
+{ who: "them", en: "Sure. I'll be right back.", pt: "Claro. Já volto." }
+]
+},
+{
+title: "Shopping for Clothing",
+scene: "Você entra em uma loja de roupas procurando uma camisa nova. Um vendedor oferece ajuda, e você pergunta sobre tamanho, cor e provador.",
+lines: [
+{ who: "them", en: "Hi there. Can I help you?", pt: "Olá. Posso ajudar?" },
+{ who: "you",  en: "Yes, I'm looking for a shirt.", pt: "Sim, estou procurando uma camisa." },
+{ who: "them", en: "What size do you need?", pt: "De que tamanho você precisa?" },
+{ who: "you",  en: "I think I need a medium.", pt: "Acho que preciso de tamanho médio." },
+{ who: "them", en: "Do you like this blue one?", pt: "Você gosta desta azul?" },
+{ who: "you",  en: "Yes, it looks nice.", pt: "Sim, parece bonita." },
+{ who: "them", en: "Would you like to try it on?", pt: "Você gostaria de experimentar?" },
+{ who: "you",  en: "Yes. Where is the fitting room?", pt: "Sim. Onde fica o provador?" },
+{ who: "them", en: "It's in the back.", pt: "Fica lá no fundo." },
+{ who: "you",  en: "Thank you. I'll try it on.", pt: "Obrigado. Vou experimentar." }
+]
+},
+{
+title: "Taking a Taxi or Uber",
+scene: "Você entra em um táxi ou Uber para chegar ao seu próximo destino. Você confirma o endereço, pergunta sobre o tempo de viagem e fala sobre o pagamento.",
+lines: [
+{ who: "them", en: "Hi, are you going downtown?", pt: "Oi, você vai para o centro?" },
+{ who: "you",  en: "Yes, to this address, please.", pt: "Sim, para este endereço, por favor." },
+{ who: "them", en: "No problem. It's about twenty minutes.", pt: "Sem problema. São cerca de vinte minutos." },
+{ who: "you",  en: "Is there much traffic now?", pt: "Tem muito trânsito agora?" },
+{ who: "them", en: "A little, but not too bad.", pt: "Um pouco, mas não está tão ruim." },
+{ who: "you",  en: "Okay, that's fine.", pt: "Tudo bem, sem problema." },
+{ who: "them", en: "Do you want the fastest route?", pt: "Você quer a rota mais rápida?" },
+{ who: "you",  en: "Yes, please. I'm a bit late.", pt: "Sim, por favor. Estou um pouco atrasado." },
+{ who: "them", en: "Sure, I'll take the highway.", pt: "Claro, vou pegar a rodovia." },
+{ who: "you",  en: "Great. Can I pay by card?", pt: "Ótimo. Posso pagar com cartão?" }
+]
+},
+{
+title: "Small Talk with a Friendly Local",
+scene: "Você está sentado em uma praça ou terraço e uma pessoa local começa uma conversa amigável. Vocês falam sobre a cidade, o clima e sua viagem.",
+lines: [
+{ who: "them", en: "Are you enjoying the city?", pt: "Você está gostando da cidade?" },
+{ who: "you",  en: "Yes, I like it a lot.", pt: "Sim, gosto muito daqui." },
+{ who: "them", en: "Is this your first time here?", pt: "É sua primeira vez aqui?" },
+{ who: "you",  en: "Yes, it's my first visit.", pt: "Sim, é minha primeira visita." },
+{ who: "them", en: "What have you seen so far?", pt: "O que você já viu até agora?" },
+{ who: "you",  en: "I visited the park and museum.", pt: "Visitei o parque e o museu." },
+{ who: "them", en: "That sounds like a nice day.", pt: "Parece um dia agradável." },
+{ who: "you",  en: "Yes, and the weather is perfect.", pt: "Sim, e o tempo está perfeito." },
+{ who: "them", en: "I hope you enjoy the rest.", pt: "Espero que aproveite o resto." },
+{ who: "you",  en: "Thank you. Everyone is very friendly.", pt: "Obrigado. Todos são muito simpáticos." }
+]
+}
+];
