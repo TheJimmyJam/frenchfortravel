@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cunning Linguist — Learn Languages From Where You Already Are</title>
+<meta name="description" content="15+ language pairs. 30-day courses. Real conversations. Learn any language from the one you already speak.">
+<link rel="icon" href="/assets/logos/favicon-32.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Reset & tokens ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:        #0e0e10;
+  --ink-soft:   #1a1a1f;
+  --gold:       #d4af37;
+  --gold-light: #e6c558;
+  --gold-dim:   rgba(212,175,55,0.55);
+  --cream:      #f8f3e7;
+  --cream-soft: #faf6ec;
+  --cream-60:   rgba(248,243,231,0.6);
+  --cream-35:   rgba(248,243,231,0.35);
+  --cream-12:   rgba(248,243,231,0.12);
+  --cream-06:   rgba(248,243,231,0.06);
+  --muted:      rgba(248,243,231,0.5);
+  --serif:      "Cormorant Garamond", Georgia, serif;
+  --sans:       "Inter", -apple-system, sans-serif;
+  --max:        72rem;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--ink); color: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+.w { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.serif { font-family: var(--serif); }
+.eye {
+  font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(212,175,55,.65);
+  display: block; margin-bottom: 1.25rem;
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────────────────── */
+[data-rev] { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; transition-delay: var(--d, 0s); }
+[data-rev][data-vis] { opacity: 1; transform: translateY(0); }
+
+/* ─── Word reveal ────────────────────────────────────────────────────────── */
+.wr { display: inline; opacity: 0; filter: blur(4px); transition: none; }
+.wg-vis .wr { animation: wFade .55s ease forwards; animation-delay: var(--wd, 0s); }
+@keyframes wFade { from { opacity:0; filter:blur(4px); } to { opacity:1; filter:blur(0); } }
+
+/* ─── Slide button ───────────────────────────────────────────────────────── */
+.sb {
+  display: inline-flex; align-items: center; overflow: hidden;
+  border-radius: 9999px; padding: .72rem 1.75rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; text-decoration: none;
+  border: 1px solid var(--cream-12); color: var(--cream-60);
+  transition: border-color .2s;
+}
+.sb:hover { border-color: var(--cream-35); }
+.sb--gold { background: var(--gold); color: var(--ink); border-color: transparent; }
+.sb--gold:hover { background: var(--gold-light); border-color: transparent; }
+.sb__track { display: flex; flex-direction: column; height: 1em; line-height: 1em; transition: transform .28s cubic-bezier(.4,0,.2,1); }
+.sb:hover .sb__track { transform: translateY(-1em); }
+.sb__txt { display: block; height: 1em; white-space: nowrap; }
+
+/* ─── Gold dot grid (ambient texture) ───────────────────────────────────── */
+.dot-grid::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(212,175,55,.05) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* ─── NAV ────────────────────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(14px) saturate(180%);
+  background: rgba(14,14,16,.82);
+  border-bottom: 1px solid var(--cream-06);
+}
+.nav__inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav__brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.nav__brand img { height: 36px; border-radius: 6px; }
+.nav__brand-text { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--cream); }
+.nav__links { display: flex; align-items: center; gap: 2rem; }
+.nav__links a { font-size: .82rem; font-weight: 500; color: var(--cream-60); text-decoration: none; transition: color .15s; }
+.nav__links a:hover { color: var(--gold); }
+.nav__cta {
+  font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--gold); color: var(--ink); border: none;
+  padding: .55rem 1.2rem; border-radius: 9999px; cursor: pointer; text-decoration: none;
+  transition: background .2s;
+}
+.nav__cta:hover { background: var(--gold-light); }
+
+/* ─── SECTION base ───────────────────────────────────────────────────────── */
+.section {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--cream-06);
+  position: relative;
+}
+.section:last-of-type { border-bottom: none; }
+
+/* ─── 1. HERO ────────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh; padding: 8rem 0 5rem;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+  background: radial-gradient(ellipse 70% 60% at 20% 55%, rgba(212,175,55,.08) 0%, transparent 60%),
+              linear-gradient(160deg, #1a1a1f 0%, #0e0e10 60%);
+}
+.hero .dot-grid::before { opacity: .6; }
+.hero__inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: center;
+  position: relative; z-index: 1;
+}
+@media (max-width: 768px) { .hero__inner { grid-template-columns: 1fr; } }
+.hero__h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700; letter-spacing: -.01em; line-height: 1.08;
+  margin-bottom: 1.5rem;
+}
+.hero__h1 em { font-style: italic; color: var(--gold); }
+.hero__sub {
+  font-size: clamp(.95rem, 1.8vw, 1.15rem); color: var(--cream-60);
+  max-width: 38rem; line-height: 1.7; margin-bottom: 2rem;
+}
+.hero__ctas { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.hero__footnote { font-size: .75rem; color: var(--muted); }
+.hero__right {
+  position: relative; display: flex;
+  align-items: flex-end; justify-content: center;
+  min-height: 60vh;
+}
+.hero__gentleman {
+  height: 72vh; width: auto; object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 16px 60px rgba(212,175,55,.2));
+}
+@media (max-width: 768px) { .hero__right { display: none; } }
+
+/* ─── 2. SCALE-UP WRAP ───────────────────────────────────────────────────── */
+#scaleWrap {
+  position: relative; height: 280vh;
+  background: var(--ink);
+}
+#scalePanel {
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: radial-gradient(ellipse 80% 70% at 50% 50%, #1e1a0e 0%, #0e0e10 65%);
+  transform-origin: center center;
+  will-change: transform, border-radius;
+}
+/* Gold grid inside scale panel */
+#scalePanel::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+#scalePanel::after {
+  content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 35vh;
+  background: linear-gradient(to bottom, transparent, #0e0e10);
+  pointer-events: none; z-index: 2;
+}
+.scale-content {
+  position: relative; z-index: 1; text-align: center;
+  max-width: 50rem; padding: 0 2rem;
+}
+.scale-ornament {
+  font-size: 2rem; color: var(--gold); opacity: .6;
+  display: block; margin-bottom: 1.5rem; letter-spacing: .3em;
+}
+.scale-h {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 700; letter-spacing: -.01em; line-height: 1.18;
+  margin-bottom: 1.25rem;
+}
+.scale-h em { font-style: italic; color: var(--gold); }
+.scale-sub {
+  font-size: clamp(.9rem, 1.5vw, 1.1rem); color: var(--cream-60);
+  line-height: 1.65;
+}
+
+/* ─── 3. PROBLEM ─────────────────────────────────────────────────────────── */
+.problem { background: var(--ink); }
+.problem__stat {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 600; letter-spacing: -.01em; line-height: 1.38;
+  max-width: 54rem; margin-bottom: 3.5rem;
+}
+.problem__stat .gold-line { display: block; color: var(--gold); margin-top: .2rem; }
+.problem__items { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3.5rem; }
+.problem__item {
+  display: flex; gap: 1.5rem; align-items: baseline;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--cream-06); border-radius: 12px;
+  background: var(--cream-06);
+  font-size: .95rem; line-height: 1.65; color: var(--cream-60);
+}
+.problem__item strong { color: var(--cream); }
+.problem__num { font-size: .65rem; font-weight: 700; letter-spacing: .08em; color: var(--gold); min-width: 1.5rem; flex-shrink: 0; }
+.contrast { padding-top: 1rem; }
+.contrast__a { font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 2.2rem); font-weight: 600; color: var(--cream-35); line-height: 1.3; margin-bottom: .2rem; letter-spacing: -.01em; }
+.contrast__b { font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 2.2rem); font-weight: 600; color: var(--cream); line-height: 1.3; letter-spacing: -.01em; }
+
+/* ─── 4. FEATURES (Gentleman section) ───────────────────────────────────── */
+#featSection {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: var(--ink);
+  padding: 6rem 0;
+  position: relative; overflow: hidden;
+}
+/* Gentleman ghost — large, bottom-right, atmospheric */
+.gentleman-ghost {
+  position: absolute;
+  right: -2vw; bottom: 0;
+  height: 92vh; width: auto;
+  object-fit: contain; object-position: bottom right;
+  opacity: .1;
+  filter: saturate(.4) brightness(1.4);
+  pointer-events: none; z-index: 0;
+  will-change: transform, opacity;
+}
+@media (max-width: 768px) { .gentleman-ghost { height: 50vh; right: -10vw; opacity: .07; } }
+#featSection .w { position: relative; z-index: 1; width: 100%; }
+.feat-header { max-width: 38rem; margin-bottom: 3rem; }
+.feat-label {
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 700;
+  letter-spacing: -.02em; color: var(--cream-60);
+  margin-bottom: 0;
+}
+.feat-grid { display: flex; flex-direction: column; gap: .9rem; max-width: 42rem; }
+.feat-card {
+  display: grid; grid-template-columns: 3.5rem 1fr;
+  gap: .5rem 1.25rem; align-items: start;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(212,175,55,.2); border-radius: 14px;
+  background: rgba(212,175,55,.04);
+  will-change: transform, opacity;
+  transition: border-color .2s, background .2s;
+}
+.feat-card:hover { border-color: rgba(212,175,55,.4); background: rgba(212,175,55,.07); }
+.feat-icon { font-size: 1.5rem; grid-row: span 2; display: flex; align-items: center; }
+.feat-title { font-size: .88rem; font-weight: 700; color: var(--cream); line-height: 1.4; }
+.feat-body { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+
+/* ─── 5. LANGUAGE PAIRS ──────────────────────────────────────────────────── */
+.pairs { background: var(--ink-soft); }
+.pairs__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: .75rem; margin-top: 2.5rem;
+}
+.pair-card {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--cream-06); border-radius: 12px;
+  background: var(--cream-06);
+  display: flex; align-items: center; gap: .75rem;
+  text-decoration: none; color: var(--cream);
+  transition: border-color .2s, background .2s;
+}
+.pair-card:hover { border-color: rgba(212,175,55,.35); background: rgba(212,175,55,.05); }
+.pair-flags { font-size: 1.25rem; line-height: 1; }
+.pair-label { font-size: .82rem; font-weight: 600; }
+.pair-sub { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
+
+/* ─── 6. HOW IT WORKS ────────────────────────────────────────────────────── */
+.how { background: var(--ink); }
+.how__grid { display: grid; gap: 2rem; margin-top: 3rem; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 640px) { .how__grid { grid-template-columns: 1fr; } }
+.how-step {
+  padding: 2rem; border-radius: 16px;
+  border: 1px solid var(--cream-06); background: var(--cream-06);
+}
+.how-step__num {
+  font-family: var(--serif); font-size: 3rem; font-weight: 700;
+  color: rgba(212,175,55,.3); line-height: 1; margin-bottom: 1rem;
+}
+.how-step__title { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+.how-step__body { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+/* ─── 7. CTA ─────────────────────────────────────────────────────────────── */
+.cta-section { background: var(--ink); padding-bottom: 8rem; }
+.cta-box {
+  border: 1px solid rgba(212,175,55,.2); border-radius: 20px;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(212,175,55,.05) 0%, transparent 70%);
+  padding: 5rem 3rem; text-align: center;
+}
+@media (max-width: 640px) { .cta-box { padding: 3rem 1.5rem; } }
+.cta-ornament { font-size: 1.4rem; color: var(--gold); opacity: .5; letter-spacing: .3em; display: block; margin-bottom: 1.5rem; }
+.cta-h {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700; letter-spacing: -.01em; line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.cta-h em { color: var(--gold); font-style: italic; }
+.cta-sub { font-size: .95rem; color: var(--muted); max-width: 36rem; margin: 0 auto 2.5rem; line-height: 1.65; }
+.cta-btns { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────────── */
+footer {
+  background: var(--ink-soft);
+  border-top: 1px solid var(--cream-06);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+footer p { font-size: .78rem; color: var(--muted); }
+footer a { color: var(--gold); text-decoration: none; }
+footer a:hover { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="assets/logos/hero-dark.png" alt="The Cunning Linguist">
+    </a>
+    <div class="nav__links">
+      <a href="learn.html">Languages</a>
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+    </div>
+    <a href="learn.html" class="nav__cta">Start Learning</a>
+  </div>
+</nav>
+
+<!-- ── 1. HERO ──────────────────────────────────────────────────────────── -->
+<section class="hero dot-grid">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <span class="eye" data-rev>FREE LANGUAGE LEARNING PLATFORM</span>
+      <h1 class="hero__h1" data-rev style="--d:.1s">
+        Learn languages<br>from <em>where</em><br>you already are.
+      </h1>
+      <p class="hero__sub" data-rev style="--d:.2s">
+        15+ language pairs. 30-day structured courses. Real conversations.
+        The Cunning Linguist teaches you from your native language — not from English.
+      </p>
+      <div class="hero__ctas" data-rev style="--d:.3s">
+        <a href="learn.html" class="sb sb--gold">
+          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt">Start Learning Free</span></span>
+        </a>
+        <a href="#features" class="sb">
+          <span class="sb__track"><span class="sb__txt">See Features</span><span class="sb__txt">See Features</span></span>
+        </a>
+      </div>
+      <p class="hero__footnote" data-rev style="--d:.4s">
+        No account required. Pick a language pair and go.
+      </p>
+    </div>
+    <div class="hero__right" data-rev style="--d:.15s">
+      <img src="assets/logos/gentleman.png" alt="The Cunning Linguist mascot" class="hero__gentleman">
+    </div>
+  </div>
+</section>
+
+<!-- ── 2. SCALE-UP PANEL ────────────────────────────────────────────────── -->
+<!-- Starts as a centered card, grows to full-screen as you scroll           -->
+<div id="scaleWrap">
+  <div id="scalePanel">
+    <div class="scale-content">
+      <span class="scale-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+      <h2 class="scale-h">
+        The language you learn <em>from</em><br>changes everything.
+      </h2>
+      <p class="scale-sub">
+        Every app teaches you French. Almost none teach you French <em>from Spanish</em>.
+        The native-language context is what makes vocabulary stick.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. PROBLEM ESCALATION ─────────────────────────────────────────────── -->
+<section class="section problem">
+  <div class="w">
+    <span class="eye" data-rev>THE PROBLEM WITH LANGUAGE LEARNING</span>
+    <h2 class="problem__stat">
+      <span data-wg>
+        <span class="wr" style="--wd:.00s">Most</span>
+        <span class="wr" style="--wd:.04s">apps</span>
+        <span class="wr" style="--wd:.08s">assume</span>
+        <span class="wr" style="--wd:.12s">English</span>
+        <span class="wr" style="--wd:.16s">is</span>
+        <span class="wr" style="--wd:.20s">the</span>
+        <span class="wr" style="--wd:.24s">center</span>
+        <span class="wr" style="--wd:.28s">of</span>
+        <span class="wr" style="--wd:.32s">the</span>
+        <span class="wr" style="--wd:.36s">language-learning</span>
+        <span class="wr" style="--wd:.40s">world.</span>
+        <span class="wr" style="--wd:.46s">You</span>
+        <span class="wr" style="--wd:.50s">end</span>
+        <span class="wr" style="--wd:.54s">up</span>
+        <span class="wr" style="--wd:.58s">translating</span>
+        <span class="wr" style="--wd:.62s">everything</span>
+        <span class="wr" style="--wd:.66s">twice.</span>
+      </span>
+      <span class="gold-line" data-wg>
+        <span class="wr" style="--wd:.00s">That's</span>
+        <span class="wr" style="--wd:.05s">not</span>
+        <span class="wr" style="--wd:.10s">how</span>
+        <span class="wr" style="--wd:.15s">fluency</span>
+        <span class="wr" style="--wd:.20s">works.</span>
+      </span>
+    </h2>
+
+    <div class="problem__items">
+      <div class="problem__item" data-rev style="--d:.00s">
+        <span class="problem__num">01</span>
+        <span><strong>Duolingo and competitors are English-first</strong> — even when you're a Spanish speaker learning French, you're routed through English definitions.</span>
+      </div>
+      <div class="problem__item" data-rev style="--d:.10s">
+        <span class="problem__num">02</span>
+        <span><strong>Vocabulary without context doesn't stick</strong> — isolated word drills miss the grammatical bridges that actually build fluency.</span>
+      </div>
+      <div class="problem__item" data-rev style="--d:.20s">
+        <span class="problem__num">03</span>
+        <span><strong>Conversations are what matter</strong> — but most apps skip real-world scenarios like cafés, airports, and workplaces until you're "advanced enough."</span>
+      </div>
+      <div class="problem__item" data-rev style="--d:.30s">
+        <span class="problem__num">04</span>
+        <span><strong>There's no path</strong> — random lessons without a 30-day structure leave most learners stuck at "bonjour" for six months.</span>
+      </div>
+    </div>
+
+    <div class="contrast" data-rev>
+      <p class="contrast__a">Without native context, you're always translating.</p>
+      <p class="contrast__b">With The Cunning Linguist, you think in the language.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. FEATURES — gentleman ghost background ──────────────────────────── -->
+<!-- Section pins; gentleman ghost on the right; feature cards fly in        -->
+<section id="featSection">
+  <!-- The ghostly gentleman — atmospheric background presence -->
+  <img
+    id="gentlemanGhost"
+    src="assets/logos/gentleman.png"
+    alt=""
+    aria-hidden="true"
+    class="gentleman-ghost"
+  >
+  <div class="w">
+    <div class="feat-header">
+      <span class="eye" id="featEye">WHAT YOU GET</span>
+      <p class="feat-label" id="featLabel">Everything you need to go from zero to conversation.</p>
+    </div>
+    <div class="feat-grid">
+      <div id="fc1" class="feat-card">
+        <span class="feat-icon">🗓</span>
+        <div class="feat-title">30-Day Structured Courses</div>
+        <div class="feat-body">A guided path from Day 1 to confident conversation. 350+ vocabulary items, grammar anchors, and daily milestones — for every language pair.</div>
+      </div>
+      <div id="fc2" class="feat-card">
+        <span class="feat-icon">🃏</span>
+        <div class="feat-title">Spaced Repetition Flashcards</div>
+        <div class="feat-body">The proven science of memory. Cards surface when you're about to forget them. Flip direction adapts based on whether you're learning to or from a language.</div>
+      </div>
+      <div id="fc3" class="feat-card">
+        <span class="feat-icon">💬</span>
+        <div class="feat-title">Real Conversation Scenarios</div>
+        <div class="feat-body">8+ scenarios per pair: café, hotel, airport, métro, restaurant, workplace, and more. With per-line audio so you can hear every response.</div>
+      </div>
+      <div id="fc4" class="feat-card">
+        <span class="feat-icon">🌐</span>
+        <div class="feat-title">15+ Language Pairs — Any to Any</div>
+        <div class="feat-body">French → Spanish. Portuguese → Italian. Korean → Japanese. Learn in any direction. Not just English-first. Native-language instruction throughout.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. LANGUAGE PAIRS GRID ────────────────────────────────────────────── -->
+<section class="section pairs">
+  <div class="w">
+    <span class="eye" data-rev>AVAILABLE NOW</span>
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev style="--d:.1s">
+      Any language.<br>Any direction.
+    </h2>
+    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;margin-bottom:0;" data-rev style="--d:.2s">
+      Learn from your native language — not through English as an intermediary.
+    </p>
+    <div class="pairs__grid">
+      <!-- EN→X -->
+      <a href="learn.html" class="pair-card" data-rev style="--d:.00s"><span class="pair-flags">🇬🇧→🇫🇷</span><div><div class="pair-label">English → French</div><div class="pair-sub">350+ vocab · 8 scenarios</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.04s"><span class="pair-flags">🇬🇧→🇪🇸</span><div><div class="pair-label">English → Spanish</div><div class="pair-sub">350+ vocab · 30-day path</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.08s"><span class="pair-flags">🇬🇧→🇩🇪</span><div><div class="pair-label">English → German</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.12s"><span class="pair-flags">🇬🇧→🇮🇹</span><div><div class="pair-label">English → Italian</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.16s"><span class="pair-flags">🇬🇧→🇵🇹</span><div><div class="pair-label">English → Portuguese</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.20s"><span class="pair-flags">🇬🇧→🇯🇵</span><div><div class="pair-label">English → Japanese</div><div class="pair-sub">350+ vocab</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.24s"><span class="pair-flags">🇬🇧→🇰🇷</span><div><div class="pair-label">English → Korean</div><div class="pair-sub">350+ vocab</div></div></a>
+      <!-- X→EN -->
+      <a href="learn.html" class="pair-card" data-rev style="--d:.28s"><span class="pair-flags">🇫🇷→🇬🇧</span><div><div class="pair-label">French → English</div><div class="pair-sub">Field-corrected · 6 scenarios</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.32s"><span class="pair-flags">🇪🇸→🇬🇧</span><div><div class="pair-label">Spanish → English</div><div class="pair-sub">Field-corrected</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.36s"><span class="pair-flags">🇵🇹→🇬🇧</span><div><div class="pair-label">Portuguese → English</div><div class="pair-sub">Field-corrected</div></div></a>
+      <!-- Cross pairs -->
+      <a href="learn.html" class="pair-card" data-rev style="--d:.40s"><span class="pair-flags">🇫🇷→🇪🇸</span><div><div class="pair-label">French → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.44s"><span class="pair-flags">🇩🇪→🇪🇸</span><div><div class="pair-label">German → Spanish</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.48s"><span class="pair-flags">🇩🇪→🇫🇷</span><div><div class="pair-label">German → French</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.52s"><span class="pair-flags">🇩🇪→🇮🇹</span><div><div class="pair-label">German → Italian</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.56s"><span class="pair-flags">🇪🇸→🇩🇪</span><div><div class="pair-label">Spanish → German</div><div class="pair-sub">Full 30-day course</div></div></a>
+      <a href="learn.html" class="pair-card" data-rev style="--d:.60s"><span class="pair-flags">🇮🇹→🇩🇪</span><div><div class="pair-label">Italian → German</div><div class="pair-sub">Full 30-day course</div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. HOW IT WORKS ──────────────────────────────────────────────────── -->
+<section class="section how" id="how">
+  <div class="w">
+    <span class="eye" data-rev>HOW IT WORKS</span>
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev style="--d:.1s">
+      Three steps.<br>Thirty days.<br><em style="color:var(--gold)">Real fluency.</em>
+    </h2>
+    <div class="how__grid">
+      <div class="how-step" data-rev style="--d:.00s">
+        <div class="how-step__num">01</div>
+        <div class="how-step__title">Pick your language pair</div>
+        <div class="how-step__body">Choose your native language and the one you want to learn. No sign-up required — start immediately from any device.</div>
+      </div>
+      <div class="how-step" data-rev style="--d:.12s">
+        <div class="how-step__num">02</div>
+        <div class="how-step__title">Follow the 30-day path</div>
+        <div class="how-step__body">Daily lessons build on each other. Vocab, grammar anchors, quizzes, and conversation scenarios — all in your native language frame.</div>
+      </div>
+      <div class="how-step" data-rev style="--d:.24s">
+        <div class="how-step__num">03</div>
+        <div class="how-step__title">Practice until it sticks</div>
+        <div class="how-step__body">Spaced repetition surfaces cards when you're about to forget. Conversation mode lets you work through realistic scenarios with audio on every line.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 7. CTA ───────────────────────────────────────────────────────────── -->
+<section class="section cta-section">
+  <div class="w">
+    <div class="cta-box" data-rev>
+      <span class="cta-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+      <h2 class="cta-h">
+        The world speaks more than <em>one</em> language.<br>So should you.
+      </h2>
+      <p class="cta-sub">
+        Free forever. No account needed. Pick a language pair and start Day 1 right now.
+      </p>
+      <div class="cta-btns">
+        <a href="learn.html" class="sb sb--gold">
+          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt">Start Learning Free</span></span>
+        </a>
+        <a href="learn.html" class="sb">
+          <span class="sb__track"><span class="sb__txt">Browse Language Pairs</span><span class="sb__txt">Browse Language Pairs</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="w">
+    <p>
+      <a href="index.html">The Cunning Linguist</a> &nbsp;·&nbsp;
+      Free language learning platform &nbsp;·&nbsp;
+      <a href="learn.html">Start learning</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ── GSAP from CDN ────────────────────────────────────────────────────── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// ── Intersection Observer: fade-up reveals ──────────────────────────────
+const ro = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.setAttribute('data-vis',''); ro.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-rev]').forEach(el => ro.observe(el));
+
+// ── Intersection Observer: word-group reveals ───────────────────────────
+const wo = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('wg-vis'); wo.unobserve(e.target); } });
+}, { threshold: 0.2 });
+document.querySelectorAll('[data-wg]').forEach(el => wo.observe(el));
+
+// ── GSAP Effect 1: Scale-up panel ──────────────────────────────────────
+// Card starts small + rounded, grows to fill the viewport as you scroll
+gsap.fromTo('#scalePanel',
+  { scale: 0.40, borderRadius: '24px' },
+  {
+    scale: 1,
+    borderRadius: '0px',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#scaleWrap',
+      start: 'top top',
+      end: '+=950',
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+    }
+  }
+);
+
+// ── GSAP Effect 2: Feature cards fly in from the right ─────────────────
+// The section pins. Gentleman ghost already visible.
+// Each card slides in from off-screen right, past the gentleman, landing in stack.
+const featTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#featSection',
+    start: 'top top',
+    end: '+=1200',
+    pin: true,
+    scrub: 1,
+    anticipatePin: 1,
+  }
+});
+
+// Gentleman rises in as section enters
+featTl.from('#gentlemanGhost', { y: 50, opacity: 0, duration: 0.5 }, 0);
+
+// Feature cards fly in from right, staggered
+featTl
+  .from('#fc1', { x: 800, opacity: 0, duration: 1 }, 0.1)
+  .from('#fc2', { x: 800, opacity: 0, duration: 1 }, 0.28)
+  .from('#fc3', { x: 800, opacity: 0, duration: 1 }, 0.46)
+  .from('#fc4', { x: 800, opacity: 0, duration: 1 }, 0.64);
+
+// ── Hero gentleman subtle float (CSS) ──────────────────────────────────
+// Small idle float animation to make him feel alive in the hero
+const heroGent = document.querySelector('.hero__gentleman');
+if (heroGent) {
+  gsap.to(heroGent, {
+    y: -14,
+    duration: 3.5,
+    ease: 'sine.inOut',
+    yoyo: true,
+    repeat: -1,
+  });
+}
+</script>
+</body>
+</html>
