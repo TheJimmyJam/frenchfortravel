@@ -560,7 +560,16 @@ function getCourseData(pairKey) {
   // 1. Try pair-specific course file first (e.g. COURSE_ES_FR for native es→fr plan)
   const pairVar  = 'COURSE_'  + pairKey.toUpperCase().replace('-', '_');
   const convoVar = 'CONVERSATIONS_' + pairKey.toUpperCase().replace('-', '_');
-  if (window[pairVar]) return { course: window[pairVar], convos: window[convoVar] || [] };
+  if (window[pairVar]) {
+    // Use pair-specific conversations if they exist; otherwise fall back to base-language conversations
+    let convos = window[convoVar];
+    if (!convos) {
+      const ck2 = (PAIRS[pairKey] || PAIRS['en-fr']).courseKey;
+      const fallbackVar = 'CONVERSATIONS_' + ck2.toUpperCase();
+      convos = window[fallbackVar] || [];
+    }
+    return { course: window[pairVar], convos };
+  }
 
   // 2. Fall back to target-language course
   const ck = (PAIRS[pairKey] || PAIRS['en-fr']).courseKey;
@@ -768,16 +777,33 @@ function saveTranslationCard(translation) {
   if (!translation || !translation.word) return false;
   const wordKey = translation.word;
   if (isCardSaved(wordKey)) return false;
-  // Store under both 'word' (new) and 'fr' (legacy compat for getNative/isCardSaved)
-  const card = {
-    word: wordKey,
-    fr: wordKey,
-    en: translation.input || '',
-    ipa: translation.ipa || '',
-    phonetic: translation.phonetic || '',
-    savedAt: Date.now(),
-    source: 'translator'
-  };
+  let card;
+  if (isTargetEnglish()) {
+    // X→EN: wordKey = English output, translation.input = native language input
+    // getFrontWord needs native field (v[ck]), getBackWord needs v.en (English)
+    const ck = currentPair().courseKey;
+    card = {
+      word: wordKey,           // English (used for dedup)
+      fr: wordKey,             // legacy fallback
+      en: wordKey,             // English for getBackWord
+      [ck]: translation.input || '', // native language in the right courseKey field
+      ipa: translation.ipa || '',
+      phonetic: translation.phonetic || '',
+      savedAt: Date.now(),
+      source: 'translator'
+    };
+  } else {
+    // EN→X: wordKey = target language output, translation.input = English input
+    card = {
+      word: wordKey,
+      fr: wordKey,
+      en: translation.input || '',
+      ipa: translation.ipa || '',
+      phonetic: translation.phonetic || '',
+      savedAt: Date.now(),
+      source: 'translator'
+    };
+  }
   state.savedVocab.unshift(card);
   saveState();
   refreshStats();
@@ -1503,7 +1529,7 @@ function generateQuiz() {
       quizState.questions.push({
         type: 'mc',
         prompt: showFrontToBack
-          ? t('quiz_what_does', getFrontWord(item), sourceLabel)
+          ? t('quiz_what_does', getFrontWord(item), targetLabel)
           : t('quiz_how_say', getBackWord(item), targetLabel),
         options: opts,
         correct: correctText
@@ -1511,7 +1537,7 @@ function generateQuiz() {
     } else {
       quizState.questions.push({
         type: 'type-it',
-        prompt: t('quiz_what_does', getFrontWord(item), sourceLabel),
+        prompt: t('quiz_what_does', getFrontWord(item), targetLabel),
         correct: getBackWord(item),
         phonetic: item.phonetic || '',
         answered: false,
