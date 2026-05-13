@@ -834,7 +834,7 @@
         <span class="sync-nudge-icon">🔒</span>
         <span class="sync-nudge-text">
           <strong>No account needed.</strong> Your progress saves automatically on this device.
-          <a href="/learn.html" onclick="event.preventDefault(); localStorage.setItem('cll_open_auth','1'); startLearning();" class="sync-nudge-link">Sign in</a> anytime to sync across all your devices.
+          <a href="/learn.html?signin=1" onclick="event.preventDefault(); window.location.href='/learn.html?signin=1';" class="sync-nudge-link">Sign in</a> anytime to sync across all your devices.
         </span>
       </div>
     </div>
