@@ -965,3 +965,107 @@ var COURSE_FR_EN = [
     ]
   }
 ];
+
+// ============================================================
+// CONVERSATIONS FR→EN
+// Instructions en français. Dialogues en anglais (cible) avec traduction française.
+// Structure : { en: "texte anglais", fr: "traduction française" }
+// ============================================================
+var CONVERSATIONS_FR_EN = [
+  {
+    title: "À l'aéroport américain",
+    scene: "Vous venez d'atterrir aux États-Unis et passez le contrôle des passeports. L'agent vous pose des questions de routine.",
+    lines: [
+      { who:"them", en:"Good morning. Passport, please.", fr:"Bonjour. Votre passeport, s'il vous plaît." },
+      { who:"you",  en:"Good morning. Here you go.", fr:"Bonjour. Le voici." },
+      { who:"them", en:"What is the purpose of your visit?", fr:"Quel est l'objet de votre visite ?" },
+      { who:"you",  en:"Tourism. I'm here for two weeks.", fr:"Tourisme. Je suis ici pour deux semaines." },
+      { who:"them", en:"Where will you be staying?", fr:"Où allez-vous séjourner ?" },
+      { who:"you",  en:"At a hotel in New York. The Marriott Midtown.", fr:"Dans un hôtel à New York. Le Marriott Midtown." },
+      { who:"them", en:"Do you have anything to declare?", fr:"Avez-vous quelque chose à déclarer ?" },
+      { who:"you",  en:"No, nothing to declare.", fr:"Non, rien à déclarer." },
+      { who:"them", en:"Welcome to the United States. Enjoy your stay.", fr:"Bienvenue aux États-Unis. Bon séjour." },
+      { who:"you",  en:"Thank you very much.", fr:"Merci beaucoup." }
+    ]
+  },
+  {
+    title: "Enregistrement à l'hôtel",
+    scene: "Vous arrivez à votre hôtel américain en fin d'après-midi avec une réservation.",
+    lines: [
+      { who:"you",  en:"Hello, I have a reservation. My name is Dupont.", fr:"Bonjour, j'ai une réservation. Je m'appelle Dupont." },
+      { who:"them", en:"Welcome, Mr. Dupont. Let me pull that up.", fr:"Bienvenue, M. Dupont. Je recherche ça." },
+      { who:"them", en:"I have you for three nights, a king room. Is that correct?", fr:"J'ai trois nuits, une chambre king. C'est bien ça ?" },
+      { who:"you",  en:"Yes, that's right.", fr:"Oui, c'est exact." },
+      { who:"them", en:"I'll need a credit card for incidentals.", fr:"J'ai besoin d'une carte de crédit pour les extras." },
+      { who:"you",  en:"Sure, here is my card.", fr:"Bien sûr, voici ma carte." },
+      { who:"them", en:"Your room is on the 12th floor, room 1204. Checkout is at noon.", fr:"Votre chambre est au 12e étage, chambre 1204. Le départ est à midi." },
+      { who:"you",  en:"What is the wifi password?", fr:"Quel est le mot de passe wifi ?" },
+      { who:"them", en:"It's on the card in your room. Here are your key cards.", fr:"Il est sur la carte dans votre chambre. Voici vos cartes-clés." },
+      { who:"you",  en:"Perfect. Thank you so much.", fr:"Parfait. Merci beaucoup." }
+    ]
+  },
+  {
+    title: "Au restaurant américain",
+    scene: "Vous dînez dans un restaurant américain. Le serveur prend votre commande et gère l'addition.",
+    lines: [
+      { who:"them", en:"Hi there! Can I start you off with something to drink?", fr:"Bonjour ! Je vous apporte quelque chose à boire ?" },
+      { who:"you",  en:"Yes, a sparkling water and a glass of red wine, please.", fr:"Oui, une eau gazeuse et un verre de vin rouge, s'il vous plaît." },
+      { who:"them", en:"Are you ready to order, or do you need a few more minutes?", fr:"Vous êtes prêt à commander, ou il vous faut encore quelques minutes ?" },
+      { who:"you",  en:"I think I'm ready. I'll have the grilled salmon.", fr:"Je crois que je suis prêt. Je vais prendre le saumon grillé." },
+      { who:"them", en:"Excellent choice. Would you like a salad or soup to start?", fr:"Excellent choix. Vous voulez une salade ou une soupe en entrée ?" },
+      { who:"you",  en:"A Caesar salad, please.", fr:"Une salade César, s'il vous plaît." },
+      { who:"them", en:"How would you like your salmon cooked?", fr:"Comment désirez-vous la cuisson de votre saumon ?" },
+      { who:"you",  en:"Medium, please.", fr:"À point, s'il vous plaît." },
+      { who:"them", en:"Can I get you anything else? Dessert?", fr:"Autre chose ? Un dessert ?" },
+      { who:"you",  en:"No thank you. Just the check, please.", fr:"Non merci. L'addition, s'il vous plaît." }
+    ]
+  },
+  {
+    title: "Prendre un taxi / Uber",
+    scene: "Vous montez dans un taxi ou Uber et donnez votre destination au chauffeur.",
+    lines: [
+      { who:"them", en:"Hi, are you the one who ordered the Uber?", fr:"Bonjour, c'est vous qui avez commandé l'Uber ?" },
+      { who:"you",  en:"Yes, that's me. Dupont.", fr:"Oui, c'est moi. Dupont." },
+      { who:"them", en:"Great. Where are you headed?", fr:"Parfait. Où allez-vous ?" },
+      { who:"you",  en:"To JFK airport, please. Terminal 4.", fr:"À l'aéroport JFK, s'il vous plaît. Terminal 4." },
+      { who:"them", en:"No problem. It should take about 40 minutes depending on traffic.", fr:"Pas de problème. Ça devrait prendre environ 40 minutes selon le trafic." },
+      { who:"you",  en:"Is there a lot of traffic at this hour?", fr:"Il y a beaucoup de circulation à cette heure-ci ?" },
+      { who:"them", en:"A little. But I know a shortcut.", fr:"Un peu. Mais je connais un raccourci." },
+      { who:"you",  en:"Could you turn the air conditioning up a bit?", fr:"Pourriez-vous monter un peu la climatisation ?" },
+      { who:"them", en:"Of course. Is this better?", fr:"Bien sûr. C'est mieux comme ça ?" },
+      { who:"you",  en:"Perfect. Thank you.", fr:"Parfait. Merci." }
+    ]
+  },
+  {
+    title: "Faire des achats",
+    scene: "Vous êtes dans une boutique américaine et cherchez quelque chose de précis. Le vendeur vous aide.",
+    lines: [
+      { who:"them", en:"Hi! Can I help you find something?", fr:"Bonjour ! Je peux vous aider à trouver quelque chose ?" },
+      { who:"you",  en:"Yes, I'm looking for a jacket. Something casual.", fr:"Oui, je cherche une veste. Quelque chose de décontracté." },
+      { who:"them", en:"What size are you?", fr:"Quelle est votre taille ?" },
+      { who:"you",  en:"I'm a medium, I think. Or large in American sizes.", fr:"Je suis un medium, je crois. Ou un large en tailles américaines." },
+      { who:"them", en:"These just came in. Do you like this style?", fr:"Celles-ci viennent d'arriver. Vous aimez ce style ?" },
+      { who:"you",  en:"I like it. Do you have it in navy blue?", fr:"J'aime bien. Vous l'avez en bleu marine ?" },
+      { who:"them", en:"Let me check the back. One moment.", fr:"Je vérifie en réserve. Un instant." },
+      { who:"you",  en:"Take your time.", fr:"Prenez votre temps." },
+      { who:"them", en:"We have it in navy, size large. Would you like to try it on?", fr:"Nous l'avons en bleu marine, taille large. Vous voulez l'essayer ?" },
+      { who:"you",  en:"Yes please. Where are the fitting rooms?", fr:"Oui s'il vous plaît. Où sont les cabines d'essayage ?" }
+    ]
+  },
+  {
+    title: "Se présenter au travail",
+    scene: "Votre premier jour dans une entreprise américaine. Vous rencontrez un collègue dans le couloir.",
+    lines: [
+      { who:"them", en:"Hey, you must be the new person from Paris! Welcome!", fr:"Salut, vous devez être la nouvelle personne de Paris ! Bienvenue !" },
+      { who:"you",  en:"Yes! Hi, I'm Claire. Nice to meet you.", fr:"Oui ! Bonjour, je suis Claire. Enchanté(e)." },
+      { who:"them", en:"I'm Mark from the marketing team. How was your flight?", fr:"Je suis Mark, de l'équipe marketing. Comment s'est passé votre vol ?" },
+      { who:"you",  en:"Long, but fine. I'm still a little jet-lagged.", fr:"Long, mais bien. Je suis encore un peu décalé(e) horaire." },
+      { who:"them", en:"That's totally normal. Are you settling in okay?", fr:"C'est tout à fait normal. Vous vous installez bien ?" },
+      { who:"you",  en:"Yes, thank you. Everyone has been very welcoming.", fr:"Oui, merci. Tout le monde a été très accueillant." },
+      { who:"them", en:"We have a team lunch on Fridays if you want to join.", fr:"Nous avons un déjeuner d'équipe le vendredi si vous voulez vous joindre à nous." },
+      { who:"you",  en:"That sounds great. I'd love to.", fr:"Ça a l'air super. Avec plaisir." },
+      { who:"them", en:"Perfect. If you need anything, my office is just down the hall.", fr:"Parfait. Si vous avez besoin de quoi que ce soit, mon bureau est au fond du couloir." },
+      { who:"you",  en:"Thank you so much, Mark. I really appreciate it.", fr:"Merci beaucoup, Mark. J'apprécie vraiment." }
+    ]
+  }
+];
