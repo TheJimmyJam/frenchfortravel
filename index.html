@@ -1154,11 +1154,13 @@ featTl
 // ── Language picker modal ───────────────────────────────────────────────
 const LANG_NAMES = {
   en:"English", fr:"French", es:"Spanish", pt:"Portuguese",
-  el:"Greek", sq:"Albanian", it:"Italian", ja:"Japanese", de:"German", ko:"Korean"
+  el:"Greek", sq:"Albanian", it:"Italian", ja:"Japanese", de:"German", ko:"Korean",
+  nl:"Dutch", ru:"Russian", zh:"Mandarin", ar:"Arabic", hi:"Hindi", tr:"Turkish"
 };
 const LANG_FLAGS = {
   en:"🇬🇧", fr:"🇫🇷", es:"🇪🇸", pt:"🇧🇷",
-  el:"🇬🇷", sq:"🇦🇱", it:"🇮🇹", ja:"🇯🇵", de:"🇩🇪", ko:"🇰🇷"
+  el:"🇬🇷", sq:"🇦🇱", it:"🇮🇹", ja:"🇯🇵", de:"🇩🇪", ko:"🇰🇷",
+  nl:"🇳🇱", ru:"🇷🇺", zh:"🇨🇳", ar:"🇸🇦", hi:"🇮🇳", tr:"🇹🇷"
 };
 
 const LANG_IMG = {
@@ -1168,9 +1170,12 @@ const LANG_IMG = {
 };
 function flagImg(code, size) {
   size = size || 20;
-  return `<img src="assets/logos/flags/${LANG_IMG[code]}" alt="${code}" style="width:${size}px;height:${size}px;object-fit:cover;border-radius:3px;vertical-align:middle;display:inline-block;">`;
+  if (LANG_IMG[code]) {
+    return `<img src="assets/logos/flags/${LANG_IMG[code]}" alt="${code}" style="width:${size}px;height:${size}px;object-fit:cover;border-radius:3px;vertical-align:middle;display:inline-block;">`;
+  }
+  return `<span style="font-size:${size}px;line-height:1;vertical-align:middle;">${LANG_FLAGS[code] || '🌐'}</span>`;
 }
-const ALL_LANGS = ['en','fr','es','pt','el','sq','it','ja','de','ko'];
+const ALL_LANGS = ['en','fr','es','pt','el','sq','it','ja','de','ko','nl','ru','zh','ar','hi','tr'];
 
 function buildDropdown(el, langs, selected) {
   el.innerHTML = langs.map(l =>
