@@ -151,7 +151,7 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 
 /* ─── 2. SCALE-UP WRAP ───────────────────────────────────────────────────── */
 #scaleWrap {
-  position: relative; height: calc(100vh + 950px);
+  position: relative; height: 100vh;
   background: var(--ink);
 }
 #scalePanel {
@@ -345,6 +345,89 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 .cta-sub { font-size: .95rem; color: var(--muted); max-width: 36rem; margin: 0 auto 2.5rem; line-height: 1.65; }
 .cta-btns { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
 
+/* ─── LANGUAGE PICKER MODAL ──────────────────────────────────────────────── */
+.lp-overlay {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(14,14,16,.82);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease;
+}
+.lp-overlay.is-open { opacity: 1; pointer-events: all; }
+.lp-card {
+  background: #1a1a1f;
+  border: 1px solid rgba(212,175,55,.25);
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2rem;
+  width: min(420px, calc(100vw - 3rem));
+  position: relative;
+}
+.lp-card h3 {
+  font-family: var(--serif); font-size: 1.55rem; font-weight: 700;
+  letter-spacing: -.01em; margin-bottom: 1.75rem; color: var(--cream);
+}
+.lp-close {
+  position: absolute; top: 1.1rem; right: 1.25rem;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-size: 1.3rem; line-height: 1;
+  transition: color .15s;
+}
+.lp-close:hover { color: var(--cream); }
+.lp-row {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: .75rem;
+}
+.lp-label {
+  font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+  min-width: 5.5rem;
+}
+.lp-select {
+  flex: 1;
+  appearance: none;
+  background: rgba(248,243,231,.05);
+  border: 1px solid rgba(212,175,55,.2);
+  border-radius: 10px;
+  padding: .65rem 1rem;
+  font-size: .9rem; font-family: var(--sans);
+  color: var(--cream);
+  cursor: pointer;
+  transition: border-color .2s;
+  outline: none;
+}
+.lp-select:hover, .lp-select:focus { border-color: var(--gold); }
+.lp-arrow {
+  text-align: center; color: var(--gold-dim);
+  font-size: 1.1rem; margin: .25rem 0 .6rem;
+  padding-left: 6.5rem;
+}
+.lp-note {
+  font-size: .78rem; color: var(--muted);
+  margin: .6rem 0 1.25rem;
+  min-height: 1.1em;
+}
+.lp-note strong { color: var(--gold); }
+.lp-start {
+  width: 100%;
+  background: var(--gold); color: var(--ink);
+  border: none; border-radius: 9999px;
+  padding: .85rem 1.5rem;
+  font-size: .82rem; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; cursor: pointer;
+  transition: background .2s;
+}
+.lp-start:hover { background: var(--gold-light); }
+.lp-nudge {
+  display: flex; align-items: flex-start; gap: .6rem;
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(248,243,231,.07);
+  font-size: .74rem; color: var(--muted); line-height: 1.55;
+}
+.lp-nudge a { color: var(--gold); text-decoration: none; }
+.lp-nudge a:hover { color: var(--gold-light); }
+
 /* ─── FOOTER ─────────────────────────────────────────────────────────────── */
 footer {
   background: var(--ink-soft);
@@ -358,6 +441,30 @@ footer a:hover { color: var(--gold-light); }
 </style>
 </head>
 <body>
+
+<!-- ── LANGUAGE PICKER MODAL ─────────────────────────────────────────────── -->
+<div id="lpOverlay" class="lp-overlay" role="dialog" aria-modal="true" aria-label="Choose your language pair">
+  <div class="lp-card">
+    <button class="lp-close" onclick="closePicker()" aria-label="Close">✕</button>
+    <h3>Choose your language pair</h3>
+    <div class="lp-row">
+      <span class="lp-label">I speak</span>
+      <select id="src-lang" class="lp-select" onchange="onSrcChange()"></select>
+    </div>
+    <div class="lp-arrow">↓</div>
+    <div class="lp-row">
+      <span class="lp-label">I want to learn</span>
+      <select id="tgt-lang" class="lp-select" onchange="updatePickerNote()"></select>
+    </div>
+    <p id="picker-note" class="lp-note"></p>
+    <button id="lp-start-btn" class="lp-start" onclick="startLearning()">Start Learning →</button>
+    <div class="lp-nudge">
+      <span>🔒</span>
+      <span><strong style="color:var(--cream)">No account needed.</strong> Progress saves automatically on this device.
+      <a href="/learn.html" onclick="event.preventDefault(); try{localStorage.setItem('cll_open_auth','1')}catch(e){}; startLearning();">Sign in</a> to sync across devices.</span>
+    </div>
+  </div>
+</div>
 
 <!-- ── NAV ─────────────────────────────────────────────────────────────── -->
 <nav class="nav">
@@ -387,11 +494,11 @@ footer a:hover { color: var(--gold-light); }
         The Cunning Linguist teaches you from your native language — not from English.
       </p>
       <div class="hero__ctas" data-rev style="--d:.3s">
-        <a href="learn.html" class="sb sb--gold">
-          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt">Start Learning Free</span></span>
-        </a>
+        <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
+          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
+        </button>
         <a href="#features" class="sb">
-          <span class="sb__track"><span class="sb__txt">See Features</span><span class="sb__txt">See Features</span></span>
+          <span class="sb__track"><span class="sb__txt">See Features</span><span class="sb__txt" aria-hidden="true">See Features</span></span>
         </a>
       </div>
       <p class="hero__footnote" data-rev style="--d:.4s">
@@ -602,11 +709,11 @@ footer a:hover { color: var(--gold-light); }
         Free forever. No account needed. Pick a language pair and start Day 1 right now.
       </p>
       <div class="cta-btns">
-        <a href="learn.html" class="sb sb--gold">
-          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt">Start Learning Free</span></span>
-        </a>
-        <a href="learn.html" class="sb">
-          <span class="sb__track"><span class="sb__txt">Browse Language Pairs</span><span class="sb__txt">Browse Language Pairs</span></span>
+        <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
+          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
+        </button>
+        <a href="#pairsSection" class="sb">
+          <span class="sb__track"><span class="sb__txt">Browse Language Pairs</span><span class="sb__txt" aria-hidden="true">Browse Language Pairs</span></span>
         </a>
       </div>
     </div>
@@ -685,6 +792,83 @@ featTl
   .from('#fc2', { x: 800, opacity: 0, duration: 1 }, 0.28)
   .from('#fc3', { x: 800, opacity: 0, duration: 1 }, 0.46)
   .from('#fc4', { x: 800, opacity: 0, duration: 1 }, 0.64);
+
+// ── Language picker modal ───────────────────────────────────────────────
+const LANG_NAMES = {
+  en:"English", fr:"French", es:"Spanish", pt:"Portuguese",
+  el:"Greek", sq:"Albanian", it:"Italian", ja:"Japanese", de:"German", ko:"Korean"
+};
+const LANG_FLAGS = {
+  en:"🇬🇧", fr:"🇫🇷", es:"🇪🇸", pt:"🇧🇷",
+  el:"🇬🇷", sq:"🇦🇱", it:"🇮🇹", ja:"🇯🇵", de:"🇩🇪", ko:"🇰🇷"
+};
+const ALL_LANGS = ['en','fr','es','pt','el','sq','it','ja','de','ko'];
+
+function buildDropdown(el, langs, selected) {
+  el.innerHTML = langs.map(l =>
+    `<option value="${l}"${l===selected?' selected':''}>${LANG_FLAGS[l]} ${LANG_NAMES[l]}</option>`
+  ).join('');
+}
+
+function onSrcChange() {
+  const src = document.getElementById('src-lang').value;
+  const tgtEl = document.getElementById('tgt-lang');
+  const prev = tgtEl.value;
+  const tgtLangs = ALL_LANGS.filter(l => l !== src);
+  buildDropdown(tgtEl, tgtLangs, tgtLangs.includes(prev) ? prev : tgtLangs[0]);
+  updatePickerNote();
+}
+
+function updatePickerNote() {
+  const src = document.getElementById('src-lang').value;
+  const tgt = document.getElementById('tgt-lang').value;
+  const note = document.getElementById('picker-note');
+  const btn  = document.getElementById('lp-start-btn');
+  note.innerHTML = `<strong>Ready</strong> · ${LANG_NAMES[src]} → ${LANG_NAMES[tgt]} · 30-day course available`;
+  btn.textContent = `Start ${LANG_NAMES[tgt]} Course →`;
+}
+
+function startLearning() {
+  const src = document.getElementById('src-lang').value;
+  const tgt = document.getElementById('tgt-lang').value;
+  try { localStorage.setItem('cll_lang', src + '-' + tgt); } catch(e) {}
+  window.location.href = '/learn.html';
+}
+
+function openPicker() {
+  const overlay = document.getElementById('lpOverlay');
+  // Initialise dropdowns on first open
+  if (!document.getElementById('src-lang').options.length) {
+    buildDropdown(document.getElementById('src-lang'), ALL_LANGS, 'en');
+    buildDropdown(document.getElementById('tgt-lang'), ALL_LANGS.filter(l=>l!=='en'), 'fr');
+    // Restore last saved pair
+    try {
+      const saved = localStorage.getItem('cll_lang');
+      if (saved && saved.includes('-')) {
+        const [s, t] = saved.split('-');
+        const srcEl = document.getElementById('src-lang');
+        const tgtEl = document.getElementById('tgt-lang');
+        if ([...srcEl.options].some(o=>o.value===s)) { srcEl.value = s; onSrcChange(); }
+        if ([...tgtEl.options].some(o=>o.value===t)) { tgtEl.value = t; }
+      }
+    } catch(e) {}
+  }
+  updatePickerNote();
+  overlay.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePicker() {
+  document.getElementById('lpOverlay').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('lpOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closePicker();
+});
+// Close on Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePicker(); });
 
 // ── Hero gentleman subtle float ─────────────────────────────────────────
 const heroGent = document.querySelector('.hero__gentleman');
