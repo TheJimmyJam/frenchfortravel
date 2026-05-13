@@ -192,6 +192,15 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
   filter: drop-shadow(0 16px 60px rgba(212,175,55,.2));
 }
 @media (max-width: 768px) { .hero__right { display: none; } }
+.hero__mobile-portrait {
+  display: none; width: 100%; max-width: 320px;
+  margin: 1.5rem auto 0; border-radius: 12px; overflow: hidden;
+}
+.hero__mobile-portrait img {
+  width: 100%; height: auto; display: block;
+  filter: drop-shadow(0 12px 40px rgba(212,175,55,.2));
+}
+@media (max-width: 768px) { .hero__mobile-portrait { display: block; } }
 
 /* ─── 2. SCALE-UP WRAP ───────────────────────────────────────────────────── */
 #scaleWrap {
@@ -400,6 +409,11 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 }
 .how-step__title { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
 .how-step__body { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+.how-step__img {
+  width: 100%; height: 180px; object-fit: contain;
+  margin-top: 1.25rem; border-radius: 10px;
+  filter: drop-shadow(0 4px 20px rgba(212,175,55,.15));
+}
 
 /* ─── 6b. MAN BEHIND THE MONOCLE ────────────────────────────────────────── */
 #monocleWrap { height: 100vh; }
@@ -594,6 +608,18 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 .cta-h em { color: var(--gold); font-style: italic; }
 .cta-sub { font-size: .95rem; color: var(--muted); max-width: 36rem; margin: 0 auto 2.5rem; line-height: 1.65; }
 .cta-btns { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+.cta-inner {
+  display: flex; align-items: center; gap: 3rem;
+}
+.cta-text { flex: 1; }
+.cta-character {
+  flex: 0 0 auto; width: 220px;
+  filter: drop-shadow(0 8px 30px rgba(212,175,55,.2));
+}
+@media (max-width: 680px) {
+  .cta-inner { flex-direction: column; gap: 0; }
+  .cta-character { width: 160px; margin-top: 1.5rem; order: -1; }
+}
 
 /* ─── LANGUAGE PICKER MODAL ──────────────────────────────────────────────── */
 .lp-overlay {
@@ -768,6 +794,9 @@ footer a:hover { color: var(--gold-light); }
         No account required. Pick a language pair and go.
       </p>
     </div>
+    <div class="hero__mobile-portrait">
+      <img src="assets/logos/mobile%20portrait.png" alt="The Cunning Linguist">
+    </div>
     <div class="hero__right" data-rev style="--d:.15s">
       <img src="assets/gentleman.png" alt="The Cunning Linguist mascot" class="hero__gentleman">
     </div>
@@ -941,11 +970,13 @@ footer a:hover { color: var(--gold-light); }
         <div class="how-step__num">01</div>
         <div class="how-step__title">Pick your language pair</div>
         <div class="how-step__body">Choose your native language and the one you want to learn. No sign-up required — start immediately from any device.</div>
+        <img src="assets/logos/pointing%20at%20board.png" alt="Choosing a language" class="how-step__img">
       </div>
       <div id="step2" class="how-step">
         <div class="how-step__num">02</div>
         <div class="how-step__title">Follow the 30-day path</div>
         <div class="how-step__body">Daily lessons build on each other. Vocab, grammar anchors, quizzes, and conversation scenarios — all in your native language frame.</div>
+        <img src="assets/logos/pocketwatch.png" alt="30-day learning path" class="how-step__img">
       </div>
       <div id="step3" class="how-step">
         <div class="how-step__num">03</div>
@@ -1015,20 +1046,25 @@ footer a:hover { color: var(--gold-light); }
 <section class="section cta-section">
   <div class="w">
     <div class="cta-box" data-rev>
-      <span class="cta-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
-      <h2 class="cta-h">
-        The world speaks more than <em>one</em> language.<br>So should you.
-      </h2>
-      <p class="cta-sub">
-        Free forever. No account needed. Pick a language pair and start Day 1 right now.
-      </p>
-      <div class="cta-btns">
-        <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
-          <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
-        </button>
-        <a href="#pairsSection" class="sb">
-          <span class="sb__track"><span class="sb__txt">Browse Language Pairs</span><span class="sb__txt" aria-hidden="true">Browse Language Pairs</span></span>
-        </a>
+      <div class="cta-inner">
+        <div class="cta-text">
+          <span class="cta-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+          <h2 class="cta-h">
+            The world speaks more than <em>one</em> language.<br>So should you.
+          </h2>
+          <p class="cta-sub">
+            Free forever. No account needed. Pick a language pair and start Day 1 right now.
+          </p>
+          <div class="cta-btns">
+            <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
+              <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
+            </button>
+            <a href="#pairsSection" class="sb">
+              <span class="sb__track"><span class="sb__txt">Browse Language Pairs</span><span class="sb__txt" aria-hidden="true">Browse Language Pairs</span></span>
+            </a>
+          </div>
+        </div>
+        <img src="assets/logos/cta%20section%20cl.png" alt="The Cunning Linguist" class="cta-character">
       </div>
     </div>
   </div>
