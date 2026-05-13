@@ -1653,11 +1653,11 @@ function openConvo(i) {
         <div class="cmodal-line ${l.who}">
           <div class="cmodal-speaker">${l.who === 'you' ? t('convo_you') : t('convo_them')}</div>
           <div class="cmodal-native-row">
-            <span class="cmodal-native">${getNative(l)}</span>
-            <button class="speak-btn speak-btn-sm cmodal-speak" onclick="speakWord(${JSON.stringify(getNative(l)).replace(/"/g,'&quot;')},'${currentTarget()}')">🔊</button>
+            <span class="cmodal-native">${getFrontWord(l)}</span>
+            <button class="speak-btn speak-btn-sm cmodal-speak" onclick="speakWord(${JSON.stringify(getFrontWord(l)).replace(/"/g,'&quot;')},'${currentTarget()}')">🔊</button>
           </div>
           ${l.phonetic ? `<div class="cmodal-phonetic">${l.phonetic}</div>` : ''}
-          <div class="cmodal-english">${l.en}</div>
+          <div class="cmodal-english">${getBackWord(l)}</div>
         </div>
       `).join('')}
     </div>
