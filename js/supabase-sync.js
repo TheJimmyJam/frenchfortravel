@@ -235,11 +235,11 @@
   }
 
   async function signOut() {
-    if (!sb) return;
     closeAuthModal();
-    await sb.auth.signOut();
+    if (sb) await sb.auth.signOut();
     user = null;
     updateAuthUI();
+    toast('Signed out — progress is saved locally.', 2500);
   }
 
   // ── Auth UI ───────────────────────────────────────────────────
