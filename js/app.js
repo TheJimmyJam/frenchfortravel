@@ -53,7 +53,7 @@ const LANGS = {
         headerBorder: 'rgba(255, 153, 51, 0.65)', statBg: 'rgba(19, 136, 8, 0.3)', statBorder: 'rgba(255, 153, 51, 0.45)' },
   tr: { label: 'Turkish',    flag: '🇹🇷', speechLang: 'tr-TR',
         headerBg: 'linear-gradient(rgba(8,10,18,0.68), rgba(8,10,18,0.68)), url(https://flagcdn.com/w1280/tr.png) center/cover no-repeat',
-        headerBorder: 'rgba(227, 10, 23, 0.65)', statBg: 'rgba(90, 0, 10, 0.6)', statBorder: 'rgba(227, 10, 23, 0.45)' }
+        headerBorder: 'rgba(227, 10, 23, 0.65)', statBg: 'rgba(90, 0, 10, 0.6)', statBorder: 'rgba(227, 10, 23, 0.45)' },
 
   pl: {
     label: 'Polish', flag: '🇵🇱', speechLang: 'pl-PL',
