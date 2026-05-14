@@ -747,7 +747,7 @@ footer a:hover { color: var(--gold-light); }
     </div>
     <div style="display:flex;align-items:center;gap:.75rem;">
       <div class="nav__lang" onclick="document.getElementById('nav-src-lang').focus()">
-        <span class="nav__lang-label">I speak</span>
+        <span class="nav__lang-label">🌐</span>
         <select id="nav-src-lang" class="nav__lang-select" onchange="onNavLangChange(this.value)">
           <!-- populated by JS on load -->
         </select>
@@ -1475,17 +1475,11 @@ function buildDropdown(el, langs, selected) {
   ).join('');
 }
 
-// Called when the nav header language selector changes
+// Called when the nav display-language selector changes
+// This ONLY changes the UI language of the page — it does NOT change the course pair
 function onNavLangChange(val) {
-  // Translate the landing page
   translateLanding(val);
   try { localStorage.setItem('cl_landing_lang', val); } catch(e) {}
-  // Keep picker modal src-lang in sync if it's been built
-  const srcEl = document.getElementById('src-lang');
-  if (srcEl && srcEl.options.length) {
-    if ([...srcEl.options].some(o => o.value === val)) srcEl.value = val;
-    onSrcChange();
-  }
 }
 
 function onSrcChange() {
