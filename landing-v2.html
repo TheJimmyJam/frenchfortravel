@@ -100,6 +100,28 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 }
 .nav__cta:hover { background: var(--gold-light); }
 
+/* ─── NAV LANGUAGE SELECTOR ─────────────────────────────────────────────── */
+.nav__lang {
+  display: flex; align-items: center; gap: .45rem;
+  background: rgba(212,175,55,.1);
+  border: 1px solid rgba(212,175,55,.28);
+  border-radius: 8px; padding: .38rem .75rem;
+  cursor: pointer; transition: background .15s, border-color .15s;
+}
+.nav__lang:hover { background: rgba(212,175,55,.18); border-color: rgba(212,175,55,.5); }
+.nav__lang-label {
+  font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+  color: rgba(248,243,231,.55); white-space: nowrap;
+}
+.nav__lang-select {
+  background: transparent; border: none; outline: none;
+  color: var(--gold); font-size: .82rem; font-weight: 600;
+  font-family: inherit; cursor: pointer;
+  appearance: none; -webkit-appearance: none; padding: 0;
+}
+.nav__lang-select option { background: #1a1a1f; color: var(--cream); }
+.nav__lang-caret { color: var(--gold); font-size: .6rem; pointer-events: none; }
+
 /* ─── HAMBURGER (mobile only) ───────────────────────────────────────────── */
 .nav__hamburger {
   display: none; flex-direction: column; justify-content: center; gap: 5px;
@@ -142,6 +164,7 @@ body { font-family: var(--sans); background: var(--ink); color: var(--cream); -w
 @media (max-width: 680px) {
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
+  .nav__lang { display: flex; } /* always visible on mobile */
 }
 
 /* ─── SECTION base ───────────────────────────────────────────────────────── */
@@ -723,6 +746,13 @@ footer a:hover { color: var(--gold-light); }
       <a href="#monocleSection">Who</a>
     </div>
     <div style="display:flex;align-items:center;gap:.75rem;">
+      <div class="nav__lang" onclick="document.getElementById('nav-src-lang').focus()">
+        <span class="nav__lang-label">I speak</span>
+        <select id="nav-src-lang" class="nav__lang-select" onchange="onNavLangChange(this.value)">
+          <!-- populated by JS on load -->
+        </select>
+        <span class="nav__lang-caret">▾</span>
+      </div>
       <a href="learn.html" class="nav__cta" id="navCta">Start Learning</a>
       <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1118,12 +1148,28 @@ function buildDropdown(el, langs, selected) {
   ).join('');
 }
 
+// Called when the nav header language selector changes
+function onNavLangChange(val) {
+  // Ensure picker modal dropdowns are built
+  const srcEl = document.getElementById('src-lang');
+  if (!srcEl.options.length) {
+    buildDropdown(srcEl, ALL_LANGS, val);
+    buildDropdown(document.getElementById('tgt-lang'), ALL_LANGS.filter(l => l !== val), ALL_LANGS.filter(l => l !== val)[0]);
+  } else if ([...srcEl.options].some(o => o.value === val)) {
+    srcEl.value = val;
+  }
+  onSrcChange();
+}
+
 function onSrcChange() {
   const src = document.getElementById('src-lang').value;
   const tgtEl = document.getElementById('tgt-lang');
   const prev = tgtEl.value;
   const tgtLangs = ALL_LANGS.filter(l => l !== src);
   buildDropdown(tgtEl, tgtLangs, tgtLangs.includes(prev) ? prev : tgtLangs[0]);
+  // Keep nav selector in sync
+  const navSel = document.getElementById('nav-src-lang');
+  if (navSel && [...navSel.options].some(o => o.value === src)) navSel.value = src;
   updatePickerNote();
 }
 
@@ -1448,6 +1494,21 @@ gsap.from('#monocleQuotes .monocle-quote', {
   y: 70, opacity: 0, duration: 0.7, stagger: 0.11, ease: 'power3.out',
   scrollTrigger: { trigger: '#monocleQuotesSection', start: 'top 78%' }
 });
+
+// ── Nav language selector: populate + restore ─────────────────────────
+(function initNavLangSelector() {
+  const navSel = document.getElementById('nav-src-lang');
+  // Populate with all supported languages
+  buildDropdown(navSel, ALL_LANGS, 'en');
+  // Restore from localStorage
+  try {
+    const saved = localStorage.getItem('cll_lang');
+    if (saved && saved.includes('-')) {
+      const src = saved.split('-')[0];
+      if ([...navSel.options].some(o => o.value === src)) navSel.value = src;
+    }
+  } catch(e) {}
+})();
 </script>
 </body>
 </html>
