@@ -727,21 +727,21 @@ footer a:hover { color: var(--gold-light); }
 <div id="lpOverlay" class="lp-overlay" role="dialog" aria-modal="true" aria-label="Choose your language pair">
   <div class="lp-card">
     <button class="lp-close" onclick="closePicker()" aria-label="Close">✕</button>
-    <h3>Choose your language pair</h3>
+    <h3 id="modalTitle">Choose your language pair</h3>
     <div class="lp-row">
-      <span class="lp-label">I speak</span>
+      <span class="lp-label" id="modalSrcLabel">I speak</span>
       <select id="src-lang" class="lp-select" onchange="onSrcChange()"></select>
     </div>
     <div class="lp-arrow">↓</div>
     <div class="lp-row">
-      <span class="lp-label">I want to learn</span>
+      <span class="lp-label" id="modalTgtLabel">I want to learn</span>
       <select id="tgt-lang" class="lp-select" onchange="updatePickerNote()"></select>
     </div>
     <p id="picker-note" class="lp-note"></p>
-    <button id="lp-start-btn" class="lp-start" onclick="startLearning()">Start Learning →</button>
+    <button id="lp-start-btn" class="lp-start" onclick="startLearning()"><span id="modalStartBtn">Start Learning →</span></button>
     <div class="lp-nudge">
       <span>🔒</span>
-      <span><strong style="color:var(--cream)">No account needed.</strong> Progress saves automatically on this device.
+      <span><strong style="color:var(--cream)" id="modalNoAccount">No account needed.</strong> Progress saves automatically on this device.
       <a href="/learn.html" onclick="event.preventDefault(); try{localStorage.setItem('cll_open_auth','1')}catch(e){}; startLearning();">Sign in</a> to sync across devices.</span>
     </div>
   </div>
@@ -754,10 +754,10 @@ footer a:hover { color: var(--gold-light); }
       <img src="assets/hero-dark.png" alt="The Cunning Linguist">
     </a>
     <div class="nav__links">
-      <a href="#pairsSection">Languages</a>
-      <a href="#featSection">Features</a>
-      <a href="#howSection">How It Works</a>
-      <a href="#monocleSection">Who</a>
+      <a href="#pairsSection" id="navLanguages">Languages</a>
+      <a href="#featSection" id="navFeatures">Features</a>
+      <a href="#howSection" id="navHow">How It Works</a>
+      <a href="#monocleSection" id="navWho">Who</a>
     </div>
     <div style="display:flex;align-items:center;gap:.75rem;">
       <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
@@ -767,10 +767,10 @@ footer a:hover { color: var(--gold-light); }
     </div>
   </div>
   <div class="nav__mobile-menu" id="navMobileMenu">
-    <a href="#pairsSection">Languages</a>
-    <a href="#featSection">Features</a>
-    <a href="#howSection">How It Works</a>
-    <a href="#monocleSection">Who</a>
+    <a href="#pairsSection" id="navLanguages">Languages</a>
+    <a href="#featSection" id="navFeatures">Features</a>
+    <a href="#howSection" id="navHow">How It Works</a>
+    <a href="#monocleSection" id="navWho">Who</a>
     <a href="learn.html" class="nav__mobile-cta">Start Learning</a>
   </div>
 </nav>
@@ -779,14 +779,9 @@ footer a:hover { color: var(--gold-light); }
 <section class="hero dot-grid">
   <div class="hero__inner">
     <div class="hero__text">
-      <span class="eye" data-rev>FREE LANGUAGE LEARNING PLATFORM</span>
-      <h1 class="hero__h1" data-rev style="--d:.1s">
-        Learn languages<br>from <em>where</em><br>you already are.
-      </h1>
-      <p class="hero__sub" data-rev style="--d:.2s">
-        200+ language pairs. 30-day structured courses. Real conversations.
-        The Cunning Linguist teaches you from your native language — not from English.
-      </p>
+      <span class="eye" data-rev id="heroEyebrow">FREE LANGUAGE LEARNING PLATFORM</span>
+      <h1 class="hero__h1" data-rev style="--d:.1s" id="heroH1">Learn languages<br>from <em>where</em><br>you already are.</h1>
+      <p class="hero__sub" data-rev style="--d:.2s" id="heroSub">200+ language pairs. 30-day structured courses. Real conversations. The Cunning Linguist teaches you from your native language — not from English.</p>
       <div class="hero__ctas" data-rev style="--d:.3s">
         <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
           <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
@@ -795,9 +790,7 @@ footer a:hover { color: var(--gold-light); }
           <span class="sb__track"><span class="sb__txt">See Features</span><span class="sb__txt" aria-hidden="true">See Features</span></span>
         </a>
       </div>
-      <p class="hero__footnote" data-rev style="--d:.4s">
-        No account required. Pick a language pair and go.
-      </p>
+      <p class="hero__footnote" data-rev style="--d:.4s" id="heroFootnote">No account required. Pick a language pair and go.</p>
     </div>
     <div class="hero__mobile-portrait">
       <img src="assets/logos/mobile%20portrait.png" alt="The Cunning Linguist">
@@ -931,12 +924,12 @@ footer a:hover { color: var(--gold-light); }
 
   <!-- Header -->
   <div class="pairs__header">
-    <span class="eye" data-rev>90 LESSON PLANS · 10 LANGUAGES</span>
+    <span class="eye" data-rev id="pairsEye">200+ LESSON PLANS · 15 LANGUAGES</span>
     <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev>
       Any language.<br>Any direction.
     </h2>
-    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;" data-rev>
-      Learn from your native language — not through English as an intermediary.
+    <p id="pairsSub" style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;" data-rev>
+      <span id="pairsSubText">Learn from your native language — not through English as an intermediary.</span>
     </p>
   </div>
 
@@ -1058,9 +1051,7 @@ footer a:hover { color: var(--gold-light); }
           <h2 class="cta-h">
             The world speaks more than <em>one</em> language.<br>So should you.
           </h2>
-          <p class="cta-sub">
-            Free forever. No account needed. Pick a language pair and start Day 1 right now.
-          </p>
+          <p class="cta-sub" id="ctaSub">Free forever. No account needed. Pick a language pair and start Day 1 right now.</p>
           <div class="cta-btns">
             <button onclick="openPicker()" class="sb sb--gold" style="cursor:pointer;">
               <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
@@ -1562,18 +1553,313 @@ const PAIR_DATA = {
   document.getElementById('marqueeTrack').innerHTML = html;
 })();
 
+
+// ── Landing page i18n ──────────────────────────────────────────────────
+const LANDING_STRINGS = {
+  en: {
+    navLanguages:'Languages', navFeatures:'Features', navHow:'How It Works', navWho:'Who',
+    heroEyebrow:'FREE LANGUAGE LEARNING PLATFORM',
+    heroH1:'Learn languages<br>from <em>where</em><br>you already are.',
+    heroSub:'200+ language pairs. 30-day structured courses. Real conversations. The Cunning Linguist teaches you from your native language — not from English.',
+    heroCta1:'Start Learning Free', heroCta2:'See Features',
+    heroFootnote:'No account required. Pick a language pair and go.',
+    featEye:'WHAT YOU GET', featLabel:'Everything you need to go from zero to conversation.',
+    pairsPickerLabel:'I SPEAK',
+    pairsSub:'Learn from your native language — not through English as an intermediary.',
+    modalTitle:'Choose your language pair', modalSrcLabel:'I speak',
+    modalTgtLabel:'I want to learn', modalStartBtn:'Start Learning →',
+    modalNoAccount:'No account needed.',
+    ctaSub:'Free forever. No account needed. Pick a language pair and start Day 1 right now.',
+  },
+  fr: {
+    navLanguages:'Langues', navFeatures:'Fonctionnalités', navHow:'Comment ça marche', navWho:'Qui',
+    heroEyebrow:'PLATEFORME D'APPRENTISSAGE DES LANGUES GRATUITE',
+    heroH1:'Apprenez une langue<br>depuis <em>là où</em><br>vous êtes déjà.',
+    heroSub:'Plus de 200 paires de langues. Cours structurés sur 30 jours. Vraies conversations. Le Cunning Linguist vous enseigne depuis votre langue natale — pas depuis l'anglais.',
+    heroCta1:'Commencer gratuitement', heroCta2:'Voir les fonctionnalités',
+    heroFootnote:'Aucun compte requis. Choisissez une paire et commencez.',
+    featEye:'CE QUE VOUS OBTENEZ', featLabel:'Tout ce qu'il vous faut pour passer de zéro à la conversation.',
+    pairsPickerLabel:'JE PARLE',
+    pairsSub:'Apprenez depuis votre langue natale — sans passer par l'anglais comme intermédiaire.',
+    modalTitle:'Choisissez votre paire de langues', modalSrcLabel:'Je parle',
+    modalTgtLabel:'Je veux apprendre', modalStartBtn:'Commencer →',
+    modalNoAccount:'Aucun compte nécessaire.',
+    ctaSub:'Gratuit pour toujours. Sans compte. Choisissez une paire et commencez le Jour 1 maintenant.',
+  },
+  es: {
+    navLanguages:'Idiomas', navFeatures:'Funciones', navHow:'Cómo funciona', navWho:'Quién',
+    heroEyebrow:'PLATAFORMA DE APRENDIZAJE DE IDIOMAS GRATUITA',
+    heroH1:'Aprende idiomas<br>desde <em>donde</em><br>ya estás.',
+    heroSub:'Más de 200 pares de idiomas. Cursos estructurados de 30 días. Conversaciones reales. The Cunning Linguist te enseña desde tu idioma nativo — no desde el inglés.',
+    heroCta1:'Empezar gratis', heroCta2:'Ver funciones',
+    heroFootnote:'Sin cuenta requerida. Elige un par y empieza.',
+    featEye:'LO QUE OBTIENES', featLabel:'Todo lo que necesitas para pasar de cero a la conversación.',
+    pairsPickerLabel:'HABLO',
+    pairsSub:'Aprende desde tu idioma nativo — sin el inglés como intermediario.',
+    modalTitle:'Elige tu par de idiomas', modalSrcLabel:'Hablo',
+    modalTgtLabel:'Quiero aprender', modalStartBtn:'Empezar →',
+    modalNoAccount:'No se necesita cuenta.',
+    ctaSub:'Gratis para siempre. Sin cuenta. Elige un par e inicia el Día 1 ahora mismo.',
+  },
+  de: {
+    navLanguages:'Sprachen', navFeatures:'Funktionen', navHow:'So funktioniert's', navWho:'Wer',
+    heroEyebrow:'KOSTENLOSE SPRACHLERNPLATTFORM',
+    heroH1:'Sprachen lernen<br>von <em>dort</em><br>wo du bereits bist.',
+    heroSub:'Über 200 Sprachpaare. 30-Tage-Strukturkurse. Echte Gespräche. The Cunning Linguist lehrt dich aus deiner Muttersprache — nicht aus dem Englischen.',
+    heroCta1:'Kostenlos starten', heroCta2:'Funktionen ansehen',
+    heroFootnote:'Kein Konto erforderlich. Wähle ein Sprachpaar und leg los.',
+    featEye:'WAS DU BEKOMMST', featLabel:'Alles, was du brauchst, um von Null zu echten Gesprächen zu kommen.',
+    pairsPickerLabel:'ICH SPRECHE',
+    pairsSub:'Lerne aus deiner Muttersprache — nicht mit Englisch als Zwischensprache.',
+    modalTitle:'Wähle dein Sprachpaar', modalSrcLabel:'Ich spreche',
+    modalTgtLabel:'Ich möchte lernen', modalStartBtn:'Starten →',
+    modalNoAccount:'Kein Konto erforderlich.',
+    ctaSub:'Für immer kostenlos. Kein Konto. Wähle ein Sprachpaar und starte Tag 1 jetzt.',
+  },
+  it: {
+    navLanguages:'Lingue', navFeatures:'Funzionalità', navHow:'Come funziona', navWho:'Chi',
+    heroEyebrow:'PIATTAFORMA DI APPRENDIMENTO LINGUISTICO GRATUITA',
+    heroH1:'Impara le lingue<br>da <em>dove</em><br>sei già.',
+    heroSub:'Oltre 200 coppie di lingue. Corsi strutturati di 30 giorni. Conversazioni reali. The Cunning Linguist ti insegna dalla tua lingua madre — non dall'inglese.',
+    heroCta1:'Inizia gratuitamente', heroCta2:'Scopri le funzionalità',
+    heroFootnote:'Nessun account richiesto. Scegli una coppia e inizia.',
+    featEye:'COSA OTTIENI', featLabel:'Tutto ciò di cui hai bisogno per passare da zero alla conversazione.',
+    pairsPickerLabel:'PARLO',
+    pairsSub:'Impara dalla tua lingua madre — senza l'inglese come intermediario.',
+    modalTitle:'Scegli la tua coppia di lingue', modalSrcLabel:'Parlo',
+    modalTgtLabel:'Voglio imparare', modalStartBtn:'Inizia →',
+    modalNoAccount:'Nessun account necessario.',
+    ctaSub:'Gratis per sempre. Nessun account. Scegli una coppia e inizia il Giorno 1 adesso.',
+  },
+  pt: {
+    navLanguages:'Idiomas', navFeatures:'Funcionalidades', navHow:'Como funciona', navWho:'Quem',
+    heroEyebrow:'PLATAFORMA GRATUITA DE APRENDIZADO DE IDIOMAS',
+    heroH1:'Aprenda idiomas<br>de <em>onde</em><br>você já está.',
+    heroSub:'Mais de 200 pares de idiomas. Cursos estruturados de 30 dias. Conversas reais. The Cunning Linguist te ensina a partir do seu idioma nativo — não do inglês.',
+    heroCta1:'Começar gratuitamente', heroCta2:'Ver funcionalidades',
+    heroFootnote:'Sem conta necessária. Escolha um par e comece.',
+    featEye:'O QUE VOCÊ RECEBE', featLabel:'Tudo que você precisa para ir do zero à conversação.',
+    pairsPickerLabel:'EU FALO',
+    pairsSub:'Aprenda a partir do seu idioma nativo — sem o inglês como intermediário.',
+    modalTitle:'Escolha seu par de idiomas', modalSrcLabel:'Eu falo',
+    modalTgtLabel:'Quero aprender', modalStartBtn:'Começar →',
+    modalNoAccount:'Sem conta necessária.',
+    ctaSub:'Grátis para sempre. Sem conta. Escolha um par e comece o Dia 1 agora.',
+  },
+  nl: {
+    navLanguages:'Talen', navFeatures:'Functies', navHow:'Hoe het werkt', navWho:'Wie',
+    heroEyebrow:'GRATIS TAALLEERSYSTEEM',
+    heroH1:'Leer talen<br>vanuit <em>waar</em><br>je al bent.',
+    heroSub:'Meer dan 200 taalcombinaties. 30-daagse gestructureerde cursussen. Echte gesprekken. The Cunning Linguist leert je vanuit je moedertaal — niet vanuit het Engels.',
+    heroCta1:'Gratis beginnen', heroCta2:'Zie functies',
+    heroFootnote:'Geen account vereist. Kies een taalpaar en begin.',
+    featEye:'WAT JE KRIJGT', featLabel:'Alles wat je nodig hebt om van nul naar gesprek te gaan.',
+    pairsPickerLabel:'IK SPREEK',
+    pairsSub:'Leer vanuit je moedertaal — niet via het Engels als tussenstap.',
+    modalTitle:'Kies je taalpaar', modalSrcLabel:'Ik spreek',
+    modalTgtLabel:'Ik wil leren', modalStartBtn:'Beginnen →',
+    modalNoAccount:'Geen account nodig.',
+    ctaSub:'Altijd gratis. Geen account. Kies een taalpaar en begin Dag 1 nu.',
+  },
+  ru: {
+    navLanguages:'Языки', navFeatures:'Функции', navHow:'Как это работает', navWho:'Кто',
+    heroEyebrow:'БЕСПЛАТНАЯ ПЛАТФОРМА ДЛЯ ИЗУЧЕНИЯ ЯЗЫКОВ',
+    heroH1:'Учите языки<br>с <em>той точки</em><br>где вы уже находитесь.',
+    heroSub:'Более 200 языковых пар. Структурированные 30-дневные курсы. Реальные разговоры. The Cunning Linguist обучает вас на вашем родном языке — не через английский.',
+    heroCta1:'Начать бесплатно', heroCta2:'Смотреть функции',
+    heroFootnote:'Аккаунт не нужен. Выберите пару и начните.',
+    featEye:'ЧТО ВЫ ПОЛУЧАЕТЕ', featLabel:'Всё необходимое, чтобы перейти от нуля к разговору.',
+    pairsPickerLabel:'Я ГОВОРЮ',
+    pairsSub:'Учитесь на родном языке — без английского как посредника.',
+    modalTitle:'Выберите языковую пару', modalSrcLabel:'Я говорю',
+    modalTgtLabel:'Хочу изучить', modalStartBtn:'Начать →',
+    modalNoAccount:'Аккаунт не нужен.',
+    ctaSub:'Бесплатно навсегда. Без аккаунта. Выберите пару и начните День 1 прямо сейчас.',
+  },
+  zh: {
+    navLanguages:'语言', navFeatures:'功能', navHow:'使用方法', navWho:'关于',
+    heroEyebrow:'免费语言学习平台',
+    heroH1:'从<em>你现在</em><br>所在的位置<br>学习语言。',
+    heroSub:'200多个语言对。30天结构化课程。真实对话。The Cunning Linguist以您的母语教学——不通过英语。',
+    heroCta1:'免费开始', heroCta2:'查看功能',
+    heroFootnote:'无需账户。选择语言对即可开始。',
+    featEye:'您将获得', featLabel:'从零到对话所需的一切。',
+    pairsPickerLabel:'我说',
+    pairsSub:'用母语学习——不以英语为中介。',
+    modalTitle:'选择您的语言对', modalSrcLabel:'我说',
+    modalTgtLabel:'我想学', modalStartBtn:'开始 →',
+    modalNoAccount:'无需账户。',
+    ctaSub:'永久免费。无需账户。选择语言对，立即开始第1天。',
+  },
+  ar: {
+    navLanguages:'اللغات', navFeatures:'الميزات', navHow:'كيف يعمل', navWho:'من نحن',
+    heroEyebrow:'منصة تعلم اللغات المجانية',
+    heroH1:'تعلم اللغات<br>من <em>حيث</em><br>أنت الآن.',
+    heroSub:'أكثر من 200 زوج لغوي. دورات منظمة لمدة 30 يومًا. محادثات حقيقية. يُعلمك The Cunning Linguist بلغتك الأم — لا بالإنجليزية.',
+    heroCta1:'ابدأ مجانًا', heroCta2:'اكتشف الميزات',
+    heroFootnote:'لا حساب مطلوب. اختر زوجًا لغويًا وابدأ.',
+    featEye:'ما ستحصل عليه', featLabel:'كل ما تحتاجه للانتقال من الصفر إلى المحادثة.',
+    pairsPickerLabel:'أتحدث',
+    pairsSub:'تعلم من لغتك الأم — دون اللجوء إلى الإنجليزية كوسيط.',
+    modalTitle:'اختر زوجك اللغوي', modalSrcLabel:'أتحدث',
+    modalTgtLabel:'أريد تعلم', modalStartBtn:'ابدأ →',
+    modalNoAccount:'لا حساب مطلوب.',
+    ctaSub:'مجاني للأبد. بدون حساب. اختر زوجًا لغويًا وابدأ اليوم الأول الآن.',
+  },
+  hi: {
+    navLanguages:'भाषाएँ', navFeatures:'सुविधाएँ', navHow:'यह कैसे काम करता है', navWho:'कौन',
+    heroEyebrow:'मुफ़्त भाषा सीखने का मंच',
+    heroH1:'भाषाएँ सीखें<br><em>जहाँ से</em><br>आप पहले से हैं।',
+    heroSub:'200+ भाषा जोड़े। 30-दिवसीय संरचित पाठ्यक्रम। असली बातचीत। The Cunning Linguist आपको आपकी मातृभाषा से सिखाता है — अंग्रेजी से नहीं।',
+    heroCta1:'मुफ़्त शुरू करें', heroCta2:'सुविधाएँ देखें',
+    heroFootnote:'कोई खाता आवश्यक नहीं। एक जोड़ी चुनें और शुरू करें।',
+    featEye:'आपको क्या मिलेगा', featLabel:'शून्य से बातचीत तक पहुँचने के लिए आपको जो चाहिए सब कुछ।',
+    pairsPickerLabel:'मैं बोलता हूँ',
+    pairsSub:'अपनी मातृभाषा से सीखें — अंग्रेजी को माध्यम बनाए बिना।',
+    modalTitle:'अपनी भाषा जोड़ी चुनें', modalSrcLabel:'मैं बोलता हूँ',
+    modalTgtLabel:'मैं सीखना चाहता हूँ', modalStartBtn:'शुरू करें →',
+    modalNoAccount:'कोई खाता आवश्यक नहीं।',
+    ctaSub:'हमेशा मुफ़्त। कोई खाता नहीं। एक जोड़ी चुनें और अभी दिन 1 शुरू करें।',
+  },
+  tr: {
+    navLanguages:'Diller', navFeatures:'Özellikler', navHow:'Nasıl çalışır', navWho:'Kim',
+    heroEyebrow:'ÜCRETSİZ DİL ÖĞRENME PLATFORMU',
+    heroH1:'Dilleri<br><em>bulunduğun yerden</em><br>öğren.',
+    heroSub:'200'den fazla dil çifti. 30 günlük yapılandırılmış kurslar. Gerçek konuşmalar. The Cunning Linguist seni kendi ana dilinden öğretiyor — İngilizce üzerinden değil.',
+    heroCta1:'Ücretsiz başla', heroCta2:'Özellikleri gör',
+    heroFootnote:'Hesap gerekmez. Bir dil çifti seç ve başla.',
+    featEye:'NE ALACAKSIN', featLabel:'Sıfırdan konuşmaya geçmek için ihtiyacın olan her şey.',
+    pairsPickerLabel:'KONUŞTUĞUM DİL',
+    pairsSub:'Ana dilinden öğren — İngilizceyi aracı olarak kullanmadan.',
+    modalTitle:'Dil çiftini seç', modalSrcLabel:'Konuştuğum dil',
+    modalTgtLabel:'Öğrenmek istiyorum', modalStartBtn:'Başla →',
+    modalNoAccount:'Hesap gerekmez.',
+    ctaSub:'Sonsuza kadar ücretsiz. Hesap yok. Bir dil çifti seç ve 1. günü şimdi başlat.',
+  },
+  ja: {
+    navLanguages:'言語', navFeatures:'機能', navHow:'使い方', navWho:'について',
+    heroEyebrow:'無料語学学習プラットフォーム',
+    heroH1:'すでにいる<br><em>場所から</em><br>言語を学ぼう。',
+    heroSub:'200以上の言語ペア。30日間の体系的コース。リアルな会話。The Cunning Linguistはあなたの母語から教えます — 英語を介さずに。',
+    heroCta1:'無料で始める', heroCta2:'機能を見る',
+    heroFootnote:'アカウント不要。言語ペアを選んですぐ始めましょう。',
+    featEye:'得られるもの', featLabel:'ゼロから会話まで必要なすべてが揃っています。',
+    pairsPickerLabel:'話す言語',
+    pairsSub:'母語から学ぶ — 英語を中間言語として使わずに。',
+    modalTitle:'言語ペアを選択', modalSrcLabel:'話す言語',
+    modalTgtLabel:'学びたい言語', modalStartBtn:'始める →',
+    modalNoAccount:'アカウント不要。',
+    ctaSub:'ずっと無料。アカウント不要。言語ペアを選んで今すぐ1日目を始めましょう。',
+  },
+  ko: {
+    navLanguages:'언어', navFeatures:'기능', navHow:'사용 방법', navWho:'소개',
+    heroEyebrow:'무료 언어 학습 플랫폼',
+    heroH1:'지금 있는<br><em>곳에서</em><br>언어를 배우세요.',
+    heroSub:'200개 이상의 언어 쌍. 30일 구조화 코스. 실제 대화. The Cunning Linguist는 영어가 아닌 모국어로 가르칩니다.',
+    heroCta1:'무료로 시작', heroCta2:'기능 보기',
+    heroFootnote:'계정 불필요. 언어 쌍을 선택하고 시작하세요.',
+    featEye:'받게 되는 것', featLabel:'제로에서 대화까지 필요한 모든 것.',
+    pairsPickerLabel:'내가 말하는 언어',
+    pairsSub:'모국어로 배우세요 — 영어를 중간 언어로 사용하지 않고.',
+    modalTitle:'언어 쌍 선택', modalSrcLabel:'나의 언어',
+    modalTgtLabel:'배우고 싶은 언어', modalStartBtn:'시작하기 →',
+    modalNoAccount:'계정이 필요 없습니다.',
+    ctaSub:'영원히 무료. 계정 없이. 언어 쌍을 선택하고 지금 1일차를 시작하세요.',
+  },
+  el: {
+    navLanguages:'Γλώσσες', navFeatures:'Χαρακτηριστικά', navHow:'Πώς λειτουργεί', navWho:'Ποιος',
+    heroEyebrow:'ΔΩΡΕΑΝ ΠΛΑΤΦΟΡΜΑ ΕΚΜΑΘΗΣΗΣ ΓΛΩΣΣΩΝ',
+    heroH1:'Μάθε γλώσσες<br>από <em>εκεί</em><br>που ήδη είσαι.',
+    heroSub:'Πάνω από 200 γλωσσικά ζεύγη. Δομημένα μαθήματα 30 ημερών. Πραγματικές συνομιλίες. Το The Cunning Linguist σε διδάσκει στη μητρική σου γλώσσα — όχι μέσω Αγγλικών.',
+    heroCta1:'Ξεκίνα δωρεάν', heroCta2:'Δες τα χαρακτηριστικά',
+    heroFootnote:'Δεν χρειάζεται λογαριασμός. Επίλεξε ένα ζεύγος και ξεκίνα.',
+    featEye:'ΤΙ ΠΑΙΡΝΕΙΣ', featLabel:'Όλα όσα χρειάζεσαι για να πας από το μηδέν στη συνομιλία.',
+    pairsPickerLabel:'ΜΙΛΏ',
+    pairsSub:'Μάθε στη μητρική σου γλώσσα — χωρίς τα Αγγλικά ως ενδιάμεσο.',
+    modalTitle:'Επίλεξε το γλωσσικό σου ζεύγος', modalSrcLabel:'Μιλώ',
+    modalTgtLabel:'Θέλω να μάθω', modalStartBtn:'Ξεκίνα →',
+    modalNoAccount:'Δεν χρειάζεται λογαριασμός.',
+    ctaSub:'Δωρεάν για πάντα. Χωρίς λογαριασμό. Επίλεξε ένα ζεύγος και ξεκίνα την Ημέρα 1 τώρα.',
+  },
+  sq: {
+    navLanguages:'Gjuhët', navFeatures:'Veçoritë', navHow:'Si funksionon', navWho:'Kush',
+    heroEyebrow:'PLATFORMË FALAS PËR MËSIMIN E GJUHËVE',
+    heroH1:'Mëso gjuhë<br>nga <em>ku</em><br>ndodhesh tashmë.',
+    heroSub:'Mbi 200 çifte gjuhësh. Kurse të strukturuara 30-ditore. Biseda të vërteta. The Cunning Linguist të mëson nga gjuha jote amtare — jo nga anglishtja.',
+    heroCta1:'Fillo falas', heroCta2:'Shiko veçoritë',
+    heroFootnote:'Nuk kërkohet llogari. Zgjidh një çift dhe fillo.',
+    featEye:'ÇKA MERR', featLabel:'Gjithçka që të duhet për të shkuar nga zero në bisedë.',
+    pairsPickerLabel:'FLAS',
+    pairsSub:'Mëso nga gjuha jote amtare — pa anglishten si ndërmjetës.',
+    modalTitle:'Zgjidh çiftin tënd të gjuhëve', modalSrcLabel:'Flas',
+    modalTgtLabel:'Dua të mësoj', modalStartBtn:'Fillo →',
+    modalNoAccount:'Nuk kërkohet llogari.',
+    ctaSub:'Falas përgjithmonë. Pa llogari. Zgjidh një çift dhe fillo Ditën 1 tani.',
+  },
+};
+
+function translateLanding(lang) {
+  const s = LANDING_STRINGS[lang] || LANDING_STRINGS.en;
+  const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  const setText = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+
+  // Nav
+  setText('navLanguages', s.navLanguages);
+  setText('navFeatures', s.navFeatures);
+  setText('navHow', s.navHow);
+  setText('navWho', s.navWho);
+
+  // Hero
+  setText('heroEyebrow', s.heroEyebrow);
+  set('heroH1', s.heroH1);
+  setText('heroSub', s.heroSub);
+  setText('heroFootnote', s.heroFootnote);
+
+  // Hero CTA buttons — each has two .sb__txt spans for animation
+  document.querySelectorAll('.hero__ctas .sb__txt').forEach((el, i) => {
+    el.textContent = i < 2 ? s.heroCta1 : s.heroCta2;
+  });
+
+  // Feat
+  setText('featEye', s.featEye);
+  setText('featLabel', s.featLabel);
+
+  // Pairs
+  setText('pairsPickerLabel', s.pairsPickerLabel);
+  setText('pairsSubText', s.pairsSub);
+
+  // Modal
+  setText('modalTitle', s.modalTitle);
+  setText('modalSrcLabel', s.modalSrcLabel);
+  setText('modalTgtLabel', s.modalTgtLabel);
+  setText('modalStartBtn', s.modalStartBtn);
+  setText('modalNoAccount', s.modalNoAccount);
+
+  // CTA section
+  setText('ctaSub', s.ctaSub);
+}
+
 // ── Build source pills ──────────────────────────────────────────────────
 (function buildSrcPills() {
   const pillsEl = document.getElementById('srcPills');
   pillsEl.innerHTML = ALL_LANGS.map((l, i) =>
     `<button class="src-pill${i===0?' active':''}" data-src="${l}" onclick="selectSrc('${l}')">${LANG_FLAGS[l]} ${LANG_NAMES[l]}</button>`
   ).join('');
-  renderTargets('en');
+  const storedLang = (function(){ try { return localStorage.getItem('cl_landing_lang') || 'en'; } catch(e) { return 'en'; }})();
+  if (PAIR_DATA[storedLang]) {
+    document.querySelectorAll('.src-pill').forEach(p => p.classList.toggle('active', p.dataset.src === storedLang));
+    renderTargets(storedLang);
+    translateLanding(storedLang);
+  } else {
+    renderTargets('en');
+  }
 })();
 
 function selectSrc(src) {
   document.querySelectorAll('.src-pill').forEach(p => p.classList.toggle('active', p.dataset.src === src));
   renderTargets(src);
+  translateLanding(src);
+  try { localStorage.setItem('cl_landing_lang', src); } catch(e) {}
 }
 
 function renderTargets(src) {
