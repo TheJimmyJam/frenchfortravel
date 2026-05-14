@@ -805,10 +805,10 @@ footer a:hover { color: var(--gold-light); }
   <div id="scalePanel">
     <div class="scale-content">
       <span class="scale-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
-      <h2 class="scale-h">
+      <h2 class="scale-h" id="scaleH">
         The language you learn <em>from</em><br>changes everything.
       </h2>
-      <p class="scale-sub">
+      <p class="scale-sub" id="scaleSub">
         Every app teaches you French. Almost none teach you French <em>from Spanish</em>.
         The native-language context is what makes vocabulary stick.
       </p>
@@ -819,8 +819,8 @@ footer a:hover { color: var(--gold-light); }
 <!-- ── 3. PROBLEM ESCALATION ─────────────────────────────────────────────── -->
 <section class="section problem">
   <div class="w">
-    <span class="eye" data-rev>THE PROBLEM WITH LANGUAGE LEARNING</span>
-    <h2 class="problem__stat">
+    <span class="eye" data-rev id="problemEye">THE PROBLEM WITH LANGUAGE LEARNING</span>
+    <h2 class="problem__stat" id="problemStat">
       <span data-wg>
         <span class="wr" style="--wd:.00s">Most</span>
         <span class="wr" style="--wd:.04s">apps</span>
@@ -852,25 +852,25 @@ footer a:hover { color: var(--gold-light); }
     <div class="problem__items">
       <div class="problem__item" data-rev style="--d:.00s">
         <span class="problem__num">01</span>
-        <span><strong>Duolingo and competitors are English-first</strong> — even when you're a Spanish speaker learning French, you're routed through English definitions.</span>
+        <span id="prob1"><strong>Duolingo and competitors are English-first</strong> — even when you're a Spanish speaker learning French, you're routed through English definitions.</span>
       </div>
       <div class="problem__item" data-rev style="--d:.10s">
         <span class="problem__num">02</span>
-        <span><strong>Vocabulary without context doesn't stick</strong> — isolated word drills miss the grammatical bridges that actually build fluency.</span>
+        <span id="prob2"><strong>Vocabulary without context doesn't stick</strong> — isolated word drills miss the grammatical bridges that actually build fluency.</span>
       </div>
       <div class="problem__item" data-rev style="--d:.20s">
         <span class="problem__num">03</span>
-        <span><strong>Conversations are what matter</strong> — but most apps skip real-world scenarios like cafés, airports, and workplaces until you're "advanced enough."</span>
+        <span id="prob3"><strong>Conversations are what matter</strong> — but most apps skip real-world scenarios like cafés, airports, and workplaces until you're "advanced enough."</span>
       </div>
       <div class="problem__item" data-rev style="--d:.30s">
         <span class="problem__num">04</span>
-        <span><strong>There's no path</strong> — random lessons without a 30-day structure leave most learners stuck at "bonjour" for six months.</span>
+        <span id="prob4"><strong>There's no path</strong> — random lessons without a 30-day structure leave most learners stuck at "bonjour" for six months.</span>
       </div>
     </div>
 
     <div class="contrast" data-rev>
-      <p class="contrast__a">Without native context, you're always translating.</p>
-      <p class="contrast__b">With The Cunning Linguist, you think in the language.</p>
+      <p class="contrast__a" id="contrastA">Without native context, you're always translating.</p>
+      <p class="contrast__b" id="contrastB">With The Cunning Linguist, you think in the language.</p>
     </div>
   </div>
 </section>
@@ -895,23 +895,23 @@ footer a:hover { color: var(--gold-light); }
     <div class="feat-grid">
       <div id="fc1" class="feat-card">
         <span class="feat-icon"><img src="assets/logos/day 1 book.png" alt="30-Day Structured Courses"></span>
-        <div class="feat-title">30-Day Structured Courses</div>
-        <div class="feat-body">A guided path from Day 1 to confident conversation. 350+ vocabulary items, grammar anchors, and daily milestones — for every language pair.</div>
+        <div class="feat-title" id="fc1Title">30-Day Structured Courses</div>
+        <div class="feat-body" id="fc1Body">A guided path from Day 1 to confident conversation. 350+ vocabulary items, grammar anchors, and daily milestones — for every language pair.</div>
       </div>
       <div id="fc2" class="feat-card">
         <span class="feat-icon"><img src="assets/logos/cards and watch.png" alt="Spaced Repetition Flashcards"></span>
-        <div class="feat-title">Spaced Repetition Flashcards</div>
-        <div class="feat-body">The proven science of memory. Cards surface when you're about to forget them. Flip direction adapts based on whether you're learning to or from a language.</div>
+        <div class="feat-title" id="fc2Title">Spaced Repetition Flashcards</div>
+        <div class="feat-body" id="fc2Body">The proven science of memory. Cards surface when you're about to forget them. Flip direction adapts based on whether you're learning to or from a language.</div>
       </div>
       <div id="fc3" class="feat-card">
         <span class="feat-icon"><img src="assets/logos/dialogue boxes.png" alt="Real Conversation Scenarios"></span>
-        <div class="feat-title">Real Conversation Scenarios</div>
-        <div class="feat-body">8+ scenarios per pair: café, hotel, airport, métro, restaurant, workplace, and more. With per-line audio so you can hear every response.</div>
+        <div class="feat-title" id="fc3Title">Real Conversation Scenarios</div>
+        <div class="feat-body" id="fc3Body">8+ scenarios per pair: café, hotel, airport, métro, restaurant, workplace, and more. With per-line audio so you can hear every response.</div>
       </div>
       <div id="fc4" class="feat-card">
         <span class="feat-icon"><img src="assets/logos/globe.png" alt="90 Language Pairs"></span>
-        <div class="feat-title">90 Language Pairs — Any to Any</div>
-        <div class="feat-body">French → Spanish. Portuguese → Italian. Korean → Japanese. Learn in any direction. Not just English-first. Native-language instruction throughout.</div>
+        <div class="feat-title" id="fc4Title">90 Language Pairs — Any to Any</div>
+        <div class="feat-body" id="fc4Body">French → Spanish. Portuguese → Italian. Korean → Japanese. Learn in any direction. Not just English-first. Native-language instruction throughout.</div>
       </div>
     </div>
   </div>
@@ -923,10 +923,10 @@ footer a:hover { color: var(--gold-light); }
   <!-- Header -->
   <div class="pairs__header">
     <span class="eye" data-rev>283 COURSES · 21 LANGUAGES</span>
-    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev>
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem;" data-rev id="pairsH2">
       Any language.<br>Any direction.
     </h2>
-    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;" data-rev>
+    <p style="color:var(--muted);font-size:.95rem;max-width:36rem;line-height:1.65;" data-rev id="pairsSubText">
       Learn from your native language — not through English as an intermediary.
     </p>
   </div>
@@ -954,25 +954,25 @@ footer a:hover { color: var(--gold-light); }
   <!-- The full wordmark logo — ghostly background presence -->
   <img id="howLogoBg" src="assets/hero-dark.png" alt="" aria-hidden="true" class="how__logo-bg">
   <div class="w">
-    <span class="eye" data-rev>HOW IT WORKS</span>
-    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev>
+    <span class="eye" data-rev id="howEye">HOW IT WORKS</span>
+    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;" data-rev id="howH2">
       Three steps.<br>Thirty days.<br><em style="color:var(--gold)">Real fluency.</em>
     </h2>
     <div class="how__grid">
       <div id="step1" class="how-step">
         <div class="how-step__num">01</div>
-        <div class="how-step__title">Pick your language pair</div>
-        <div class="how-step__body">Choose your native language and the one you want to learn. No sign-up required — start immediately from any device.</div>
+        <div class="how-step__title" id="step1Title">Pick your language pair</div>
+        <div class="how-step__body" id="step1Body">Choose your native language and the one you want to learn. No sign-up required — start immediately from any device.</div>
       </div>
       <div id="step2" class="how-step">
         <div class="how-step__num">02</div>
-        <div class="how-step__title">Follow the 30-day path</div>
-        <div class="how-step__body">Daily lessons build on each other. Vocab, grammar anchors, quizzes, and conversation scenarios — all in your native language frame.</div>
+        <div class="how-step__title" id="step2Title">Follow the 30-day path</div>
+        <div class="how-step__body" id="step2Body">Daily lessons build on each other. Vocab, grammar anchors, quizzes, and conversation scenarios — all in your native language frame.</div>
       </div>
       <div id="step3" class="how-step">
         <div class="how-step__num">03</div>
-        <div class="how-step__title">Practice until it sticks</div>
-        <div class="how-step__body">Spaced repetition surfaces cards when you're about to forget. Conversation mode lets you work through realistic scenarios with audio on every line.</div>
+        <div class="how-step__title" id="step3Title">Practice until it sticks</div>
+        <div class="how-step__body" id="step3Body">Spaced repetition surfaces cards when you're about to forget. Conversation mode lets you work through realistic scenarios with audio on every line.</div>
       </div>
     </div>
   </div>
@@ -1022,7 +1022,7 @@ footer a:hover { color: var(--gold-light); }
 
 <!-- 6c. Quotes — unpinned, deal in below the pin -->
 <section class="monocle-quotes-section" id="monocleQuotesSection">
-  <p class="monocle-quotes-label">On the Subject of Languages</p>
+  <p class="monocle-quotes-label" id="quotesLabel">On the Subject of Languages</p>
   <div class="monocle-quotes" id="monocleQuotes">
     <div class="monocle-quote"><span class="q-mark">"</span><p>French is the language of love. Spanish is the language of passion. English is the language of asking if you take Visa.</p></div>
     <div class="monocle-quote"><span class="q-mark">"</span><p>The best time to learn a language was ten years ago. The second best time is before your next trip. The third best time is after your third glass of wine — but results may vary.</p></div>
@@ -1038,7 +1038,7 @@ footer a:hover { color: var(--gold-light); }
   <div class="w">
     <div class="cta-box" data-rev>
       <span class="cta-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
-      <h2 class="cta-h">
+      <h2 class="cta-h" id="ctaH2">
         The world speaks more than <em>one</em> language.<br>So should you.
       </h2>
       <p class="cta-sub">
@@ -1049,7 +1049,7 @@ footer a:hover { color: var(--gold-light); }
           <span class="sb__track"><span class="sb__txt">Start Learning Free</span><span class="sb__txt" aria-hidden="true">Start Learning Free</span></span>
         </button>
         <a href="#pairsSection" class="sb">
-          <span class="sb__track"><span class="sb__txt">Browse Language Pairs</span><span class="sb__txt" aria-hidden="true">Browse Language Pairs</span></span>
+          <span class="sb__track"><span class="sb__txt" id="ctaBrowse1">Browse Language Pairs</span><span class="sb__txt" aria-hidden="true" id="ctaBrowse2">Browse Language Pairs</span></span>
         </a>
       </div>
     </div>
@@ -1444,8 +1444,685 @@ const LANDING_STRINGS = {
   },
 };
 
+const SUPP_STRINGS = {
+  en: {
+    scaleH:`The language you learn <em>from</em><br>changes everything.`,
+    scaleSub:`Every app teaches you French. Almost none teach you French <em>from Spanish</em>. The native-language context is what makes vocabulary stick.`,
+    problemEye:`THE PROBLEM WITH LANGUAGE LEARNING`,
+    prob1:`<strong>Duolingo and competitors are English-first</strong> — even when you're a Spanish speaker learning French, you're routed through English definitions.`,
+    prob2:`<strong>Vocabulary without context doesn't stick</strong> — isolated word drills miss the grammatical bridges that actually build fluency.`,
+    prob3:`<strong>Conversations are what matter</strong> — but most apps skip real-world scenarios like cafés, airports, and workplaces until you're "advanced enough."`,
+    prob4:`<strong>There's no path</strong> — random lessons without a 30-day structure leave most learners stuck at "bonjour" for six months.`,
+    contrastA:`Without native context, you're always translating.`,
+    contrastB:`With The Cunning Linguist, you think in the language.`,
+    fc1Title:`30-Day Structured Courses`,
+    fc1Body:`A guided path from Day 1 to confident conversation. 350+ vocabulary items, grammar anchors, and daily milestones — for every language pair.`,
+    fc2Title:`Spaced Repetition Flashcards`,
+    fc2Body:`The proven science of memory. Cards surface when you're about to forget them. Flip direction adapts based on whether you're learning to or from a language.`,
+    fc3Title:`Real Conversation Scenarios`,
+    fc3Body:`8+ scenarios per pair: café, hotel, airport, métro, restaurant, workplace, and more. With per-line audio so you can hear every response.`,
+    fc4Title:`90 Language Pairs — Any to Any`,
+    fc4Body:`French → Spanish. Portuguese → Italian. Korean → Japanese. Learn in any direction. Not just English-first. Native-language instruction throughout.`,
+    pairsH2:`Any language.<br>Any direction.`,
+    pairsSubText:`Learn from your native language — not through English as an intermediary.`,
+    howEye:`HOW IT WORKS`,
+    howH2:`Three steps.<br>Thirty days.<br><em style="color:var(--gold)">Real fluency.</em>`,
+    step1Title:`Pick your language pair`,
+    step1Body:`Choose your native language and the one you want to learn. No sign-up required — start immediately from any device.`,
+    step2Title:`Follow the 30-day path`,
+    step2Body:`Daily lessons build on each other. Vocab, grammar anchors, quizzes, and conversation scenarios — all in your native language frame.`,
+    step3Title:`Practice until it sticks`,
+    step3Body:`Spaced repetition surfaces cards when you're about to forget. Conversation mode lets you work through realistic scenarios with audio on every line.`,
+    ctaH2:`The world speaks more than <em>one</em> language.<br>So should you.`,
+    ctaBrowse:`Browse Language Pairs`,
+    quotesLabel:`On the Subject of Languages`,
+  },
+  fr: {
+    scaleH:`La langue depuis laquelle vous apprenez<br>change tout.`,
+    scaleSub:`Toutes les applis vous apprennent le français. Presque aucune ne vous l'enseigne <em>depuis l'espagnol</em>. Le contexte en langue natale, c'est ce qui fait coller le vocabulaire.`,
+    problemEye:`LE PROBLÈME DE L'APPRENTISSAGE DES LANGUES`,
+    prob1:`<strong>Duolingo et ses concurrents se basent sur l'anglais</strong> — même si vous êtes hispanophone et apprenez le français, vous passez par des définitions anglaises.`,
+    prob2:`<strong>Le vocabulaire sans contexte ne colle pas</strong> — les exercices de mots isolés ratent les passerelles grammaticales qui construisent la fluidité.`,
+    prob3:`<strong>Les conversations sont ce qui compte</strong> — mais la plupart des applis ignorent les scénarios du quotidien comme les cafés, aéroports et bureaux jusqu'à ce que vous soyez assez avancé.`,
+    prob4:`<strong>Il n'y a pas de parcours</strong> — des leçons aléatoires sans structure sur 30 jours laissent la plupart des apprenants bloqués à «bonjour» pendant six mois.`,
+    contrastA:`Sans contexte natif, vous traduisez toujours.`,
+    contrastB:`Avec The Cunning Linguist, vous pensez dans la langue.`,
+    fc1Title:`Cours structurés sur 30 jours`,
+    fc1Body:`Un parcours guidé du Jour 1 à la conversation assurée. Plus de 350 éléments de vocabulaire, ancrages grammaticaux et jalons quotidiens — pour chaque paire de langues.`,
+    fc2Title:`Flashcards par répétition espacée`,
+    fc2Body:`La science éprouvée de la mémoire. Les cartes apparaissent quand vous êtes sur le point de les oublier. La direction s'adapte selon que vous apprenez vers ou depuis une langue.`,
+    fc3Title:`Scénarios de conversation réels`,
+    fc3Body:`8+ scénarios par paire : café, hôtel, aéroport, métro, restaurant, lieu de travail, et plus. Avec audio par ligne pour entendre chaque réponse.`,
+    fc4Title:`90 paires de langues — dans tous les sens`,
+    fc4Body:`Français → Espagnol. Portugais → Italien. Coréen → Japonais. Apprenez dans n'importe quelle direction. Pas seulement en anglais. Instruction en langue natale.`,
+    pairsH2:`N'importe quelle langue.<br>Dans tous les sens.`,
+    pairsSubText:`Apprenez depuis votre langue natale — pas via l'anglais comme intermédiaire.`,
+    howEye:`COMMENT ÇA MARCHE`,
+    howH2:`Trois étapes.<br>Trente jours.<br><em style="color:var(--gold)">Vraie fluidité.</em>`,
+    step1Title:`Choisissez votre paire de langues`,
+    step1Body:`Choisissez votre langue natale et celle que vous souhaitez apprendre. Sans inscription — commencez immédiatement depuis n'importe quel appareil.`,
+    step2Title:`Suivez le parcours de 30 jours`,
+    step2Body:`Les leçons quotidiennes se construisent les unes sur les autres. Vocabulaire, ancrages grammaticaux, quiz et scénarios — tout dans votre cadre linguistique natif.`,
+    step3Title:`Pratiquez jusqu'à ce que ça colle`,
+    step3Body:`La répétition espacée fait apparaître les cartes quand vous êtes sur le point de les oublier. Le mode conversation vous permet de travailler des scénarios réalistes avec de l'audio sur chaque ligne.`,
+    ctaH2:`Le monde parle plus d'une langue.<br>Vous aussi, vous devriez.`,
+    ctaBrowse:`Parcourir les paires de langues`,
+    quotesLabel:`Sur le sujet des langues`,
+  },
+  es: {
+    scaleH:`El idioma desde el que aprendes<br>lo cambia todo.`,
+    scaleSub:`Todas las apps te enseñan francés. Casi ninguna te enseña francés <em>desde el español</em>. El contexto en tu idioma nativo es lo que hace que el vocabulario se quede.`,
+    problemEye:`EL PROBLEMA CON EL APRENDIZAJE DE IDIOMAS`,
+    prob1:`<strong>Duolingo y sus competidores son anglocéntricos</strong> — incluso si eres hispanohablante aprendiendo francés, te dirigen por definiciones en inglés.`,
+    prob2:`<strong>El vocabulario sin contexto no se queda</strong> — los ejercicios de palabras aisladas pierden los puentes gramaticales que realmente construyen la fluidez.`,
+    prob3:`<strong>Las conversaciones son lo que importa</strong> — pero la mayoría de apps omiten escenarios del mundo real como cafés, aeropuertos y trabajos hasta que estás "suficientemente avanzado".`,
+    prob4:`<strong>No hay un camino</strong> — lecciones aleatorias sin estructura de 30 días dejan a la mayoría de los aprendices atascados en "bonjour" durante seis meses.`,
+    contrastA:`Sin contexto nativo, siempre estás traduciendo.`,
+    contrastB:`Con The Cunning Linguist, piensas en el idioma.`,
+    fc1Title:`Cursos estructurados de 30 días`,
+    fc1Body:`Un camino guiado del Día 1 a la conversación fluida. Más de 350 elementos de vocabulario, anclas gramaticales y hitos diarios — para cada par de idiomas.`,
+    fc2Title:`Tarjetas de repetición espaciada`,
+    fc2Body:`La ciencia probada de la memoria. Las tarjetas aparecen justo cuando estás a punto de olvidarlas. La dirección se adapta según si estás aprendiendo hacia o desde un idioma.`,
+    fc3Title:`Escenarios de conversación reales`,
+    fc3Body:`8+ escenarios por par: café, hotel, aeropuerto, metro, restaurante, lugar de trabajo y más. Con audio por línea para que puedas escuchar cada respuesta.`,
+    fc4Title:`90 pares de idiomas — en cualquier dirección`,
+    fc4Body:`Francés → Español. Portugués → Italiano. Coreano → Japonés. Aprende en cualquier dirección. No solo en inglés. Instrucción en lengua nativa.`,
+    pairsH2:`Cualquier idioma.<br>Cualquier dirección.`,
+    pairsSubText:`Aprende desde tu idioma nativo — no a través del inglés como intermediario.`,
+    howEye:`CÓMO FUNCIONA`,
+    howH2:`Tres pasos.<br>Treinta días.<br><em style="color:var(--gold)">Fluidez real.</em>`,
+    step1Title:`Elige tu par de idiomas`,
+    step1Body:`Elige tu idioma nativo y el que quieres aprender. Sin registro — comienza inmediatamente desde cualquier dispositivo.`,
+    step2Title:`Sigue el camino de 30 días`,
+    step2Body:`Las lecciones diarias se construyen unas sobre otras. Vocabulario, anclas gramaticales, cuestionarios y escenarios de conversación — todo en tu marco lingüístico nativo.`,
+    step3Title:`Practica hasta que se quede`,
+    step3Body:`La repetición espaciada muestra las tarjetas justo cuando estás a punto de olvidarlas. El modo conversación te permite trabajar escenarios realistas con audio en cada línea.`,
+    ctaH2:`El mundo habla más de <em>un</em> idioma.<br>Tú también deberías.`,
+    ctaBrowse:`Ver pares de idiomas`,
+    quotesLabel:`Sobre el tema de los idiomas`,
+  },
+  de: {
+    scaleH:`Die Sprache, von der aus du lernst,<br>ändert alles.`,
+    scaleSub:`Jede App bringt dir Französisch bei. Fast keine lehrt dich Französisch <em>aus dem Spanischen</em>. Der Kontext in deiner Muttersprache ist das, was Vokabeln wirklich einprägt.`,
+    problemEye:`DAS PROBLEM MIT DEM SPRACHENLERNEN`,
+    prob1:`<strong>Duolingo und Wettbewerber sind englischzentriert</strong> — selbst wenn du Spanisch sprichst und Französisch lernst, wirst du durch englische Definitionen geleitet.`,
+    prob2:`<strong>Vokabeln ohne Kontext bleiben nicht hängen</strong> — isolierte Wortübungen verpassen die grammatikalischen Brücken, die echte Sprachflüssigkeit aufbauen.`,
+    prob3:`<strong>Gespräche sind das, was zählt</strong> — aber die meisten Apps überspringen Alltagsszenarien wie Cafés, Flughäfen und Arbeitsplätze, bis du "fortgeschritten genug" bist.`,
+    prob4:`<strong>Es gibt keinen Weg</strong> — zufällige Lektionen ohne 30-Tage-Struktur lassen die meisten Lernenden monatelang bei "Bonjour" stecken.`,
+    contrastA:`Ohne nativen Kontext übersetzt du immer.`,
+    contrastB:`Mit The Cunning Linguist denkst du in der Sprache.`,
+    fc1Title:`30-Tage-Strukturkurse`,
+    fc1Body:`Ein geführter Weg von Tag 1 zu sicherer Konversation. 350+ Vokabeln, Grammatikanker und tägliche Meilensteine — für jedes Sprachpaar.`,
+    fc2Title:`Lernkarten mit Spaced Repetition`,
+    fc2Body:`Die bewährte Wissenschaft des Gedächtnisses. Karten erscheinen, wenn du sie gerade vergessen würdest. Die Richtung passt sich an, je nachdem ob du zu oder von einer Sprache lernst.`,
+    fc3Title:`Echte Gesprächsszenarien`,
+    fc3Body:`8+ Szenarien pro Paar: Café, Hotel, Flughafen, Metro, Restaurant, Arbeitsplatz und mehr. Mit Ton pro Zeile, damit du jede Antwort hören kannst.`,
+    fc4Title:`90 Sprachpaare — in jede Richtung`,
+    fc4Body:`Französisch → Spanisch. Portugiesisch → Italienisch. Koreanisch → Japanisch. Lerne in jede Richtung. Nicht nur Englisch-zuerst. Muttersprachlicher Unterricht.`,
+    pairsH2:`Jede Sprache.<br>Jede Richtung.`,
+    pairsSubText:`Lerne aus deiner Muttersprache — nicht über Englisch als Zwischenstation.`,
+    howEye:`SO FUNKTIONIERT ES`,
+    howH2:`Drei Schritte.<br>Dreißig Tage.<br><em style="color:var(--gold)">Echte Sprachflüssigkeit.</em>`,
+    step1Title:`Wähle dein Sprachpaar`,
+    step1Body:`Wähle deine Muttersprache und die Sprache, die du lernen möchtest. Keine Anmeldung nötig — starte sofort von jedem Gerät.`,
+    step2Title:`Folge dem 30-Tage-Weg`,
+    step2Body:`Tägliche Lektionen bauen aufeinander auf. Vokabeln, Grammatikanker, Quiz und Gesprächsszenarien — alles in deinem muttersprachlichen Rahmen.`,
+    step3Title:`Übe, bis es sitzt`,
+    step3Body:`Spaced Repetition zeigt Karten, wenn du sie vergessen würdest. Der Gesprächsmodus lässt dich realistische Szenarien mit Ton pro Zeile durcharbeiten.`,
+    ctaH2:`Die Welt spricht mehr als <em>eine</em> Sprache.<br>Du auch.`,
+    ctaBrowse:`Sprachpaare durchsuchen`,
+    quotesLabel:`Zum Thema Sprachen`,
+  },
+  it: {
+    scaleH:`La lingua da cui impari<br>cambia tutto.`,
+    scaleSub:`Ogni app ti insegna il francese. Quasi nessuna te lo insegna <em>dallo spagnolo</em>. Il contesto nella lingua nativa è ciò che fa restare il vocabolario.`,
+    problemEye:`IL PROBLEMA CON L'APPRENDIMENTO DELLE LINGUE`,
+    prob1:`<strong>Duolingo e i concorrenti sono anglocentrici</strong> — anche se parli spagnolo e stai imparando il francese, vieni guidato attraverso definizioni in inglese.`,
+    prob2:`<strong>Il vocabolario senza contesto non resta</strong> — gli esercizi su parole isolate perdono i ponti grammaticali che costruiscono davvero la fluidità.`,
+    prob3:`<strong>Le conversazioni sono ciò che conta</strong> — ma la maggior parte delle app salta gli scenari della vita reale come caffè, aeroporti e luoghi di lavoro finché non sei "abbastanza avanzato".`,
+    prob4:`<strong>Non c'è un percorso</strong> — lezioni casuali senza una struttura di 30 giorni lasciano la maggior parte degli studenti bloccati a "bonjour" per sei mesi.`,
+    contrastA:`Senza contesto nativo, stai sempre traducendo.`,
+    contrastB:`Con The Cunning Linguist, pensi nella lingua.`,
+    fc1Title:`Corsi strutturati di 30 giorni`,
+    fc1Body:`Un percorso guidato dal Giorno 1 alla conversazione sicura. 350+ elementi di vocabolario, ancore grammaticali e traguardi quotidiani — per ogni coppia di lingue.`,
+    fc2Title:`Flashcard a ripetizione spaziata`,
+    fc2Body:`La scienza provata della memoria. Le carte appaiono quando stai per dimenticarle. La direzione si adatta a seconda che tu stia imparando verso o da una lingua.`,
+    fc3Title:`Scenari di conversazione reali`,
+    fc3Body:`8+ scenari per coppia: caffè, hotel, aeroporto, metro, ristorante, luogo di lavoro e altro. Con audio per riga per sentire ogni risposta.`,
+    fc4Title:`90 coppie di lingue — in qualsiasi direzione`,
+    fc4Body:`Francese → Spagnolo. Portoghese → Italiano. Coreano → Giapponese. Impara in qualsiasi direzione. Non solo inglese-primo. Istruzione in lingua nativa.`,
+    pairsH2:`Qualsiasi lingua.<br>Qualsiasi direzione.`,
+    pairsSubText:`Impara dalla tua lingua nativa — non attraverso l'inglese come intermediario.`,
+    howEye:`COME FUNZIONA`,
+    howH2:`Tre passi.<br>Trenta giorni.<br><em style="color:var(--gold)">Vera fluidità.</em>`,
+    step1Title:`Scegli la tua coppia di lingue`,
+    step1Body:`Scegli la tua lingua nativa e quella che vuoi imparare. Senza registrazione — inizia subito da qualsiasi dispositivo.`,
+    step2Title:`Segui il percorso di 30 giorni`,
+    step2Body:`Le lezioni quotidiane si costruiscono l'una sull'altra. Vocabolario, ancore grammaticali, quiz e scenari di conversazione — tutto nel tuo frame linguistico nativo.`,
+    step3Title:`Pratica finché non si incolla`,
+    step3Body:`La ripetizione spaziata mostra le carte quando stai per dimenticarle. La modalità conversazione ti permette di lavorare su scenari realistici con audio su ogni riga.`,
+    ctaH2:`Il mondo parla più di <em>una</em> lingua.<br>Dovresti farlo anche tu.`,
+    ctaBrowse:`Sfoglia le coppie di lingue`,
+    quotesLabel:`Sul tema delle lingue`,
+  },
+  pt: {
+    scaleH:`O idioma a partir do qual você aprende<br>muda tudo.`,
+    scaleSub:`Todo app te ensina francês. Quase nenhum te ensina francês <em>a partir do espanhol</em>. O contexto na língua nativa é o que faz o vocabulário fixar.`,
+    problemEye:`O PROBLEMA COM O APRENDIZADO DE IDIOMAS`,
+    prob1:`<strong>Duolingo e concorrentes são anglocêntricos</strong> — mesmo que você fale espanhol e esteja aprendendo francês, você é direcionado por definições em inglês.`,
+    prob2:`<strong>Vocabulário sem contexto não fica</strong> — exercícios de palavras isoladas perdem as pontes gramaticais que realmente constroem a fluência.`,
+    prob3:`<strong>Conversas são o que importa</strong> — mas a maioria dos apps pula cenários do mundo real como cafés, aeroportos e locais de trabalho até você estar "avançado o suficiente".`,
+    prob4:`<strong>Não há um caminho</strong> — lições aleatórias sem uma estrutura de 30 dias deixam a maioria dos alunos presos no "bonjour" por seis meses.`,
+    contrastA:`Sem contexto nativo, você está sempre traduzindo.`,
+    contrastB:`Com The Cunning Linguist, você pensa no idioma.`,
+    fc1Title:`Cursos estruturados de 30 dias`,
+    fc1Body:`Um caminho guiado do Dia 1 à conversa confiante. 350+ itens de vocabulário, âncoras gramaticais e marcos diários — para cada par de idiomas.`,
+    fc2Title:`Flashcards com repetição espaçada`,
+    fc2Body:`A ciência comprovada da memória. Os cards aparecem quando você está prestes a esquecê-los. A direção se adapta com base em se você está aprendendo para ou de um idioma.`,
+    fc3Title:`Cenários de conversa reais`,
+    fc3Body:`8+ cenários por par: café, hotel, aeroporto, metrô, restaurante, local de trabalho e mais. Com áudio por linha para que você possa ouvir cada resposta.`,
+    fc4Title:`90 pares de idiomas — em qualquer direção`,
+    fc4Body:`Francês → Espanhol. Português → Italiano. Coreano → Japonês. Aprenda em qualquer direção. Não apenas inglês primeiro. Instrução em língua nativa.`,
+    pairsH2:`Qualquer idioma.<br>Qualquer direção.`,
+    pairsSubText:`Aprenda a partir do seu idioma nativo — não através do inglês como intermediário.`,
+    howEye:`COMO FUNCIONA`,
+    howH2:`Três passos.<br>Trinta dias.<br><em style="color:var(--gold)">Fluência real.</em>`,
+    step1Title:`Escolha seu par de idiomas`,
+    step1Body:`Escolha seu idioma nativo e o que você quer aprender. Sem cadastro — comece imediatamente de qualquer dispositivo.`,
+    step2Title:`Siga o caminho de 30 dias`,
+    step2Body:`As lições diárias se constroem umas sobre as outras. Vocabulário, âncoras gramaticais, quizzes e cenários de conversa — tudo no seu quadro linguístico nativo.`,
+    step3Title:`Pratique até fixar`,
+    step3Body:`A repetição espaçada mostra os cards quando você está prestes a esquecê-los. O modo conversa permite que você trabalhe cenários realistas com áudio em cada linha.`,
+    ctaH2:`O mundo fala mais de <em>um</em> idioma.<br>Você também deveria.`,
+    ctaBrowse:`Ver pares de idiomas`,
+    quotesLabel:`Sobre o tema das línguas`,
+  },
+  nl: {
+    scaleH:`De taal waaruit je leert<br>verandert alles.`,
+    scaleSub:`Elke app leert je Frans. Bijna geen enkele leert je Frans <em>vanuit het Spaans</em>. De context in je moedertaal is wat vocabulaire laat beklijven.`,
+    problemEye:`HET PROBLEEM MET TALEN LEREN`,
+    prob1:`<strong>Duolingo en concurrenten zijn Engelsgericht</strong> — zelfs als je Spaans spreekt en Frans leert, word je door Engelse definities geleid.`,
+    prob2:`<strong>Vocabulaire zonder context blijft niet hangen</strong> — geïsoleerde woordoefeningen missen de grammaticale bruggen die echte vloeiendheid opbouwen.`,
+    prob3:`<strong>Gesprekken zijn wat telt</strong> — maar de meeste apps slaan alledaagse scenario's zoals cafés, luchthavens en werkplekken over totdat je "gevorderd genoeg" bent.`,
+    prob4:`<strong>Er is geen pad</strong> — willekeurige lessen zonder een 30-daagse structuur laten de meeste leerders maandenlang vastzitten bij "bonjour".`,
+    contrastA:`Zonder native context vertaal je altijd.`,
+    contrastB:`Met The Cunning Linguist denk je in de taal.`,
+    fc1Title:`30-daagse gestructureerde cursussen`,
+    fc1Body:`Een begeleid pad van Dag 1 tot zelfverzekerd gesprek. 350+ vocabulaire-items, grammaticaankers en dagelijkse mijlpalen — voor elk taalpaar.`,
+    fc2Title:`Flashcards met gespreide herhaling`,
+    fc2Body:`De bewezen wetenschap van het geheugen. Kaarten verschijnen wanneer je ze bijna vergeet. De richting past zich aan op basis van of je naar of van een taal leert.`,
+    fc3Title:`Echte gespreksscenario's`,
+    fc3Body:`8+ scenario's per paar: café, hotel, luchthaven, metro, restaurant, werkplek en meer. Met audio per regel zodat je elk antwoord kunt horen.`,
+    fc4Title:`90 taalparen — in elke richting`,
+    fc4Body:`Frans → Spaans. Portugees → Italiaans. Koreaans → Japans. Leer in elke richting. Niet alleen Engels-eerst. Moedertaalonderwijs.`,
+    pairsH2:`Elke taal.<br>Elke richting.`,
+    pairsSubText:`Leer vanuit je moedertaal — niet via het Engels als tussenstap.`,
+    howEye:`HOE HET WERKT`,
+    howH2:`Drie stappen.<br>Dertig dagen.<br><em style="color:var(--gold)">Echte vloeiendheid.</em>`,
+    step1Title:`Kies je taalpaar`,
+    step1Body:`Kies je moedertaal en de taal die je wilt leren. Geen aanmelding vereist — begin direct vanaf elk apparaat.`,
+    step2Title:`Volg het 30-daagse pad`,
+    step2Body:`Dagelijkse lessen bouwen op elkaar voort. Vocabulaire, grammaticaankers, quizzen en gespreksscenario's — allemaal in je moedertaalraamwerk.`,
+    step3Title:`Oefen tot het beklijft`,
+    step3Body:`Gespreide herhaling toont kaarten wanneer je ze bijna vergeet. De gespreksmodus laat je realistische scenario's doorwerken met audio op elke regel.`,
+    ctaH2:`De wereld spreekt meer dan <em>één</em> taal.<br>Jij ook.`,
+    ctaBrowse:`Bekijk taalparen`,
+    quotesLabel:`Over het onderwerp talen`,
+  },
+  ru: {
+    scaleH:`Язык, с которого вы учитесь,<br>меняет всё.`,
+    scaleSub:`Каждое приложение учит вас французскому. Почти ни одно не учит французскому <em>с испанского</em>. Контекст на родном языке — вот что делает словарный запас запоминаемым.`,
+    problemEye:`ПРОБЛЕМА С ИЗУЧЕНИЕМ ЯЗЫКОВ`,
+    prob1:`<strong>Duolingo и конкуренты ориентированы на английский</strong> — даже если вы говорите по-испански и учите французский, вас ведут через английские определения.`,
+    prob2:`<strong>Словарный запас без контекста не запоминается</strong> — изолированные упражнения со словами упускают грамматические мосты, которые строят настоящую беглость.`,
+    prob3:`<strong>Разговоры — это то, что важно</strong> — но большинство приложений пропускают реальные сценарии, такие как кафе, аэропорты и рабочие места, пока вы не станете "достаточно продвинутыми".`,
+    prob4:`<strong>Нет пути</strong> — случайные уроки без 30-дневной структуры оставляют большинство учеников застрявшими на "bonjour" на шесть месяцев.`,
+    contrastA:`Без родного контекста вы всегда переводите.`,
+    contrastB:`С The Cunning Linguist вы думаете на языке.`,
+    fc1Title:`30-дневные структурированные курсы`,
+    fc1Body:`Управляемый путь от Дня 1 до уверенного разговора. 350+ словарных элементов, грамматических якорей и ежедневных вех — для каждой языковой пары.`,
+    fc2Title:`Карточки с интервальным повторением`,
+    fc2Body:`Проверенная наука памяти. Карточки появляются, когда вы вот-вот их забудете. Направление адаптируется в зависимости от того, учите ли вы язык или с языка.`,
+    fc3Title:`Реальные разговорные сценарии`,
+    fc3Body:`8+ сценариев на пару: кафе, отель, аэропорт, метро, ресторан, рабочее место и многое другое. С аудио на каждой строке.`,
+    fc4Title:`90 языковых пар — в любом направлении`,
+    fc4Body:`Французский → Испанский. Португальский → Итальянский. Корейский → Японский. Учитесь в любом направлении. Не только английский первым. Обучение на родном языке.`,
+    pairsH2:`Любой язык.<br>Любое направление.`,
+    pairsSubText:`Учитесь с родного языка — не через английский как посредник.`,
+    howEye:`КАК ЭТО РАБОТАЕТ`,
+    howH2:`Три шага.<br>Тридцать дней.<br><em style="color:var(--gold)">Настоящая беглость.</em>`,
+    step1Title:`Выберите языковую пару`,
+    step1Body:`Выберите свой родной язык и тот, который хотите выучить. Регистрация не нужна — начните прямо сейчас с любого устройства.`,
+    step2Title:`Следуйте 30-дневному пути`,
+    step2Body:`Ежедневные уроки строятся друг на друге. Словарный запас, грамматические якоря, тесты и разговорные сценарии — всё в рамках вашего родного языка.`,
+    step3Title:`Практикуйтесь до закрепления`,
+    step3Body:`Интервальное повторение показывает карточки, когда вы вот-вот их забудете. Режим разговора позволяет работать с реалистичными сценариями с аудио на каждой строке.`,
+    ctaH2:`Мир говорит более чем на <em>одном</em> языке.<br>Вы тоже должны.`,
+    ctaBrowse:`Посмотреть языковые пары`,
+    quotesLabel:`О теме языков`,
+  },
+  zh: {
+    scaleH:`你学习时所使用的语言<br>改变了一切。`,
+    scaleSub:`每个应用都教你法语。几乎没有一个从西班牙语<em>教你法语</em>。母语语境才是让词汇真正记住的关键。`,
+    problemEye:`语言学习的问题`,
+    prob1:`<strong>多邻国和竞争对手以英语为中心</strong> — 即使你是西班牙语使用者在学法语，也要通过英语定义来理解。`,
+    prob2:`<strong>没有语境的词汇记不住</strong> — 孤立的单词练习错过了真正建立流利度的语法桥梁。`,
+    prob3:`<strong>对话才是最重要的</strong> — 但大多数应用直到你"足够高级"才涉及咖啡馆、机场和职场等真实场景。`,
+    prob4:`<strong>没有系统路径</strong> — 没有30天结构的随机课程让大多数学习者在"bonjour"卡住六个月。`,
+    contrastA:`没有母语语境，你总是在翻译。`,
+    contrastB:`使用The Cunning Linguist，你用目标语言思考。`,
+    fc1Title:`30天结构化课程`,
+    fc1Body:`从第1天到自信对话的引导路径。350多个词汇、语法锚点和每日里程碑 — 适用于每个语言对。`,
+    fc2Title:`间隔重复闪卡`,
+    fc2Body:`经过验证的记忆科学。卡片在你即将忘记时出现。翻转方向根据你是在学习目标语言还是从目标语言学习而调整。`,
+    fc3Title:`真实对话场景`,
+    fc3Body:`每对语言8+个场景：咖啡馆、酒店、机场、地铁、餐厅、工作场所等。每行都有音频，让你听到每个回应。`,
+    fc4Title:`90个语言对 — 任意方向`,
+    fc4Body:`法语 → 西班牙语。葡萄牙语 → 意大利语。韩语 → 日语。任意方向学习。不仅仅是英语优先。全程母语教学。`,
+    pairsH2:`任何语言。<br>任何方向。`,
+    pairsSubText:`从你的母语学习 — 不通过英语作为中介。`,
+    howEye:`使用方法`,
+    howH2:`三个步骤。<br>三十天。<br><em style="color:var(--gold)">真正的流利。</em>`,
+    step1Title:`选择你的语言对`,
+    step1Body:`选择你的母语和你想学的语言。无需注册 — 立即从任何设备开始。`,
+    step2Title:`遵循30天路径`,
+    step2Body:`每日课程相互构建。词汇、语法锚点、测验和对话场景 — 全部在你的母语框架内。`,
+    step3Title:`练习直到记住`,
+    step3Body:`间隔重复在你即将忘记时显示卡片。对话模式让你在每行都有音频的真实场景中练习。`,
+    ctaH2:`世界说的不止<em>一种</em>语言。<br>你也应该如此。`,
+    ctaBrowse:`浏览语言对`,
+    quotesLabel:`关于语言的话题`,
+  },
+  ar: {
+    scaleH:`اللغة التي تتعلم منها<br>تغير كل شيء.`,
+    scaleSub:`كل تطبيق يعلمك الفرنسية. تقريباً لا أحد يعلمك الفرنسية <em>من الإسبانية</em>. السياق باللغة الأم هو ما يجعل المفردات تثبت في الذاكرة.`,
+    problemEye:`مشكلة تعلم اللغات`,
+    prob1:`<strong>Duolingo والمنافسون يركزون على الإنجليزية</strong> — حتى لو كنت تتحدث الإسبانية وتتعلم الفرنسية، يتم توجيهك عبر تعريفات إنجليزية.`,
+    prob2:`<strong>المفردات بدون سياق لا تثبت</strong> — تمارين الكلمات المعزولة تفتقد الجسور النحوية التي تبني الطلاقة الحقيقية.`,
+    prob3:`<strong>المحادثات هي ما يهم</strong> — لكن معظم التطبيقات تتخطى سيناريوهات العالم الحقيقي كالمقاهي والمطارات وأماكن العمل حتى تصبح "متقدماً بما يكفي".`,
+    prob4:`<strong>لا يوجد مسار</strong> — الدروس العشوائية بدون هيكل 30 يوماً تترك معظم المتعلمين عالقين عند "bonjour" لستة أشهر.`,
+    contrastA:`بدون سياق اللغة الأم، أنت دائماً تترجم.`,
+    contrastB:`مع The Cunning Linguist، تفكر باللغة مباشرة.`,
+    fc1Title:`دورات منظمة لمدة 30 يوماً`,
+    fc1Body:`مسار إرشادي من اليوم الأول إلى المحادثة الواثقة. أكثر من 350 عنصر مفردات وأساسيات نحوية ومعالم يومية — لكل زوج لغوي.`,
+    fc2Title:`بطاقات التكرار المتباعد`,
+    fc2Body:`العلم المثبت للذاكرة. تظهر البطاقات عندما أنت على وشك نسيانها. تتكيف الاتجاه بناءً على ما إذا كنت تتعلم إلى أو من لغة.`,
+    fc3Title:`سيناريوهات محادثة حقيقية`,
+    fc3Body:`8+ سيناريوهات لكل زوج: مقهى، فندق، مطار، مترو، مطعم، مكان عمل والمزيد. مع صوت لكل سطر لتسمع كل رد.`,
+    fc4Title:`90 زوجاً لغوياً — في أي اتجاه`,
+    fc4Body:`فرنسي → إسباني. برتغالي → إيطالي. كوري → ياباني. تعلم في أي اتجاه. ليس الإنجليزية أولاً فقط. تعليم باللغة الأم طوال الوقت.`,
+    pairsH2:`أي لغة.<br>أي اتجاه.`,
+    pairsSubText:`تعلم من لغتك الأم — لا عبر الإنجليزية كوسيط.`,
+    howEye:`كيف يعمل`,
+    howH2:`ثلاث خطوات.<br>ثلاثون يوماً.<br><em style="color:var(--gold)">طلاقة حقيقية.</em>`,
+    step1Title:`اختر زوجك اللغوي`,
+    step1Body:`اختر لغتك الأم واللغة التي تريد تعلمها. لا تسجيل مطلوب — ابدأ فوراً من أي جهاز.`,
+    step2Title:`اتبع مسار 30 يوماً`,
+    step2Body:`الدروس اليومية تبني بعضها البعض. مفردات وأساسيات نحوية واختبارات وسيناريوهات محادثة — كل ذلك في إطار لغتك الأم.`,
+    step3Title:`تدرب حتى يثبت`,
+    step3Body:`يعرض التكرار المتباعد البطاقات عندما أنت على وشك النسيان. وضع المحادثة يتيح لك العمل من خلال سيناريوهات واقعية مع صوت على كل سطر.`,
+    ctaH2:`العالم يتحدث أكثر من لغة <em>واحدة</em>.<br>أنت أيضاً يجب أن تفعل ذلك.`,
+    ctaBrowse:`تصفح الأزواج اللغوية`,
+    quotesLabel:`في موضوع اللغات`,
+  },
+  hi: {
+    scaleH:`जिस भाषा से आप सीखते हैं<br>वह सब कुछ बदल देती है।`,
+    scaleSub:`हर ऐप आपको फ्रेंच सिखाता है। लगभग कोई भी आपको <em>स्पेनिश से</em> फ्रेंच नहीं सिखाता। मातृभाषा का संदर्भ ही वह है जो शब्दावली को याद रखने में मदद करता है।`,
+    problemEye:`भाषा सीखने की समस्या`,
+    prob1:`<strong>Duolingo और प्रतियोगी अंग्रेजी-केंद्रित हैं</strong> — भले ही आप स्पेनिश बोलते हैं और फ्रेंच सीख रहे हैं, आपको अंग्रेजी परिभाषाओं के जरिए ले जाया जाता है।`,
+    prob2:`<strong>संदर्भ के बिना शब्दावली याद नहीं रहती</strong> — अलग-थलग शब्द अभ्यास उन व्याकरणिक पुलों को खो देते हैं जो वास्तव में प्रवाह बनाते हैं।`,
+    prob3:`<strong>बातचीत ही मायने रखती है</strong> — लेकिन अधिकांश ऐप कैफे, हवाई अड्डों और कार्यस्थलों जैसे वास्तविक दुनिया के परिदृश्यों को तब तक छोड़ देते हैं जब तक आप "पर्याप्त उन्नत" नहीं हो जाते।`,
+    prob4:`<strong>कोई रास्ता नहीं है</strong> — 30-दिन की संरचना के बिना यादृच्छिक पाठ अधिकांश शिक्षार्थियों को छह महीने तक "bonjour" पर अटका देते हैं।`,
+    contrastA:`मातृभाषा संदर्भ के बिना, आप हमेशा अनुवाद कर रहे हैं।`,
+    contrastB:`The Cunning Linguist के साथ, आप भाषा में सोचते हैं।`,
+    fc1Title:`30-दिवसीय संरचित पाठ्यक्रम`,
+    fc1Body:`दिन 1 से आत्मविश्वासपूर्ण बातचीत तक एक निर्देशित मार्ग। 350+ शब्दावली आइटम, व्याकरण एंकर और दैनिक मील के पत्थर — हर भाषा जोड़े के लिए।`,
+    fc2Title:`स्पेस्ड रिपीटिशन फ्लैशकार्ड`,
+    fc2Body:`स्मृति का सिद्ध विज्ञान। कार्ड तब सामने आते हैं जब आप उन्हें भूलने वाले होते हैं। दिशा इस बात पर आधारित अनुकूलित होती है कि आप किसी भाषा में या उससे सीख रहे हैं।`,
+    fc3Title:`वास्तविक बातचीत परिदृश्य`,
+    fc3Body:`प्रति जोड़े 8+ परिदृश्य: कैफे, होटल, हवाई अड्डा, मेट्रो, रेस्तरां, कार्यस्थल और अधिक। प्रत्येक पंक्ति पर ऑडियो के साथ।`,
+    fc4Title:`90 भाषा जोड़े — किसी भी दिशा में`,
+    fc4Body:`फ्रेंच → स्पेनिश। पुर्तगाली → इतालवी। कोरियाई → जापानी। किसी भी दिशा में सीखें। सिर्फ अंग्रेजी पहले नहीं। पूरे समय मातृभाषा में निर्देश।`,
+    pairsH2:`कोई भी भाषा।<br>कोई भी दिशा।`,
+    pairsSubText:`अपनी मातृभाषा से सीखें — अंग्रेजी को मध्यस्थ बनाए बिना।`,
+    howEye:`यह कैसे काम करता है`,
+    howH2:`तीन कदम।<br>तीस दिन।<br><em style="color:var(--gold)">असली प्रवाह।</em>`,
+    step1Title:`अपनी भाषा जोड़ी चुनें`,
+    step1Body:`अपनी मातृभाषा और जो भाषा आप सीखना चाहते हैं उसे चुनें। कोई साइन-अप नहीं — किसी भी डिवाइस से तुरंत शुरू करें।`,
+    step2Title:`30-दिन के पथ का पालन करें`,
+    step2Body:`दैनिक पाठ एक-दूसरे पर बनते हैं। शब्दावली, व्याकरण एंकर, प्रश्नोत्तरी और बातचीत परिदृश्य — सभी आपकी मातृभाषा के ढांचे में।`,
+    step3Title:`तब तक अभ्यास करें जब तक याद न हो`,
+    step3Body:`स्पेस्ड रिपीटिशन कार्ड तब दिखाता है जब आप उन्हें भूलने वाले होते हैं। बातचीत मोड आपको हर पंक्ति पर ऑडियो के साथ यथार्थवादी परिदृश्यों से गुजरने देता है।`,
+    ctaH2:`दुनिया <em>एक</em> से अधिक भाषा बोलती है।<br>आपको भी बोलनी चाहिए।`,
+    ctaBrowse:`भाषा जोड़े देखें`,
+    quotesLabel:`भाषाओं के विषय पर`,
+  },
+  tr: {
+    scaleH:`Öğrendiğin dilin kaynağı<br>her şeyi değiştirir.`,
+    scaleSub:`Her uygulama sana Fransızca öğretir. Neredeyse hiçbiri sana Fransızcayı <em>İspanyolcadan</em> öğretmez. Ana dil bağlamı, kelimelerin akılda kalmasını sağlayan şeydir.`,
+    problemEye:`DİL ÖĞRENMENİN SORUNU`,
+    prob1:`<strong>Duolingo ve rakipleri İngilizce merkezlidir</strong> — İspanyolca konuşup Fransızca öğreniyor olsan bile, İngilizce tanımlar üzerinden yönlendirilirsin.`,
+    prob2:`<strong>Bağlam olmadan kelime dağarcığı yapışmaz</strong> — izole kelime çalışmaları, gerçek akıcılığı inşa eden dilbilgisi köprülerini kaçırır.`,
+    prob3:`<strong>Önemli olan konuşmalardır</strong> — ama çoğu uygulama, "yeterince ileri" olana kadar kafe, havalimanı ve işyeri gibi gerçek dünya senaryolarını atlar.`,
+    prob4:`<strong>Bir yol yok</strong> — 30 günlük yapı olmadan rastgele dersler, çoğu öğrenciyi altı ay boyunca "bonjour"da sıkıştırır.`,
+    contrastA:`Ana dil bağlamı olmadan her zaman çeviri yaparsın.`,
+    contrastB:`The Cunning Linguist ile dilde düşünürsün.`,
+    fc1Title:`30 Günlük Yapılandırılmış Kurslar`,
+    fc1Body:`Gün 1'den güvenli konuşmaya rehberli bir yol. 350+ kelime öğesi, dilbilgisi çapaları ve günlük dönüm noktaları — her dil çifti için.`,
+    fc2Title:`Aralıklı Tekrar Kartları`,
+    fc2Body:`Hafızanın kanıtlanmış bilimi. Kartlar unutmak üzere olduğunda yüzeye çıkar. Bir dili mi yoksa bir dilden mi öğrendiğine göre yön uyarlanır.`,
+    fc3Title:`Gerçek Konuşma Senaryoları`,
+    fc3Body:`Çift başına 8+ senaryo: kafe, otel, havalimanı, metro, restoran, işyeri ve daha fazlası. Her satırda sesli dinleme imkanı.`,
+    fc4Title:`90 Dil Çifti — Her Yönde`,
+    fc4Body:`Fransızca → İspanyolca. Portekizce → İtalyanca. Korece → Japonca. Her yönde öğren. Sadece İngilizce önce değil. Boyunca ana dil eğitimi.`,
+    pairsH2:`Her dil.<br>Her yön.`,
+    pairsSubText:`Ana dilinden öğren — İngilizceyi aracı olarak kullanmadan.`,
+    howEye:`NASIL ÇALIŞIR`,
+    howH2:`Üç adım.<br>Otuz gün.<br><em style="color:var(--gold)">Gerçek akıcılık.</em>`,
+    step1Title:`Dil çiftini seç`,
+    step1Body:`Ana dilini ve öğrenmek istediğin dili seç. Kayıt gerekmez — herhangi bir cihazdan hemen başla.`,
+    step2Title:`30 günlük yolu takip et`,
+    step2Body:`Günlük dersler birbirinin üzerine inşa edilir. Kelime dağarcığı, dilbilgisi çapaları, testler ve konuşma senaryoları — hepsi ana dil çerçevende.`,
+    step3Title:`Yapışana kadar pratik yap`,
+    step3Body:`Aralıklı tekrar, unutmak üzere olduğunda kartları gösterir. Konuşma modu, her satırda sesli gerçekçi senaryolar üzerinde çalışmana izin verir.`,
+    ctaH2:`Dünya <em>bir</em>den fazla dil konuşuyor.<br>Sen de konuşmalısın.`,
+    ctaBrowse:`Dil Çiftlerine Göz At`,
+    quotesLabel:`Diller Konusunda`,
+  },
+  ja: {
+    scaleH:`学ぶ元の言語が<br>すべてを変える。`,
+    scaleSub:`どのアプリもフランス語を教えます。でも、スペイン語から<em>フランス語</em>を教えるアプリはほぼありません。母語コンテキストこそが語彙を定着させる鍵です。`,
+    problemEye:`語学学習の問題`,
+    prob1:`<strong>Duolingoと競合他社は英語中心</strong> — スペイン語話者がフランス語を学ぶ場合でも、英語の定義を通じてルーティングされます。`,
+    prob2:`<strong>コンテキストのない語彙は定着しない</strong> — 孤立した単語練習では、本物の流暢さを構築する文法的な橋がありません。`,
+    prob3:`<strong>大切なのは会話</strong> — でも、ほとんどのアプリは「十分に上達するまで」カフェ、空港、職場などのシナリオを省略します。`,
+    prob4:`<strong>道筋がない</strong> — 30日の構造がないランダムなレッスンは、多くの学習者を6ヶ月間「bonjour」で止まらせます。`,
+    contrastA:`母語コンテキストなしでは、常に翻訳しています。`,
+    contrastB:`The Cunning Linguistで、言語で考えます。`,
+    fc1Title:`30日間の構造化コース`,
+    fc1Body:`1日目から自信を持った会話まで、ガイド付きのパス。350以上の語彙、文法アンカー、日々の目標 — すべての言語ペア向け。`,
+    fc2Title:`間隔反復フラッシュカード`,
+    fc2Body:`記憶の実証済み科学。忘れそうなときにカードが表示されます。学習方向に応じてフリップ方向が調整されます。`,
+    fc3Title:`リアルな会話シナリオ`,
+    fc3Body:`ペアごとに8以上のシナリオ：カフェ、ホテル、空港、地下鉄、レストラン、職場など。各行に音声付き。`,
+    fc4Title:`90言語ペア — どの方向でも`,
+    fc4Body:`フランス語 → スペイン語。ポルトガル語 → イタリア語。韓国語 → 日本語。どの方向にも学べます。英語だけが最初ではありません。母語での指導。`,
+    pairsH2:`あらゆる言語。<br>あらゆる方向。`,
+    pairsSubText:`母語から学ぶ — 英語を仲介者として使わずに。`,
+    howEye:`使い方`,
+    howH2:`3つのステップ。<br>30日間。<br><em style="color:var(--gold)">本物の流暢さ。</em>`,
+    step1Title:`言語ペアを選ぶ`,
+    step1Body:`母語と学びたい言語を選びます。サインアップ不要 — どのデバイスからでもすぐに始められます。`,
+    step2Title:`30日間のパスに従う`,
+    step2Body:`毎日のレッスンが積み重なります。語彙、文法アンカー、クイズ、会話シナリオ — すべて母語のフレームで。`,
+    step3Title:`定着するまで練習する`,
+    step3Body:`間隔反復で忘れそうなときにカードが表示されます。会話モードで、各行に音声付きのリアルなシナリオを練習できます。`,
+    ctaH2:`世界は<em>1つ</em>以上の言語を話します。<br>あなたもそうすべきです。`,
+    ctaBrowse:`言語ペアを見る`,
+    quotesLabel:`言語について`,
+  },
+  ko: {
+    scaleH:`배우는 출발점 언어가<br>모든 것을 바꿉니다.`,
+    scaleSub:`모든 앱이 프랑스어를 가르칩니다. 거의 아무도 <em>스페인어에서</em> 프랑스어를 가르치지 않습니다. 모국어 맥락이 어휘를 기억하게 만드는 것입니다.`,
+    problemEye:`언어 학습의 문제`,
+    prob1:`<strong>Duolingo와 경쟁사들은 영어 중심</strong> — 스페인어 사용자가 프랑스어를 배울 때도 영어 정의를 통해 안내됩니다.`,
+    prob2:`<strong>맥락 없는 어휘는 기억에 남지 않습니다</strong> — 고립된 단어 연습은 실제 유창성을 만드는 문법적 다리를 놓칩니다.`,
+    prob3:`<strong>중요한 것은 대화입니다</strong> — 하지만 대부분의 앱은 "충분히 실력이 될 때까지" 카페, 공항, 직장 같은 실제 상황을 건너뜁니다.`,
+    prob4:`<strong>경로가 없습니다</strong> — 30일 구조 없는 무작위 수업은 대부분의 학습자를 6개월 동안 "bonjour"에 머물게 합니다.`,
+    contrastA:`모국어 맥락 없이는 항상 번역하게 됩니다.`,
+    contrastB:`The Cunning Linguist와 함께, 언어로 생각합니다.`,
+    fc1Title:`30일 구조화 코스`,
+    fc1Body:`1일차부터 자신 있는 대화까지 안내된 경로. 350개 이상의 어휘, 문법 앵커, 매일의 이정표 — 모든 언어 쌍을 위해.`,
+    fc2Title:`간격 반복 플래시카드`,
+    fc2Body:`검증된 기억 과학. 카드는 막 잊으려 할 때 나타납니다. 언어를 배우는 방향에 따라 뒤집기 방향이 조정됩니다.`,
+    fc3Title:`실제 대화 시나리오`,
+    fc3Body:`언어 쌍당 8개 이상의 시나리오: 카페, 호텔, 공항, 지하철, 레스토랑, 직장 등. 각 줄에 오디오 포함.`,
+    fc4Title:`90개 언어 쌍 — 어느 방향으로든`,
+    fc4Body:`프랑스어 → 스페인어. 포르투갈어 → 이탈리아어. 한국어 → 일본어. 어느 방향으로든 배울 수 있습니다. 영어 우선이 아닙니다. 모국어 교육.`,
+    pairsH2:`모든 언어.<br>모든 방향.`,
+    pairsSubText:`모국어에서 배우세요 — 영어를 중간 매개로 사용하지 않고.`,
+    howEye:`사용 방법`,
+    howH2:`세 단계.<br>30일.<br><em style="color:var(--gold)">진정한 유창성.</em>`,
+    step1Title:`언어 쌍 선택`,
+    step1Body:`모국어와 배우고 싶은 언어를 선택하세요. 가입 불필요 — 어떤 기기에서도 즉시 시작하세요.`,
+    step2Title:`30일 경로 따르기`,
+    step2Body:`매일의 수업이 서로 쌓입니다. 어휘, 문법 앵커, 퀴즈, 대화 시나리오 — 모두 모국어 프레임으로.`,
+    step3Title:`익숙해질 때까지 연습`,
+    step3Body:`간격 반복이 막 잊으려 할 때 카드를 보여줍니다. 대화 모드에서 각 줄에 오디오가 있는 실제적인 시나리오를 연습합니다.`,
+    ctaH2:`세계는 <em>하나</em>가 넘는 언어를 말합니다.<br>당신도 그래야 합니다.`,
+    ctaBrowse:`언어 쌍 보기`,
+    quotesLabel:`언어에 관하여`,
+  },
+  el: {
+    scaleH:`Η γλώσσα από την οποία μαθαίνεις<br>αλλάζει τα πάντα.`,
+    scaleSub:`Κάθε εφαρμογή σε διδάσκει γαλλικά. Σχεδόν καμία δεν σε διδάσκει γαλλικά <em>από τα ισπανικά</em>. Το πλαίσιο στη μητρική γλώσσα είναι αυτό που κάνει το λεξιλόγιο να μένει.`,
+    problemEye:`ΤΟ ΠΡΟΒΛΗΜΑ ΜΕ ΤΗ ΓΛΩΣΣΟΜΑΘΕΙΑ`,
+    prob1:`<strong>Το Duolingo και οι ανταγωνιστές είναι αγγλοκεντρικοί</strong> — ακόμα κι αν μιλάς ισπανικά και μαθαίνεις γαλλικά, ακολουθείς αγγλικούς ορισμούς.`,
+    prob2:`<strong>Το λεξιλόγιο χωρίς πλαίσιο δεν μένει</strong> — απομονωμένες ασκήσεις λέξεων χάνουν τις γραμματικές γέφυρες που χτίζουν πραγματική ευχέρεια.`,
+    prob3:`<strong>Οι συνομιλίες είναι αυτό που μετράει</strong> — αλλά οι περισσότερες εφαρμογές παραλείπουν σενάρια πραγματικής ζωής μέχρι να είσαι "αρκετά προχωρημένος".`,
+    prob4:`<strong>Δεν υπάρχει μονοπάτι</strong> — τυχαία μαθήματα χωρίς δομή 30 ημερών αφήνουν τους περισσότερους μαθητές κολλημένους στο "bonjour" για έξι μήνες.`,
+    contrastA:`Χωρίς πλαίσιο μητρικής γλώσσας, μεταφράζεις πάντα.`,
+    contrastB:`Με το The Cunning Linguist, σκέφτεσαι στη γλώσσα.`,
+    fc1Title:`Δομημένα μαθήματα 30 ημερών`,
+    fc1Body:`Ένας καθοδηγούμενος δρόμος από την Ημέρα 1 σε σίγουρη συνομιλία. 350+ στοιχεία λεξιλογίου, γραμματικές άγκυρες και καθημερινοί στόχοι — για κάθε ζεύγος γλωσσών.`,
+    fc2Title:`Κάρτες Επανάληψης με Διαστήματα`,
+    fc2Body:`Η αποδεδειγμένη επιστήμη της μνήμης. Οι κάρτες εμφανίζονται όταν πρόκειται να τις ξεχάσεις. Η κατεύθυνση προσαρμόζεται ανάλογα με το αν μαθαίνεις προς ή από μια γλώσσα.`,
+    fc3Title:`Πραγματικά Σενάρια Συνομιλίας`,
+    fc3Body:`8+ σενάρια ανά ζεύγος: καφέ, ξενοδοχείο, αεροδρόμιο, μετρό, εστιατόριο, χώρος εργασίας και άλλα. Με ήχο ανά γραμμή.`,
+    fc4Title:`90 Ζεύγη Γλωσσών — Σε Οποιαδήποτε Κατεύθυνση`,
+    fc4Body:`Γαλλικά → Ισπανικά. Πορτογαλικά → Ιταλικά. Κορεάτικα → Ιαπωνικά. Μάθε σε οποιαδήποτε κατεύθυνση. Όχι μόνο αγγλικά πρώτα. Εκπαίδευση στη μητρική γλώσσα.`,
+    pairsH2:`Κάθε γλώσσα.<br>Κάθε κατεύθυνση.`,
+    pairsSubText:`Μάθε από τη μητρική σου γλώσσα — όχι μέσω αγγλικών ως ενδιάμεσο.`,
+    howEye:`ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ`,
+    howH2:`Τρία βήματα.<br>Τριάντα μέρες.<br><em style="color:var(--gold)">Πραγματική ευχέρεια.</em>`,
+    step1Title:`Επίλεξε το ζεύγος γλωσσών σου`,
+    step1Body:`Επίλεξε τη μητρική σου γλώσσα και αυτή που θέλεις να μάθεις. Χωρίς εγγραφή — ξεκίνα αμέσως από οποιαδήποτε συσκευή.`,
+    step2Title:`Ακολούθησε το μονοπάτι 30 ημερών`,
+    step2Body:`Τα καθημερινά μαθήματα χτίζονται το ένα πάνω στο άλλο. Λεξιλόγιο, γραμματικές άγκυρες, κουίζ και σενάρια συνομιλίας — όλα στο πλαίσιο της μητρικής σου.`,
+    step3Title:`Εξάσκηση μέχρι να μείνει`,
+    step3Body:`Η επανάληψη με διαστήματα δείχνει κάρτες όταν πρόκειται να τις ξεχάσεις. Η λειτουργία συνομιλίας σου επιτρέπει να εξασκείσαι με ήχο σε κάθε γραμμή.`,
+    ctaH2:`Ο κόσμος μιλά περισσότερες από <em>μία</em> γλώσσα.<br>Κι εσύ θα πρέπει.`,
+    ctaBrowse:`Εξερεύνησε τα ζεύγη γλωσσών`,
+    quotesLabel:`Για το θέμα των γλωσσών`,
+  },
+  sq: {
+    scaleH:`Gjuha nga e cila mëson<br>ndryshon gjithçka.`,
+    scaleSub:`Çdo aplikacion të mëson frëngjisht. Pothuajse asnjë nuk të mëson frëngjisht <em>nga spanishtja</em>. Konteksti në gjuhën amtare është ajo që e bën fjalësinë të mbetet mend.`,
+    problemEye:`PROBLEMI ME MËSIMIN E GJUHËVE`,
+    prob1:`<strong>Duolingo dhe konkurrentët janë anglocentrikë</strong> — edhe nëse flet spanjisht dhe mëson frëngjisht, udhëhiqesh nëpërmjet përkufizimeve angleze.`,
+    prob2:`<strong>Fjalësia pa kontekst nuk mbetet mend</strong> — ushtrimet e fjalëve të izoluara humbasin urat gramatikore që ndërtojnë vërtet rrjedhshmërinë.`,
+    prob3:`<strong>Bisedat janë ajo që ka rëndësi</strong> — por shumica e aplikacioneve anashkalojnë skenarë të jetës reale si kafenetë, aeroportet dhe vendet e punës deri sa të jesh "mjaft i avancuar".`,
+    prob4:`<strong>Nuk ka një rrugë</strong> — mësimet e rastësishme pa strukturë 30-ditore lënë shumicën e nxënësve të bllokuar te "bonjour" për gjashtë muaj.`,
+    contrastA:`Pa kontekstin e gjuhës amtare, gjithmonë po përkthesh.`,
+    contrastB:`Me The Cunning Linguist, mendon në gjuhë.`,
+    fc1Title:`Kurse të Strukturuara 30-Ditore`,
+    fc1Body:`Një rrugë e udhëhequr nga Dita 1 deri te biseda e sigurt. 350+ elementë fjalësi, spango gramatikore dhe piketa ditore — për çdo çift gjuhësh.`,
+    fc2Title:`Kartela me Përsëritje të Hapësuar`,
+    fc2Body:`Shkenca e provuar e kujtesës. Kartelat shfaqen kur je gati t'i harrosh. Drejtimi përshtatet bazuar nëse po mëson drejt ose nga një gjuhë.`,
+    fc3Title:`Skenarë të Vërtetë Bisede`,
+    fc3Body:`8+ skenarë për çift: kafene, hotel, aeroport, metro, restorant, vend pune dhe më shumë. Me audio për çdo rresht.`,
+    fc4Title:`90 Çifte Gjuhësh — Në Çfarëdo Drejtimi`,
+    fc4Body:`Frëngjisht → Spanjisht. Portugalisht → Italisht. Koreanjisht → Japonisht. Mëso në çfarëdo drejtimi. Jo vetëm anglezisht-fillim. Mësimdhënie në gjuhën amtare.`,
+    pairsH2:`Çdo gjuhë.<br>Çdo drejtim.`,
+    pairsSubText:`Mëso nga gjuha jote amtare — jo nëpërmjet anglishtes si ndërmjetës.`,
+    howEye:`SI FUNKSIONON`,
+    howH2:`Tre hapa.<br>Tridhjetë ditë.<br><em style="color:var(--gold)">Rrjedhshmëri e vërtetë.</em>`,
+    step1Title:`Zgjidh çiftin tënd të gjuhëve`,
+    step1Body:`Zgjidh gjuhën tënde amtare dhe atë që dëshiron të mësosh. Nuk kërkohet regjistrim — fillo menjëherë nga çdo pajisje.`,
+    step2Title:`Ndiq rrugën 30-ditore`,
+    step2Body:`Mësimet ditore ndërtohen njëra mbi tjetrën. Fjalësi, spango gramatikore, kuize dhe skenarë bisedash — të gjitha në kuadrin e gjuhës tënde amtare.`,
+    step3Title:`Praktiko derisa të mbetet mend`,
+    step3Body:`Përsëritja e hapësuar shfaq kartelat kur je gati t'i harrosh. Modaliteti i bisedës të lejon të punosh me skenarë realistë me audio në çdo rresht.`,
+    ctaH2:`Bota flet më shumë se <em>një</em> gjuhë.<br>Edhe ti duhet.`,
+    ctaBrowse:`Shfleto çiftet e gjuhëve`,
+    quotesLabel:`Mbi temën e gjuhëve`,
+  },
+  pl: {
+    scaleH:`Język, od którego zaczynasz naukę,<br>zmienia wszystko.`,
+    scaleSub:`Każda aplikacja uczy cię francuskiego. Prawie żadna nie uczy cię francuskiego <em>z hiszpańskiego</em>. Kontekst w ojczystym języku sprawia, że słownictwo zostaje w głowie.`,
+    problemEye:`PROBLEM Z NAUKĄ JĘZYKÓW`,
+    prob1:`<strong>Duolingo i konkurenci są anglocentryczni</strong> — nawet jeśli mówisz po hiszpańsku i uczysz się francuskiego, uczysz się przez angielskie definicje.`,
+    prob2:`<strong>Słownictwo bez kontekstu nie zapada w pamięć</strong> — ćwiczenia izolowanych słów pomijają gramatyczne pomosty, które naprawdę budują płynność.`,
+    prob3:`<strong>Rozmowy są tym, co się liczy</strong> — ale większość aplikacji pomija scenariusze z prawdziwego życia, takie jak kawiarnie, lotniska i miejsca pracy, dopóki nie jesteś "wystarczająco zaawansowany".`,
+    prob4:`<strong>Nie ma ścieżki</strong> — przypadkowe lekcje bez struktury 30 dni pozostawiają większość uczących się przy "bonjour" przez sześć miesięcy.`,
+    contrastA:`Bez kontekstu ojczystego języka, zawsze tłumaczysz.`,
+    contrastB:`Z The Cunning Linguist myślisz w danym języku.`,
+    fc1Title:`30-dniowe kursy strukturalne`,
+    fc1Body:`Prowadzona ścieżka od Dnia 1 do pewnej siebie rozmowy. 350+ elementów słownictwa, kotwice gramatyczne i dzienne kamienie milowe — dla każdej pary językowej.`,
+    fc2Title:`Fiszki z powtarzaniem rozłożonym w czasie`,
+    fc2Body:`Sprawdzona nauka pamięci. Karty pojawiają się, gdy zaraz je zapomnisz. Kierunek przewracania dostosowuje się do tego, czy uczysz się do czy od języka.`,
+    fc3Title:`Prawdziwe scenariusze konwersacyjne`,
+    fc3Body:`8+ scenariuszy na parę: kawiarnia, hotel, lotnisko, metro, restauracja, miejsce pracy i więcej. Z dźwiękiem na każdej linii.`,
+    fc4Title:`90 par językowych — w każdym kierunku`,
+    fc4Body:`Francuski → Hiszpański. Portugalski → Włoski. Koreański → Japoński. Ucz się w każdym kierunku. Nie tylko angielski na pierwszym miejscu. Nauczanie w ojczystym języku.`,
+    pairsH2:`Dowolny język.<br>Dowolny kierunek.`,
+    pairsSubText:`Ucz się ze swojego ojczystego języka — nie przez angielski jako pośrednika.`,
+    howEye:`JAK TO DZIAŁA`,
+    howH2:`Trzy kroki.<br>Trzydzieści dni.<br><em style="color:var(--gold)">Prawdziwa płynność.</em>`,
+    step1Title:`Wybierz parę językową`,
+    step1Body:`Wybierz swój ojczysty język i ten, którego chcesz się uczyć. Bez rejestracji — zacznij natychmiast z dowolnego urządzenia.`,
+    step2Title:`Podążaj 30-dniową ścieżką`,
+    step2Body:`Codzienne lekcje budują się na sobie. Słownictwo, kotwice gramatyczne, quizy i scenariusze konwersacyjne — wszystko w ramach twojego ojczystego języka.`,
+    step3Title:`Ćwicz, aż zostanie w głowie`,
+    step3Body:`Powtarzanie rozłożone w czasie pokazuje karty, gdy zaraz je zapomnisz. Tryb konwersacji pozwala ci pracować przez realistyczne scenariusze z dźwiękiem na każdej linii.`,
+    ctaH2:`Świat mówi więcej niż <em>jednym</em> językiem.<br>Ty też powinieneś.`,
+    ctaBrowse:`Przeglądaj pary językowe`,
+    quotesLabel:`Na temat języków`,
+  },
+  th: {
+    scaleH:`ภาษาที่คุณเรียนจาก<br>เปลี่ยนแปลงทุกสิ่ง`,
+    scaleSub:`ทุกแอปสอนภาษาฝรั่งเศสให้คุณ แทบไม่มีแอปใดที่สอนภาษาฝรั่งเศส<em>จากภาษาสเปน</em> บริบทในภาษาแม่คือสิ่งที่ทำให้คำศัพท์จำได้`,
+    problemEye:`ปัญหาของการเรียนภาษา`,
+    prob1:`<strong>Duolingo และคู่แข่งเป็นศูนย์กลางภาษาอังกฤษ</strong> — แม้คุณจะพูดภาษาสเปนและเรียนภาษาฝรั่งเศส ก็ยังถูกนำทางผ่านคำนิยามภาษาอังกฤษ`,
+    prob2:`<strong>คำศัพท์ที่ไม่มีบริบทไม่คงอยู่</strong> — การฝึกคำศัพท์แบบแยกส่วนพลาดสะพานไวยากรณ์ที่สร้างความคล่องแคล่วจริงๆ`,
+    prob3:`<strong>การสนทนาคือสิ่งที่สำคัญ</strong> — แต่แอปส่วนใหญ่ข้ามสถานการณ์ในโลกจริงเช่นคาเฟ่ สนามบิน และที่ทำงานจนกว่าคุณจะ "ก้าวหน้าพอ"`,
+    prob4:`<strong>ไม่มีเส้นทาง</strong> — บทเรียนสุ่มโดยไม่มีโครงสร้าง 30 วันทำให้ผู้เรียนส่วนใหญ่ติดอยู่ที่ "bonjour" เป็นเวลาหกเดือน`,
+    contrastA:`ไม่มีบริบทภาษาแม่ คุณก็แปลอยู่เสมอ`,
+    contrastB:`ด้วย The Cunning Linguist คุณคิดในภาษานั้น`,
+    fc1Title:`หลักสูตรมีโครงสร้าง 30 วัน`,
+    fc1Body:`เส้นทางที่มีผู้นำทางจากวันที่ 1 ถึงการสนทนาที่มั่นใจ คำศัพท์ 350+ รายการ จุดยึดไวยากรณ์ และเป้าหมายรายวัน — สำหรับทุกคู่ภาษา`,
+    fc2Title:`แฟลชการ์ดการทบทวนแบบเว้นระยะ`,
+    fc2Body:`วิทยาศาสตร์ด้านความจำที่ได้รับการพิสูจน์แล้ว การ์ดจะปรากฏเมื่อคุณกำลังจะลืม ทิศทางการพลิกปรับตามว่าคุณกำลังเรียนไปยังหรือจากภาษา`,
+    fc3Title:`สถานการณ์การสนทนาจริง`,
+    fc3Body:`8+ สถานการณ์ต่อคู่: คาเฟ่ โรงแรม สนามบิน รถไฟใต้ดิน ร้านอาหาร ที่ทำงาน และอื่นๆ พร้อมเสียงในทุกบรรทัด`,
+    fc4Title:`90 คู่ภาษา — ทุกทิศทาง`,
+    fc4Body:`ฝรั่งเศส → สเปน โปรตุเกส → อิตาลี เกาหลี → ญี่ปุ่น เรียนในทุกทิศทาง ไม่ใช่แค่ภาษาอังกฤษก่อน การเรียนการสอนในภาษาแม่ตลอดเวลา`,
+    pairsH2:`ภาษาใดก็ได้<br>ทิศทางใดก็ได้`,
+    pairsSubText:`เรียนจากภาษาแม่ของคุณ — ไม่ผ่านภาษาอังกฤษเป็นตัวกลาง`,
+    howEye:`วิธีการใช้`,
+    howH2:`สามขั้นตอน<br>สามสิบวัน<br><em style="color:var(--gold)">ความคล่องแคล่วจริง</em>`,
+    step1Title:`เลือกคู่ภาษาของคุณ`,
+    step1Body:`เลือกภาษาแม่และภาษาที่คุณต้องการเรียน ไม่ต้องสมัครสมาชิก — เริ่มได้ทันทีจากอุปกรณ์ใดก็ได้`,
+    step2Title:`ทำตามเส้นทาง 30 วัน`,
+    step2Body:`บทเรียนรายวันสร้างบนกันและกัน คำศัพท์ จุดยึดไวยากรณ์ แบบทดสอบ และสถานการณ์การสนทนา — ทั้งหมดในกรอบภาษาแม่ของคุณ`,
+    step3Title:`ฝึกจนจำได้`,
+    step3Body:`การทบทวนแบบเว้นระยะแสดงการ์ดเมื่อคุณกำลังจะลืม โหมดการสนทนาช่วยให้คุณฝึกสถานการณ์จริงพร้อมเสียงในทุกบรรทัด`,
+    ctaH2:`โลกพูดมากกว่า<em>หนึ่ง</em>ภาษา<br>คุณก็ควรเช่นกัน`,
+    ctaBrowse:`ดูคู่ภาษา`,
+    quotesLabel:`ว่าด้วยเรื่องภาษา`,
+  },
+  sw: {
+    scaleH:`Lugha unayojifunza kutoka kwake<br>hubadilisha kila kitu.`,
+    scaleSub:`Kila programu inakufundisha Kifaransa. Karibu hakuna inayokufundisha Kifaransa <em>kutoka Kihispania</em>. Muktadha wa lugha ya asili ndio unaofanya msamiati ukae akilini.`,
+    problemEye:`TATIZO NA KUJIFUNZA LUGHA`,
+    prob1:`<strong>Duolingo na washindani wao wanazingatia Kiingereza</strong> — hata ukizungumza Kihispania na kujifunza Kifaransa, unaelekezwa kupitia ufafanuzi wa Kiingereza.`,
+    prob2:`<strong>Msamiati bila muktadha haukaa</strong> — mazoezi ya maneno yaliyotengwa yanakosa madaraja ya kisarufi yanayojenga ufasaha wa kweli.`,
+    prob3:`<strong>Mazungumzo ndiyo yanayohusika</strong> — lakini programu nyingi zinaruka hali za ulimwengu halisi kama migahawa, viwanja vya ndege na sehemu za kazi mpaka "unapokuwa wa hali ya juu vya kutosha".`,
+    prob4:`<strong>Hakuna njia</strong> — masomo ya nasibu bila muundo wa siku 30 huacha waujuzi wengi wakiwa wamekwama kwa "bonjour" kwa miezi sita.`,
+    contrastA:`Bila muktadha wa lugha ya asili, daima unatafsiri.`,
+    contrastB:`Na The Cunning Linguist, unafikiri katika lugha.`,
+    fc1Title:`Kozi za Muundo wa Siku 30`,
+    fc1Body:`Njia iliyoongozwa kutoka Siku ya 1 hadi mazungumzo ya ujasiri. Maneno 350+, nanga za kisarufi na alama za kila siku — kwa kila jozi ya lugha.`,
+    fc2Title:`Kadi za Kurudia kwa Nafasi`,
+    fc2Body:`Sayansi iliyothibitishwa ya kumbukumbu. Kadi zinaonekana unapokaribia kusahau. Mwelekeo hurekebika kulingana na kama unajifunza kwenda au kutoka lugha.`,
+    fc3Title:`Hali za Mazungumzo za Kweli`,
+    fc3Body:`Hali 8+ kwa kila jozi: mkahawa, hoteli, kiwanja cha ndege, metro, mkahawa wa chakula, mahali pa kazi na zaidi. Na sauti kwa kila mstari.`,
+    fc4Title:`Jozi 90 za Lugha — Kwa Mwelekeo Wowote`,
+    fc4Body:`Kifaransa → Kihispania. Kireno → Kiitaliano. Kikorea → Kijapani. Jifunze kwa mwelekeo wowote. Si Kiingereza kwanza tu. Mafunzo katika lugha ya asili.`,
+    pairsH2:`Lugha yoyote.<br>Mwelekeo wowote.`,
+    pairsSubText:`Jifunza kutoka lugha yako ya asili — si kupitia Kiingereza kama kati.`,
+    howEye:`JINSI INAVYOFANYA KAZI`,
+    howH2:`Hatua tatu.<br>Siku thelathini.<br><em style="color:var(--gold)">Ufasaha wa kweli.</em>`,
+    step1Title:`Chagua jozi yako ya lugha`,
+    step1Body:`Chagua lugha yako ya asili na unayotaka kujifunza. Hakuna usajili unaohitajika — anza mara moja kutoka kifaa chochote.`,
+    step2Title:`Fuata njia ya siku 30`,
+    step2Body:`Masomo ya kila siku yanajengana. Msamiati, nanga za kisarufi, maswali na hali za mazungumzo — yote katika mfumo wa lugha yako ya asili.`,
+    step3Title:`Fanya mazoezi hadi ikae`,
+    step3Body:`Kurudia kwa nafasi kunaonyesha kadi unapokaribia kusahau. Hali ya mazungumzo inakuruhusu kufanya kazi kupitia hali za kweli na sauti kwa kila mstari.`,
+    ctaH2:`Ulimwengu unazungumza zaidi ya lugha <em>moja</em>.<br>Wewe pia unapaswa.`,
+    ctaBrowse:`Vinjari Jozi za Lugha`,
+    quotesLabel:`Kuhusu Mada ya Lugha`,
+  },
+  vi: {
+    scaleH:`Ngôn ngữ bạn học từ đó<br>thay đổi tất cả.`,
+    scaleSub:`Mọi ứng dụng đều dạy bạn tiếng Pháp. Hầu như không có ứng dụng nào dạy tiếng Pháp <em>từ tiếng Tây Ban Nha</em>. Ngữ cảnh bằng ngôn ngữ mẹ đẻ là điều giúp từ vựng ghi nhớ.`,
+    problemEye:`VẤN ĐỀ VỚI VIỆC HỌC NGÔN NGỮ`,
+    prob1:`<strong>Duolingo và các đối thủ lấy tiếng Anh làm trung tâm</strong> — ngay cả khi bạn nói tiếng Tây Ban Nha và học tiếng Pháp, bạn vẫn được hướng dẫn qua các định nghĩa tiếng Anh.`,
+    prob2:`<strong>Từ vựng không có ngữ cảnh không ghi nhớ được</strong> — các bài tập từ đơn lẻ bỏ qua các cầu nối ngữ pháp thực sự xây dựng sự trôi chảy.`,
+    prob3:`<strong>Hội thoại mới là điều quan trọng</strong> — nhưng hầu hết các ứng dụng bỏ qua các tình huống thực tế như quán cà phê, sân bay và nơi làm việc cho đến khi bạn "đủ nâng cao".`,
+    prob4:`<strong>Không có lộ trình</strong> — các bài học ngẫu nhiên không có cấu trúc 30 ngày khiến hầu hết người học bị mắc kẹt ở "bonjour" trong sáu tháng.`,
+    contrastA:`Không có ngữ cảnh ngôn ngữ mẹ đẻ, bạn luôn phải dịch.`,
+    contrastB:`Với The Cunning Linguist, bạn suy nghĩ bằng ngôn ngữ đó.`,
+    fc1Title:`Khóa học có cấu trúc 30 ngày`,
+    fc1Body:`Lộ trình có hướng dẫn từ Ngày 1 đến hội thoại tự tin. 350+ mục từ vựng, neo ngữ pháp và cột mốc hàng ngày — cho mọi cặp ngôn ngữ.`,
+    fc2Title:`Thẻ ôn tập ngắt quãng`,
+    fc2Body:`Khoa học bộ nhớ đã được chứng minh. Thẻ xuất hiện khi bạn sắp quên chúng. Hướng lật thích nghi dựa trên việc bạn đang học đến hay từ một ngôn ngữ.`,
+    fc3Title:`Tình huống hội thoại thực tế`,
+    fc3Body:`8+ tình huống mỗi cặp: quán cà phê, khách sạn, sân bay, tàu điện ngầm, nhà hàng, nơi làm việc và nhiều hơn. Với âm thanh mỗi dòng.`,
+    fc4Title:`90 cặp ngôn ngữ — mọi hướng`,
+    fc4Body:`Tiếng Pháp → Tiếng Tây Ban Nha. Tiếng Bồ Đào Nha → Tiếng Ý. Tiếng Hàn → Tiếng Nhật. Học theo mọi hướng. Không chỉ tiếng Anh trước. Giảng dạy bằng ngôn ngữ mẹ đẻ.`,
+    pairsH2:`Ngôn ngữ nào cũng được.<br>Hướng nào cũng được.`,
+    pairsSubText:`Học từ ngôn ngữ mẹ đẻ của bạn — không qua tiếng Anh như một trung gian.`,
+    howEye:`CÁCH HOẠT ĐỘNG`,
+    howH2:`Ba bước.<br>Ba mươi ngày.<br><em style="color:var(--gold)">Sự trôi chảy thực sự.</em>`,
+    step1Title:`Chọn cặp ngôn ngữ của bạn`,
+    step1Body:`Chọn ngôn ngữ mẹ đẻ và ngôn ngữ bạn muốn học. Không cần đăng ký — bắt đầu ngay lập tức từ bất kỳ thiết bị nào.`,
+    step2Title:`Theo lộ trình 30 ngày`,
+    step2Body:`Các bài học hàng ngày xây dựng lẫn nhau. Từ vựng, neo ngữ pháp, câu đố và tình huống hội thoại — tất cả trong khung ngôn ngữ mẹ đẻ của bạn.`,
+    step3Title:`Luyện tập cho đến khi nhớ`,
+    step3Body:`Ôn tập ngắt quãng hiển thị thẻ khi bạn sắp quên. Chế độ hội thoại cho phép bạn luyện tập các tình huống thực tế với âm thanh trên mỗi dòng.`,
+    ctaH2:`Thế giới nói nhiều hơn <em>một</em> ngôn ngữ.<br>Bạn cũng nên như vậy.`,
+    ctaBrowse:`Xem các cặp ngôn ngữ`,
+    quotesLabel:`Về chủ đề ngôn ngữ`,
+  },
+  id: {
+    scaleH:`Bahasa yang kamu pelajari dari<br>mengubah segalanya.`,
+    scaleSub:`Setiap aplikasi mengajari kamu bahasa Prancis. Hampir tidak ada yang mengajarimu bahasa Prancis <em>dari bahasa Spanyol</em>. Konteks dalam bahasa ibu adalah yang membuat kosakata menempel.`,
+    problemEye:`MASALAH DENGAN BELAJAR BAHASA`,
+    prob1:`<strong>Duolingo dan pesaing berpusat pada bahasa Inggris</strong> — bahkan jika kamu berbicara bahasa Spanyol dan belajar bahasa Prancis, kamu dipandu melalui definisi bahasa Inggris.`,
+    prob2:`<strong>Kosakata tanpa konteks tidak menempel</strong> — latihan kata-kata terisolasi melewatkan jembatan tata bahasa yang benar-benar membangun kefasihan.`,
+    prob3:`<strong>Percakapan adalah yang penting</strong> — tapi kebanyakan aplikasi melewati skenario dunia nyata seperti kafe, bandara, dan tempat kerja sampai kamu "cukup mahir".`,
+    prob4:`<strong>Tidak ada jalur</strong> — pelajaran acak tanpa struktur 30 hari membuat sebagian besar pelajar terjebak di "bonjour" selama enam bulan.`,
+    contrastA:`Tanpa konteks bahasa ibu, kamu selalu menerjemahkan.`,
+    contrastB:`Dengan The Cunning Linguist, kamu berpikir dalam bahasa itu.`,
+    fc1Title:`Kursus Terstruktur 30 Hari`,
+    fc1Body:`Jalur terpandu dari Hari 1 hingga percakapan yang percaya diri. 350+ item kosakata, jangkar tata bahasa, dan pencapaian harian — untuk setiap pasangan bahasa.`,
+    fc2Title:`Kartu Flash Pengulangan Terjadwal`,
+    fc2Body:`Ilmu memori yang terbukti. Kartu muncul ketika kamu hampir melupakannya. Arah balik menyesuaikan berdasarkan apakah kamu belajar ke atau dari suatu bahasa.`,
+    fc3Title:`Skenario Percakapan Nyata`,
+    fc3Body:`8+ skenario per pasangan: kafe, hotel, bandara, metro, restoran, tempat kerja, dan lainnya. Dengan audio per baris agar kamu bisa mendengar setiap respons.`,
+    fc4Title:`90 Pasangan Bahasa — Arah Mana Saja`,
+    fc4Body:`Prancis → Spanyol. Portugis → Italia. Korea → Jepang. Belajar ke arah mana saja. Tidak hanya bahasa Inggris dulu. Pengajaran dalam bahasa ibu sepanjang waktu.`,
+    pairsH2:`Bahasa apa saja.<br>Arah mana saja.`,
+    pairsSubText:`Belajar dari bahasa ibumu — tidak melalui bahasa Inggris sebagai perantara.`,
+    howEye:`CARA KERJA`,
+    howH2:`Tiga langkah.<br>Tiga puluh hari.<br><em style="color:var(--gold)">Kefasihan nyata.</em>`,
+    step1Title:`Pilih pasangan bahasamu`,
+    step1Body:`Pilih bahasa ibumu dan bahasa yang ingin kamu pelajari. Tidak perlu mendaftar — mulai langsung dari perangkat apa saja.`,
+    step2Title:`Ikuti jalur 30 hari`,
+    step2Body:`Pelajaran harian dibangun satu sama lain. Kosakata, jangkar tata bahasa, kuis, dan skenario percakapan — semuanya dalam kerangka bahasa ibumu.`,
+    step3Title:`Berlatih sampai melekat`,
+    step3Body:`Pengulangan terjadwal menampilkan kartu ketika kamu hampir melupakannya. Mode percakapan memungkinkan kamu mengerjakan skenario realistis dengan audio di setiap baris.`,
+    ctaH2:`Dunia berbicara lebih dari <em>satu</em> bahasa.<br>Kamu juga seharusnya.`,
+    ctaBrowse:`Jelajahi Pasangan Bahasa`,
+    quotesLabel:`Tentang Topik Bahasa`,
+  },
+};
+
 function translateLanding(lang) {
-  const s = LANDING_STRINGS[lang] || LANDING_STRINGS.en;
+  const _b = LANDING_STRINGS[lang] || LANDING_STRINGS.en;
+  const _s = SUPP_STRINGS[lang] || SUPP_STRINGS.en;
+  const s = Object.assign({}, _b, _s);
   const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
   const txt = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
   txt('navLanguages', s.navLanguages); txt('navFeatures', s.navFeatures);
@@ -1465,6 +2142,23 @@ function translateLanding(lang) {
   txt('lp-start-btn', s.modalStartBtn);
   set('modalNoAccount', s.modalNoAccount);
   txt('ctaSub', s.ctaSub);
+  // Full-page i18n — supplemental sections
+  set('scaleH', s.scaleH); set('scaleSub', s.scaleSub);
+  txt('problemEye', s.problemEye);
+  set('prob1', s.prob1); set('prob2', s.prob2); set('prob3', s.prob3); set('prob4', s.prob4);
+  txt('contrastA', s.contrastA); txt('contrastB', s.contrastB);
+  txt('fc1Title', s.fc1Title); txt('fc1Body', s.fc1Body);
+  txt('fc2Title', s.fc2Title); txt('fc2Body', s.fc2Body);
+  txt('fc3Title', s.fc3Title); txt('fc3Body', s.fc3Body);
+  txt('fc4Title', s.fc4Title); txt('fc4Body', s.fc4Body);
+  set('pairsH2', s.pairsH2); txt('pairsSubText', s.pairsSubText);
+  txt('howEye', s.howEye); set('howH2', s.howH2);
+  txt('step1Title', s.step1Title); txt('step1Body', s.step1Body);
+  txt('step2Title', s.step2Title); txt('step2Body', s.step2Body);
+  txt('step3Title', s.step3Title); txt('step3Body', s.step3Body);
+  set('ctaH2', s.ctaH2);
+  txt('ctaBrowse1', s.ctaBrowse); txt('ctaBrowse2', s.ctaBrowse);
+  txt('quotesLabel', s.quotesLabel);
   // RTL support for Arabic
   document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 }
