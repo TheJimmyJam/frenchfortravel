@@ -240,7 +240,7 @@
 <body>
 
 <h1>🌐 Cunning Linguist — Pair Tracker</h1>
-<p class="subtitle">Rows = Native Speaker &nbsp;|&nbsp; Columns = Language Being Learned &nbsp;|&nbsp; <span style="color:#5d8a5d;">Green headers = coming soon</span></p>
+<p class="subtitle">Rows = Native Speaker &nbsp;|&nbsp; Columns = Language Being Learned</p>
 
 <div class="stats">
   <div class="stat-block stat-done">
@@ -538,16 +538,7 @@
     "Mandarin__Turkish"             : "course-zh-tr.js",
   };
 
-  // All 16 active languages — every pair between these is live in the app
-  // (dedicated .js file = native-language instruction; otherwise falls back gracefully)
-  const ACTIVE_LANGS = new Set([
-    "English","French","Spanish","Portuguese","Greek","Italian","German",
-    "Japanese","Korean","Albanian","Dutch","Russian","Mandarin","Arabic","Hindi","Turkish"
-  ]);
-
-  // Force-sync localStorage:
-  // - Active×Active pairs: done=true, qa=true (dedicated file if exists, else still live via fallback)
-  // - Upcoming pairs: clear unless user manually set
+  // All languages treated equally — done/qa set based on whether a .js file exists
   const allLangNames = [
     "English","French","Spanish","Portuguese","Greek","Italian","German",
     "Japanese","Korean","Albanian","Dutch","Russian","Mandarin","Arabic","Hindi","Turkish",
@@ -558,44 +549,26 @@
     if (n === t) return;
     const key = `${n}__${t}`;
     const existing = JSON.parse(localStorage.getItem(key) || '{}');
-    const isActive = ACTIVE_LANGS.has(n) && ACTIVE_LANGS.has(t);
     const file = LIVE_PAIRS[key] || '';
-
-    if (isActive) {
-      localStorage.setItem(key, JSON.stringify({
-        file,
-        done: true,
-        lang: existing.lang || false,
-        qa: !!file  // QA checked only if dedicated file exists
-      }));
-    } else {
-      // Upcoming language pair — only preserve manually set flags
-      if (existing.file || existing.done || existing.qa) {
-        localStorage.setItem(key, JSON.stringify({
-          file: file || '',
-          done: false,
-          lang: existing.lang || false,
-          qa: false
-        }));
-      }
-    }
+    localStorage.setItem(key, JSON.stringify({
+      file,
+      done: !!file,
+      lang: existing.lang || false,
+      qa: !!file
+    }));
   }));
 
-  // 16 live + 5 coming soon
   const languages = [
     "English","French","Spanish","Portuguese","Greek","Italian","German",
     "Japanese","Korean","Albanian","Dutch","Russian","Mandarin","Arabic","Hindi","Turkish",
     "Thai","Swahili","Vietnamese","Polish","Indonesian"
   ];
 
-  const UPCOMING = new Set(["Thai","Swahili","Vietnamese","Polish","Indonesian"]);
-
   // Build header
   const headerRow = document.getElementById('header-row');
   languages.forEach(lang => {
     const th = document.createElement('th');
     th.textContent = lang;
-    if (UPCOMING.has(lang)) th.className = 'upcoming';
     headerRow.appendChild(th);
   });
 
@@ -605,7 +578,7 @@
     const tr = document.createElement('tr');
 
     const rowHeader = document.createElement('td');
-    rowHeader.className = 'row-header' + (UPCOMING.has(native) ? ' upcoming' : '');
+    rowHeader.className = 'row-header';
     rowHeader.textContent = native;
     tr.appendChild(rowHeader);
 
@@ -616,8 +589,7 @@
         td.className = 'diagonal';
         td.textContent = '—';
       } else {
-        const isFuture = UPCOMING.has(native) || UPCOMING.has(target);
-        td.className = 'pair-cell' + (isFuture ? ' future' : '');
+        td.className = 'pair-cell';
         const key = `${native}__${target}`;
         const saved = JSON.parse(localStorage.getItem(key) || '{}');
 
